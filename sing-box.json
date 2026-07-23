@@ -91,11 +91,12 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇷 France, Paris | 🌐 | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
         "🇭🇰 Hong Kong, Hong Kong | [BL]",
         "🇭🇰 Hong Kong, Kwai Chung | [BL]",
         "🇱🇻 Latvia, Riga | [BL]",
@@ -103,17 +104,13 @@
         "🇲🇽 Mexico, Mexico City | [BL]",
         "🇳🇴 Norway, Sandefjord | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw (Śródmieście) | [BL]",
         "🇷🇴 Romania, Iași | 🌐 | [BL]",
         "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
-        "🇷🇴 Romania, Năvodari | 🌐 | [BL] #1",
         "🇸🇬 Singapore, Singapore | [BL]",
         "🇸🇬 Singapore, Singapore | [BL] #1",
         "🇸🇪 Sweden, Stockholm | [BL]",
         "🇸🇪 Sweden, Stockholm | [BL] #1",
-        "🇸🇪 Sweden, Stockholm | [BL] #2",
         "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
@@ -121,49 +118,42 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL] #3",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #1",
-        "🇺🇸 United States, Clifton | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, New York | [BL]",
         "🇺🇸 United States, Phoenix | [BL]",
-        "🇺🇸 United States, Santa Clara | [BL]",
+        "🌐 Anycast-IP | 🇩🇪 🇫🇷 | [BL]",
         "🌐 Anycast-IP | 🇩🇪 🇬🇧 | [BL]",
         "🇰🇿 Kazakhstan, Almaty | [BL]",
         "🇰🇿 Kazakhstan, Almaty | [BL] #1",
         "🇰🇿 Kazakhstan, Almaty | [BL] #2",
         "🇵🇭 Philippines, Pasig | [BL]",
-        "🇫🇷 France, Aubervilliers | [BL]",
-        "🇫🇷 France, Aubervilliers | [BL] #1",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL] #1",
+        "🇺🇸 United States | 🌐 | [BL]",
+        "🇺🇸 United States, New York | [BL] #1",
+        "🇺🇸 United States, New York | [BL] #2",
         "🇵🇰 Pakistan, Karachi | [BL]",
         "🇵🇰 Pakistan, Karachi | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL] #2",
         "🇵🇰 Pakistan, Karachi | [BL] #3",
         "🇵🇰 Pakistan, Karachi | [BL] #4",
+        "🇵🇰 Pakistan, Karachi | [BL] #5",
+        "🇵🇰 Pakistan, Karachi | [BL] #6",
+        "🇵🇱 Poland, Warsaw | [BL] #1",
+        "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw | [BL] #3",
         "🇵🇱 Poland, Warsaw | [BL] #4",
         "🇵🇱 Poland, Warsaw | [BL] #5",
         "🇵🇱 Poland, Warsaw | [BL] #6",
         "🇵🇱 Poland, Warsaw | [BL] #7",
         "🇵🇱 Poland, Warsaw | [BL] #8",
-        "🇵🇱 Poland, Warsaw | [BL] #9",
-        "🇵🇱 Poland, Warsaw | [BL] #10",
-        "🇵🇱 Poland, Warsaw | [BL] #11",
-        "🇵🇱 Poland, Warsaw | [BL] #12",
         "🇨🇭 Switzerland, Geneva | [BL]",
         "🇨🇭 Switzerland, Geneva | [BL] #1",
-        "🇨🇭 Switzerland, Geneva | [BL] #2",
-        "🇨🇭 Switzerland, Geneva | [BL] #3",
-        "🇨🇭 Switzerland, Geneva | 🌐 | [BL]",
-        "🇨🇭 Switzerland, Geneva | 🌐 | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #4",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #5",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #6",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #7",
         "🇺🇸 United States, St Louis | [BL]",
         "🇺🇸 United States, St Louis | [BL] #1",
         "🇺🇸 United States, St Louis | [BL] #2",
         "🇺🇸 United States, St Louis | [BL] #3",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1"
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL]",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL] #1"
       ],
       "default": "auto"
     },
@@ -171,11 +161,12 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇷 France, Paris | 🌐 | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
         "🇭🇰 Hong Kong, Hong Kong | [BL]",
         "🇭🇰 Hong Kong, Kwai Chung | [BL]",
         "🇱🇻 Latvia, Riga | [BL]",
@@ -183,17 +174,13 @@
         "🇲🇽 Mexico, Mexico City | [BL]",
         "🇳🇴 Norway, Sandefjord | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw (Śródmieście) | [BL]",
         "🇷🇴 Romania, Iași | 🌐 | [BL]",
         "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
-        "🇷🇴 Romania, Năvodari | 🌐 | [BL] #1",
         "🇸🇬 Singapore, Singapore | [BL]",
         "🇸🇬 Singapore, Singapore | [BL] #1",
         "🇸🇪 Sweden, Stockholm | [BL]",
         "🇸🇪 Sweden, Stockholm | [BL] #1",
-        "🇸🇪 Sweden, Stockholm | [BL] #2",
         "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
@@ -201,64 +188,46 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL] #3",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #1",
-        "🇺🇸 United States, Clifton | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, New York | [BL]",
         "🇺🇸 United States, Phoenix | [BL]",
-        "🇺🇸 United States, Santa Clara | [BL]",
+        "🌐 Anycast-IP | 🇩🇪 🇫🇷 | [BL]",
         "🌐 Anycast-IP | 🇩🇪 🇬🇧 | [BL]",
         "🇰🇿 Kazakhstan, Almaty | [BL]",
         "🇰🇿 Kazakhstan, Almaty | [BL] #1",
         "🇰🇿 Kazakhstan, Almaty | [BL] #2",
         "🇵🇭 Philippines, Pasig | [BL]",
-        "🇫🇷 France, Aubervilliers | [BL]",
-        "🇫🇷 France, Aubervilliers | [BL] #1",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL] #1",
+        "🇺🇸 United States | 🌐 | [BL]",
+        "🇺🇸 United States, New York | [BL] #1",
+        "🇺🇸 United States, New York | [BL] #2",
         "🇵🇰 Pakistan, Karachi | [BL]",
         "🇵🇰 Pakistan, Karachi | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL] #2",
         "🇵🇰 Pakistan, Karachi | [BL] #3",
         "🇵🇰 Pakistan, Karachi | [BL] #4",
+        "🇵🇰 Pakistan, Karachi | [BL] #5",
+        "🇵🇰 Pakistan, Karachi | [BL] #6",
+        "🇵🇱 Poland, Warsaw | [BL] #1",
+        "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw | [BL] #3",
         "🇵🇱 Poland, Warsaw | [BL] #4",
         "🇵🇱 Poland, Warsaw | [BL] #5",
         "🇵🇱 Poland, Warsaw | [BL] #6",
         "🇵🇱 Poland, Warsaw | [BL] #7",
         "🇵🇱 Poland, Warsaw | [BL] #8",
-        "🇵🇱 Poland, Warsaw | [BL] #9",
-        "🇵🇱 Poland, Warsaw | [BL] #10",
-        "🇵🇱 Poland, Warsaw | [BL] #11",
-        "🇵🇱 Poland, Warsaw | [BL] #12",
         "🇨🇭 Switzerland, Geneva | [BL]",
         "🇨🇭 Switzerland, Geneva | [BL] #1",
-        "🇨🇭 Switzerland, Geneva | [BL] #2",
-        "🇨🇭 Switzerland, Geneva | [BL] #3",
-        "🇨🇭 Switzerland, Geneva | 🌐 | [BL]",
-        "🇨🇭 Switzerland, Geneva | 🌐 | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #4",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #5",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #6",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #7",
         "🇺🇸 United States, St Louis | [BL]",
         "🇺🇸 United States, St Louis | [BL] #1",
         "🇺🇸 United States, St Louis | [BL] #2",
         "🇺🇸 United States, St Louis | [BL] #3",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1"
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL]",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL] #1"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | 🌐 | [BL]",
-      "server": "fr2.h2corp.org",
-      "server_port": 443,
-      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
-      "tls": {
-        "enabled": true,
-        "server_name": "fr2.h2corp.org"
-      }
     },
     {
       "type": "hysteria2",
@@ -274,17 +243,28 @@
     {
       "type": "hysteria2",
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "germany1.noesissite.ru",
-      "server_port": 443,
-      "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
+      "server": "newlte.kihsuyhf8jkiugsxb.cfd",
+      "server_port": 9443,
+      "password": "1f31377f-a6bc-461f-9745-be3ed0ff4ecd",
       "tls": {
         "enabled": true,
-        "server_name": "germany1.noesissite.ru"
+        "server_name": "newlte.kihsuyhf8jkiugsxb.cfd"
       }
     },
     {
       "type": "hysteria2",
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
+      "server": "ge01.auragg.org",
+      "server_port": 443,
+      "password": "8bc63720-5ec8-45b5-b6a6-9a21ffb490e8",
+      "tls": {
+        "enabled": true,
+        "server_name": "ge01.auragg.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
       "server": "ge01.auragg.org",
       "server_port": 443,
       "password": "b05346a9-4d13-41a4-8d2a-6b7b64e73ffc",
@@ -295,13 +275,24 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
       "server": "vpn.the2oser.lol",
       "server_port": 8443,
       "password": "FR+3uZ+qu5lMaeIEV2OeBK3sQJmmMiABg57L4KFWK78=",
       "tls": {
         "enabled": true,
         "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
+      "server": "vpn.the2oser.lol",
+      "server_port": 8443,
+      "password": "FR+3uZ+qu5lMaeIEV2OeBK3sQJmmMiABg57L4KFWK78=",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn.the2oser.lol"
       }
     },
     {
@@ -375,34 +366,12 @@
     {
       "type": "hysteria2",
       "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "pl02.auragg.org",
-      "server_port": 443,
-      "password": "8bc63720-5ec8-45b5-b6a6-9a21ffb490e8",
-      "tls": {
-        "enabled": true,
-        "server_name": "pl02.auragg.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #1",
       "server": "92.118.205.239",
       "server_port": 8443,
       "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
       "tls": {
         "enabled": true,
         "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #2",
-      "server": "pl02.auragg.org",
-      "server_port": 443,
-      "password": "b05346a9-4d13-41a4-8d2a-6b7b64e73ffc",
-      "tls": {
-        "enabled": true,
-        "server_name": "pl02.auragg.org"
       }
     },
     {
@@ -441,18 +410,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇷🇴 Romania, Năvodari | 🌐 | [BL] #1",
-      "server": "85.120.228.208",
-      "server_port": 47257,
-      "password": "35415e5e-3666-4454-8c45-903af0fcddf4",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇸🇬 Singapore, Singapore | [BL]",
       "server": "209.74.81.28",
       "server_port": 8443,
@@ -477,17 +434,6 @@
     {
       "type": "hysteria2",
       "tag": "🇸🇪 Sweden, Stockholm | [BL]",
-      "server": "swe-one.quiet-rogue.site",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true,
-        "server_name": "swe-one.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇸🇪 Sweden, Stockholm | [BL] #1",
       "server": "sw02.auragg.org",
       "server_port": 8443,
       "password": "8bc63720-5ec8-45b5-b6a6-9a21ffb490e8",
@@ -498,7 +444,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇸🇪 Sweden, Stockholm | [BL] #2",
+      "tag": "🇸🇪 Sweden, Stockholm | [BL] #1",
       "server": "sw02.auragg.org",
       "server_port": 8443,
       "password": "b05346a9-4d13-41a4-8d2a-6b7b64e73ffc",
@@ -582,20 +528,30 @@
       "password": "LzMWgm6LaNWCm11bFTbynDPq2TqQj03t",
       "tls": {
         "enabled": true,
-        "server_name": "5.255.102.165",
+        "server_name": "www.microsoft.com",
         "insecure": true
       }
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Clifton | [BL]",
-      "server": "159.65.178.189",
+      "tag": "🇬🇧 United Kingdom, London | [BL]",
+      "server": "popa.leontunel.ru",
       "server_port": 443,
-      "password": "76dff95d-a720-4909-8ca6-3d848e786a9c",
+      "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
-        "insecure": true
+        "server_name": "popa.leontunel.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, New York | [BL]",
+      "server": "usa1.spectrumproxy.shop",
+      "server_port": 443,
+      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
+      "tls": {
+        "enabled": true,
+        "server_name": "usa1.spectrumproxy.shop"
       }
     },
     {
@@ -612,14 +568,13 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Santa Clara | [BL]",
-      "server": "43.130.7.3",
-      "server_port": 8443,
-      "password": "Hy2%40SiLiCon2026%21",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇫🇷 | [BL]",
+      "server": "prodfr.h2corp.org",
+      "server_port": 443,
+      "password": "1hOIVDVBG2hdKtJwOV2aUEFTDaFArCSH9-HrcOnps8yqQZeq",
       "tls": {
         "enabled": true,
-        "server_name": "bing.com",
-        "insecure": true
+        "server_name": "prodfr.h2corp.org"
       }
     },
     {
@@ -648,16 +603,13 @@
     {
       "type": "vmess",
       "tag": "🇰🇿 Kazakhstan, Almaty | [BL] #1",
-      "server": "38.107.234.57",
+      "server": "3h-kazakhstan1.09vpn.com",
       "server_port": 80,
       "uuid": "567f4be5-12ab-42e1-b8d9-db6fd1fdd31c",
       "security": "auto",
       "transport": {
         "type": "ws",
-        "path": "/vmess/",
-        "headers": {
-          "Host": "3h-kazakhstan1.09vpn.com"
-        }
+        "path": "/vmess/"
       }
     },
     {
@@ -671,7 +623,7 @@
         "type": "ws",
         "path": "/vmess/",
         "headers": {
-          "Host": "wrmelmwxlf.gktevlrqznwqqozy.fabpfs66gizmnojhcvqxwl.kytrcfzqla87gvgvs6c7kjnrubuh.cc"
+          "Host": "3h-kazakhstan1.09vpn.com"
         }
       }
     },
@@ -691,91 +643,60 @@
       }
     },
     {
-      "type": "trojan",
-      "tag": "🇫🇷 France, Aubervilliers | [BL]",
-      "server": "37.156.45.60",
-      "server_port": 2426,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "db"
-        }
-      },
+      "type": "vmess",
+      "tag": "🇵🇭 Philippines, Pasig | [BL] #1",
+      "server": "61.245.11.60",
+      "server_port": 80,
+      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
+      "security": "auto",
       "transport": {
-        "type": "grpc"
+        "type": "ws",
+        "path": "/vmess/"
       }
     },
     {
-      "type": "trojan",
-      "tag": "🇫🇷 France, Aubervilliers | [BL] #1",
-      "server": "37.156.45.60",
-      "server_port": 2426,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "db"
-        }
-      },
+      "type": "vmess",
+      "tag": "🇺🇸 United States | 🌐 | [BL]",
+      "server": "lt.badns.help",
+      "server_port": 53168,
+      "uuid": "85ad21e1-c2cd-3407-aa90-815f3f3ea636",
+      "security": "auto",
       "transport": {
-        "type": "grpc"
+        "type": ""
       }
     },
     {
-      "type": "trojan",
-      "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "179.237.74.104",
-      "server_port": 5841,
-      "password": "---------BanV2ray---------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "072539711a"
+      "type": "vmess",
+      "tag": "🇺🇸 United States, New York | [BL] #1",
+      "server": "xsj004-10.facai2024.com",
+      "server_port": 443,
+      "uuid": "1f1aa362-2576-4989-8fdb-7cf1c2c96490",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/1f1aa362-25",
+        "headers": {
+          "Host": "xsj004-10.facai2024.com"
         }
       },
-      "transport": {
-        "type": "grpc"
+      "tls": {
+        "enabled": true,
+        "server_name": "xsj004-10.facai2024.com"
       }
     },
     {
-      "type": "trojan",
-      "tag": "🇫🇷 France, Paris | [BL] #1",
-      "server": "179.237.74.104",
-      "server_port": 5841,
-      "password": "---------BanV2ray---------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "072539711a"
-        }
-      },
+      "type": "vmess",
+      "tag": "🇺🇸 United States, New York | [BL] #2",
+      "server": "xsj004-10.facai2024.com",
+      "server_port": 443,
+      "uuid": "1f1aa362-2576-4989-8fdb-7cf1c2c96490",
+      "security": "auto",
       "transport": {
-        "type": "grpc"
+        "type": "ws",
+        "path": "/1f1aa362-25"
+      },
+      "tls": {
+        "enabled": true
       }
     },
     {
@@ -786,6 +707,7 @@
       "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
       "tls": {
         "enabled": true,
+        "server_name": "149.104.104.58",
         "utls": {
           "enabled": true,
           "fingerprint": "android"
@@ -800,6 +722,7 @@
       "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
       "tls": {
         "enabled": true,
+        "server_name": "149.104.104.58",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
@@ -814,6 +737,7 @@
       "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
       "tls": {
         "enabled": true,
+        "server_name": "149.104.104.58",
         "utls": {
           "enabled": true,
           "fingerprint": "edge"
@@ -831,7 +755,7 @@
         "server_name": "149.104.104.58",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "ios"
         }
       }
     },
@@ -843,10 +767,81 @@
       "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
       "tls": {
         "enabled": true,
-        "server_name": "149.104.104.58",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #5",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #6",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
         "utls": {
           "enabled": true,
           "fingerprint": "ios"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #1",
+      "server": "81.255.155.10",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.creationlong.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.creationlong.org"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #2",
+      "server": "81.255.155.10",
+      "server_port": 443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.creationlong.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.creationlong.org"
         }
       }
     },
@@ -866,103 +861,12 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
+        "path": "/assignment"
       }
     },
     {
       "type": "trojan",
       "tag": "🇵🇱 Poland, Warsaw | [BL] #4",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #5",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #6",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #7",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "random"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #8",
       "server": "81.255.155.10",
       "server_port": 443,
       "password": "humanity",
@@ -981,7 +885,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #9",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #5",
       "server": "81.255.155.10",
       "server_port": 443,
       "password": "humanity",
@@ -1000,7 +904,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #10",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #6",
       "server": "81.255.155.10",
       "server_port": 443,
       "password": "humanity",
@@ -1019,7 +923,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #11",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #7",
       "server": "81.255.155.10",
       "server_port": 443,
       "password": "humanity",
@@ -1038,7 +942,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #12",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #8",
       "server": "81.255.155.10",
       "server_port": 443,
       "password": "humanity",
@@ -1058,19 +962,18 @@
     {
       "type": "trojan",
       "tag": "🇨🇭 Switzerland, Geneva | [BL]",
-      "server": "179.237.74.104",
-      "server_port": 3611,
-      "password": "---------BanV2ray---------",
+      "server": "179.237.75.217",
+      "server_port": 443,
+      "password": "UKGgxZwI4G",
       "tls": {
         "enabled": true,
-        "server_name": "world.yahoo.com",
+        "server_name": "yahoo.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "a385e5ea"
+          "public_key": "QBQffGuSwDaXUoGxow_-MUl5P1t5vCYRhCzavcBtqSs"
         }
       },
       "transport": {
@@ -1080,49 +983,6 @@
     {
       "type": "trojan",
       "tag": "🇨🇭 Switzerland, Geneva | [BL] #1",
-      "server": "179.237.74.104",
-      "server_port": 3611,
-      "password": "---------BanV2ray---------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "a385e5ea"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇨🇭 Switzerland, Geneva | [BL] #2",
-      "server": "179.237.75.217",
-      "server_port": 443,
-      "password": "UKGgxZwI4G",
-      "tls": {
-        "enabled": true,
-        "server_name": "yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "QBQffGuSwDaXUoGxow_-MUl5P1t5vCYRhCzavcBtqSs"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇨🇭 Switzerland, Geneva | [BL] #3",
       "server": "179.237.75.217",
       "server_port": 443,
       "password": "UKGgxZwI4G",
@@ -1135,138 +995,6 @@
         },
         "reality": {
           "public_key": "QBQffGuSwDaXUoGxow_-MUl5P1t5vCYRhCzavcBtqSs"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇨🇭 Switzerland, Geneva | 🌐 | [BL]",
-      "server": "37.156.45.60",
-      "server_port": 4384,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "fc1849f57be0"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇨🇭 Switzerland, Geneva | 🌐 | [BL] #1",
-      "server": "37.156.45.60",
-      "server_port": 4384,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "fc1849f57be0"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #4",
-      "server": "37.156.45.60",
-      "server_port": 2973,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "4a76cd52"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #5",
-      "server": "37.156.45.60",
-      "server_port": 2973,
-      "password": "------------BanV2ray-----------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "public_key": "TbFPp3kXrmos-f7Cfpm21TZcFtAEJwsF_G9CABhIlUc",
-          "short_id": "4a76cd52"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #6",
-      "server": "179.237.74.104",
-      "server_port": 2659,
-      "password": "---------BanV2ray---------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "c9d8"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #7",
-      "server": "179.237.74.104",
-      "server_port": 2659,
-      "password": "---------BanV2ray---------",
-      "tls": {
-        "enabled": true,
-        "server_name": "world.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "public_key": "STMSSr7TuNNj8icCvugzrXFg_OCQz7EinmUnSl8__yE",
-          "short_id": "c9d8"
         }
       },
       "transport": {
@@ -1335,7 +1063,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL]",
       "server": "45.85.118.16",
       "server_port": 443,
       "password": "MITIVPN",
@@ -1358,7 +1086,7 @@
     },
     {
       "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 | [BL] #1",
       "server": "45.85.118.16",
       "server_port": 443,
       "password": "MITIVPN",
