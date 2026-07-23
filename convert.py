@@ -391,7 +391,7 @@ def main():
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct"},
+            {"type": "direct", "tag": "direct-out"},
             selector_outbound,
             urltest_outbound,
             *outbounds
