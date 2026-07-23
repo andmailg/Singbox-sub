@@ -15,7 +15,7 @@ def parse_proxy_link(link: str) -> dict | None:
     params = urllib.parse.parse_qs(parsed.query)
 
     # Исключаем транспорт xhttp
-    net_type = params.get("type", params.get("net", [""] machinery))[0].lower()
+    net_type = params.get("type", params.get("net", [""], machinery))[0].lower()
     header_type = params.get("headerType", [""])[0].lower()
     if net_type in ["xhttp", "httpget"] or header_type in ["xhttp", "httpget"]:
         print(f"Skipping unsupported xhttp node: {link[:30]}...")
