@@ -20,14 +20,14 @@
         "tag": "doh-comss",
         "domain_resolver": "dns-local",
         "server": "dns.comss.one",
-        "detour": "proxy-out"
+        "detour": "select"
       },
       {
         "type": "https",
         "tag": "doh-xbox",
         "domain_resolver": "dns-local",
         "server": "xbox-dns.ru",
-        "detour": "proxy-out"
+        "detour": "select"
       },
       {
         "type": "https",
@@ -35,14 +35,14 @@
         "domain_resolver": "dns-local",
         "server": "dns.geohide.ru",
         "server_port": 444,
-        "detour": "proxy-out"
+        "detour": "select"
       },
       {
         "type": "https",
         "tag": "doh-nullproxy",
         "domain_resolver": "dns-local",
         "server": "dns.nullsproxy.com",
-        "detour": "proxy-out"
+        "detour": "select"
       },
       {
         "type": "fakeip",
@@ -81,14 +81,33 @@
       "stack": "system"
     }
   ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": "db-category-ai-chat",
+        "outbound": "select"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "db-category-ai-chat",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ai-chat-us.srs",
+        "download_detour": "select"
+      }
+    ],
+    "final": "select",
+    "auto_detect_interface": true
+  },
   "outbounds": [
     {
-      "type": "direct",
-      "tag": "direct-out"
-    },
-    {
       "type": "selector",
-      "tag": "proxy-out",
+      "tag": "select",
       "outbounds": [
         "auto",
         "🇫🇷 France, Paris | 🌐 | [BL]",
@@ -133,8 +152,6 @@
         "🇫🇷 France, Aubervilliers | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Nuremberg | [BL]",
-        "🇩🇪 Germany, Nuremberg | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL]",
         "🇵🇰 Pakistan, Karachi | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL] #2",
@@ -215,8 +232,6 @@
         "🇫🇷 France, Aubervilliers | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Nuremberg | [BL]",
-        "🇩🇪 Germany, Nuremberg | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL]",
         "🇵🇰 Pakistan, Karachi | [BL] #1",
         "🇵🇰 Pakistan, Karachi | [BL] #2",
@@ -780,52 +795,6 @@
       },
       "transport": {
         "type": "grpc"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇩🇪 Germany, Nuremberg | [BL]",
-      "server": "mmd.asan9720.ir",
-      "server_port": 8880,
-      "password": "hGGbs2T6hf",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.aparat.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "public_key": "6f4gYYvBFM7iGf9zfFhUWRMoRTrK4zUl7soYqsEDMHI",
-          "short_id": "d2e5e6aed56c393b"
-        }
-      },
-      "transport": {
-        "type": "xhttp",
-        "path": "/"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇩🇪 Germany, Nuremberg | [BL] #1",
-      "server": "mmd.asan9720.ir",
-      "server_port": 8880,
-      "password": "hGGbs2T6hf",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.aparat.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "public_key": "6f4gYYvBFM7iGf9zfFhUWRMoRTrK4zUl7soYqsEDMHI",
-          "short_id": "d2e5e6aed56c393b"
-        }
-      },
-      "transport": {
-        "type": "xhttp",
-        "path": "/"
       }
     },
     {
@@ -1428,86 +1397,14 @@
           "Host": "9---MiTiVPN---MiTiVPN.MAQROR.ir"
         }
       }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
     }
-  ],
-  "route": {
-    "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "ip_cidr": [
-          "1.1.1.1",
-          "8.8.8.8",
-          "192.168.0.0/16"
-        ],
-        "outbound": "direct-out"
-      },
-      {
-        "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "rule_set": "geosite-category-ru",
-        "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
-      }
-    ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "db-github",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ru",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-ru",
-        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-antizapret",
-        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-google",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-category-ai-chat",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-        "download_detour": "direct-out"
-      }
-    ],
-    "final": "proxy-out",
-    "auto_detect_interface": true,
-    "default_domain_resolver": "dns-local"
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true
-    }
-  }
+  ]
 }
