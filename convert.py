@@ -411,8 +411,7 @@ def main():
             selector_outbound,
             urltest_outbound,
             *outbounds,
-            {"type": "direct", "tag": "direct"},
-            {"type": "dns", "tag": "dns-out"},
+            {"type": "direct", "tag": "direct"}
         ],
     }
 
