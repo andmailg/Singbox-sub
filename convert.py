@@ -301,7 +301,7 @@ def main():
 
     selector_outbound = {
         "type": "selector",
-        "tag": "select",
+        "tag": "proxy-out",
         "outbounds": ["auto"] + node_tags,
         "default": "auto",
     }
@@ -327,14 +327,14 @@ def main():
                     "tag": "doh-comss",
                     "domain_resolver": "dns-local",
                     "server": "dns.comss.one",
-                    "detour": "select",
+                    "detour": "proxy-out",
                 },
                 {
                     "type": "https",
                     "tag": "doh-xbox",
                     "domain_resolver": "dns-local",
                     "server": "xbox-dns.ru",
-                    "detour": "select",
+                    "detour": "proxy-out",
                 },
                 {
                     "type": "https",
@@ -342,14 +342,14 @@ def main():
                     "domain_resolver": "dns-local",
                     "server": "dns.geohide.ru",
                     "server_port": 444,
-                    "detour": "select",
+                    "detour": "proxy-out",
                 },
                 {
                     "type": "https",
                     "tag": "doh-nullproxy",
                     "domain_resolver": "dns-local",
                     "server": "dns.nullsproxy.com",
-                    "detour": "select",
+                    "detour": "proxy-out",
                 },
                 {
                     "type": "fakeip",
@@ -380,12 +380,91 @@ def main():
             }
         ],
         "outbounds": [
+            {"type": "direct", "tag": "direct-out"},
             selector_outbound,
             urltest_outbound,
-            *outbounds,
-            {"type": "direct", "tag": "direct"},
-            {"type": "dns", "tag": "dns-out"},
+            *outbounds 
         ],
+          "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "ip_cidr": [
+          "1.1.1.1",
+          "8.8.8.8",
+          "192.168.0.0/16"
+        ],
+        "outbound": "direct-out"
+      },
+      {
+        "rule_set": [
+          "db-antizapret",
+          "db-category-ai-chat"
+        ],
+        "outbound": "proxy-out"
+      },
+      {
+        "rule_set": "geosite-category-ru",
+        "outbound": "direct-out"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "proxy-out"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "db-github",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-antizapret",
+        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-google",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-category-ai-chat",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+        "download_detour": "direct-out"
+      }
+    ],
+    "final": "proxy-out",
+    "auto_detect_interface": True,
+    "default_domain_resolver": "dns-local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": True
+    }
+  }
     }
 
     with open("sing-box.json", "w", encoding="utf-8") as f:
