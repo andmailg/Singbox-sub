@@ -318,20 +318,84 @@ def main():
 
     singbox_config = {
         "log": {"level": "warn", "timestamp": True},
-        "dns": {
-            "servers": [
-                {"tag": "google", "address": "tls://8.8.8.8"},
-                {"tag": "local", "address": "228.0.0.1", "detour": "direct"},
-            ]
-        },
-        "inbounds": [
-            {
-                "type": "mixed",
-                "tag": "mixed-in",
-                "listen": "127.0.0.1",
-                "listen_port": 2080,
-            }
+          "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "1.1.1.1"
+      },
+      {
+        "type": "https",
+        "tag": "doh-8",
+        "server": "8.8.8.8"
+      },
+      {
+        "type": "https",
+        "tag": "doh-comss",
+        "domain_resolver": "dns-local",
+        "server": "dns.comss.one",
+        "detour": "proxy-out"
+      },
+      {
+        "type": "https",
+        "tag": "doh-xbox",
+        "domain_resolver": "dns-local",
+        "server": "xbox-dns.ru",
+        "detour": "proxy-out"
+      },
+      {
+        "type": "https",
+        "tag": "doh-geohide",
+        "domain_resolver": "dns-local",
+        "server": "dns.geohide.ru",
+        "server_port": 444,
+        "detour": "proxy-out"
+      },
+      {
+        "type": "https",
+        "tag": "doh-nullproxy",
+        "domain_resolver": "dns-local",
+        "server": "dns.nullsproxy.com",
+        "detour": "proxy-out"
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": "db-category-ai-chat",
+        "server": "doh-geohide"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
         ],
+        "server": "dns-local"
+      }
+    ],
+    "final": "dns-local",
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 2048
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "mtu": 1420,
+      "address": "172.19.0.1/30",
+      "auto_route": true,
+      "stack": "system"
+    }
+  ],
         "outbounds": [
             selector_outbound,
             urltest_outbound,
