@@ -229,25 +229,31 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
-    # 1. Удаление transport/packet_encoding для TCP
-    transport = outbound.get("transport", {})
-    if transport.get("type") == "tcp":
-        outbound.pop("transport", None)
-        outbound.pop("packet_encoding", None)
+        # 1. Исключаем outbounds с транспортом xhttp
+        transport = out.get("transport", {})
+        if transport.get("type") == "xhttp":
+            continue
 
-    # 2. Очистка REALITY (fingerprint переносится в utls)
-    tls_opts = outbound.get("tls", {})
-    if tls_opts and tls_opts.get("enabled"):
-        reality_opts = tls_opts.get("reality", {})
-        if "fingerprint" in reality_opts:
-            fp = reality_opts.pop("fingerprint")
-            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            utls_opts["fingerprint"] = fp
+        # 2. Удаление параметров из TCP-узлов
+        if transport.get("type") == "tcp":
+            transport.pop("metadata_only", None)
 
-    # 3. Удаление alterId: 0 у VMess
-    if outbound.get("type") == "vmess":
-        if outbound.get("alterId") == 0:
-            outbound.pop("alterId", None)
+        # 3. Настройка Reality (перенос fingerprint в utls)
+        tls = out.get("tls", {})
+        reality = tls.get("reality", {})
+        if reality and "fingerprint" in reality:
+            fp = reality.pop("fingerprint")
+            tls.setdefault("utls", {})["enabled"] = True
+            tls["utls"]["fingerprint"] = fp
+
+        # 4. Удаление alterId из VMess
+        if out.get("type") == "vmess":
+            out.pop("alterId", None)
+
+        # 5. Удаление lru и timeout из urltest
+        if out.get("type") == "urltest":
+            out.pop("lru", None)
+            out.pop("timeout", None)
 
     return outbound
 
