@@ -14,6 +14,13 @@ def parse_proxy_link(link: str) -> dict | None:
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
+    # Исключаем транспорт xhttp
+    net_type = params.get("type", params.get("net", [""] machinery))[0].lower()
+    header_type = params.get("headerType", [""])[0].lower()
+    if net_type in ["xhttp", "httpget"] or header_type in ["xhttp", "httpget"]:
+        print(f"Skipping unsupported xhttp node: {link[:30]}...")
+        return None
+
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
 
     # --- 1. VLESS ---
@@ -53,7 +60,7 @@ def parse_proxy_link(link: str) -> dict | None:
 
             outbound["tls"] = tls_opts
 
-        net = params.get("type", ["tcp"])[0]
+        net = net_type or "tcp"
         if net != "tcp":
             transport = {"type": net}
             path = params.get("path", [None])[0]
@@ -77,6 +84,11 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
+            net = data.get("net", "tcp").lower()
+            if net in ["xhttp", "httpget"] or data.get("type", "").lower() in ["xhttp", "httpget"]:
+                print(f"Skipping unsupported xhttp VMess node: {data.get('ps')}")
+                return None
+
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
@@ -86,7 +98,6 @@ def parse_proxy_link(link: str) -> dict | None:
                 "security": data.get("scy", "auto"),
             }
 
-            net = data.get("net", "tcp")
             if net != "tcp":
                 transport = {"type": net}
                 if data.get("path"):
@@ -151,7 +162,7 @@ def parse_proxy_link(link: str) -> dict | None:
 
             outbound["tls"] = tls_opts
 
-        net = params.get("type", ["tcp"])[0]
+        net = net_type or "tcp"
         if net != "tcp":
             transport = {"type": net}
             path = params.get("path", [None])[0]
@@ -229,31 +240,25 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
-        # 1. Исключаем outbounds с транспортом xhttp
-        transport = out.get("transport", {})
-        if transport.get("type") == "xhttp":
-            continue
+    # 1. Удаление transport/packet_encoding для TCP
+    transport = outbound.get("transport", {})
+    if transport.get("type") == "tcp":
+        outbound.pop("transport", None)
+        outbound.pop("packet_encoding", None)
 
-        # 2. Удаление параметров из TCP-узлов
-        if transport.get("type") == "tcp":
-            transport.pop("metadata_only", None)
+    # 2. Очистка REALITY (fingerprint переносится в utls)
+    tls_opts = outbound.get("tls", {})
+    if tls_opts and tls_opts.get("enabled"):
+        reality_opts = tls_opts.get("reality", {})
+        if "fingerprint" in reality_opts:
+            fp = reality_opts.pop("fingerprint")
+            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
+            utls_opts["fingerprint"] = fp
 
-        # 3. Настройка Reality (перенос fingerprint в utls)
-        tls = out.get("tls", {})
-        reality = tls.get("reality", {})
-        if reality and "fingerprint" in reality:
-            fp = reality.pop("fingerprint")
-            tls.setdefault("utls", {})["enabled"] = True
-            tls["utls"]["fingerprint"] = fp
-
-        # 4. Удаление alterId из VMess
-        if out.get("type") == "vmess":
-            out.pop("alterId", None)
-
-        # 5. Удаление lru и timeout из urltest
-        if out.get("type") == "urltest":
-            out.pop("lru", None)
-            out.pop("timeout", None)
+    # 3. Удаление alterId: 0 у VMess
+    if outbound.get("type") == "vmess":
+        if outbound.get("alterId") == 0:
+            outbound.pop("alterId", None)
 
     return outbound
 
@@ -386,12 +391,12 @@ def main():
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out"},
+            {"type": "direct", "tag": "direct"}б
             selector_outbound,
             urltest_outbound,
-            *outbounds 
+            *outbounds
         ],
-          "route": {
+  "route": {
     "rules": [
       {
         "action": "sniff"
@@ -463,12 +468,12 @@ def main():
       }
     ],
     "final": "proxy-out",
-    "auto_detect_interface": True,
+    "auto_detect_interface": true,
     "default_domain_resolver": "dns-local"
   },
   "experimental": {
     "cache_file": {
-      "enabled": True
+      "enabled": true
     }
   }
     }
