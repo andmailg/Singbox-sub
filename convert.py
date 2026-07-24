@@ -406,7 +406,7 @@ def main():
       },
       {
         "ip_is_private": True,
-        "outbound": "direct"
+        "outbound": "direct-out"
       },
       {
         "rule_set": [
