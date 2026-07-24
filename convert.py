@@ -416,7 +416,7 @@ def main():
         "outbound": "proxy-out"
       },
       {
-        "rule_set": "geosite-category-ru",
+        "rule_set": ["geosite-category-ru", "geoip-ru"],
         "outbound": "direct-out"
       },
       {
