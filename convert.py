@@ -386,7 +386,7 @@ def main():
                 "type": "tun",
                 "mtu": 1420,
                 "address": "172.19.0.0/30",
-                "auto_route": False
+                "auto_route": True
             }
         ],
         "outbounds": [
