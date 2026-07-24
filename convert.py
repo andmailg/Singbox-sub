@@ -405,7 +405,11 @@ def main():
         "action": "hijack-dns"
       },
       {
-        "ip_is_private": True,
+        "ip_cidr": [
+          "1.1.1.1",
+          "8.8.8.8",
+          "192.168.0.0/16"
+        ],
         "outbound": "direct-out"
       },
       {
