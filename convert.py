@@ -385,7 +385,7 @@ def main():
             {
                 "type": "tun",
                 "mtu": 1420,
-                "address": "172.19.0.1/30",
+                "address": "172.19.0.0/30",
                 "auto_route": True,
                 "stack": "system",
             }
