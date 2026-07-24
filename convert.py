@@ -386,12 +386,11 @@ def main():
                 "type": "tun",
                 "mtu": 1420,
                 "address": "172.19.0.0/30",
-                "auto_route": True,
-                "stack": "system",
+                "auto_route": False
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out"},
+            {"type": "direct", "tag": "direct-out", "network_strategy": "hybrid"},
             selector_outbound,
             urltest_outbound,
             *outbounds
