@@ -469,7 +469,7 @@ def main():
       }
     ],
     "final": "proxy-out",
-    "auto_detect_interface": True,
+    "auto_detect_interface": False,
     "default_domain_resolver": "dns-local"
   },
   "experimental": {
