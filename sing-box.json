@@ -77,7 +77,7 @@
       "type": "tun",
       "mtu": 1420,
       "address": "172.19.0.0/30",
-      "auto_route": false
+      "auto_route": true
     }
   ],
   "outbounds": [
