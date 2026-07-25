@@ -1453,7 +1453,8 @@
       },
       {
         "rule_set": [
-          "db-antizapret"
+          "db-antizapret",
+          "db-category-ai-chatdb-antizapret"
         ],
         "outbound": "proxy-out"
       },
@@ -1463,6 +1464,10 @@
           "geoip-ru"
         ],
         "outbound": "direct-out"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "proxy-out"
       }
     ],
     "rule_set": [
