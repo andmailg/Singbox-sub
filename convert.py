@@ -411,6 +411,8 @@ def main():
       },
       {
         "rule_set": [
+          "db-antizapret",
+          "db-category-ai-chat"
           "db-antizapret"
         ],
         "outbound": "proxy-out"
@@ -418,6 +420,10 @@ def main():
       {
         "rule_set": ["geosite-category-ru", "geoip-ru"],
         "outbound": "direct-out"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "proxy-out"
       }
     ],
     "rule_set": [
