@@ -374,8 +374,7 @@ def main():
                 {
                     "rule_set": "db-category-ai-chat",
                     "server": "doh-geohide",
-                },
-                {"query_type": ["A", "AAAA"], "server": "dns-local"},
+                }
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
@@ -385,8 +384,14 @@ def main():
             {
                 "type": "tun",
                 "mtu": 1420,
-                "address": "172.19.0.0/30",
-                "auto_route": True
+                "address": "172.19.0.1/30",
+                "auto_route": True,
+                "route_exclude_address": [
+                    "192.168.0.0/16",
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "fc00::/7"
+                  ]
             }
         ],
         "outbounds": [
@@ -405,27 +410,14 @@ def main():
         "action": "hijack-dns"
       },
       {
-        "ip_cidr": [
-          "1.1.1.1",
-          "8.8.8.8",
-          "192.168.0.0/16"
-        ],
-        "outbound": "direct-out"
-      },
-      {
         "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
+          "db-antizapret"
         ],
         "outbound": "proxy-out"
       },
       {
         "rule_set": ["geosite-category-ru", "geoip-ru"],
         "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
       }
     ],
     "rule_set": [
