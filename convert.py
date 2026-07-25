@@ -410,6 +410,10 @@ def main():
         "action": "hijack-dns"
       },
       {
+        "port": 853,
+        "action": "reject" 
+      },
+      {
         "rule_set": [
           "db-antizapret",
           "db-category-ai-chat"
