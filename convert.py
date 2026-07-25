@@ -373,7 +373,7 @@ def main():
             "rules": [
                 {
                     "rule_set": "db-category-ai-chat",
-                    "server": "doh-geohide",
+                    "server": "doh-xbox",
                 }
             ],
             "final": "dns-local",
