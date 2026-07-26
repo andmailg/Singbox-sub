@@ -421,6 +421,10 @@ def main():
         "outbound": "proxy-out"
       },
       {
+        "domain_suffix": ["vtb.ru"],
+        "outbound": "proxy-out"
+      },
+      {
         "rule_set": ["geosite-category-ru", "geoip-ru"],
         "outbound": "direct-out"
       },
