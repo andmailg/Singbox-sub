@@ -482,10 +482,10 @@ def main():
   }
     }
 
-    with open("config.json", "w", encoding="utf-8") as f:
+    with open("BLACK_SS+All_RUS.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
-    print(f"Successfully generated config.json with {len(outbounds)} nodes.")
+    print(f"Successfully generated BLACK_SS+All_RUS.json with {len(outbounds)} nodes.")
 
 
 if __name__ == "__main__":
