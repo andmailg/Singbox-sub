@@ -350,7 +350,7 @@ def main():
   },
   "experimental": {
     "cache_file": {
-      "enabled": true,
+      "enabled": True,
       "path": "/opt/etc/sing-box/cache"
     },
     "clash_api": {
