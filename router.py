@@ -357,7 +357,7 @@ def main():
       "external_controller": "192.168.1.1:9090",
       "external_ui": "/opt/etc/sing-box/ui",
       "external_ui_download_detour": "direct-out",
-      "access_control_allow_private_network": true
+      "access_control_allow_private_network": True
     }
     }
 }
