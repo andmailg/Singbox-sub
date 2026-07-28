@@ -23,10 +23,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Run script
+      - name: Run mobile script
         env:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
         run: python mobile.py
+
+      - name: Run router script
+        env:
+          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
+        run: python router.py
 
       - name: Commit and push if changed
         run: |
