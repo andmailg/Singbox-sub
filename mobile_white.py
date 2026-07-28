@@ -272,9 +272,9 @@ def clean_urltest(outbound: dict) -> dict:
 
 
 def main():
-    sub_url = os.environ.get("XRAY_SUBSCRIPTION_URL_WHITE")
+    sub_url = os.environ.get("XRAY_SUBSCRIPTION_URL")
     if not sub_url:
-        print("Error: XRAY_SUBSCRIPTION_URL_WHITE environment variable is missing.")
+        print("Error: XRAY_SUBSCRIPTION_URL environment variable is missing.")
         return
 
     print("Fetching subscription...")
