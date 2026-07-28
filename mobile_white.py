@@ -61,7 +61,7 @@ def parse_proxy_link(link: str) -> dict | None:
             outbound["tls"] = tls_opts
 
         net = net_type or "tcp"
-        if net != "tcp":
+        if net not in ["tcp", "raw"]:
             transport = {"type": net}
             path = params.get("path", [None])[0]
             host = params.get("host", [None])[0]
