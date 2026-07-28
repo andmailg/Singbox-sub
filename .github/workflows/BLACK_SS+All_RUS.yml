@@ -26,7 +26,7 @@ jobs:
       - name: Run script
         env:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
-        run: python convert.py
+        run: python BLACK_SS+All_RUS.py
 
       - name: Commit and push if changed
         run: |
