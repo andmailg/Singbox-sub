@@ -27,14 +27,14 @@ jobs:
         env:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
         run: |
-          python mobile.py
-          python router.py
+          python Python/mobile.py
+          python Python/router.py
           
       - name: Run scripts
         env:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_WHITE }}
         run: |
-          python mobile_white.py
+          python Python/mobile_white.py
 
       - name: Commit and push if changed
         run: |
