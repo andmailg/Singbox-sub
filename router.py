@@ -321,9 +321,9 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://connectivitycheck.gstatic.com/generate_204",
+        "url": "https://ipv6.google.com/generate_204",
         "interval": "10m",
-        "tolerance": 50,
+        "tolerance": 50
     }
     urltest_outbound = clean_urltest(urltest_outbound)
 
@@ -335,7 +335,7 @@ def main():
               "tag": "socks-in",
               "listen": "127.0.0.1",
               "listen_port": 1080,
-              "tcp_fast_open": true
+              "tcp_fast_open": True
             }
         ],
         "outbounds": [
