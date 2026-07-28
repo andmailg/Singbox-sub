@@ -33,7 +33,8 @@ jobs:
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sing-box.json
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add sing-box.json config.json
           git status
-          git diff-index --quiet HEAD || (git commit -m "Auto-update sing-box subscription" && git push)
+          # Проверяем наличие изменений в индексе (универсальный способ для всех добавленных файлов)
+          git diff --cached --quiet || (git commit -m "Auto-update sing-box and router subscriptions" && git push)
