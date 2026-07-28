@@ -28,7 +28,7 @@ jobs:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
         run: |
           python mobile.py
-          python router.p
+          python router.py
 
       - name: Commit and push if changed
         run: |
