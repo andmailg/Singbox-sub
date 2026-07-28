@@ -329,158 +329,38 @@ def main():
 
     singbox_config = {
         "log": {"level": "warn", "timestamp": True},
-        "dns": {
-            "servers": [
-                {"type": "https", "tag": "dns-local", "server": "1.1.1.1"},
-                {"type": "https", "tag": "doh-8", "server": "8.8.8.8"},
-                {
-                    "type": "https",
-                    "tag": "doh-comss",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.comss.one",
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-xbox",
-                    "domain_resolver": "dns-local",
-                    "server": "xbox-dns.ru",
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-geohide",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.geohide.ru",
-                    "server_port": 444,
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-nullproxy",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.nullsproxy.com",
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18",
-                },
-                {"type": "local", "tag": "local"},
-            ],
-            "rules": [
-                {
-                    "rule_set": "db-category-ai-chat",
-                    "server": "doh-xbox",
-                }
-            ],
-            "final": "dns-local",
-            "strategy": "prefer_ipv4",
-            "cache_capacity": 2048,
-        },
         "inbounds": [
             {
-                "type": "tun",
-                "mtu": 1420,
-                "address": "172.19.0.1/30",
-                "auto_route": True,
-                "route_exclude_address": [
-                    "192.168.0.0/16",
-                    "10.0.0.0/8",
-                    "172.16.0.0/12",
-                    "fc00::/7"
-                  ]
+              "type": "socks",
+              "tag": "socks-in",
+              "listen": "127.0.0.1",
+              "listen_port": 1080,
+              "tcp_fast_open": true
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out", "network_strategy": "hybrid"},
+            {"type": "direct", "tag": "direct-out"},
             selector_outbound,
             urltest_outbound,
             *outbounds
         ],
   "route": {
-    "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "port": 853,
-        "action": "reject" 
-      },
-      {
-        "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "domain_suffix": ["vtb.ru"],
-        "outbound": "proxy-out"
-      },
-      {
-        "rule_set": ["geosite-category-ru", "geoip-ru"],
-        "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
-      }
-    ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "db-github",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ru",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-ru",
-        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-antizapret",
-        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-google",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-category-ai-chat",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-        "download_detour": "direct-out"
-      }
-    ],
     "final": "proxy-out",
-    "auto_detect_interface": True,
-    "default_domain_resolver": "dns-local"
+    "auto_detect_interface": True
   },
   "experimental": {
     "cache_file": {
-      "enabled": True
+      "enabled": true,
+      "path": "/opt/etc/sing-box/cache"
+    },
+    "clash_api": {
+      "external_controller": "192.168.1.1:9090",
+      "external_ui": "/opt/etc/sing-box/ui",
+      "external_ui_download_detour": "direct-out",
+      "access_control_allow_private_network": true
     }
-  }
     }
+}
 
     with open("config.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
