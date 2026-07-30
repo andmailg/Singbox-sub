@@ -331,8 +331,21 @@ def main():
         "log": {"level": "warn", "timestamp": True},
         "dns": {
             "servers": [
-                {"type": "https", "tag": "dns-local", "server": "1.1.1.1"},
-                {"type": "https", "tag": "doh-8", "server": "8.8.8.8"},
+                {
+                    "type": "h3",
+                    "tag": "dns-local",
+                    "server": "1.1.1.1"
+                },
+                {
+                    "type": "https",
+                    "tag": "doh-1",
+                    "server": "1.1.1.1"
+                },
+                {
+                    "type": "https",
+                    "tag": "doh-8",
+                    "server": "8.8.8.8"
+                },
                 {
                     "type": "https",
                     "tag": "doh-comss",
