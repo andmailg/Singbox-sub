@@ -427,7 +427,11 @@ def main():
         "outbound": "proxy-out"
       },
       {
-        "rule_set": ["geosite-category-ru", "geoip-ru"],
+        "rule_set": [
+            "geosite-category-ru",
+            "geoip-ru",
+            "db-category-ai-chat"
+        ],
         "outbound": "direct-out"
       },
       {
