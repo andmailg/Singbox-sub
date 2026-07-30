@@ -344,8 +344,7 @@ def main():
                     "type": "quic",
                     "tag": "doq-comss",
                     "domain_resolver": "dns-local",
-                    "server": "dns.comss.one",
-                    "detour": "proxy-out",
+                    "server": "dns.comss.one"
                 },
                 {
                     "type": "https",
