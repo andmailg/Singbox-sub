@@ -23,6 +23,13 @@
         "detour": "proxy-out"
       },
       {
+        "type": "quic",
+        "tag": "doq-comss",
+        "domain_resolver": "dns-local",
+        "server": "dns.comss.one",
+        "detour": "proxy-out"
+      },
+      {
         "type": "https",
         "tag": "doh-xbox",
         "domain_resolver": "dns-local",
@@ -58,7 +65,7 @@
     "rules": [
       {
         "rule_set": "db-category-ai-chat",
-        "server": "doh-xbox"
+        "server": "doq-comss"
       }
     ],
     "final": "dns-local",
@@ -92,10 +99,9 @@
         "auto",
         "🇦🇿 Azerbaijan, Baku | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | 🌐 | [BL]",
-        "🇫🇷 France, Paris | 🌐 | [BL] #1",
-        "🇫🇷 France, Paris | 🌐 | [BL] #2",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
@@ -104,70 +110,67 @@
         "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #5",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #6",
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
         "🇭🇰 Hong Kong, Hong Kong | [BL]",
         "🇭🇰 Hong Kong, Hong Kong | [BL] #1",
-        "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
-        "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
-        "🇱🇻 Latvia, Riga | [BL]",
         "🇱🇻 Latvia, Riga | 🌐 | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
-        "🇸🇬 Singapore, Singapore | [BL]",
         "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #2",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | [BL] #2",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #2",
+        "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #3",
         "🇹🇷 Turkey, Başakşehir | [BL]",
-        "🇹🇷 Turkey, Başakşehir | [BL] #1",
         "🇹🇷 Turkey, Istanbul | [BL]",
         "🇹🇷 Turkey, Istanbul | [BL] #1",
         "🇬🇧 United Kingdom, Leyton | [BL]",
         "🇬🇧 United Kingdom, Leyton | [BL] #1",
         "🇬🇧 United Kingdom, Leyton | [BL] #2",
+        "🇬🇧 United Kingdom, Leyton | [BL] #3",
+        "🇬🇧 United Kingdom, Leyton | [BL] #4",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇬🇧 United Kingdom, London | [BL] #1",
         "🇬🇧 United Kingdom, London | [BL] #2",
+        "🇬🇧 United Kingdom, London | [BL] #3",
         "🇬🇧 United Kingdom, Slough | [BL]",
         "🇬🇧 United Kingdom, Slough | [BL] #1",
         "🇬🇧 United Kingdom, Slough | [BL] #2",
+        "🇬🇧 United Kingdom, Slough | [BL] #3",
         "🇺🇸 United States | 🌐 | [BL]",
-        "🇺🇸 United States, Clifton | [BL]",
+        "🇺🇸 United States | 🌐 | [BL] #1",
         "🇺🇸 United States, Draper | [BL]",
+        "🇺🇸 United States, Draper | [BL] #1",
         "🇺🇸 United States, Los Angeles | [BL]",
         "🇺🇸 United States, Los Angeles | [BL] #1",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
         "🇺🇸 United States, New York | [BL]",
-        "🇺🇸 United States, Phoenix | [BL]",
+        "🇺🇸 United States, New York | [BL] #1",
         "🇺🇸 United States, Santa Clara | [BL]",
         "🌐 Anycast-IP | 🇩🇪 🇫🇷 | [BL]",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #1",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #2",
-        "🇺🇸 United States, San Antonio | [BL]",
-        "🇺🇸 United States, San Antonio | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL]",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #3",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #4",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL]",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #1",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #2",
         "🇫🇷 France, Paris | [BL] #1",
         "🇫🇷 France, Paris | [BL] #2",
-        "🇮🇳 India, New Delhi | [BL]",
-        "🇮🇳 India, New Delhi | [BL] #1",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | [BL] #1",
         "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw | [BL] #3",
-        "🇵🇱 Poland, Warsaw | [BL] #4",
-        "🇵🇱 Poland, Warsaw | [BL] #5",
-        "🇵🇱 Poland, Warsaw | [BL] #6",
-        "🇵🇱 Poland, Warsaw | [BL] #7",
-        "🇬🇧 United Kingdom, London | [BL] #3",
         "🇬🇧 United Kingdom, London | [BL] #4",
         "🇬🇧 United Kingdom, London | [BL] #5",
         "🇬🇧 United Kingdom, London | [BL] #6",
-        "🇺🇸 United States, St Louis | [BL]",
-        "🇺🇸 United States, St Louis | [BL] #1",
-        "🇺🇸 United States, St Louis | [BL] #2",
-        "🇺🇸 United States, St Louis | [BL] #3",
-        "🇺🇸 United States, St Louis | [BL] #4"
+        "🇬🇧 United Kingdom, London | [BL] #7",
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1"
       ],
       "default": "auto"
     },
@@ -177,10 +180,9 @@
       "outbounds": [
         "🇦🇿 Azerbaijan, Baku | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | 🌐 | [BL]",
-        "🇫🇷 France, Paris | 🌐 | [BL] #1",
-        "🇫🇷 France, Paris | 🌐 | [BL] #2",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
@@ -189,70 +191,67 @@
         "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #5",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #6",
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
         "🇭🇰 Hong Kong, Hong Kong | [BL]",
         "🇭🇰 Hong Kong, Hong Kong | [BL] #1",
-        "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
-        "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
-        "🇱🇻 Latvia, Riga | [BL]",
         "🇱🇻 Latvia, Riga | 🌐 | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
-        "🇸🇬 Singapore, Singapore | [BL]",
         "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #2",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | [BL] #2",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #2",
+        "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #3",
         "🇹🇷 Turkey, Başakşehir | [BL]",
-        "🇹🇷 Turkey, Başakşehir | [BL] #1",
         "🇹🇷 Turkey, Istanbul | [BL]",
         "🇹🇷 Turkey, Istanbul | [BL] #1",
         "🇬🇧 United Kingdom, Leyton | [BL]",
         "🇬🇧 United Kingdom, Leyton | [BL] #1",
         "🇬🇧 United Kingdom, Leyton | [BL] #2",
+        "🇬🇧 United Kingdom, Leyton | [BL] #3",
+        "🇬🇧 United Kingdom, Leyton | [BL] #4",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇬🇧 United Kingdom, London | [BL] #1",
         "🇬🇧 United Kingdom, London | [BL] #2",
+        "🇬🇧 United Kingdom, London | [BL] #3",
         "🇬🇧 United Kingdom, Slough | [BL]",
         "🇬🇧 United Kingdom, Slough | [BL] #1",
         "🇬🇧 United Kingdom, Slough | [BL] #2",
+        "🇬🇧 United Kingdom, Slough | [BL] #3",
         "🇺🇸 United States | 🌐 | [BL]",
-        "🇺🇸 United States, Clifton | [BL]",
+        "🇺🇸 United States | 🌐 | [BL] #1",
         "🇺🇸 United States, Draper | [BL]",
+        "🇺🇸 United States, Draper | [BL] #1",
         "🇺🇸 United States, Los Angeles | [BL]",
         "🇺🇸 United States, Los Angeles | [BL] #1",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
         "🇺🇸 United States, New York | [BL]",
-        "🇺🇸 United States, Phoenix | [BL]",
+        "🇺🇸 United States, New York | [BL] #1",
         "🇺🇸 United States, Santa Clara | [BL]",
         "🌐 Anycast-IP | 🇩🇪 🇫🇷 | [BL]",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #1",
-        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #2",
-        "🇺🇸 United States, San Antonio | [BL]",
-        "🇺🇸 United States, San Antonio | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL]",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #3",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #4",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL]",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #1",
+        "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #2",
         "🇫🇷 France, Paris | [BL] #1",
         "🇫🇷 France, Paris | [BL] #2",
-        "🇮🇳 India, New Delhi | [BL]",
-        "🇮🇳 India, New Delhi | [BL] #1",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | [BL] #1",
         "🇵🇱 Poland, Warsaw | [BL] #2",
         "🇵🇱 Poland, Warsaw | [BL] #3",
-        "🇵🇱 Poland, Warsaw | [BL] #4",
-        "🇵🇱 Poland, Warsaw | [BL] #5",
-        "🇵🇱 Poland, Warsaw | [BL] #6",
-        "🇵🇱 Poland, Warsaw | [BL] #7",
-        "🇬🇧 United Kingdom, London | [BL] #3",
         "🇬🇧 United Kingdom, London | [BL] #4",
         "🇬🇧 United Kingdom, London | [BL] #5",
         "🇬🇧 United Kingdom, London | [BL] #6",
-        "🇺🇸 United States, St Louis | [BL]",
-        "🇺🇸 United States, St Louis | [BL] #1",
-        "🇺🇸 United States, St Louis | [BL] #2",
-        "🇺🇸 United States, St Louis | [BL] #3",
-        "🇺🇸 United States, St Louis | [BL] #4"
+        "🇬🇧 United Kingdom, London | [BL] #7",
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -282,6 +281,17 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
+      "server": "31.76.30.79",
+      "server_port": 35000,
+      "password": "velluto_8325804083",
+      "tls": {
+        "enabled": true,
+        "server_name": "gretacoin.shop"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇫🇷 France, Paris | [BL]",
       "server": "76.164.202.214",
       "server_port": 8443,
@@ -305,27 +315,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | 🌐 | [BL] #1",
-      "server": "194.180.174.69",
-      "server_port": 443,
-      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
-      "tls": {
-        "enabled": true,
-        "server_name": "fr2.h2corp.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | 🌐 | [BL] #2",
-      "server": "fr2.h2corp.org",
-      "server_port": 443,
-      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
       "server": "213.202.219.29",
       "server_port": 8443,
@@ -338,7 +327,7 @@
     {
       "type": "hysteria2",
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "178.215.238.30",
+      "server": "germany1.noesissite.ru",
       "server_port": 443,
       "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
       "tls": {
@@ -398,7 +387,7 @@
       "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
       "tls": {
         "enabled": true,
-        "server_name": "germany3.h2corp.local",
+        "server_name": "91.196.32.163",
         "insecure": true
       }
     },
@@ -411,6 +400,18 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+      "server": "91.196.32.163",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
+      "tls": {
+        "enabled": true,
+        "server_name": "germany3.h2corp.local",
+        "insecure": true
       }
     },
     {
@@ -432,43 +433,8 @@
       "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
       "tls": {
         "enabled": true,
-        "server_name": "202.146.222.29",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
-      "server": "202.146.222.29",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "tls": {
-        "enabled": true,
         "server_name": "https://t.me/WangCai2",
         "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
-      "server": "202.146.222.29",
-      "server_port": 443,
-      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
-      "tls": {
-        "enabled": true,
-        "server_name": "https://t.me/wangcai2🇨🇳",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇱🇻 Latvia, Riga | [BL]",
-      "server": "hys.unlimitedteam.space",
-      "server_port": 443,
-      "password": "6fa1b8eb-56f4-4f41-97dc-e0185bcfc575",
-      "tls": {
-        "enabled": true,
-        "server_name": "hys.unlimitedteam.space"
       }
     },
     {
@@ -480,17 +446,6 @@
       "tls": {
         "enabled": true,
         "server_name": "lv.h2corp.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "92.118.205.238",
-      "server_port": 8443,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com"
       }
     },
     {
@@ -518,19 +473,19 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇸🇬 Singapore, Singapore | [BL]",
-      "server": "209.74.81.28",
-      "server_port": 8443,
-      "password": "b7c9e2f1-4d83-42a1-9e5f-sg2026proxy",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL]",
+      "server": "160.187.100.109",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
       "tls": {
         "enabled": true,
-        "server_name": "209.74.81.28",
+        "server_name": "vpn-tw-002.fastervpn.world",
         "insecure": true
       }
     },
     {
       "type": "hysteria2",
-      "tag": "🇹🇼 Taiwan, Taoyuan | [BL]",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #1",
       "server": "vpn-tw-002.fastervpn.world",
       "server_port": 443,
       "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
@@ -541,7 +496,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #2",
       "server": "vpn-tw-002.fastervpn.world",
       "server_port": 443,
       "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
@@ -554,6 +509,17 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
+      "server": "5.180.97.78",
+      "server_port": 443,
+      "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
+      "tls": {
+        "enabled": true,
+        "server_name": "nederland.gamestocke.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
       "server": "finlandi.blokinet3.ru",
       "server_port": 443,
       "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
@@ -564,7 +530,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #2",
       "server": "finlandi.blokinet3.ru",
       "server_port": 443,
       "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
@@ -592,7 +558,6 @@
       "password": "LzMWgm6LaNWCm11bFTbynDPq2TqQj03t",
       "tls": {
         "enabled": true,
-        "server_name": "5.255.102.165",
         "insecure": true
       }
     },
@@ -604,6 +569,19 @@
       "password": "LzMWgm6LaNWCm11bFTbynDPq2TqQj03t",
       "tls": {
         "enabled": true,
+        "server_name": "5.255.102.165",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL] #3",
+      "server": "5.255.102.165",
+      "server_port": 443,
+      "password": "LzMWgm6LaNWCm11bFTbynDPq2TqQj03t",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.microsoft.com",
         "insecure": true
       }
     },
@@ -620,24 +598,13 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇹🇷 Turkey, Başakşehir | [BL] #1",
-      "server": "taga9.api3-max.ru",
-      "server_port": 443,
-      "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
-      "tls": {
-        "enabled": true,
-        "server_name": "taga9.api3-max.ru"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇹🇷 Turkey, Istanbul | [BL]",
-      "server": "taga3.api3-max.ru",
+      "server": "taga5.api3-max.ru",
       "server_port": 443,
       "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
       "tls": {
         "enabled": true,
-        "server_name": "taga3.api3-max.ru"
+        "server_name": "taga5.api3-max.ru"
       }
     },
     {
@@ -665,6 +632,17 @@
     {
       "type": "hysteria2",
       "tag": "🇬🇧 United Kingdom, Leyton | [BL] #1",
+      "server": "wopa4.api3-max.ru",
+      "server_port": 443,
+      "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
+      "tls": {
+        "enabled": true,
+        "server_name": "wopa4.api3-max.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, Leyton | [BL] #2",
       "server": "wopa5.api3-max.ru",
       "server_port": 443,
       "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
@@ -675,7 +653,18 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇬🇧 United Kingdom, Leyton | [BL] #2",
+      "tag": "🇬🇧 United Kingdom, Leyton | [BL] #3",
+      "server": "wopa8.api3-max.ru",
+      "server_port": 443,
+      "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
+      "tls": {
+        "enabled": true,
+        "server_name": "wopa8.api3-max.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, Leyton | [BL] #4",
       "server": "wwopa2.api3-max.ru",
       "server_port": 443,
       "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
@@ -691,8 +680,7 @@
       "server_port": 443,
       "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
       "tls": {
-        "enabled": true,
-        "server_name": "popa.leontunel.ru"
+        "enabled": true
       }
     },
     {
@@ -709,6 +697,17 @@
     {
       "type": "hysteria2",
       "tag": "🇬🇧 United Kingdom, London | [BL] #2",
+      "server": "popa.leontunel.ru",
+      "server_port": 443,
+      "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
+      "tls": {
+        "enabled": true,
+        "server_name": "popa.leontunel.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #3",
       "server": "205.237.109.213",
       "server_port": 8443,
       "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
@@ -724,18 +723,19 @@
       "server_port": 443,
       "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
       "tls": {
-        "enabled": true
+        "enabled": true,
+        "server_name": "wopa1.api3-max.ru"
       }
     },
     {
       "type": "hysteria2",
       "tag": "🇬🇧 United Kingdom, Slough | [BL] #1",
-      "server": "wopa1.api3-max.ru",
+      "server": "wopa6.api3-max.ru",
       "server_port": 443,
       "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
       "tls": {
         "enabled": true,
-        "server_name": "wopa1.api3-max.ru"
+        "server_name": "wopa6.api3-max.ru"
       }
     },
     {
@@ -751,6 +751,17 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, Slough | [BL] #3",
+      "server": "wopa9.api3-max.ru",
+      "server_port": 443,
+      "password": "67a1454f-5a95-4e30-9723-1ffcbe7e97f9",
+      "tls": {
+        "enabled": true,
+        "server_name": "wopa9.api3-max.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇺🇸 United States | 🌐 | [BL]",
       "server": "104.36.86.93",
       "server_port": 9992,
@@ -762,13 +773,13 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Clifton | [BL]",
-      "server": "159.65.178.189",
-      "server_port": 443,
-      "password": "76dff95d-a720-4909-8ca6-3d848e786a9c",
+      "tag": "🇺🇸 United States | 🌐 | [BL] #1",
+      "server": "104.36.86.93",
+      "server_port": 9992,
+      "password": "57ad54a0-59ca-4553-bdad-35aab6bd3aa5",
       "tls": {
         "enabled": true,
-        "server_name": "www.bing.com",
+        "server_name": "104.36.86.93",
         "insecure": true
       }
     },
@@ -776,6 +787,17 @@
       "type": "hysteria2",
       "tag": "🇺🇸 United States, Draper | [BL]",
       "server": "150.241.102.127",
+      "server_port": 443,
+      "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
+      "tls": {
+        "enabled": true,
+        "server_name": "usp.noesissite.ru"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Draper | [BL] #1",
+      "server": "usp.noesissite.ru",
       "server_port": 443,
       "password": "042a1881-44e4-4781-bd40-bf75164faf4f",
       "tls": {
@@ -808,20 +830,8 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
-      "server": "95.181.189.42",
-      "server_port": 8992,
-      "password": "b78b3b0c-8b89-4a95-94f4-42a3edf9f1b3",
-      "tls": {
-        "enabled": true,
-        "server_name": "95.181.189.42",
-        "insecure": true
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇺🇸 United States, New York | [BL]",
-      "server": "usa1.spectrumproxy.shop",
+      "server": "138.124.68.188",
       "server_port": 443,
       "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
       "tls": {
@@ -831,14 +841,13 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Phoenix | [BL]",
-      "server": "ceo67.ceoiii.com",
-      "server_port": 56787,
-      "password": "ba845a48-cfcb-48c4-ab8c-0836e360112e",
+      "tag": "🇺🇸 United States, New York | [BL] #1",
+      "server": "usa1.spectrumproxy.shop",
+      "server_port": 443,
+      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
       "tls": {
         "enabled": true,
-        "server_name": "ajax.microsoft.com",
-        "insecure": true
+        "server_name": "usa1.spectrumproxy.shop"
       }
     },
     {
@@ -866,7 +875,46 @@
     },
     {
       "type": "vmess",
-      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #1",
+      "tag": "🇵🇭 Philippines, Pasig | [BL]",
+      "server": "61.245.11.60",
+      "server_port": 80,
+      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/vmess/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #3",
+      "server": "twdx6.baidupi.top",
+      "server_port": 2096,
+      "uuid": "85ad21e1-c2cd-3407-aa90-815f3f3ea636",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/assets/images/",
+        "headers": {
+          "Host": "twdx6.baidupi.top"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #4",
+      "server": "twdx6.baidupi.top",
+      "server_port": 2096,
+      "uuid": "85ad21e1-c2cd-3407-aa90-815f3f3ea636",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/assets/images/"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL]",
       "server": "69.63.204.31",
       "server_port": 2082,
       "uuid": "542bd1db-f5e7-4c81-a08a-d95da62a914b",
@@ -878,46 +926,40 @@
     },
     {
       "type": "vmess",
-      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | [BL] #2",
-      "server": "69.63.204.31",
-      "server_port": 2082,
-      "uuid": "542bd1db-f5e7-4c81-a08a-d95da62a914b",
+      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL]",
+      "server": "64.186.253.113",
+      "server_port": 2095,
+      "uuid": "3df54c90-5cc4-4a70-98f7-52245f25230b",
       "security": "auto",
       "transport": {
         "type": "ws",
-        "path": "542bd1db-f5e7-4c81-a08a-d95da62a914b-vm",
+        "path": "3df54c90-5cc4-4a70-98f7-52245f25230b-vm"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #1",
+      "server": "64.186.253.113",
+      "server_port": 2095,
+      "uuid": "3df54c90-5cc4-4a70-98f7-52245f25230b",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "3df54c90-5cc4-4a70-98f7-52245f25230b-vm"
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸 United States, Los Angeles (Central-Alameda) | 🌐 | [BL] #2",
+      "server": "64.186.253.113",
+      "server_port": 2095,
+      "uuid": "3df54c90-5cc4-4a70-98f7-52245f25230b",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "3df54c90-5cc4-4a70-98f7-52245f25230b-vm",
         "headers": {
           "Host": "www.bing.com"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇺🇸 United States, San Antonio | [BL]",
-      "server": "cindy51.ceoiii.com",
-      "server_port": 36802,
-      "uuid": "a6ab6513-6ec3-327f-a068-b89fe72954b8",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/hls/cctv5phd.m3u8",
-        "headers": {
-          "Host": "ajax.microsoft.com"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇺🇸 United States, San Antonio | [BL] #1",
-      "server": "cindy51.ceoiii.com",
-      "server_port": 36802,
-      "uuid": "a6ab6513-6ec3-327f-a068-b89fe72954b8",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/hls/cctv5phd.m3u8",
-        "headers": {
-          "Host": "ajax.microsoft.com"
         }
       }
     },
@@ -932,7 +974,7 @@
         "server_name": "www.ignitelimit.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "qq"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
@@ -954,7 +996,7 @@
         "server_name": "www.ignitelimit.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "qq"
         }
       },
       "transport": {
@@ -967,29 +1009,23 @@
     },
     {
       "type": "trojan",
-      "tag": "🇮🇳 India, New Delhi | [BL]",
-      "server": "hyfuuf6.wsone.icu",
+      "tag": "🇵🇱 Poland, Warsaw | [BL]",
+      "server": "81.255.155.10",
       "server_port": 443,
-      "password": "M7v%25w11Se%2A",
+      "password": "humanity",
       "tls": {
         "enabled": true,
+        "server_name": "www.creationlong.org",
         "utls": {
           "enabled": true,
           "fingerprint": "android"
         }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇮🇳 India, New Delhi | [BL] #1",
-      "server": "hyfuuf6.wsone.icu",
-      "server_port": 443,
-      "password": "M7v%25w11Se%2A",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.creationlong.org"
         }
       }
     },
@@ -1004,7 +1040,7 @@
         "server_name": "www.creationlong.org",
         "utls": {
           "enabled": true,
-          "fingerprint": "android"
+          "fingerprint": "edge"
         }
       },
       "transport": {
@@ -1026,15 +1062,12 @@
         "server_name": "www.creationlong.org",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "android"
         }
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.creationlong.org"
-        }
+        "path": "/assignment"
       }
     },
     {
@@ -1048,104 +1081,12 @@
         "server_name": "www.creationlong.org",
         "utls": {
           "enabled": true,
-          "fingerprint": "android"
+          "fingerprint": "random"
         }
       },
       "transport": {
         "type": "ws",
         "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #4",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #5",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #6",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #7",
-      "server": "81.255.155.10",
-      "server_port": 443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇬🇧 United Kingdom, London | [BL] #3",
-      "server": "hkdcrtc-e.catcat321.com",
-      "server_port": 20041,
-      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
-      "tls": {
-        "enabled": true,
-        "server_name": "de.catxstar.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "insecure": true
       }
     },
     {
@@ -1159,7 +1100,7 @@
         "server_name": "de.catxstar.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "qq"
+          "fingerprint": "chrome"
         },
         "insecure": true
       }
@@ -1172,9 +1113,10 @@
       "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
       "tls": {
         "enabled": true,
+        "server_name": "de.catxstar.com",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "safari"
         },
         "insecure": true
       }
@@ -1189,21 +1131,6 @@
         "enabled": true,
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "insecure": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇺🇸 United States, St Louis | [BL]",
-      "server": "148.72.168.35",
-      "server_port": 58615,
-      "password": "bIsrw94HH7zmhmvmGskKIb4HbmOZdcCR",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
           "fingerprint": "chrome"
         },
         "insecure": true
@@ -1211,25 +1138,10 @@
     },
     {
       "type": "trojan",
-      "tag": "🇺🇸 United States, St Louis | [BL] #1",
-      "server": "148.72.168.35",
-      "server_port": 58615,
-      "password": "bIsrw94HH7zmhmvmGskKIb4HbmOZdcCR",
-      "tls": {
-        "enabled": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        },
-        "insecure": true
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇺🇸 United States, St Louis | [BL] #2",
-      "server": "148.72.168.35",
-      "server_port": 58615,
-      "password": "bIsrw94HH7zmhmvmGskKIb4HbmOZdcCR",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #7",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
       "tls": {
         "enabled": true,
         "utls": {
@@ -1241,32 +1153,48 @@
     },
     {
       "type": "trojan",
-      "tag": "🇺🇸 United States, St Louis | [BL] #3",
-      "server": "148.72.168.35",
-      "server_port": 58615,
-      "password": "bIsrw94HH7zmhmvmGskKIb4HbmOZdcCR",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL]",
+      "server": "45.80.111.7",
+      "server_port": 443,
+      "password": "MITIVPN",
       "tls": {
         "enabled": true,
+        "server_name": "Dee---7-MiTiVPN----o.aPp-cLoud.IR",
         "utls": {
           "enabled": true,
-          "fingerprint": "ios"
+          "fingerprint": "chrome"
         },
         "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/D-e",
+        "headers": {
+          "Host": "d-e-mitivpn---MiTiVPN---MiTiVPN.aPp-cLoud.IR"
+        }
       }
     },
     {
       "type": "trojan",
-      "tag": "🇺🇸 United States, St Louis | [BL] #4",
-      "server": "148.72.168.35",
-      "server_port": 58615,
-      "password": "bIsrw94HH7zmhmvmGskKIb4HbmOZdcCR",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 | [BL] #1",
+      "server": "45.80.111.7",
+      "server_port": 443,
+      "password": "MITIVPN",
       "tls": {
         "enabled": true,
+        "server_name": "Dee---7-MiTiVPN----o.aPp-cLoud.IR",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "firefox"
         },
         "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/D-e",
+        "headers": {
+          "Host": "d-e-mitivpn---MiTiVPN---MiTiVPN.aPp-cLoud.IR"
+        }
       }
     }
   ],
