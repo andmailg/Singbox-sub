@@ -1213,14 +1213,7 @@
       },
       {
         "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "domain_suffix": [
-          "vtb.ru"
+          "db-antizapret"
         ],
         "outbound": "proxy-out"
       },
