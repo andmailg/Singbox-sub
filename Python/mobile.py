@@ -422,13 +422,8 @@ def main():
       },
       {
         "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
+          "db-antizapret"
         ],
-        "outbound": "proxy-out"
-      },
-      {
-        "domain_suffix": ["vtb.ru"],
         "outbound": "proxy-out"
       },
       {
