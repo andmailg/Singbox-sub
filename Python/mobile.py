@@ -341,6 +341,13 @@ def main():
                     "detour": "proxy-out",
                 },
                 {
+                    "type": "quic",
+                    "tag": "doq-comss",
+                    "domain_resolver": "dns-local",
+                    "server": "dns.comss.one",
+                    "detour": "proxy-out",
+                },
+                {
                     "type": "https",
                     "tag": "doh-xbox",
                     "domain_resolver": "dns-local",
@@ -373,7 +380,7 @@ def main():
             "rules": [
                 {
                     "rule_set": "db-category-ai-chat",
-                    "server": "doh-xbox",
+                    "server": "doq-comss",
                 }
             ],
             "final": "dns-local",
