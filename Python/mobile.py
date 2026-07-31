@@ -332,6 +332,12 @@ def main():
         "dns": {
             "servers": [
                 {
+                    "type": "fakeip",
+                    "tag": "fakeip",
+                    "inet4_range": "198.18.0.0/15",
+                    "inet6_range": "fc00::/18",
+                },
+                {
                     "type": "h3",
                     "tag": "dns-local",
                     "server": "1.1.1.1"
@@ -350,8 +356,7 @@ def main():
                     "type": "https",
                     "tag": "doh-comss",
                     "domain_resolver": "dns-local",
-                    "server": "dns.comss.one",
-                    "detour": "proxy-out",
+                    "server": "dns.comss.one"
                 },
                 {
                     "type": "quic",
@@ -363,33 +368,28 @@ def main():
                     "type": "https",
                     "tag": "doh-xbox",
                     "domain_resolver": "dns-local",
-                    "server": "xbox-dns.ru",
-                    "detour": "proxy-out",
+                    "server": "xbox-dns.ru"
                 },
                 {
                     "type": "https",
                     "tag": "doh-geohide",
                     "domain_resolver": "dns-local",
                     "server": "dns.geohide.ru",
-                    "server_port": 444,
-                    "detour": "proxy-out",
+                    "server_port": 444
                 },
                 {
                     "type": "https",
                     "tag": "doh-nullproxy",
                     "domain_resolver": "dns-local",
-                    "server": "dns.nullsproxy.com",
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18",
+                    "server": "dns.nullsproxy.com"
                 },
                 {"type": "local", "tag": "local"},
             ],
             "rules": [
+                {
+                    "inbound": ["tun-in"],
+                    "server": "fakeip"
+                },
                 {
                     "rule_set": "db-category-ai-chat",
                     "server": "doq-comss",
@@ -397,11 +397,11 @@ def main():
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
-            "cache_capacity": 2048,
+            "cache_capacity": 2048
         },
         "inbounds": [
             {
-                "type": "tun",
+                "type": "tun-in",
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
@@ -421,35 +421,39 @@ def main():
         ],
   "route": {
     "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "port": 853,
-        "action": "reject" 
-      },
-      {
-        "rule_set": [
-          "db-antizapret"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "rule_set": [
-            "geosite-category-ru",
-            "geoip-ru",
-            "db-category-ai-chat"
-        ],
-        "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
-      }
+        {
+            "action": "sniff"
+        },
+        {
+            "protocol": "dns",
+            "action": "hijack-dns"
+        },
+        {
+            "port": 853,
+            "action": "reject" 
+        },
+        {
+            "rule_set": [
+                "db-antizapret"
+            ],
+            "outbound": "proxy-out"
+        },
+        {
+            "rule_set": [
+                "geosite-category-ru",
+                "geoip-ru",
+                "db-category-ai-chat"
+            ],
+            "outbound": "direct-out"
+        },
+        {
+            "protocol": "quic",
+            "outbound": "proxy-out"
+        },
+        {
+            "ip_cidr": ["198.18.0.0/15","fc00::/18"],
+            "outbound": "proxy-out"
+        }
     ],
     "rule_set": [
       {
