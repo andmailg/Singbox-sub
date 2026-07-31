@@ -407,6 +407,7 @@ def main():
                 },
                {
                     "rule_set": [
+                        "db-antizapret",
                         "db-category-ai-chat"
                     ],
                     "server": "dns-remote",
