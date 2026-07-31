@@ -90,22 +90,13 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland | 🌐 [*CIDR]",
-        "🇫🇮 Finland | 🌐 | [*CIDR]",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #1",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #2",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #3",
-        "🇩🇪 Germany | 🌐 | [*CIDR]",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #1",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #2",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #3",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #4",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR]",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #1",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #2",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #1",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #3",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #4",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #5"
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2"
       ],
       "default": "auto"
     },
@@ -113,80 +104,27 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland | 🌐 [*CIDR]",
-        "🇫🇮 Finland | 🌐 | [*CIDR]",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #1",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #2",
-        "🇫🇮 Finland | 🌐 | [*CIDR] #3",
-        "🇩🇪 Germany | 🌐 | [*CIDR]",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #1",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #2",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #3",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #4",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR]",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #1",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #2",
+        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #1",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #3",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #4",
-        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #5"
+        "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
-      "type": "vless",
-      "tag": "🇫🇮 Finland | 🌐 [*CIDR]",
-      "server": "95.182.120.208",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
+      "type": "trojan",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR]",
+      "server": "45.67.215.9",
+      "server_port": 443,
+      "password": "521314",
       "tls": {
         "enabled": true,
-        "server_name": "forfreeuse.sub-flow.online",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.sub-flow.online"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇫🇮 Finland | 🌐 | [*CIDR]",
-      "server": "95.182.120.208",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
-      "tls": {
-        "enabled": true,
-        "server_name": "forfreeuse.sub-flow.online",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "android"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.sub-flow.online"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇫🇮 Finland | 🌐 | [*CIDR] #1",
-      "server": "95.182.120.208",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
-      "tls": {
-        "enabled": true,
-        "server_name": "forfreeuse.sub-flow.online",
+        "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
           "fingerprint": "edge"
@@ -194,21 +132,18 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.sub-flow.online"
-        }
+        "path": "/Telegram+@VPNine1"
       }
     },
     {
-      "type": "vless",
-      "tag": "🇫🇮 Finland | 🌐 | [*CIDR] #2",
-      "server": "95.182.120.208",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
+      "type": "trojan",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #1",
+      "server": "45.67.215.9",
+      "server_port": 443,
+      "password": "521314",
       "tls": {
         "enabled": true,
-        "server_name": "forfreeuse.sub-flow.online",
+        "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
@@ -216,21 +151,18 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.sub-flow.online"
-        }
+        "path": "/Telegram+@VPNine1"
       }
     },
     {
-      "type": "vless",
-      "tag": "🇫🇮 Finland | 🌐 | [*CIDR] #3",
-      "server": "95.182.120.208",
-      "server_port": 2053,
-      "uuid": "c7e9c591-2764-423a-afca-efbd010fd396",
+      "type": "trojan",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #2",
+      "server": "45.67.215.9",
+      "server_port": 443,
+      "password": "521314",
       "tls": {
         "enabled": true,
-        "server_name": "forfreeuse.sub-flow.online",
+        "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
           "fingerprint": "qq"
@@ -238,97 +170,18 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "forfreeuse.sub-flow.online"
-        }
+        "path": "/Telegram+@VPNine1"
       }
     },
     {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR]",
-      "server": "5.188.115.69",
-      "server_port": 4443,
-      "uuid": "3981bee1-b043-4c6a-98a0-69ba63513bf7",
+      "type": "trojan",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
+      "server": "45.67.215.9",
+      "server_port": 443,
+      "password": "521314",
       "tls": {
         "enabled": true,
-        "server_name": "amogus.razkur.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #1",
-      "server": "5.188.115.69",
-      "server_port": 4443,
-      "uuid": "3981bee1-b043-4c6a-98a0-69ba63513bf7",
-      "tls": {
-        "enabled": true,
-        "server_name": "amogus.razkur.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #2",
-      "server": "5.188.115.69",
-      "server_port": 4443,
-      "uuid": "3981bee1-b043-4c6a-98a0-69ba63513bf7",
-      "tls": {
-        "enabled": true,
-        "server_name": "amogus.razkur.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #3",
-      "server": "5.188.115.69",
-      "server_port": 4443,
-      "uuid": "3981bee1-b043-4c6a-98a0-69ba63513bf7",
-      "tls": {
-        "enabled": true,
-        "server_name": "amogus.razkur.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #4",
-      "server": "5.188.115.69",
-      "server_port": 4443,
-      "uuid": "3981bee1-b043-4c6a-98a0-69ba63513bf7",
-      "tls": {
-        "enabled": true,
-        "server_name": "amogus.razkur.dev",
+        "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
           "fingerprint": "safari"
@@ -336,7 +189,7 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/ws"
+        "path": "/Telegram+@VPNine1"
       }
     },
     {
@@ -350,7 +203,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "android"
         }
       },
       "transport": {
@@ -369,7 +222,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
@@ -388,64 +241,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram+@VPNine1"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #3",
-      "server": "45.67.215.9",
-      "server_port": 443,
-      "password": "521314",
-      "tls": {
-        "enabled": true,
-        "server_name": "tjplay.lxdxo.kdns.fr",
-        "utls": {
-          "enabled": true,
           "fingerprint": "ios"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram+@VPNine1"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #4",
-      "server": "45.67.215.9",
-      "server_port": 443,
-      "password": "521314",
-      "tls": {
-        "enabled": true,
-        "server_name": "tjplay.lxdxo.kdns.fr",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram+@VPNine1"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #5",
-      "server": "45.67.215.9",
-      "server_port": 443,
-      "password": "521314",
-      "tls": {
-        "enabled": true,
-        "server_name": "tjplay.lxdxo.kdns.fr",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
         }
       },
       "transport": {
