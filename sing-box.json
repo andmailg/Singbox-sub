@@ -69,10 +69,10 @@
     "rules": [
       {
         "rule_set": "db-category-ai-chat",
-        "server": "doq-comss"
+        "server": "fakeip"
       }
     ],
-    "final": "fakeip",
+    "final": "dns-local",
     "strategy": "prefer_ipv4",
     "cache_capacity": 2048
   },
