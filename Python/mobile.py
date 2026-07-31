@@ -392,7 +392,7 @@ def main():
                 },
                 {
                     "rule_set": "db-category-ai-chat",
-                    "server": "fakeip",
+                    "server": "doh-comss",
                 }
             ],
             "final": "dns-local",
@@ -442,8 +442,7 @@ def main():
         {
             "rule_set": [
                 "geosite-category-ru",
-                "geoip-ru",
-                "db-category-ai-chat"
+                "geoip-ru"
             ],
             "outbound": "direct-out"
         },
