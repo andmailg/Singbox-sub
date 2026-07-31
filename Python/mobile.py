@@ -407,8 +407,13 @@ def main():
                 },
                {
                     "rule_set": [
-                        "db-antizapret",
                         "db-category-ai-chat"
+                    ],
+                    "server": "fakeip",
+                },
+               {
+                    "rule_set": [
+                        "db-antizapret"
                     ],
                     "server": "dns-remote",
                 },
