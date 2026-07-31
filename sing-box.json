@@ -65,7 +65,7 @@
     "rules": [
       {
         "inbound": [
-          "tun-in"
+          "tun"
         ],
         "server": "fakeip"
       },
