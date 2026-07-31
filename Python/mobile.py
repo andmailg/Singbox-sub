@@ -346,6 +346,12 @@ def main():
                     "server": "1.1.1.1"
                 },
                 {
+                    "type": "h3",
+                    "tag": "dns-remote",
+                    "server": "1.1.1.1",
+                    "detour": "proxy-out"
+                },
+                {
                     "type": "https",
                     "tag": "doh-1",
                     "server": "1.1.1.1"
@@ -399,6 +405,12 @@ def main():
                     ],
                     "server": "local",
                 },
+               {
+                    "rule_set": [
+                        "db-category-ai-chat"
+                    ],
+                    "server": "dns-remote",
+                },
                 {
                     "inbound": ["tun"],
                     "server": "fakeip"
@@ -447,7 +459,8 @@ def main():
         },
         {
             "rule_set": [
-                "db-antizapret"
+                "db-antizapret",
+                "db-category-ai-chat"
             ],
             "outbound": "proxy-out"
         },
