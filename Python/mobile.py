@@ -392,7 +392,7 @@ def main():
                 },
                 {
                     "rule_set": "db-category-ai-chat",
-                    "server": "doq-comss",
+                    "server": "fakeip",
                 }
             ],
             "final": "dns-local",
