@@ -401,7 +401,8 @@ def main():
         },
         "inbounds": [
             {
-                "type": "tun-in",
+                "type": "tun",
+                "tag": "tun-in",
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
