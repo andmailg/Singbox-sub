@@ -64,14 +64,21 @@
     ],
     "rules": [
       {
+        "rule_set": "db-category-ai-chat",
+        "server": "doh-comss"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "server": "local"
+      },
+      {
         "inbound": [
           "tun"
         ],
         "server": "fakeip"
-      },
-      {
-        "rule_set": "db-category-ai-chat",
-        "server": "doh-comss"
       }
     ],
     "final": "dns-local",
