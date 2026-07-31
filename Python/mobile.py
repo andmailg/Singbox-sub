@@ -328,7 +328,10 @@ def main():
     urltest_outbound = clean_urltest(urltest_outbound)
 
     singbox_config = {
-        "log": {"level": "warn", "timestamp": True},
+        "log": {
+            "level": "warn",
+            "timestamp": True
+        },
         "dns": {
             "servers": [
                 {
@@ -383,13 +386,12 @@ def main():
                     "domain_resolver": "dns-local",
                     "server": "dns.nullsproxy.com"
                 },
-                {"type": "local", "tag": "local"},
+                {
+                    "type": "local",
+                    "tag": "local"
+                }
             ],
             "rules": [
-                {
-                    "rule_set": "db-category-ai-chat",
-                    "server": "doh-comss",
-                },
                 {
                     "rule_set": [
                         "geosite-category-ru",
@@ -422,7 +424,10 @@ def main():
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out", "network_strategy": "hybrid"},
+            {
+                "type": "direct",
+                "tag": "direct-out"
+            },
             selector_outbound,
             urltest_outbound,
             *outbounds
