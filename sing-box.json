@@ -72,7 +72,7 @@
         "server": "doq-comss"
       }
     ],
-    "final": "dns-local",
+    "final": "fakeip",
     "strategy": "prefer_ipv4",
     "cache_capacity": 2048
   },
