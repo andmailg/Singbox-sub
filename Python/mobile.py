@@ -387,7 +387,7 @@ def main():
             ],
             "rules": [
                 {
-                    "inbound": ["tun-in"],
+                    "inbound": ["tun"],
                     "server": "fakeip"
                 },
                 {
