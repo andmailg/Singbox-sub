@@ -64,10 +64,6 @@
     ],
     "rules": [
       {
-        "rule_set": "db-category-ai-chat",
-        "server": "doh-comss"
-      },
-      {
         "rule_set": [
           "geosite-category-ru",
           "geoip-ru"
@@ -103,8 +99,7 @@
   "outbounds": [
     {
       "type": "direct",
-      "tag": "direct-out",
-      "network_strategy": "hybrid"
+      "tag": "direct-out"
     },
     {
       "type": "selector",
