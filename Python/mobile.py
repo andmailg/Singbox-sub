@@ -387,12 +387,19 @@ def main():
             ],
             "rules": [
                 {
-                    "inbound": ["tun"],
-                    "server": "fakeip"
-                },
-                {
                     "rule_set": "db-category-ai-chat",
                     "server": "doh-comss",
+                },
+                {
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "server": "local",
+                },
+                {
+                    "inbound": ["tun"],
+                    "server": "fakeip"
                 }
             ],
             "final": "dns-local",
@@ -451,7 +458,10 @@ def main():
             "outbound": "proxy-out"
         },
         {
-            "ip_cidr": ["198.18.0.0/15","fc00::/18"],
+            "ip_cidr": [
+                "198.18.0.0/15",
+                "fc00::/18"
+            ],
             "outbound": "proxy-out"
         }
     ],
