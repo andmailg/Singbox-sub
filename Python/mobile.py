@@ -415,6 +415,13 @@ def main():
             "action": "hijack-dns"
         },
         {
+            "ip_cidr": [
+                "198.18.0.0/15",
+                "fc00::/18"
+            ],
+            "outbound": "proxy-out"
+        },
+        {
             "rule_set": [
                 "db-antizapret",
                 "db-category-ai-chat"
@@ -427,13 +434,6 @@ def main():
                 "geoip-ru"
             ],
             "outbound": "direct-out"
-        },
-        {
-            "ip_cidr": [
-                "198.18.0.0/15",
-                "fc00::/18"
-            ],
-            "outbound": "proxy-out"
         },
         {
             "protocol": "quic",
