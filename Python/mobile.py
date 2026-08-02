@@ -377,10 +377,7 @@ def main():
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
-            "cache_capacity": 2048,
-            "fakeip": {
-                "enabled": True
-            }
+            "cache_capacity": 2048
         },
         "inbounds": [
             {
