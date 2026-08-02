@@ -1135,13 +1135,6 @@
       },
       {
         "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "rule_set": [
           "geosite-category-ru",
           "geoip-ru"
         ],
@@ -1152,10 +1145,6 @@
           "198.18.0.0/15",
           "fc00::/18"
         ],
-        "outbound": "proxy-out"
-      },
-      {
-        "protocol": "quic",
         "outbound": "proxy-out"
       }
     ],
