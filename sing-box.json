@@ -57,9 +57,6 @@
       "mtu": 1420,
       "address": "172.19.0.1/30",
       "auto_route": true,
-      "strict_route": true,
-      "stack": "system",
-      "platform_lookups": true,
       "route_exclude_address": [
         "192.168.0.0/16",
         "10.0.0.0/8",
@@ -1446,8 +1443,9 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "direct-out",
+    "final": "proxy-out",
     "auto_detect_interface": true,
+    "override_android_vpn": true,
     "default_domain_resolver": "dns-local"
   },
   "experimental": {
