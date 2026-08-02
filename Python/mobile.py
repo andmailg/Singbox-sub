@@ -371,9 +371,11 @@ def main():
                     "server": "dns-remote",
                 },
                 {
-                    "inbound": "tun-in",
-                    "server": "fakeip"
-                }
+                    "rule_set": [
+                        "db-category-ai-chat"
+                    ],
+                    "server": "fakeip",
+                },
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
@@ -413,6 +415,7 @@ def main():
             "action": "hijack-dns"
         },
         {
+            // 1. Сначала точечно перехватываем списки (домены и IP)
             "rule_set": [
                 "db-antizapret",
                 "db-category-ai-chat"
@@ -420,6 +423,7 @@ def main():
             "outbound": "proxy-out"
         },
         {
+            // 2. Затем пускаем ВСЕ российские сайты НАПРЯМУЮ
             "rule_set": [
                 "geosite-category-ru",
                 "geoip-ru"
@@ -427,14 +431,16 @@ def main():
             "outbound": "direct-out"
         },
         {
-            "protocol": "quic",
-            "outbound": "proxy-out"
-        },
-        {
+            // 3. СРАЗУ ПОСЛЕ ЭТОГО перехватываем оставшийся FakeIP
             "ip_cidr": [
                 "198.18.0.0/15",
                 "fc00::/18"
             ],
+            "outbound": "proxy-out"
+        },
+        {
+            // 4. И только в самом конце обрабатываем протоколы
+            "protocol": "quic",
             "outbound": "proxy-out"
         }
     ],
