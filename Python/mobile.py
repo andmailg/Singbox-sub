@@ -386,8 +386,9 @@ def main():
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
-                "sniff": True,
-                "sniff_override_destination": True,
+                "strict_route": True,
+                "stack": "system",
+                "platform_lookups": True,
                 "route_exclude_address": [
                     "192.168.0.0/16",
                     "10.0.0.0/8",
