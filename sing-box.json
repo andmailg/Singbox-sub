@@ -1582,7 +1582,8 @@
       },
       {
         "rule_set": [
-          "db-antizapret"
+          "db-antizapret",
+          "db-category-ai-chat"
         ],
         "outbound": "proxy-out"
       },
