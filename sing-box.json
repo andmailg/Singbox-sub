@@ -7,7 +7,9 @@
     "servers": [
       {
         "type": "fakeip",
-        "tag": "fakeip"
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
       },
       {
         "type": "tls",
@@ -46,12 +48,7 @@
     ],
     "final": "dns-local",
     "strategy": "prefer_ipv4",
-    "cache_capacity": 2048,
-    "fakeip": {
-      "enabled": true,
-      "inet4_range": "198.18.0.0/15",
-      "inet6_range": "fc00::/18"
-    }
+    "cache_capacity": 2048
   },
   "inbounds": [
     {
