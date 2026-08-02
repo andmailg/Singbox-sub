@@ -336,9 +336,7 @@ def main():
             "servers": [
                 {
                     "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18",
+                    "tag": "fakeip"
                 },
                 {
                     "type": "tls",
@@ -371,13 +369,18 @@ def main():
                     "server": "dns-remote",
                 },
                 {
-                    "inbound": ["tun"],
+                    "inbound": "tun",
                     "server": "fakeip"
                 }
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
-            "cache_capacity": 2048
+            "cache_capacity": 2048,
+            "fakeip": {
+                "enabled": True,
+                "inet4_range": "198.18.0.0/15",
+                "inet6_range": "fc00::/18"
+            }
         },
         "inbounds": [
             {
@@ -386,6 +389,8 @@ def main():
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
+                "sniff": True,
+                "sniff_override_destination": True
                 "route_exclude_address": [
                     "192.168.0.0/16",
                     "10.0.0.0/8",
@@ -411,10 +416,6 @@ def main():
         {
             "protocol": "dns",
             "action": "hijack-dns"
-        },
-        {
-            "port": 853,
-            "action": "reject" 
         },
         {
             "rule_set": [
@@ -480,7 +481,7 @@ def main():
         "download_detour": "direct-out"
       }
     ],
-    "final": "proxy-out",
+    "final": "direct-out",
     "auto_detect_interface": True,
     "default_domain_resolver": "dns-local"
   },
