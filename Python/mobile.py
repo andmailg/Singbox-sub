@@ -336,7 +336,9 @@ def main():
             "servers": [
                 {
                     "type": "fakeip",
-                    "tag": "fakeip"
+                    "tag": "fakeip",
+                    "inet4_range": "198.18.0.0/15",
+                    "inet6_range": "fc00::/18"
                 },
                 {
                     "type": "tls",
@@ -377,9 +379,7 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048,
             "fakeip": {
-                "enabled": True,
-                "inet4_range": "198.18.0.0/15",
-                "inet6_range": "fc00::/18"
+                "enabled": True
             }
         },
         "inbounds": [
