@@ -429,14 +429,14 @@ def main():
             "outbound": "direct-out"
         },
         {
-            "protocol": "quic",
-            "outbound": "proxy-out"
-        },
-        {
             "ip_cidr": [
                 "198.18.0.0/15",
                 "fc00::/18"
             ],
+            "outbound": "proxy-out"
+        },
+        {
+            "protocol": "quic",
             "outbound": "proxy-out"
         }
     ],
