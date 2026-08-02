@@ -90,19 +90,13 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland [*CIDR]",
+        "🇫🇮 Finland | [*CIDR]",
+        "🇫🇮 Finland | [*CIDR] #1",
         "🇩🇪 Germany [*CIDR]",
         "🇩🇪 Germany [*CIDR] #1",
         "🇩🇪 Germany [*CIDR] #2",
-        "🇩🇪 Germany [*CIDR] #3",
         "🇩🇪 Germany | [*CIDR]",
         "🇩🇪 Germany | [*CIDR] #1",
-        "🇩🇪 Germany | [*CIDR] #2",
-        "🇩🇪 Germany | [*CIDR] #3",
-        "🇩🇪 Germany | [*CIDR] #4",
-        "🇩🇪 Germany | [*CIDR] #5",
-        "🇩🇪 Germany | [*CIDR] #6",
-        "🇩🇪 Germany | [*CIDR] #7",
         "🇩🇪 Germany | 🌐 [*CIDR]",
         "🇩🇪 Germany | 🌐 | [*CIDR]",
         "🇩🇪 Germany | 🌐 | [*CIDR] #1",
@@ -112,20 +106,54 @@
         "🇩🇪 Germany | 🌐 | [*CIDR] #5",
         "🇩🇪 Germany | 🌐 | [*CIDR] #6",
         "🇩🇪 Germany | 🌐 | [*CIDR] #7",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #8",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #9",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #10",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #11",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #12",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #13",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #14",
+        "🇪🇸 Spain | [*CIDR]",
+        "🇪🇸 Spain | [*CIDR] #1",
+        "🇳🇱 The Netherlands | [*CIDR]",
+        "🇳🇱 The Netherlands | [*CIDR] #1",
+        "🇳🇱 The Netherlands | [*CIDR] #2",
+        "🇳🇱 The Netherlands | [*CIDR] #3",
+        "🇺🇸 United States | 🌐 | [*CIDR]",
+        "🇺🇸 United States | 🌐 | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR]",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #2",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #3",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #4",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #5",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #6",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #7",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #8",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #9",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #10",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #11",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #12",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #13",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #14",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #15",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #16",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #17",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #18",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #19",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #20",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #21",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #22",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #23",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #24",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #25",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #26",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #27",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #28",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #29",
+        "🇷🇺 Russia | [*CIDR]",
+        "🇷🇺 Russia | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR]",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇷🇺 [*CIDR]",
         "🇷🇺 Russia [*CIDR]",
-        "🇷🇺 Russia | 🌐 [*CIDR]",
-        "🌐 Anycast-IP | 🇨🇦 🇩🇪 [*CIDR]",
+        "🌐 Anycast-IP | 🇨🇦 🇨🇭 🇩🇪 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #1",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #2",
-        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #1",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2"
@@ -136,19 +164,13 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland [*CIDR]",
+        "🇫🇮 Finland | [*CIDR]",
+        "🇫🇮 Finland | [*CIDR] #1",
         "🇩🇪 Germany [*CIDR]",
         "🇩🇪 Germany [*CIDR] #1",
         "🇩🇪 Germany [*CIDR] #2",
-        "🇩🇪 Germany [*CIDR] #3",
         "🇩🇪 Germany | [*CIDR]",
         "🇩🇪 Germany | [*CIDR] #1",
-        "🇩🇪 Germany | [*CIDR] #2",
-        "🇩🇪 Germany | [*CIDR] #3",
-        "🇩🇪 Germany | [*CIDR] #4",
-        "🇩🇪 Germany | [*CIDR] #5",
-        "🇩🇪 Germany | [*CIDR] #6",
-        "🇩🇪 Germany | [*CIDR] #7",
         "🇩🇪 Germany | 🌐 [*CIDR]",
         "🇩🇪 Germany | 🌐 | [*CIDR]",
         "🇩🇪 Germany | 🌐 | [*CIDR] #1",
@@ -158,20 +180,54 @@
         "🇩🇪 Germany | 🌐 | [*CIDR] #5",
         "🇩🇪 Germany | 🌐 | [*CIDR] #6",
         "🇩🇪 Germany | 🌐 | [*CIDR] #7",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #8",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #9",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #10",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #11",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #12",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #13",
-        "🇩🇪 Germany | 🌐 | [*CIDR] #14",
+        "🇪🇸 Spain | [*CIDR]",
+        "🇪🇸 Spain | [*CIDR] #1",
+        "🇳🇱 The Netherlands | [*CIDR]",
+        "🇳🇱 The Netherlands | [*CIDR] #1",
+        "🇳🇱 The Netherlands | [*CIDR] #2",
+        "🇳🇱 The Netherlands | [*CIDR] #3",
+        "🇺🇸 United States | 🌐 | [*CIDR]",
+        "🇺🇸 United States | 🌐 | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR]",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #2",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #3",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #4",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #5",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #6",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #7",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #8",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #9",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #10",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #11",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #12",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #13",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #14",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #15",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #16",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #17",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #18",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #19",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #20",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #21",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #22",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #23",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #24",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #25",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #26",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #27",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #28",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #29",
+        "🇷🇺 Russia | [*CIDR]",
+        "🇷🇺 Russia | [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR]",
+        "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR] #1",
+        "🌐 Anycast-IP | 🇩🇪 🇷🇺 [*CIDR]",
         "🇷🇺 Russia [*CIDR]",
-        "🇷🇺 Russia | 🌐 [*CIDR]",
-        "🌐 Anycast-IP | 🇨🇦 🇩🇪 [*CIDR]",
+        "🌐 Anycast-IP | 🇨🇦 🇨🇭 🇩🇪 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #1",
         "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #2",
-        "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR]",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #1",
         "🌐 Anycast-IP | 🇨🇦 🇫🇮 [*CIDR] #2"
@@ -182,80 +238,51 @@
     },
     {
       "type": "vless",
-      "tag": "🇫🇮 Finland [*CIDR]",
-      "server": "176.123.165.127",
-      "server_port": 56745,
-      "uuid": "943ecfd7-bea6-4520-8898-e1fa536250cc"
+      "tag": "🇫🇮 Finland | [*CIDR]",
+      "server": "friendlynode.site",
+      "server_port": 443,
+      "uuid": "44b7f1b1-28d2-4bb0-9b49-37813cfbe601",
+      "tls": {
+        "enabled": true,
+        "server_name": "friendlynode.site",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/stream/751394/socket",
+        "headers": {
+          "Host": "friendlynode.site"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇫🇮 Finland | [*CIDR] #1",
+      "server": "friendlynode.site",
+      "server_port": 443,
+      "uuid": "44b7f1b1-28d2-4bb0-9b49-37813cfbe601",
+      "tls": {
+        "enabled": true,
+        "server_name": "friendlynode.site",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/stream/751394/socket",
+        "headers": {
+          "Host": "friendlynode.site"
+        }
+      }
     },
     {
       "type": "vless",
       "tag": "🇩🇪 Germany [*CIDR]",
-      "server": "185.229.9.176",
-      "server_port": 8443,
-      "uuid": "23786eb4-0bbb-43c6-940c-a3b2b5242cb6",
-      "tls": {
-        "enabled": true,
-        "server_name": "id.pervye.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "edge"
-        },
-        "reality": {
-          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "ns"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany [*CIDR] #1",
-      "server": "45.129.2.201",
-      "server_port": 443,
-      "uuid": "47667ac5-ac51-7fc6-181f-65321ee2387b",
-      "tls": {
-        "enabled": true,
-        "server_name": "svg-2.onrender.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws/47667ac5-ac51-7fc6-181f-65321ee2387b",
-        "headers": {
-          "Host": "svg-2.onrender.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany [*CIDR] #2",
-      "server": "45.129.2.201",
-      "server_port": 443,
-      "uuid": "47667ac5-ac51-7fc6-181f-65321ee2387b",
-      "tls": {
-        "enabled": true,
-        "server_name": "svg-2.onrender.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws/47667ac5-ac51-7fc6-181f-65321ee2387b",
-        "headers": {
-          "Host": "svg-2.onrender.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany [*CIDR] #3",
       "server": "185.229.9.176",
       "server_port": 8443,
       "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
@@ -277,6 +304,50 @@
     },
     {
       "type": "vless",
+      "tag": "🇩🇪 Germany [*CIDR] #1",
+      "server": "185.229.9.176",
+      "server_port": 8443,
+      "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
+      "tls": {
+        "enabled": true,
+        "server_name": "id.pervye.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ns"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪 Germany [*CIDR] #2",
+      "server": "185.229.9.176",
+      "server_port": 8443,
+      "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
+      "tls": {
+        "enabled": true,
+        "server_name": "id.pervye.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "reality": {
+          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "ns"
+      }
+    },
+    {
+      "type": "vless",
       "tag": "🇩🇪 Germany | [*CIDR]",
       "server": "185.229.9.176",
       "server_port": 8443,
@@ -286,7 +357,7 @@
         "server_name": "id.pervye.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "edge"
         },
         "reality": {
           "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
@@ -321,157 +392,16 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #2",
-      "server": "185.229.9.176",
-      "server_port": 8443,
-      "uuid": "23786eb4-0bbb-43c6-940c-a3b2b5242cb6",
-      "tls": {
-        "enabled": true,
-        "server_name": "id.pervye.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
-        },
-        "reality": {
-          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "ns"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #3",
-      "server": "45.129.2.201",
-      "server_port": 443,
-      "uuid": "47667ac5-ac51-7fc6-181f-65321ee2387b",
-      "tls": {
-        "enabled": true,
-        "server_name": "svg-2.onrender.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "android"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws/47667ac5-ac51-7fc6-181f-65321ee2387b",
-        "headers": {
-          "Host": "svg-2.onrender.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #4",
-      "server": "45.129.2.201",
-      "server_port": 443,
-      "uuid": "47667ac5-ac51-7fc6-181f-65321ee2387b",
-      "tls": {
-        "enabled": true,
-        "server_name": "svg-2.onrender.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ws/47667ac5-ac51-7fc6-181f-65321ee2387b",
-        "headers": {
-          "Host": "svg-2.onrender.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #5",
-      "server": "185.229.9.176",
-      "server_port": 8443,
-      "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
-      "tls": {
-        "enabled": true,
-        "server_name": "id.pervye.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "android"
-        },
-        "reality": {
-          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "ns"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #6",
-      "server": "185.229.9.176",
-      "server_port": 8443,
-      "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
-      "tls": {
-        "enabled": true,
-        "server_name": "id.pervye.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "ns"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | [*CIDR] #7",
-      "server": "185.229.9.176",
-      "server_port": 8443,
-      "uuid": "5bb5061e-ee43-4e72-b5af-9f7614272595",
-      "tls": {
-        "enabled": true,
-        "server_name": "id.pervye.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "public_key": "K9vJ2zLFxi3VTmrguyLC1KrC920axeFSeA8x_xY4Xhw"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "ns"
-      }
-    },
-    {
-      "type": "vless",
       "tag": "🇩🇪 Germany | 🌐 [*CIDR]",
-      "server": "46.8.220.182",
-      "server_port": 443,
-      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
-      "tls": {
-        "enabled": true,
-        "server_name": "media2.tcpdoor.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
-          "short_id": "3303c7a5"
-        }
-      },
+      "server": "195.133.25.181",
+      "server_port": 4100,
+      "uuid": "9b44bfb4-9d28-4870-9fc3-5154d6d462ff",
       "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
+        "type": "ws",
+        "path": "/v1",
+        "headers": {
+          "Host": "live.ok.ru"
+        }
       }
     },
     {
@@ -485,7 +415,7 @@
         "server_name": "media2.tcpdoor.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "firefox"
         },
         "reality": {
           "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
@@ -531,7 +461,7 @@
         "server_name": "media2.tcpdoor.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "random"
+          "fingerprint": "safari"
         },
         "reality": {
           "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
@@ -554,7 +484,7 @@
         "server_name": "media2.tcpdoor.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "firefox"
         },
         "reality": {
           "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
@@ -577,7 +507,7 @@
         "server_name": "media2.tcpdoor.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "safari"
         },
         "reality": {
           "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
@@ -600,7 +530,7 @@
         "server_name": "media2.tcpdoor.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
+          "fingerprint": "chrome"
         },
         "reality": {
           "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
@@ -660,20 +590,19 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #8",
-      "server": "46.8.220.182",
-      "server_port": 443,
-      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
+      "tag": "🇪🇸 Spain | [*CIDR]",
+      "server": "193.233.218.38",
+      "server_port": 50443,
+      "uuid": "40769826-172c-453b-9a45-05726aab0f45",
       "tls": {
         "enabled": true,
-        "server_name": "media2.tcpdoor.net",
+        "server_name": "ads.x5.ru",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "edge"
         },
         "reality": {
-          "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
-          "short_id": "3303c7a5"
+          "public_key": "Q1jS59UuTL9FEz6QXlNdZdYNkd_IxjGMUpIfIU5X9gI"
         }
       },
       "transport": {
@@ -683,169 +612,843 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #9",
-      "server": "46.8.220.182",
-      "server_port": 443,
-      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
+      "tag": "🇪🇸 Spain | [*CIDR] #1",
+      "server": "193.233.218.38",
+      "server_port": 50443,
+      "uuid": "40769826-172c-453b-9a45-05726aab0f45",
       "tls": {
         "enabled": true,
-        "server_name": "media2.tcpdoor.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
-          "short_id": "3303c7a5"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #10",
-      "server": "46.8.220.182",
-      "server_port": 443,
-      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
-      "tls": {
-        "enabled": true,
-        "server_name": "media2.tcpdoor.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "safari"
-        },
-        "reality": {
-          "public_key": "vxhkDXfYpz1OLqZ-_9QVoQr3_UJLtJFheb5bD5YH7z8",
-          "short_id": "3303c7a5"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #11",
-      "server": "de-gw.videomonitor.cloud",
-      "server_port": 2087,
-      "uuid": "ff3f3ba2-79e4-11f1-b665-b6c158fa8593",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-gw.videomonitor.cloud",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "android"
-        },
-        "reality": {
-          "public_key": "LBsG9yP94EfV0y0hUGiraFdedsHbp4JjDp3XppkTnyQ",
-          "short_id": "dea8edfaa6fef634"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-direct"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #12",
-      "server": "de-gw.videomonitor.cloud",
-      "server_port": 2087,
-      "uuid": "ff3f3ba2-79e4-11f1-b665-b6c158fa8593",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-gw.videomonitor.cloud",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "public_key": "LBsG9yP94EfV0y0hUGiraFdedsHbp4JjDp3XppkTnyQ",
-          "short_id": "dea8edfaa6fef634"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-direct"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #13",
-      "server": "de-gw.videomonitor.cloud",
-      "server_port": 2087,
-      "uuid": "ff3f3ba2-79e4-11f1-b665-b6c158fa8593",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-gw.videomonitor.cloud",
+        "server_name": "ads.x5.ru",
         "utls": {
           "enabled": true,
           "fingerprint": "firefox"
         },
         "reality": {
-          "public_key": "LBsG9yP94EfV0y0hUGiraFdedsHbp4JjDp3XppkTnyQ",
-          "short_id": "dea8edfaa6fef634"
+          "public_key": "Q1jS59UuTL9FEz6QXlNdZdYNkd_IxjGMUpIfIU5X9gI"
         }
       },
       "transport": {
         "type": "grpc",
-        "service_name": "grpc-direct"
+        "service_name": "grpc"
       }
     },
     {
       "type": "vless",
-      "tag": "🇩🇪 Germany | 🌐 | [*CIDR] #14",
-      "server": "de-gw.videomonitor.cloud",
-      "server_port": 2087,
-      "uuid": "ff3f3ba2-79e4-11f1-b665-b6c158fa8593",
+      "tag": "🇳🇱 The Netherlands | [*CIDR]",
+      "server": "31.129.55.217",
+      "server_port": 443,
+      "uuid": "742e841d-140d-4795-9f16-3cf119129fec",
       "tls": {
         "enabled": true,
-        "server_name": "de-gw.videomonitor.cloud",
+        "server_name": "yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "reality": {
+          "public_key": "epKxGHvul2A8tNMFsEDFN2P71B-WbEEwbqbPLyNlYFg",
+          "short_id": "e549af0908"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "rua-grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 The Netherlands | [*CIDR] #1",
+      "server": "31.129.55.217",
+      "server_port": 443,
+      "uuid": "742e841d-140d-4795-9f16-3cf119129fec",
+      "tls": {
+        "enabled": true,
+        "server_name": "yandex.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "reality": {
+          "public_key": "epKxGHvul2A8tNMFsEDFN2P71B-WbEEwbqbPLyNlYFg",
+          "short_id": "e549af0908"
+        }
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "rua-grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 The Netherlands | [*CIDR] #2",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "e35148c7-26cd-4deb-a56e-de7d3690d344",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 The Netherlands | [*CIDR] #3",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "e35148c7-26cd-4deb-a56e-de7d3690d344",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 United States | 🌐 | [*CIDR]",
+      "server": "161.104.90.17",
+      "server_port": 443,
+      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.samsung.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "public_key": "itfYOjWaEZ8FSD730zUvrhCbbzWgSWFDXjnAWCj23Rc",
+          "short_id": "e371d988"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸 United States | 🌐 | [*CIDR] #1",
+      "server": "161.104.90.17",
+      "server_port": 443,
+      "uuid": "218fd696-e3a2-4c33-b397-a5f13a82969e",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.samsung.com",
         "utls": {
           "enabled": true,
           "fingerprint": "ios"
         },
         "reality": {
-          "public_key": "LBsG9yP94EfV0y0hUGiraFdedsHbp4JjDp3XppkTnyQ",
-          "short_id": "dea8edfaa6fef634"
+          "public_key": "itfYOjWaEZ8FSD730zUvrhCbbzWgSWFDXjnAWCj23Rc",
+          "short_id": "e371d988"
         }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-direct"
       }
     },
     {
       "type": "vless",
-      "tag": "🇷🇺 Russia [*CIDR]",
-      "server": "45.67.57.57",
-      "server_port": 28559,
-      "uuid": "0c7ba501-13f9-453d-a82e-80f70e291fad"
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR]",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "05f45a0e-6a48-4768-b8bc-735b56c7a287",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
     },
     {
       "type": "vless",
-      "tag": "🇷🇺 Russia | 🌐 [*CIDR]",
-      "server": "185.247.16.4",
-      "server_port": 2200,
-      "uuid": "55009b9b-7b9c-4830-86c6-cb058a7a2e2f",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #1",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "05f45a0e-6a48-4768-b8bc-735b56c7a287",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #2",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "12ede26c-f74f-47b9-9f63-b07dde7fe3b0",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #3",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "12ede26c-f74f-47b9-9f63-b07dde7fe3b0",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #4",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "1709ce04-8455-49f2-a57b-c1f47ad98aaa",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #5",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "1709ce04-8455-49f2-a57b-c1f47ad98aaa",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #6",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "1709ce04-8455-49f2-a57b-c1f47ad98aaa",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #7",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "1709ce04-8455-49f2-a57b-c1f47ad98aaa",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #8",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "20ecf992-99d7-47d0-886a-c65d078bcd64",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #9",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "20ecf992-99d7-47d0-886a-c65d078bcd64",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #10",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "3c32f32e-b83b-4204-b163-c6771867c04c",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #11",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "3c32f32e-b83b-4204-b163-c6771867c04c",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #12",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "40abdaa0-1c99-4b6d-a475-566f551dbf5d",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #13",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "40abdaa0-1c99-4b6d-a475-566f551dbf5d",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #14",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "7bc5a745-9ae0-475f-b320-c02dceda004b",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #15",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "7bc5a745-9ae0-475f-b320-c02dceda004b",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #16",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "8bfddb89-bfdc-4a7f-b520-c024f42a42ba",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #17",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "8bfddb89-bfdc-4a7f-b520-c024f42a42ba",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #18",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "8ed75a9f-fa6d-4966-b2b7-9e03f956f0a3",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #19",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "8ed75a9f-fa6d-4966-b2b7-9e03f956f0a3",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #20",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "aab9324f-d2d5-4f4a-9720-71b5db568100",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #21",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "aab9324f-d2d5-4f4a-9720-71b5db568100",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #22",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "b6323d94-e5f2-4c1e-bc26-55364c1018fd",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #23",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "b6323d94-e5f2-4c1e-bc26-55364c1018fd",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #24",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "bf126b99-1497-46d4-9081-64d5a3331b10",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #25",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "bf126b99-1497-46d4-9081-64d5a3331b10",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #26",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "c187c191-1cb4-45a0-b911-9b2d99670a79",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #27",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "c187c191-1cb4-45a0-b911-9b2d99670a79",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #28",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "c3097c37-425f-4bae-a91a-bbd449409259",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 | [*CIDR] #29",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "c3097c37-425f-4bae-a91a-bbd449409259",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 Russia | [*CIDR]",
+      "server": "176.98.176.110",
+      "server_port": 443,
+      "uuid": "d17418df-741d-480e-9dac-de5624dd776d",
+      "tls": {
+        "enabled": true,
+        "server_name": "stepik.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "public_key": "gWQI82-139LOX4McshbOZOGRElcpw_TXwvjVstOGswY",
+          "short_id": "d2f7a1c9e3b04685"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇷🇺 Russia | [*CIDR] #1",
+      "server": "176.98.176.110",
+      "server_port": 443,
+      "uuid": "d17418df-741d-480e-9dac-de5624dd776d",
+      "tls": {
+        "enabled": true,
+        "server_name": "stepik.org",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "public_key": "gWQI82-139LOX4McshbOZOGRElcpw_TXwvjVstOGswY",
+          "short_id": "d2f7a1c9e3b04685"
+        }
+      },
+      "transport": {
+        "type": "grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR]",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "40b47bc6-ffc7-42ee-b1ac-69f06bbe3ff4",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇳🇱 [*CIDR] #1",
+      "server": "185.91.52.36",
+      "server_port": 443,
+      "uuid": "40b47bc6-ffc7-42ee-b1ac-69f06bbe3ff4",
+      "tls": {
+        "enabled": true,
+        "server_name": "amogus.razkur.dev",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/ws"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🌐 Anycast-IP | 🇩🇪 🇷🇺 [*CIDR]",
+      "server": "201.51.0.38",
+      "server_port": 4100,
+      "uuid": "e7299042-7d8f-440f-8368-2516b0e69341",
       "transport": {
         "type": "ws",
         "path": "/v1",
         "headers": {
-          "Host": "rzd.ru"
+          "Host": "live.ok.ru"
         }
       }
     },
     {
-      "type": "vless",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 [*CIDR]",
-      "server": "87.242.85.201",
-      "server_port": 35412,
-      "uuid": "943ecfd7-bea6-4520-8898-e1fa536250cc"
+      "type": "hysteria2",
+      "tag": "🇷🇺 Russia [*CIDR]",
+      "server": "ru.i-love-russia.online",
+      "server_port": 443,
+      "password": "44b7f1b1-28d2-4bb0-9b49-37813cfbe601",
+      "tls": {
+        "enabled": true,
+        "server_name": "ru.i-love-russia.online"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🌐 Anycast-IP | 🇨🇦 🇨🇭 🇩🇪 🇫🇮 [*CIDR]",
+      "server": "45.67.215.9",
+      "server_port": 443,
+      "password": "521314",
+      "tls": {
+        "enabled": true,
+        "server_name": "tjplay.lxdxo.kdns.fr",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/Telegram+@VPNine1"
+      }
     },
     {
       "type": "trojan",
@@ -877,7 +1480,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "qq"
         }
       },
       "transport": {
@@ -896,26 +1499,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "edge"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/Telegram+@VPNine1"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🌐 Anycast-IP | 🇨🇦 🇩🇪 🇫🇮 [*CIDR] #3",
-      "server": "45.67.215.9",
-      "server_port": 443,
-      "password": "521314",
-      "tls": {
-        "enabled": true,
-        "server_name": "tjplay.lxdxo.kdns.fr",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "qq"
+          "fingerprint": "safari"
         }
       },
       "transport": {
@@ -934,7 +1518,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "firefox"
+          "fingerprint": "chrome"
         }
       },
       "transport": {
@@ -953,7 +1537,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "ios"
+          "fingerprint": "firefox"
         }
       },
       "transport": {
@@ -972,7 +1556,7 @@
         "server_name": "tjplay.lxdxo.kdns.fr",
         "utls": {
           "enabled": true,
-          "fingerprint": "safari"
+          "fingerprint": "ios"
         }
       },
       "transport": {
