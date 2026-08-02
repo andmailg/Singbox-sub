@@ -386,9 +386,6 @@ def main():
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
-                "strict_route": True,
-                "stack": "system",
-                "platform_lookups": True,
                 "route_exclude_address": [
                     "192.168.0.0/16",
                     "10.0.0.0/8",
@@ -479,9 +476,10 @@ def main():
         "download_detour": "direct-out"
       }
     ],
-    "final": "direct-out",
-    "auto_detect_interface": True,
-    "default_domain_resolver": "dns-local"
+      "final": "direct-out",
+      "auto_detect_interface": True,
+      "override_android_vpn": True,
+      "default_domain_resolver": "dns-local"
   },
   "experimental": {
     "cache_file": {
