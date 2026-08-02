@@ -371,10 +371,7 @@ def main():
                     "server": "dns-remote",
                 },
                 {
-                    "query_type": [
-                        "A",
-                        "AAAA"
-                    ],
+                    "inbound": "tun-in",
                     "server": "fakeip"
                 }
             ],
