@@ -341,56 +341,15 @@ def main():
                     "inet6_range": "fc00::/18",
                 },
                 {
-                    "type": "h3",
+                    "type": "tls",
                     "tag": "dns-local",
                     "server": "1.1.1.1"
                 },
                 {
-                    "type": "h3",
+                    "type": "tls",
                     "tag": "dns-remote",
                     "server": "1.1.1.1",
                     "detour": "proxy-out"
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-1",
-                    "server": "1.1.1.1"
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-8",
-                    "server": "8.8.8.8"
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-comss",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.comss.one"
-                },
-                {
-                    "type": "quic",
-                    "tag": "doq-comss",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.comss.one"
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-xbox",
-                    "domain_resolver": "dns-local",
-                    "server": "xbox-dns.ru"
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-geohide",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.geohide.ru",
-                    "server_port": 444
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-nullproxy",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.nullsproxy.com"
                 },
                 {
                     "type": "local",
