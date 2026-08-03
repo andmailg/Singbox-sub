@@ -345,7 +345,7 @@ def main():
                     "tag": "dns-local",
                     "server": "1.1.1.1",
                     "tls": {
-                        "enabled": true,
+                        "enabled": True,
                         "server_name": "cloudflare-dns.com"
                     }
                 },
@@ -355,7 +355,7 @@ def main():
                     "server": "1.1.1.1",
                     "detour": "proxy-out",
                     "tls": {
-                        "enabled": true,
+                        "enabled": True,
                         "server_name": "cloudflare-dns.com"
                     }
                 },
