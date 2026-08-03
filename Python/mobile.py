@@ -343,13 +343,21 @@ def main():
                 {
                     "type": "tls",
                     "tag": "dns-local",
-                    "server": "1.1.1.1"
+                    "server": "1.1.1.1",
+                    "tls": {
+                        "enabled": true,
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "tls",
                     "tag": "dns-remote",
                     "server": "1.1.1.1",
-                    "detour": "proxy-out"
+                    "detour": "proxy-out",
+                    "tls": {
+                        "enabled": true,
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "local",
