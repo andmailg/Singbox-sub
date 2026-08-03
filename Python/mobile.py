@@ -359,12 +359,11 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru"
+                        "db-category-ai-chat"
                     ],
-                    "server": "local",
+                    "server": "fakeip",
                 },
-               {
+                {
                     "rule_set": [
                         "db-antizapret"
                     ],
@@ -372,10 +371,11 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat"
+                        "geosite-category-ru",
+                        "geoip-ru"
                     ],
-                    "server": "fakeip",
-                },
+                    "server": "local",
+                }
             ],
             "final": "dns-local",
             "strategy": "prefer_ipv4",
