@@ -341,7 +341,7 @@ def main():
                     "inet6_range": "fc00::/18"
                 },
                 {
-                    "type": "h3",
+                    "type": "https",
                     "tag": "dns-local",
                     "server": "1.1.1.1",
                     "tls": {
@@ -350,7 +350,7 @@ def main():
                     }
                 },
                 {
-                    "type": "h3",
+                    "type": "https",
                     "tag": "dns-remote",
                     "server": "1.1.1.1",
                     "detour": "proxy-out",
