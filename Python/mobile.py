@@ -423,15 +423,9 @@ def main():
             "action": "hijack-dns"
         },
         {
-            "ip_cidr": [
-                "198.18.0.0/15",
-                "fc00::/18"
-            ],
-            "outbound": "proxy-out"
-        },
-        {
             "rule_set": [
-                "db-antizapret"
+                "db-antizapret",
+                "db-category-ai-chat"
             ],
             "outbound": "proxy-out"
         },
