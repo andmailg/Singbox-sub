@@ -482,7 +482,7 @@ def main():
         "download_detour": "direct-out"
       }
     ],
-      "final": "direct-out",
+      "final": "proxy-out",
       "auto_detect_interface": True,
       "override_android_vpn": True,
       "default_domain_resolver": "dns-local"
