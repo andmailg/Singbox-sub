@@ -58,6 +58,10 @@
           "db-antizapret"
         ],
         "server": "fakeip"
+      },
+      {
+      "query_type": [ "A", "AAAA" ],
+      "server": "dns-remote" 
       }
     ],
     "final": "dns-local",
@@ -1230,6 +1234,10 @@
         "action": "hijack-dns"
       },
       {
+      "ip_cidr": [ "198.18.0.0/15", "fc00::/18" ],
+      "outbound": "proxy-out"
+    },
+      {
         "rule_set": [
           "geosite-category-ru",
           "geoip-ru"
@@ -1281,7 +1289,7 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "proxy-out",
+    "final": "direct-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "dns-local"
