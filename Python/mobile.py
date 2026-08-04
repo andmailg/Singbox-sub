@@ -427,6 +427,13 @@ def main():
             "action": "hijack-dns"
         },
         {
+        "ip_cidr": [
+          "198.18.0.0/15",
+          "fc00::/18"
+        ],
+        "outbound": "proxy-out"
+      },
+        {
             "rule_set": [
                 "geosite-category-ru",
                 "geoip-ru"
