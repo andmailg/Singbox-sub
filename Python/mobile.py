@@ -389,7 +389,7 @@ def main():
                     "server": "fakeip"
                 }
             ],
-            "final": "dns-remote",
+            "final": "dns-local",
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
