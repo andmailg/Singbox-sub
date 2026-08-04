@@ -1493,7 +1493,7 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "direct-out",
+    "final": "proxy-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "dns-local"
