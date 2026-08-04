@@ -1232,9 +1232,12 @@
       {
         "protocol": "dns",
         "action": "hijack-dns"
-      },
-      {
-      "ip_cidr": [ "198.18.0.0/15", "fc00::/18" ],
+      },{
+      "rule_set": [
+        "db-category-ai-chat",
+        "geosite-category-media-ru-blocked",
+        "db-antizapret"
+      ],
       "outbound": "proxy-out"
     },
       {
