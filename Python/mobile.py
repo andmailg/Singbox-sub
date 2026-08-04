@@ -362,27 +362,39 @@ def main():
                 {
                     "type": "local",
                     "tag": "local"
+                },
+                {
+                    "tag": "reject_dns",
+                    "address": "rcode://success"
                 }
             ],
             "rules": [
                 {
                     "rule_set": [
-                        "db-category-ai-chat"
+                        "geosite-category-ru",
+                        "geoip-ru"
                     ],
-                    "server": "fakeip",
+                    "server": "local"
+                },
+                {
+                    "query_type": [
+                        "HTTPS",
+                        "SVCB"
+                    ],
+                    "server": "reject_dns"
+                },
+                {
+                    "rule_set": [
+                        "db-category-ai-chat",
+                        "geosite-category-media-ru-blocked"
+                    ],
+                    "server": "fakeip"
                 },
                 {
                     "rule_set": [
                         "db-antizapret"
                     ],
-                    "server": "dns-remote",
-                },
-                {
-                    "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru"
-                    ],
-                    "server": "local",
+                    "server": "dns-remote"
                 }
             ],
             "final": "dns-local",
@@ -425,7 +437,8 @@ def main():
         {
             "rule_set": [
                 "db-antizapret",
-                "db-category-ai-chat"
+                "db-category-ai-chat",
+                "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
         },
@@ -455,6 +468,12 @@ def main():
         "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
         "download_detour": "direct-out"
       },
+        {
+            "type": "remote",
+            "tag": "geosite-category-media-ru-blocked",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+            "download_detour": "direct-out"
+        },
       {
         "type": "remote",
         "tag": "geosite-category-ru",
