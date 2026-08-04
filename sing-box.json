@@ -1231,22 +1231,11 @@
         "action": "hijack-dns"
       },
       {
-        "ip_cidr": [
-          "198.18.0.0/15",
-          "fc00::/18"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
         "rule_set": [
           "geosite-category-ru",
           "geoip-ru"
         ],
         "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
       }
     ],
     "rule_set": [
@@ -1293,7 +1282,7 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "direct-out",
+    "final": "proxy-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "dns-local"
