@@ -389,7 +389,7 @@ def main():
                     "server": "fakeip"
                 }
             ],
-            "final": "dns-local",
+            "final": "dns-remote",
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
@@ -425,13 +425,6 @@ def main():
         {
             "protocol": "dns",
             "action": "hijack-dns"
-        },
-        {
-            "ip_cidr": [
-              "198.18.0.0/15",
-              "fc00::/18"
-            ],
-            "outbound": "proxy-out"
         },
         {
             "rule_set": [
@@ -489,7 +482,7 @@ def main():
         "download_detour": "direct-out"
       }
     ],
-      "final": "proxy-out",
+      "final": "direct-out",
       "auto_detect_interface": True,
       "override_android_vpn": True,
       "default_domain_resolver": "dns-local"
