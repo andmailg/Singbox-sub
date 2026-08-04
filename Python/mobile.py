@@ -362,10 +362,6 @@ def main():
                 {
                     "type": "local",
                     "tag": "local"
-                },
-                {
-                    "tag": "reject_dns",
-                    "address": "rcode://success"
                 }
             ],
             "rules": [
@@ -381,7 +377,8 @@ def main():
                         "HTTPS",
                         "SVCB"
                     ],
-                    "server": "reject_dns"
+                    "action": "predefined",
+                    "rcode": "REFUSED"
                 },
                 {
                     "rule_set": [
