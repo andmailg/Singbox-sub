@@ -383,15 +383,10 @@ def main():
                 {
                     "rule_set": [
                         "db-category-ai-chat",
-                        "geosite-category-media-ru-blocked"
-                    ],
-                    "server": "fakeip"
-                },
-                {
-                    "rule_set": [
+                        "geosite-category-media-ru-blocked",
                         "db-antizapret"
                     ],
-                    "server": "dns-remote"
+                    "server": "fakeip"
                 }
             ],
             "final": "dns-local",
@@ -430,14 +425,6 @@ def main():
         {
             "protocol": "dns",
             "action": "hijack-dns"
-        },
-        {
-            "rule_set": [
-                "db-antizapret",
-                "db-category-ai-chat",
-                "geosite-category-media-ru-blocked"
-            ],
-            "outbound": "proxy-out"
         },
         {
             "ip_cidr": [
