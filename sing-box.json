@@ -33,10 +33,6 @@
       {
         "type": "local",
         "tag": "local"
-      },
-      {
-        "tag": "reject_dns",
-        "address": "rcode://success"
       }
     ],
     "rules": [
@@ -52,7 +48,8 @@
           "HTTPS",
           "SVCB"
         ],
-        "server": "reject_dns"
+        "action": "predefined",
+        "rcode": "REFUSED"
       },
       {
         "rule_set": [
