@@ -15450,8 +15450,8 @@
       "tag": "EPODONIOS #323",
       "server": "y2hhy2hhmjatawv0zi1wb2x5mtmwntprmwrct21pqjrvcwk3vw1wmzdhmwjrqdgyljm4ljmxlje3njo4mdgw",
       "server_port": null,
-      "method": null,
-      "password": null
+      "method": "aes-256-gcm",
+      "password": "password"
     },
     {
       "type": "shadowsocks",
@@ -16418,7 +16418,7 @@
       "tag": "EPODONIOS #439",
       "server": "78.38.246.150",
       "server_port": 8446,
-      "method": "chacha20-poly1305",
+      "method": "aes-256-gcm",
       "password": "6e3e43f4-12b7-42f1-8b93-41a152d5612d"
     },
     {
@@ -16626,7 +16626,7 @@
       "tag": "EPODONIOS #465",
       "server": "13.53.198.63",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16634,7 +16634,7 @@
       "tag": "EPODONIOS #466",
       "server": "13.53.38.71",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16642,7 +16642,7 @@
       "tag": "EPODONIOS #467",
       "server": "13.61.5.244",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16650,7 +16650,7 @@
       "tag": "EPODONIOS #468",
       "server": "13.61.5.244",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16658,7 +16658,7 @@
       "tag": "EPODONIOS #469",
       "server": "13.62.231.217",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16666,7 +16666,7 @@
       "tag": "EPODONIOS #470",
       "server": "16.171.111.98",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16674,7 +16674,7 @@
       "tag": "EPODONIOS #471",
       "server": "3.85.61.177",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16682,7 +16682,7 @@
       "tag": "EPODONIOS #472",
       "server": "51.20.125.180",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16690,7 +16690,7 @@
       "tag": "EPODONIOS #473",
       "server": "54.196.207.151",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16698,7 +16698,7 @@
       "tag": "EPODONIOS #474",
       "server": "54.226.105.188",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16706,7 +16706,7 @@
       "tag": "EPODONIOS #475",
       "server": "54.226.30.144",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16714,7 +16714,7 @@
       "tag": "EPODONIOS #476",
       "server": "98.81.132.97",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -16722,8 +16722,8 @@
       "tag": "EPODONIOS #477",
       "server": "ywvzlti1ni1jzmi6yw1hem9uc2tymdvanjmumtc3lji1mi40ndo0ndm=",
       "server_port": null,
-      "method": null,
-      "password": null
+      "method": "aes-256-gcm",
+      "password": "password"
     },
     {
       "type": "shadowsocks",
@@ -17154,8 +17154,8 @@
       "tag": "EPODONIOS #531",
       "server": "pardazeshvpn-tg18.pages.dev",
       "server_port": 443,
-      "method": "bf7e1009-1574-44f7-86df-6cbecd338477",
-      "password": ""
+      "method": "aes-256-gcm",
+      "password": "password"
     },
     {
       "type": "shadowsocks",
@@ -17194,8 +17194,8 @@
       "tag": "EPODONIOS #536",
       "server": "82.39.171.145",
       "server_port": 443,
-      "method": "d65cc14c-f53f-4fe2-b262-97856601319c",
-      "password": null
+      "method": "aes-256-gcm",
+      "password": "password"
     },
     {
       "type": "trojan",
@@ -100664,8 +100664,8 @@
       "tag": "EPODONIOS #5597",
       "server": "141.98.101.182",
       "server_port": 443,
-      "method": "YWVzLTEyOC1nY206c2hhZG93c29ja3M%3D",
-      "password": null
+      "method": "aes-256-gcm",
+      "password": "password"
     },
     {
       "type": "shadowsocks",
@@ -107047,7 +107047,7 @@
       "tag": "EPODONIOS #5986",
       "server": "138.199.42.68",
       "server_port": 8080,
-      "method": "rc4-md5",
+      "method": "aes-256-gcm",
       "password": "14fFPrbezE3HDZzsMOr6"
     },
     {
@@ -107130,7 +107130,7 @@
       "tag": "EPODONIOS #5996",
       "server": "146.70.61.37",
       "server_port": 8080,
-      "method": "rc4-md5",
+      "method": "aes-256-gcm",
       "password": "14fFPrbezE3HDZzsMOr6"
     },
     {
@@ -107271,7 +107271,7 @@
       "tag": "EPODONIOS #6013",
       "server": "137.184.174.93",
       "server_port": 8080,
-      "method": "rc4-md5",
+      "method": "aes-256-gcm",
       "password": "14fFPrbezE3HDZzsMOr6"
     },
     {
@@ -107381,7 +107381,7 @@
       "tag": "EPODONIOS #6025",
       "server": "109.201.152.181",
       "server_port": 443,
-      "method": "aes-128-cfb",
+      "method": "aes-256-gcm",
       "password": "shadowsocks"
     },
     {
@@ -108167,7 +108167,7 @@
       "tag": "EPODONIOS #6103",
       "server": "211.178.105.134",
       "server_port": 6123,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "qwerREWQ@@"
     },
     {
@@ -108198,7 +108198,7 @@
       "tag": "EPODONIOS #6106",
       "server": "p141.panda001.net",
       "server_port": 4652,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "qwerREWQ@@"
     },
     {
@@ -108217,7 +108217,7 @@
       "tag": "EPODONIOS #6108",
       "server": "221.139.79.57",
       "server_port": 13979,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "qwerREWQ@@"
     },
     {
@@ -108435,7 +108435,7 @@
       "tag": "EPODONIOS #6127",
       "server": "54.163.196.142",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -108488,7 +108488,7 @@
       "tag": "EPODONIOS #6133",
       "server": "98.93.33.57",
       "server_port": 443,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "amazonskr05"
     },
     {
@@ -108871,7 +108871,7 @@
       "tag": "EPODONIOS #6169",
       "server": "218.237.185.230",
       "server_port": 4652,
-      "method": "aes-256-cfb",
+      "method": "aes-256-gcm",
       "password": "qwerREWQ@@"
     },
     {
