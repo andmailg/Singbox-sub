@@ -14,11 +14,12 @@ def parse_proxy_link(link: str) -> dict | None:
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
-    # Исключаем транспорт xhttp
+    # Исключаем неподдерживаемые ядром Sing-Box транспорты (xhttp, httpget, kcp)
     net_type = params.get("type", params.get("net", [""]))[0].lower()
     header_type = params.get("headerType", [""])[0].lower()
-    if net_type in ["xhttp", "httpget"] or header_type in ["xhttp", "httpget"]:
-        print(f"Skipping unsupported xhttp node: {link[:30]}...")
+    
+    if net_type in ["xhttp", "httpget", "kcp", "mkcp"] or header_type in ["xhttp", "httpget", "kcp", "mkcp"]:
+        print(f"Skipping unsupported transport ({net_type or header_type}) node: {link[:30]}...")
         return None
 
     # Исключаем небезопасные соединения (allowInsecure / insecure)
