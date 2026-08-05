@@ -309,18 +309,18 @@ def clean_outbound(outbound: dict) -> dict:
         if not outbound.get("password"):
             outbound["password"] = "password"
 
-        # 5. Исправление поля flow для VLESS
-        if outbound.get("type") == "vless":
-            flow = outbound.get("flow")
-            if flow and isinstance(flow, str):
-                flow = flow.lower().strip()
-                # Если в значении flow присутствует стандартный vision-поток, принудительно очищаем его от мусора
-                if "xtls-rprx-vision" in flow:
-                    outbound["flow"] = "xtls-rprx-vision"
-                # Если там записан устаревший или неподдерживаемый поток (например, xtls-rprx-direct)
-                elif flow not in ["xtls-rprx-vision"]:
-                    print(f"Removing unsupported flow '{flow}' for VLESS node '{outbound.get('tag')}'")
-                    outbound.pop("flow", None)
+    # 5. Исправление поля flow для VLESS
+    if outbound.get("type") == "vless":
+        flow = outbound.get("flow")
+        if flow and isinstance(flow, str):
+            flow = flow.lower().strip()
+            # Если в значении flow присутствует стандартный vision-поток, принудительно очищаем его от мусора
+            if "xtls-rprx-vision" in flow:
+                outbound["flow"] = "xtls-rprx-vision"
+            # Если там записан устаревший или неподдерживаемый поток (например, xtls-rprx-direct)
+            elif flow not in ["xtls-rprx-vision"]:
+                print(f"Removing unsupported flow '{flow}' for VLESS node '{outbound.get('tag')}'")
+                outbound.pop("flow", None)
 
     return outbound
 
