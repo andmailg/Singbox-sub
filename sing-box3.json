@@ -12,25 +12,6 @@
         "inet6_range": "fc00::/18"
       },
       {
-        "type": "https",
-        "tag": "dns-local",
-        "server": "1.1.1.1",
-        "tls": {
-          "enabled": true,
-          "server_name": "cloudflare-dns.com"
-        }
-      },
-      {
-        "type": "https",
-        "tag": "dns-remote",
-        "server": "1.1.1.1",
-        "detour": "proxy-out",
-        "tls": {
-          "enabled": true,
-          "server_name": "cloudflare-dns.com"
-        }
-      },
-      {
         "type": "local",
         "tag": "local"
       }
@@ -44,14 +25,6 @@
         "server": "local"
       },
       {
-        "query_type": [
-          "HTTPS",
-          "SVCB"
-        ],
-        "action": "predefined",
-        "rcode": "REFUSED"
-      },
-      {
         "rule_set": [
           "db-category-ai-chat",
           "geosite-category-media-ru-blocked",
@@ -60,7 +33,7 @@
         "server": "fakeip"
       }
     ],
-    "final": "dns-local",
+    "final": "local",
     "strategy": "prefer_ipv4",
     "cache_capacity": 2048
   },
@@ -70,9 +43,7 @@
       "tag": "tun-in",
       "mtu": 1420,
       "address": "172.19.0.1/30",
-      "auto_route": true,
-      "sniff": true,
-        "sniff_override_destination": true
+      "auto_route": true
     }
   ],
   "outbounds": [
@@ -1466,7 +1437,7 @@
     "final": "direct-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "default_domain_resolver": "dns-local"
+    "default_domain_resolver": "local"
   },
   "experimental": {
     "cache_file": {
