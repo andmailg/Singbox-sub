@@ -210,7 +210,6 @@ def clean_outbound(outbound: dict) -> dict:
     # 1. Валидация и очистка транспорта (Transport)
     transport = outbound.get("transport", {})
     if transport:
-        # Список транспортов, которые официально поддерживает Sing-Box
         ALLOWED_TRANSPORTS = ["http", "ws", "grpc", "quic", "httpupgrade"]
         current_type = transport.get("type", "").lower()
         
@@ -221,21 +220,31 @@ def clean_outbound(outbound: dict) -> dict:
             outbound.pop("transport", None)
             outbound.pop("packet_encoding", None)
         else:
-            # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
-            if current_type not in ["ws", "httpupgrade"]:
-                if "path" in transport:
-                    print(f"Removing invalid field 'path' from transport '{current_type}' for node '{outbound.get('tag')}'")
+            # Специфичное исправление для транспорта HTTP
+            if current_type == "http":
+                # В Sing-Box для http нужен массив "host": ["example.com"], а не объект "headers"
+                if "headers" in transport and isinstance(transport["headers"], dict):
+                    host_val = transport["headers"].get("Host") or transport["headers"].get("host")
+                    if host_val:
+                        transport["host"] = [host_val] if isinstance(host_val, str) else host_val
+                
+                # Удаляем недопустимые для HTTP поля
+                transport.pop("headers", None)
+                transport.pop("path", None)
+                transport.pop("service_name", None)
+
+            # Очистка для других типов транспорта
+            else:
+                # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
+                if current_type not in ["ws", "httpupgrade"]:
                     transport.pop("path", None)
 
-            # Поле 'headers' разрешено ТОЛЬКО для 'ws', 'httpupgrade' и 'http'
-            if current_type not in ["ws", "httpupgrade", "http"]:
-                if "headers" in transport:
-                    print(f"Removing invalid field 'headers' from transport '{current_type}' for node '{outbound.get('tag')}'")
+                # Поле 'headers' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
+                if current_type not in ["ws", "httpupgrade"]:
                     transport.pop("headers", None)
 
-            # Поле 'service_name' разрешено ТОЛЬКО для 'grpc'
-            if current_type != "grpc":
-                if "service_name" in transport:
+                # Поле 'service_name' разрешено ТОЛЬКО для 'grpc'
+                if current_type != "grpc":
                     transport.pop("service_name", None)
 
     # 2. Очистка REALITY (fingerprint переносится в utls)
