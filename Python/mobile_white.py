@@ -207,28 +207,37 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
-    
+
     # 1. Валидация и очистка транспорта (Transport)
     transport = outbound.get("transport", {})
     if transport:
+        # Список транспортов, которые официально поддерживает Sing-Box
         ALLOWED_TRANSPORTS = ["http", "ws", "grpc", "quic", "httpupgrade"]
         current_type = transport.get("type", "").lower()
-        
+
         # Если транспорт tcp или неизвестный — полностью удаляем блок
         if current_type not in ALLOWED_TRANSPORTS or current_type == "tcp":
             if current_type and current_type != "tcp":
-                print(f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'")
+                print(
+                    f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'"
+                )
             outbound.pop("transport", None)
             outbound.pop("packet_encoding", None)
         else:
             # Специфичное исправление для транспорта HTTP
             if current_type == "http":
                 # В Sing-Box для http нужен массив "host": ["example.com"], а не объект "headers"
-                if "headers" in transport and isinstance(transport["headers"], dict):
-                    host_val = transport["headers"].get("Host") or transport["headers"].get("host")
+                if "headers" in transport and isinstance(
+                    transport["headers"], dict
+                ):
+                    host_val = transport["headers"].get(
+                        "Host"
+                    ) or transport["headers"].get("host")
                     if host_val:
-                        transport["host"] = [host_val] if isinstance(host_val, str) else host_val
-                
+                        transport["host"] = (
+                            [host_val] if isinstance(host_val, str) else host_val
+                        )
+
                 # Удаляем недопустимые для HTTP поля
                 transport.pop("headers", None)
                 transport.pop("path", None)
@@ -261,6 +270,38 @@ def clean_outbound(outbound: dict) -> dict:
     if outbound.get("type") == "vmess":
         if "alterId" in outbound and outbound.get("alterId") == 0:
             outbound.pop("alterId", None)
+
+    # 4. Валидация методов шифрования для Shadowsocks
+    if outbound.get("type") == "shadowsocks":
+        # Список официально поддерживаемых методов в актуальных версиях Sing-Box
+        ALLOWED_METHODS = [
+            "aes-128-gcm",
+            "aes-192-gcm",
+            "aes-256-gcm",
+            "chacha20-ietf-poly1305",
+            "xchacha20-ietf-poly1305",
+            "2022-blake3-aes-128-gcm",
+            "2022-blake3-aes-256-gcm",
+            "2022-blake3-chacha20-poly1305",
+            "none",
+        ]
+
+        current_method = outbound.get("method", "")
+        if not current_method:
+            current_method = ""
+        else:
+            current_method = str(current_method).lower().strip()
+
+        # Если метод пустой или его нет в белом списке Sing-Box
+        if current_method not in ALLOWED_METHODS:
+            print(
+                f"Fixing shadowsocks method: '{current_method}' is invalid or empty for node '{outbound.get('tag')}'. Fallback to 'aes-256-gcm'"
+            )
+            outbound["method"] = "aes-256-gcm"
+
+        # Дополнительная защита: если пароль отсутствует, задаем заглушку во избежание краша
+        if not outbound.get("password"):
+            outbound["password"] = "password"
 
     return outbound
 
