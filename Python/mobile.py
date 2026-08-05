@@ -337,12 +337,6 @@ def main():
         "dns": {
             "servers": [
                 {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18"
-                },
-                {
                     "type": "https",
                     "tag": "dns-local",
                     "server": "1.1.1.1",
@@ -360,6 +354,12 @@ def main():
                         "enabled": True,
                         "server_name": "cloudflare-dns.com"
                     }
+                },
+                {
+                    "type": "fakeip",
+                    "tag": "fakeip",
+                    "inet4_range": "198.18.0.0/15",
+                    "inet6_range": "fc00::/18"
                 },
                 {
                     "type": "local",
@@ -429,22 +429,17 @@ def main():
             "action": "hijack-dns"
         },
         {
-        "ip_cidr": [
-          "198.18.0.0/15",
-          "fc00::/18"
-        ],
-        "outbound": "proxy-out"
-      },
+            "rule_set": [
+                "geosite-category-media-ru-blocked"
+            ],
+            "outbound": "proxy-out"
+        },
         {
             "rule_set": [
                 "geosite-category-ru",
                 "geoip-ru"
             ],
             "outbound": "direct-out"
-        },
-        {
-            "protocol": "quic",
-            "outbound": "proxy-out"
         }
     ],
     "rule_set": [
