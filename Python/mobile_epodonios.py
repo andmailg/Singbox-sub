@@ -10,27 +10,20 @@ def parse_proxy_link(link: str) -> dict | None:
     if not link or link.startswith("#"):
         return None
 
-    # Защита от некорректных URL (например, Invalid IPv6 URL)
+    # ОСТАВЛЯЕМ: Защита от критического падения скрипта при битых URL
     try:
         parsed = urllib.parse.urlparse(link)
-        # Принудительно обращаемся к hostname, чтобы отловить ошибку парсинга на этом этапе
-        _ = parsed.hostname
+        _ = parsed.hostname  # Провоцируем проверку парсера
     except ValueError:
-        print(f"Skipping malformed or invalid URL: {link[:30]}...")
+        print(f"Skipping malformed URL: {link[:30]}...")
         return None
 
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
-    # Исключаем неподдерживаемые ядром Sing-Box транспорты (xhttp, httpget, kcp)
     net_type = params.get("type", params.get("net", [""]))[0].lower()
-    header_type = params.get("headerType", [""])[0].lower()
-    
-    if net_type in ["xhttp", "httpget", "kcp", "mkcp"] or header_type in ["xhttp", "httpget", "kcp", "mkcp"]:
-        print(f"Skipping unsupported transport ({net_type or header_type}) node: {link[:30]}...")
-        return None
 
-    # Исключаем небезопасные соединения (allowInsecure / insecure)
+    # ОСТАВЛЯЕМ: Фильтрация небезопасных соединений по вашему желанию
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
@@ -75,21 +68,15 @@ def parse_proxy_link(link: str) -> dict | None:
 
             outbound["tls"] = tls_opts
 
-        net = net_type or "tcp"
-        if net == "raw":
-            net = "tcp"
-        if net != "tcp":
-            transport = {"type": net}
-            path = params.get("path", [None])[0]
-            host = params.get("host", [None])[0]
-            service_name = params.get("serviceName", [None])[0]
-            if path:
-                transport["path"] = path
-            if host:
-                transport["headers"] = {"Host": host}
-            if service_name:
-                transport["service_name"] = service_name
-            outbound["transport"] = transport
+        # Нам больше не нужны проверки "if net != 'tcp'". Пишем как есть.
+        # Если транспорт окажется кривым (kcp, tcpconfigprxy) — clean_outbound всё исправит.
+        if net_type:
+            outbound["transport"] = {
+                "type": net_type,
+                "path": params.get("path", [None])[0],
+                "headers": {"Host": params.get("host", [None])[0]} if params.get("host", [None])[0] else None,
+                "service_name": params.get("serviceName", [None])[0]
+            }
 
         return outbound
 
@@ -101,11 +88,6 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
-            net = data.get("net", "tcp").lower()
-            if net in ["xhttp", "httpget", "kcp", "mkcp"] or data.get("type", "").lower() in ["xhttp", "httpget", "kcp", "mkcp"]:
-                print(f"Skipping unsupported transport VMess node: {data.get('ps')}")
-                return None
-
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
@@ -115,13 +97,12 @@ def parse_proxy_link(link: str) -> dict | None:
                 "security": data.get("scy", "auto"),
             }
 
-            if net != "tcp":
-                transport = {"type": net}
-                if data.get("path"):
-                    transport["path"] = data.get("path")
-                if data.get("host"):
-                    transport["headers"] = {"Host": data.get("host")}
-                outbound["transport"] = transport
+            if data.get("net"):
+                outbound["transport"] = {
+                    "type": data.get("net").lower(),
+                    "path": data.get("path"),
+                    "headers": {"Host": data.get("host")} if data.get("host") else None
+                }
 
             if data.get("tls") == "tls":
                 tls_opts = {"enabled": True}
@@ -140,16 +121,12 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 3. TROJAN ---
     elif scheme == "trojan":
-        password = parsed.username
-        server = parsed.hostname
-        port = parsed.port
-
         outbound = {
             "type": "trojan",
             "tag": tag,
-            "server": server,
-            "server_port": port,
-            "password": password,
+            "server": parsed.hostname,
+            "server_port": parsed.port,
+            "password": parsed.username,
         }
 
         security = params.get("security", ["tls"])[0]
@@ -163,10 +140,6 @@ def parse_proxy_link(link: str) -> dict | None:
             if fp:
                 tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
 
-            insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
-            if insecure == "1":
-                tls_opts["insecure"] = True
-
             if security == "reality":
                 pbk = params.get("pbk", [None])[0]
                 sid = params.get("sid", [None])[0]
@@ -179,60 +152,36 @@ def parse_proxy_link(link: str) -> dict | None:
 
             outbound["tls"] = tls_opts
 
-        net = net_type or "tcp"
-        if net == "raw":
-            net = "tcp"
-        if net != "tcp":
-            transport = {"type": net}
-            path = params.get("path", [None])[0]
-            host = params.get("host", [None])[0]
-            service_name = params.get("serviceName", [None])[0]
-
-            if path:
-                transport["path"] = path
-            if host:
-                transport["headers"] = {"Host": host}
-            if service_name:
-                transport["service_name"] = service_name
-
-            outbound["transport"] = transport
+        if net_type:
+            outbound["transport"] = {
+                "type": net_type,
+                "path": params.get("path", [None])[0],
+                "headers": {"Host": params.get("host", [None])[0]} if params.get("host", [None])[0] else None,
+                "service_name": params.get("serviceName", [None])[0]
+            }
 
         return outbound
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
-        password = parsed.username
-        server = parsed.hostname
-        port = parsed.port
-
         outbound = {
             "type": "hysteria2",
             "tag": tag,
-            "server": server,
-            "server_port": port,
-            "password": password,
+            "server": parsed.hostname,
+            "server_port": parsed.port,
+            "password": parsed.username,
+            "tls": {"enabled": True}
         }
-
-        tls_opts = {"enabled": True}
         sni = params.get("sni", [None])[0]
         if sni:
-            tls_opts["server_name"] = sni
-
-        insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
-        if insecure == "1":
-            tls_opts["insecure"] = True
-
-        outbound["tls"] = tls_opts
+            outbound["tls"]["server_name"] = sni
 
         return outbound
 
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
         try:
-            userinfo = parsed.username
-            if not userinfo and parsed.netloc:
-                userinfo = parsed.netloc.split("@")[0]
-
+            userinfo = parsed.username or (parsed.netloc.split("@")[0] if "@" in parsed.netloc else None)
             method, password = None, None
             if userinfo:
                 userinfo += "=" * (-len(userinfo) % 4)
@@ -258,11 +207,20 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
-    # 1. Удаление transport/packet_encoding для TCP
+    
+    # 1. Валидация и очистка транспорта (Transport)
     transport = outbound.get("transport", {})
-    if transport.get("type") == "tcp":
-        outbound.pop("transport", None)
-        outbound.pop("packet_encoding", None)
+    if transport:
+        # Список транспортов, которые официально поддерживает Sing-Box
+        ALLOWED_TRANSPORTS = ["http", "ws", "grpc", "quic", "httpupgrade"]
+        current_type = transport.get("type", "").lower()
+        
+        # Если транспорт tcp, tcpconfigprxy, kcp или любой другой неизвестный
+        if current_type not in ALLOWED_TRANSPORTS or current_type == "tcp":
+            if current_type and current_type != "tcp":
+                print(f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'")
+            outbound.pop("transport", None)
+            outbound.pop("packet_encoding", None)
 
     # 2. Очистка REALITY (fingerprint переносится в utls)
     tls_opts = outbound.get("tls", {})
