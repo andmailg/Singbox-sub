@@ -1437,7 +1437,7 @@
     "final": "direct-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "default_domain_resolver": "dns-local"
+    "default_domain_resolver": "local"
   },
   "experimental": {
     "cache_file": {
