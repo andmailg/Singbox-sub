@@ -35,12 +35,18 @@ jobs:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_Vless_Reality_White_Lists_Rus_Mobile }}
         run: |
           python Python/mobile_white.py
+      
+      - name: Run scripts
+        env:
+          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_EPODONIOS_ALL_CONFIGS_SUB }}
+        run: |
+          python Python/mobile.py
 
       - name: Commit and push if changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
-          git add sing-box.json config.json sing-box-white.json
+          git add sing-box.json config.json sing-box-white.json sing-box-epodonios.json
           git status
           # Проверяем наличие изменений в индексе (универсальный способ для всех добавленных файлов)
-          git diff --cached --quiet || (git commit -m "Auto-update sing-box and router subscriptions and sing-box-white" && git push)
+          git diff --cached --quiet || (git commit -m "Auto-update sing-box and router subscriptions and sing-box-white and sing-box-epodonios.json" && git push)
