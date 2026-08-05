@@ -25,14 +25,14 @@ jobs:
 
       - name: Run scripts
         env:
-          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL }}
+          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_BLACK_SS_ALL_RUS }}
         run: |
           python Python/mobile.py
           python Python/router.py
           
       - name: Run scripts
         env:
-          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_WHITE }}
+          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_Vless_Reality_White_Lists_Rus_Mobile }}
         run: |
           python Python/mobile_white.py
 
