@@ -1368,8 +1368,7 @@
       "action": "hijack-dns"
     },
     {
-      "action": "sniff",
-      "timeout": "1.5s"
+      "action": "sniff"
     },
     {
       "ip_cidr": [
@@ -1384,18 +1383,6 @@
         "geoip-ru"
       ],
       "outbound": "direct-out"
-    },
-    {
-      "rule_set": [
-        "db-category-ai-chat",
-        "geosite-category-media-ru-blocked",
-        "db-antizapret"
-      ],
-      "outbound": "proxy-out"
-    },
-    {
-      "protocol": "quic",
-      "outbound": "block" 
     }
     ],
     "rule_set": [
