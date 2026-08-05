@@ -4,6 +4,12 @@ import os
 import urllib.parse
 import requests
 
+def clean_urltest(outbound: dict) -> dict:
+    """Удаление lru и timeout из urltest."""
+    if outbound.get("type") == "urltest":
+        outbound.pop("lru", None)
+        outbound.pop("timeout", None)
+    return outbound
 
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
@@ -254,14 +260,6 @@ def clean_outbound(outbound: dict) -> dict:
                 outbound.pop("alterId", None)
 
     return outbound
-
-def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
-    if outbound.get("type") == "urltest":
-        outbound.pop("lru", None)
-        outbound.pop("timeout", None)
-    return outbound
-
 
 def main():
     sub_url = os.environ.get("XRAY_SUBSCRIPTION_URL")
