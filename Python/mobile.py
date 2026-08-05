@@ -4,13 +4,6 @@ import os
 import urllib.parse
 import requests
 
-def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
-    if outbound.get("type") == "urltest":
-        outbound.pop("lru", None)
-        outbound.pop("timeout", None)
-    return outbound
-
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
     if not link or link.startswith("#"):
@@ -259,6 +252,13 @@ def clean_outbound(outbound: dict) -> dict:
             if outbound.get("alterId") == 0:
                 outbound.pop("alterId", None)
 
+    return outbound
+
+def clean_urltest(outbound: dict) -> dict:
+    """Удаление lru и timeout из urltest."""
+    if outbound.get("type") == "urltest":
+        outbound.pop("lru", None)
+        outbound.pop("timeout", None)
     return outbound
 
 def main():
