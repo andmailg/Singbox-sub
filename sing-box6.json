@@ -10,6 +10,15 @@
         "tag": "local"
       },
       {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "1.1.1.1",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
         "type": "fakeip",
         "tag": "fakeip",
         "inet4_range": "198.18.0.0/15",
@@ -1298,7 +1307,7 @@
     "final": "proxy-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "default_domain_resolver": "local"
+    "default_domain_resolver": "dns-local"
   },
   "experimental": {
     "cache_file": {
