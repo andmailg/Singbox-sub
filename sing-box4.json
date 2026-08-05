@@ -1,0 +1,1471 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "1.1.1.1",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "https",
+        "tag": "dns-remote",
+        "server": "1.1.1.1",
+        "detour": "proxy-out",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "server": "local"
+      },
+      {
+        "query_type": [
+          "HTTPS",
+          "SVCB"
+        ],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "rule_set": [
+          "db-category-ai-chat",
+          "geosite-category-media-ru-blocked",
+          "db-antizapret"
+        ],
+        "server": "fakeip"
+      }
+    ],
+    "final": "dns-local",
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 2048
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 1420,
+      "address": "172.19.0.1/30",
+      "auto_route": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "proxy-out",
+      "outbounds": [
+        "auto",
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL] #1",
+        "🇫🇮 Finland, Helsinki | [BL] #2",
+        "🇫🇮 Finland, Helsinki | [BL] #3",
+        "🇫🇮 Finland, Helsinki | [BL] #4",
+        "🇫🇷 France, Paris | 🌐 | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
+        "🇭🇰 Hong Kong, Central | [BL]",
+        "🇭🇰 Hong Kong, Hong Kong | [BL]",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #1",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #4",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #5",
+        "🇮🇹 Italy, Milan | [BL]",
+        "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
+        "🇸🇬 Singapore, Singapore | [BL]",
+        "🇸🇬 Singapore, Singapore | [BL] #1",
+        "🇸🇪 Sweden, Stockholm | [BL]",
+        "🇸🇪 Sweden, Stockholm | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL]",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #2",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States | 🌐 | [BL]",
+        "🇺🇸 United States | 🌐 | [BL] #1",
+        "🇺🇸 United States, Las Vegas | [BL]",
+        "🇺🇸 United States, Las Vegas | [BL] #1",
+        "🇺🇸 United States, Las Vegas | [BL] #2",
+        "🇺🇸 United States, Santa Clara | [BL]",
+        "🇺🇸 United States, Santa Clara | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL]",
+        "🇺🇸 United States, St Louis (Downtown) | [BL]",
+        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
+        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL] #1",
+        "🇯🇵 Japan, Shibuya City | [BL]",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL]",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #1",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #2",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #3",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #4",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #5",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #6",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #7",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #8",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #9",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #10",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #11",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #12",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #13",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #14",
+        "🇵🇰 Pakistan, Karachi | [BL]",
+        "🇵🇰 Pakistan, Karachi | [BL] #1",
+        "🇵🇰 Pakistan, Karachi | [BL] #2",
+        "🇵🇰 Pakistan, Karachi | [BL] #3",
+        "🇵🇰 Pakistan, Karachi | [BL] #4",
+        "🇵🇰 Pakistan, Karachi | [BL] #5",
+        "🇵🇰 Pakistan, Karachi | [BL] #6",
+        "🇵🇰 Pakistan, Karachi | [BL] #7",
+        "🇵🇰 Pakistan, Karachi | [BL] #8",
+        "🇵🇰 Pakistan, Karachi | [BL] #9",
+        "🇰🇷 South Korea, Yongsan-dong | [BL]",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #1",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #2",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #3",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #4",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #5",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇬🇧 United Kingdom, London | [BL] #1",
+        "🇬🇧 United Kingdom, London | [BL] #2",
+        "🇬🇧 United Kingdom, London | [BL] #3",
+        "🇬🇧 United Kingdom, London | [BL] #4",
+        "🇬🇧 United Kingdom, London | [BL] #5",
+        "🇬🇧 United Kingdom, London | [BL] #6",
+        "🇬🇧 United Kingdom, London | [BL] #7",
+        "🇬🇧 United Kingdom, London | [BL] #8",
+        "🇬🇧 United Kingdom, London | [BL] #9",
+        "🇬🇧 United Kingdom, London | [BL] #10",
+        "🇬🇧 United Kingdom, London | [BL] #11",
+        "🇬🇧 United Kingdom, London | [BL] #12"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL] #1",
+        "🇫🇮 Finland, Helsinki | [BL] #2",
+        "🇫🇮 Finland, Helsinki | [BL] #3",
+        "🇫🇮 Finland, Helsinki | [BL] #4",
+        "🇫🇷 France, Paris | 🌐 | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
+        "🇭🇰 Hong Kong, Central | [BL]",
+        "🇭🇰 Hong Kong, Hong Kong | [BL]",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #1",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #4",
+        "🇭🇰 Hong Kong, Hong Kong | [BL] #5",
+        "🇮🇹 Italy, Milan | [BL]",
+        "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
+        "🇸🇬 Singapore, Singapore | [BL]",
+        "🇸🇬 Singapore, Singapore | [BL] #1",
+        "🇸🇪 Sweden, Stockholm | [BL]",
+        "🇸🇪 Sweden, Stockholm | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL]",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+        "🇹🇼 Taiwan, Taoyuan | [BL] #2",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States | 🌐 | [BL]",
+        "🇺🇸 United States | 🌐 | [BL] #1",
+        "🇺🇸 United States, Las Vegas | [BL]",
+        "🇺🇸 United States, Las Vegas | [BL] #1",
+        "🇺🇸 United States, Las Vegas | [BL] #2",
+        "🇺🇸 United States, Santa Clara | [BL]",
+        "🇺🇸 United States, Santa Clara | [BL] #1",
+        "🇵🇭 Philippines, Pasig | [BL]",
+        "🇺🇸 United States, St Louis (Downtown) | [BL]",
+        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
+        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL] #1",
+        "🇯🇵 Japan, Shibuya City | [BL]",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL]",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #1",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #2",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #3",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #4",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #5",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #6",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #7",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #8",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #9",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #10",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #11",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #12",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #13",
+        "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #14",
+        "🇵🇰 Pakistan, Karachi | [BL]",
+        "🇵🇰 Pakistan, Karachi | [BL] #1",
+        "🇵🇰 Pakistan, Karachi | [BL] #2",
+        "🇵🇰 Pakistan, Karachi | [BL] #3",
+        "🇵🇰 Pakistan, Karachi | [BL] #4",
+        "🇵🇰 Pakistan, Karachi | [BL] #5",
+        "🇵🇰 Pakistan, Karachi | [BL] #6",
+        "🇵🇰 Pakistan, Karachi | [BL] #7",
+        "🇵🇰 Pakistan, Karachi | [BL] #8",
+        "🇵🇰 Pakistan, Karachi | [BL] #9",
+        "🇰🇷 South Korea, Yongsan-dong | [BL]",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #1",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #2",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #3",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #4",
+        "🇰🇷 South Korea, Yongsan-dong | [BL] #5",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇬🇧 United Kingdom, London | [BL] #1",
+        "🇬🇧 United Kingdom, London | [BL] #2",
+        "🇬🇧 United Kingdom, London | [BL] #3",
+        "🇬🇧 United Kingdom, London | [BL] #4",
+        "🇬🇧 United Kingdom, London | [BL] #5",
+        "🇬🇧 United Kingdom, London | [BL] #6",
+        "🇬🇧 United Kingdom, London | [BL] #7",
+        "🇬🇧 United Kingdom, London | [BL] #8",
+        "🇬🇧 United Kingdom, London | [BL] #9",
+        "🇬🇧 United Kingdom, London | [BL] #10",
+        "🇬🇧 United Kingdom, London | [BL] #11",
+        "🇬🇧 United Kingdom, London | [BL] #12"
+      ],
+      "url": "https://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL]",
+      "server": "krasnodar.gosgenarchive.com",
+      "server_port": 8443,
+      "password": "37d487cd-ca11-4658-9d76-ab0e2489b62c",
+      "tls": {
+        "enabled": true,
+        "server_name": "krasnodar.gosgenarchive.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
+      "server": "saratov.gosgenarchive.com",
+      "server_port": 8443,
+      "password": "37d487cd-ca11-4658-9d76-ab0e2489b62c",
+      "tls": {
+        "enabled": true,
+        "server_name": "saratov.gosgenarchive.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #2",
+      "server": "2.26.85.26",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "fi-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #3",
+      "server": "fi-one.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #4",
+      "server": "fi-one.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "fi-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷 France, Paris | 🌐 | [BL]",
+      "server": "62.210.7.139",
+      "server_port": 60111,
+      "password": "github.com%2FAlvin9999-newpac%2Ffanqiang",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-two.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
+      "server": "91.196.32.163",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
+      "tls": {
+        "enabled": true,
+        "server_name": "germany3.h2corp.local",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #2",
+      "server": "91.196.32.163",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
+      "tls": {
+        "enabled": true,
+        "server_name": "germany3.h2corp.local",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #3",
+      "server": "91.196.32.163",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #4",
+      "server": "91.196.32.163",
+      "server_port": 443,
+      "password": "mkL3AfdSZIpTWRB9TcWPn9vywPGN89MRHg3ToRDj",
+      "tls": {
+        "enabled": true,
+        "server_name": "91.196.32.163",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Central | [BL]",
+      "server": "hkt.ccwink.cc",
+      "server_port": 56309,
+      "password": "2f4c3fc5-8fa2-4576-a583-8f98a6026887",
+      "tls": {
+        "enabled": true,
+        "server_name": "hkt.ccwink.cc"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL]",
+      "server": "hk03.poke-mon.xyz",
+      "server_port": 20000,
+      "password": "e03ce527-eb73-4ad3-9c88-966def39ae95",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #1",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #2",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "202.146.222.29",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #3",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https://t.me/WangCai2",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #4",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https://t.me/WangCai2🇨🇳",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇭🇰 Hong Kong, Hong Kong | [BL] #5",
+      "server": "202.146.222.29",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "https://t.me/WangCai2рҹҮЁрҹҮі",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇮🇹 Italy, Milan | [BL]",
+      "server": "it-one.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "it-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇷🇴 Romania, Năvodari | 🌐 | [BL]",
+      "server": "85.120.228.208",
+      "server_port": 47257,
+      "password": "35415e5e-3666-4454-8c45-903af0fcddf4",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇸🇬 Singapore, Singapore | [BL]",
+      "server": "209.74.81.28",
+      "server_port": 8443,
+      "password": "b7c9e2f1-4d83-42a1-9e5f-sg2026proxy",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇸🇬 Singapore, Singapore | [BL] #1",
+      "server": "209.74.81.28",
+      "server_port": 8443,
+      "password": "b7c9e2f1-4d83-42a1-9e5f-sg2026proxy",
+      "tls": {
+        "enabled": true,
+        "server_name": "209.74.81.28",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇸🇪 Sweden, Stockholm | [BL]",
+      "server": "ulyanovsk.gosgenarchive.com",
+      "server_port": 8443,
+      "password": "37d487cd-ca11-4658-9d76-ab0e2489b62c",
+      "tls": {
+        "enabled": true,
+        "server_name": "ulyanovsk.gosgenarchive.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇸🇪 Sweden, Stockholm | [BL] #1",
+      "server": "142.111.244.75",
+      "server_port": 8443,
+      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-power-pl.ddnsguru.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL]",
+      "server": "160.187.100.109",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn-tw-002.fastervpn.world",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #1",
+      "server": "vpn-tw-002.fastervpn.world",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇹🇼 Taiwan, Taoyuan | [BL] #2",
+      "server": "vpn-tw-002.fastervpn.world",
+      "server_port": 443,
+      "password": "H7mP2xY9kJ4nQ8wR5tF6vB3z",
+      "tls": {
+        "enabled": true,
+        "server_name": "vpn-tw-002.fastervpn.world",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
+      "server": "nl2.unlockvpn.online",
+      "server_port": 10808,
+      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
+      "tls": {
+        "enabled": true,
+        "server_name": "nl2.unlockvpn.online"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States | 🌐 | [BL]",
+      "server": "155.117.19.221",
+      "server_port": 30001,
+      "password": "6fe3a600-4bcf-4040-81eb-ccd29231db2b",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States | 🌐 | [BL] #1",
+      "server": "66.94.121.46",
+      "server_port": 443,
+      "password": "gf1%3Agfhysteria2024",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.broadcom.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Las Vegas | [BL]",
+      "server": "uswx3.wxgqlfx.vip",
+      "server_port": 25379,
+      "password": "1db7c1ae-e1e1-4612-8057-9f7b54849472",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Las Vegas | [BL] #1",
+      "server": "uswx3.wxgqlfx.vip",
+      "server_port": 25379,
+      "password": "1db7c1ae-e1e1-4612-8057-9f7b54849472",
+      "tls": {
+        "enabled": true,
+        "server_name": "144.225.187.184",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Las Vegas | [BL] #2",
+      "server": "uswx3.wxgqlfx.vip",
+      "server_port": 25379,
+      "password": "1db7c1ae-e1e1-4612-8057-9f7b54849472",
+      "tls": {
+        "enabled": true,
+        "server_name": "144.225.187.184#美国3@wxgqlfx",
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Santa Clara | [BL]",
+      "server": "43.130.7.3",
+      "server_port": 8443,
+      "password": "Hy2%40SiLiCon2026%21",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Santa Clara | [BL] #1",
+      "server": "43.130.7.3",
+      "server_port": 8443,
+      "password": "Hy2%40SiLiCon2026%21",
+      "tls": {
+        "enabled": true,
+        "server_name": "bing.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇵🇭 Philippines, Pasig | [BL]",
+      "server": "61.245.11.60",
+      "server_port": 80,
+      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/vmess/",
+        "headers": {
+          "Host": "61.245.11.60"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "🇺🇸 United States, St Louis (Downtown) | [BL]",
+      "server": "172.64.80.1",
+      "server_port": 8443,
+      "uuid": "60441548-b68e-43b2-8191-e3b884be4b3c",
+      "security": "auto",
+      "transport": {
+        "type": "ws",
+        "path": "/lMnsZUN4/",
+        "headers": {
+          "Host": "v2ray1.dozapp.xyz"
+        }
+      },
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20066,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL] #1",
+      "server": "86.106.84.195",
+      "server_port": 53261,
+      "password": "y3b03zx3tznhyo538p4c",
+      "tls": {
+        "enabled": true,
+        "server_name": "speedtest.tinkoff.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL]",
+      "server": "157.254.38.210",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #1",
+      "server": "157.254.38.210",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #2",
+      "server": "157.254.38.210",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #3",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #4",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #5",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #6",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20129,
+      "password": "41c406e2-12b5-41f2-a329-d0621052d675",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #7",
+      "server": "157.254.38.210",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #8",
+      "server": "157.254.38.210",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #9",
+      "server": "157.254.38.210",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #10",
+      "server": "oplosgru-c.catcat321.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #11",
+      "server": "oplosgru-c.catcat321.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #12",
+      "server": "oplosgru-c.catcat321.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #13",
+      "server": "oplosgru-c.catcat321.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | 🌐 | [BL] #14",
+      "server": "oplosgru-c.catcat321.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "oplosgru-c.catcat321.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL]",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #1",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #2",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #3",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #4",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "android"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #5",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #6",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #7",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #8",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇵🇰 Pakistan, Karachi | [BL] #9",
+      "server": "149.104.104.58",
+      "server_port": 443,
+      "password": "S.ibYdZshHTF-ne.M%2B.Fznp_-hyFFnCSix",
+      "tls": {
+        "enabled": true,
+        "server_name": "149.104.104.58",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL]",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL] #1",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL] #2",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL] #3",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "server_name": "154.90.62.70",
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL] #4",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "server_name": "154.90.62.70",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇰🇷 South Korea, Yongsan-dong | [BL] #5",
+      "server": "154.90.62.70",
+      "server_port": 56127,
+      "password": "p5jTPcffLgi4gaNOJd2KUTb9YEPBBD5B",
+      "tls": {
+        "enabled": true,
+        "server_name": "154.90.62.70",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL]",
+      "server": "157.254.38.210",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #1",
+      "server": "157.254.38.210",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #2",
+      "server": "157.254.38.210",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #3",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #4",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "ios"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #5",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "safari"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #6",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #7",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #8",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #9",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hkdcrtc-e.catcat321.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #10",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hkdcrtc-e.catcat321.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #11",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hkdcrtc-e.catcat321.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "insecure": true
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇬🇧 United Kingdom, London | [BL] #12",
+      "server": "hkdcrtc-e.catcat321.com",
+      "server_port": 20041,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hkdcrtc-e.catcat321.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "qq"
+        },
+        "insecure": true
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+        {
+            "protocol": "dns",
+            "action": "hijack-dns"
+        },
+
+            {
+            "ip_cidr": [
+                "198.18.0.0/15",
+                "fc00::/18"
+            ],
+            "outbound": "proxy-out"
+        },
+        {
+            "rule_set": [
+                "geosite-category-ru",
+                "geoip-ru"
+            ],
+            "outbound": "direct-out"
+        },
+        {
+            "protocol": "quic",
+            "outbound": "proxy-out"
+        }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "db-github",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-media-ru-blocked",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-antizapret",
+        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-google",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-category-ai-chat",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+        "download_detour": "direct-out"
+      }
+    ],
+    "final": "direct-out",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": "dns-local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
