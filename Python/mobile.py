@@ -372,7 +372,7 @@ def main():
                         "geosite-category-ru",
                         "geoip-ru"
                     ],
-                    "server": "local"
+                    "server": "dns-local"
                 },
                 {
                     "query_type": [
@@ -385,13 +385,12 @@ def main():
                 {
                     "rule_set": [
                         "db-category-ai-chat",
-                        "geosite-category-media-ru-blocked",
-                        "db-antizapret"
+                        "geosite-category-media-ru-blocked"
                     ],
                     "server": "fakeip"
                 }
             ],
-            "final": "dns-local",
+            "final": "dns-remote",
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
@@ -431,8 +430,7 @@ def main():
         {
             "rule_set": [
                 "db-category-ai-chat",
-                "geosite-category-media-ru-blocked",
-                "db-antizapret"
+                "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
         },
