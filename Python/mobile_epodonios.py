@@ -102,8 +102,8 @@ def parse_proxy_link(link: str) -> dict | None:
             data = json.loads(decoded)
 
             net = data.get("net", "tcp").lower()
-            if net in ["xhttp", "httpget"] or data.get("type", "").lower() in ["xhttp", "httpget"]:
-                print(f"Skipping unsupported xhttp VMess node: {data.get('ps')}")
+            if net in ["xhttp", "httpget", "kcp", "mkcp"] or data.get("type", "").lower() in ["xhttp", "httpget", "kcp", "mkcp"]:
+                print(f"Skipping unsupported transport VMess node: {data.get('ps')}")
                 return None
 
             outbound = {
