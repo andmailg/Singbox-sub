@@ -221,6 +221,18 @@ def clean_outbound(outbound: dict) -> dict:
                 print(f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'")
             outbound.pop("transport", None)
             outbound.pop("packet_encoding", None)
+        else:
+            # --- ИСПРАВЛЕНИЕ ОШИБКИ С ЭКРАНА ---
+            # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
+            if current_type not in ["ws", "httpupgrade"]:
+                if "path" in transport:
+                    print(f"Removing invalid field 'path' from transport '{current_type}' for node '{outbound.get('tag')}'")
+                    transport.pop("path", None)
+
+            # Поле 'service_name' разрешено ТОЛЬКО для 'grpc'
+            if current_type != "grpc":
+                if "service_name" in transport:
+                    transport.pop("service_name", None)
 
     # 2. Очистка REALITY (fingerprint переносится в utls)
     tls_opts = outbound.get("tls", {})
@@ -233,17 +245,10 @@ def clean_outbound(outbound: dict) -> dict:
 
     # 3. Удаление alterId: 0 у VMess
     if outbound.get("type") == "vmess":
-        if outbound.get("alterId") == 0:
+        # Добавлена безопасная проверка на случай отсутствия ключа alterId
+        if "alterId" in outbound and outbound.get("alterId") == 0:
             outbound.pop("alterId", None)
 
-    return outbound
-
-
-def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
-    if outbound.get("type") == "urltest":
-        outbound.pop("lru", None)
-        outbound.pop("timeout", None)
     return outbound
 
 
