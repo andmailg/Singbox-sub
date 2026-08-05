@@ -1390,6 +1390,9 @@
   ],
   "route": {
     "rules": [
+      {
+            "action": "sniff"
+        },
         {
             "protocol": "dns",
             "action": "hijack-dns"
@@ -1458,7 +1461,7 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "proxy-out",
+    "final": "direct-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "dns-local"
