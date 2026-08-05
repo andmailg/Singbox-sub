@@ -430,7 +430,9 @@ def main():
         },
         {
             "rule_set": [
-                "geosite-category-media-ru-blocked"
+                "db-category-ai-chat",
+                "geosite-category-media-ru-blocked",
+                "db-antizapret"
             ],
             "outbound": "proxy-out"
         },
