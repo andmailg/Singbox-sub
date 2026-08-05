@@ -389,15 +389,7 @@ def main():
                 "tag": "tun-in",
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
-                "auto_route": True,
-                "route_exclude_address": [
-                    "127.0.0.0/8",
-                    "10.0.0.0/8",
-                    "172.16.0.0/12",
-                    "192.168.0.0/16",
-                    "::1/128",
-                    "fe80::/10"
-                  ]
+                "auto_route": True
             }
         ],
         "outbounds": [
