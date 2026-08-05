@@ -163,8 +163,6 @@ def parse_proxy_link(link: str) -> dict | None:
             outbound["tls"] = tls_opts
 
         net = net_type or "tcp"
-        if net == "raw":
-            net = "tcp"
         if net != "tcp":
             transport = {"type": net}
             path = params.get("path", [None])[0]
@@ -337,6 +335,12 @@ def main():
         "dns": {
             "servers": [
                 {
+                    "type": "fakeip",
+                    "tag": "fakeip",
+                    "inet4_range": "198.18.0.0/15",
+                    "inet6_range": "fc00::/18"
+                },
+                {
                     "type": "https",
                     "tag": "dns-local",
                     "server": "1.1.1.1",
@@ -346,14 +350,18 @@ def main():
                     }
                 },
                 {
-                    "type": "local",
-                    "tag": "local"
+                    "type": "https",
+                    "tag": "dns-remote",
+                    "server": "1.1.1.1",
+                    "detour": "proxy-out",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18"
+                    "type": "local",
+                    "tag": "local"
                 }
             ],
             "rules": [
@@ -381,7 +389,7 @@ def main():
                     "server": "fakeip"
                 }
             ],
-            "final": "local",
+            "final": "dns-local",
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
@@ -391,7 +399,13 @@ def main():
                 "tag": "tun-in",
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
-                "auto_route": True
+                "auto_route": True,
+                "route_exclude_address": [
+                    "192.168.0.0/16",
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "fc00::/7"
+                  ]
             }
         ],
         "outbounds": [
@@ -413,11 +427,22 @@ def main():
             "action": "hijack-dns"
         },
         {
+        "ip_cidr": [
+          "198.18.0.0/15",
+          "fc00::/18"
+        ],
+        "outbound": "proxy-out"
+      },
+        {
             "rule_set": [
                 "geosite-category-ru",
                 "geoip-ru"
             ],
             "outbound": "direct-out"
+        },
+        {
+            "protocol": "quic",
+            "outbound": "proxy-out"
         }
     ],
     "rule_set": [
