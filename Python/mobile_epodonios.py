@@ -207,26 +207,30 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
-    
+
     # 1. Валидация и очистка транспорта (Transport)
     transport = outbound.get("transport", {})
     if transport:
         # Список транспортов, которые официально поддерживает Sing-Box
         ALLOWED_TRANSPORTS = ["http", "ws", "grpc", "quic", "httpupgrade"]
         current_type = transport.get("type", "").lower()
-        
-        # Если транспорт tcp, tcpconfigprxy, kcp или любой другой неизвестный
+
+        # Если транспорт неизвестный или равен tcp — полностью удаляем блок
         if current_type not in ALLOWED_TRANSPORTS or current_type == "tcp":
             if current_type and current_type != "tcp":
-                print(f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'")
+                print(
+                    f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'"
+                )
             outbound.pop("transport", None)
             outbound.pop("packet_encoding", None)
         else:
-            # --- ИСПРАВЛЕНИЕ ОШИБКИ С ЭКРАНА ---
-            # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
+            # Исправление ошибки unknown field "path" для Sing-Box:
+            # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'.
             if current_type not in ["ws", "httpupgrade"]:
                 if "path" in transport:
-                    print(f"Removing invalid field 'path' from transport '{current_type}' for node '{outbound.get('tag')}'")
+                    print(
+                        f"Removing invalid field 'path' from transport '{current_type}' for node '{outbound.get('tag')}'"
+                    )
                     transport.pop("path", None)
 
             # Поле 'service_name' разрешено ТОЛЬКО для 'grpc'
@@ -245,12 +249,11 @@ def clean_outbound(outbound: dict) -> dict:
 
     # 3. Удаление alterId: 0 у VMess
     if outbound.get("type") == "vmess":
-        # Добавлена безопасная проверка на случай отсутствия ключа alterId
-        if "alterId" in outbound and outbound.get("alterId") == 0:
-            outbound.pop("alterId", None)
+        if "alterId" in outbound:
+            if outbound.get("alterId") == 0:
+                outbound.pop("alterId", None)
 
     return outbound
-
 
 def main():
     sub_url = os.environ.get("XRAY_SUBSCRIPTION_URL")
