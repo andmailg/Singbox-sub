@@ -331,148 +331,156 @@ def main():
         "log": {"level": "warn", "timestamp": True},
         "dns": {
             "servers": [
-                {"type": "https", "tag": "dns-local", "server": "1.1.1.1"},
-                {"type": "https", "tag": "doh-8", "server": "8.8.8.8"},
                 {
                     "type": "https",
-                    "tag": "doh-comss",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.comss.one",
-                    "detour": "proxy-out",
+                    "tag": "dns-local",
+                    "server": "1.1.1.1",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "https",
-                    "tag": "doh-xbox",
-                    "domain_resolver": "dns-local",
-                    "server": "xbox-dns.ru",
+                    "tag": "dns-remote",
+                    "server": "1.1.1.1",
                     "detour": "proxy-out",
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-geohide",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.geohide.ru",
-                    "server_port": 444,
-                    "detour": "proxy-out",
-                },
-                {
-                    "type": "https",
-                    "tag": "doh-nullproxy",
-                    "domain_resolver": "dns-local",
-                    "server": "dns.nullsproxy.com",
-                    "detour": "proxy-out",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "fakeip",
                     "tag": "fakeip",
                     "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18",
+                    "inet6_range": "fc00::/18"
                 },
-                {"type": "local", "tag": "local"},
+                {
+                    "type": "local",
+                    "tag": "local"
+                }
             ],
             "rules": [
                 {
-                    "rule_set": "db-category-ai-chat",
-                    "server": "doh-xbox",
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "server": "dns-local"
+                },
+                {
+                    "query_type": [
+                        "HTTPS",
+                        "SVCB"
+                    ],
+                    "action": "predefined",
+                    "rcode": "REFUSED"
+                },
+                {
+                    "rule_set": [
+                        "db-category-ai-chat",
+                        "geosite-category-media-ru-blocked"
+                    ],
+                    "server": "fakeip"
                 }
             ],
-            "final": "dns-local",
+            "final": "dns-remote",
             "strategy": "prefer_ipv4",
-            "cache_capacity": 2048,
+            "cache_capacity": 2048
         },
         "inbounds": [
             {
                 "type": "tun",
+                "tag": "tun-in",
                 "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
-                    "192.168.0.0/16",
                     "10.0.0.0/8",
                     "172.16.0.0/12",
+                    "192.168.0.0/16",
+                    "169.254.0.0/16",
+                    "224.0.0.0/4",
+                    "255.255.255.255/32",
                     "fc00::/7"
                   ]
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out", "network_strategy": "hybrid"},
+            {
+                "type": "direct",
+                "tag": "direct-out"
+            },
             selector_outbound,
             urltest_outbound,
             *outbounds
         ],
   "route": {
     "rules": [
-      {
-        "action": "sniff"
-      },
-      {
-        "protocol": "dns",
-        "action": "hijack-dns"
-      },
-      {
-        "port": 853,
-        "action": "reject" 
-      },
-      {
-        "rule_set": [
-          "db-antizapret",
-          "db-category-ai-chat"
-        ],
-        "outbound": "proxy-out"
-      },
-      {
-        "domain_suffix": ["vtb.ru"],
-        "outbound": "proxy-out"
-      },
-      {
-        "rule_set": ["geosite-category-ru", "geoip-ru"],
-        "outbound": "direct-out"
-      },
-      {
-        "protocol": "quic",
-        "outbound": "proxy-out"
-      }
+        {
+            "action": "sniff"
+        },
+        {
+            "protocol": "dns",
+            "action": "hijack-dns"
+        },
+        {
+            "rule_set": [
+                "db-category-ai-chat",
+                "geosite-category-media-ru-blocked"
+            ],
+            "outbound": "proxy-out"
+        },
+        {
+            "rule_set": [
+                "geosite-category-ru",
+                "geoip-ru"
+            ],
+            "outbound": "direct-out"
+        }
     ],
     "rule_set": [
-      {
-        "type": "remote",
-        "tag": "db-github",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ru",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-ru",
-        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-antizapret",
-        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-google",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-category-ai-chat",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-        "download_detour": "direct-out"
-      }
+        {
+            "type": "remote",
+            "tag": "db-github",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "geosite-category-media-ru-blocked",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "geosite-category-ru",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "geoip-ru",
+            "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "db-antizapret",
+            "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "db-category-ai-chat",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+            "download_detour": "direct-out"
+        }
     ],
     "final": "proxy-out",
     "auto_detect_interface": True,
+    "override_android_vpn": True,
     "default_domain_resolver": "dns-local"
   },
   "experimental": {
@@ -480,7 +488,7 @@ def main():
       "enabled": True
     }
   }
-    }
+}
 
     with open("sing-box-white.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
