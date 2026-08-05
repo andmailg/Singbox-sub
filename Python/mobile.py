@@ -408,12 +408,12 @@ def main():
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
-                     "10.0.0.0/8",
-          "172.16.0.0/12",
-          "192.168.0.0/16",
-          "169.254.0.0/16",
-          "224.0.0.0/4",
-          "255.255.255.255/32",
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "192.168.0.0/16",
+                    "169.254.0.0/16",
+                    "224.0.0.0/4",
+                    "255.255.255.255/32",
                     "fc00::/7"
                   ]
             }
@@ -452,60 +452,54 @@ def main():
         }
     ],
     "rule_set": [
-      {
-        "type": "remote",
-        "tag": "db-github",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-        "download_detour": "direct-out"
-      },
+        {
+            "type": "remote",
+            "tag": "db-github",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+            "download_detour": "direct-out"
+        },
         {
             "type": "remote",
             "tag": "geosite-category-media-ru-blocked",
             "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
             "download_detour": "direct-out"
         },
-      {
-        "type": "remote",
-        "tag": "geosite-category-ru",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "geoip-ru",
-        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-antizapret",
-        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-google",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-google.srs",
-        "download_detour": "direct-out"
-      },
-      {
-        "type": "remote",
-        "tag": "db-category-ai-chat",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-        "download_detour": "direct-out"
-      }
+        {
+            "type": "remote",
+            "tag": "geosite-category-ru",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "geoip-ru",
+            "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "db-antizapret",
+            "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+            "download_detour": "direct-out"
+        },
+        {
+            "type": "remote",
+            "tag": "db-category-ai-chat",
+            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+            "download_detour": "direct-out"
+        }
     ],
-      "final": "proxy-out",
-      "auto_detect_interface": True,
-      "override_android_vpn": True,
-      "default_domain_resolver": "dns-local"
+    "final": "proxy-out",
+    "auto_detect_interface": True,
+    "override_android_vpn": True,
+    "default_domain_resolver": "dns-local"
   },
   "experimental": {
     "cache_file": {
       "enabled": True
     }
   }
-    }
+}
 
     with open("sing-box.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
