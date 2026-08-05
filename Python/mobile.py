@@ -21,6 +21,12 @@ def parse_proxy_link(link: str) -> dict | None:
         print(f"Skipping unsupported xhttp node: {link[:30]}...")
         return None
 
+    # Исключаем небезопасные соединения (allowInsecure / insecure)
+    insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
+    if insecure == "1" or insecure.lower() == "true":
+        print(f"Skipping insecure node: {link[:30]}...")
+        return None
+
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
 
     # --- 1. VLESS ---
