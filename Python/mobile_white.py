@@ -255,7 +255,6 @@ def clean_outbound(outbound: dict) -> dict:
 
     return outbound
 
-
 def clean_urltest(outbound: dict) -> dict:
     """Удаление lru и timeout из urltest."""
     if outbound.get("type") == "urltest":
