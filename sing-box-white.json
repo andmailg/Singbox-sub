@@ -231,6 +231,7 @@
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #133",
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #134",
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #135",
+        "🇳🇱 The Netherlands [*CIDR] CDN",
         "🇷🇺 Russia [*CIDR] VK",
         "🇷🇺 Russia [*CIDR] VK #1",
         "🇷🇺 Russia [*CIDR] VK #2",
@@ -386,6 +387,7 @@
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #133",
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #134",
         "🇳🇱 The Netherlands | 🌐 [*CIDR] YA #135",
+        "🇳🇱 The Netherlands [*CIDR] CDN",
         "🇷🇺 Russia [*CIDR] VK",
         "🇷🇺 Russia [*CIDR] VK #1",
         "🇷🇺 Russia [*CIDR] VK #2",
@@ -3060,6 +3062,25 @@
         },
         "reality": {
           "public_key": "m_Xgh5XeqmN9JaDxkct4yTup2YPVxCV5fGnUnMZ3pWE"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇳🇱 The Netherlands [*CIDR] CDN",
+      "server": "37.18.15.41",
+      "server_port": 443,
+      "uuid": "5cd8fc43-878f-11f1-8c93-54db13ea7d40",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.nvidia.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "public_key": "XZeD6_It9XHw6A0p6GCSJHDzLCT9AFvDaiNrpQpMRXE",
+          "short_id": "51d3e4f6"
         }
       }
     },
