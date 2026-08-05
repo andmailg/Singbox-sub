@@ -1414,7 +1414,7 @@
                 "fc00::/7",
                 "fe80::/10"
             ],
-            "outbound": "direct"
+            "outbound": "direct-out"
         },
         {
             "rule_set": [
