@@ -21,6 +21,12 @@ def parse_proxy_link(link: str) -> dict | None:
         print(f"Skipping unsupported xhttp node: {link[:30]}...")
         return None
 
+    # Исключаем небезопасные соединения (allowInsecure / insecure)
+    insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
+    if insecure == "1" or insecure.lower() == "true":
+        print(f"Skipping insecure node: {link[:30]}...")
+        return None
+
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
 
     # --- 1. VLESS ---
@@ -163,6 +169,8 @@ def parse_proxy_link(link: str) -> dict | None:
             outbound["tls"] = tls_opts
 
         net = net_type or "tcp"
+        if net == "raw":
+            net = "tcp"
         if net != "tcp":
             transport = {"type": net}
             path = params.get("path", [None])[0]
@@ -236,7 +244,6 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
 
     return None
-
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
@@ -353,12 +360,13 @@ def main():
       "enabled": True,
       "path": "/opt/etc/sing-box/cache"
     },
-    "clash_api": {
-      "external_controller": "192.168.1.1:9090",
-      "external_ui": "/opt/etc/sing-box/ui",
-      "external_ui_download_detour": "direct-out",
-      "access_control_allow_private_network": True
-    }
+      
+        "clash_api": {
+            "external_controller": "192.168.1.1:9090",
+            "external_ui": "/opt/etc/sing-box/ui",
+            "external_ui_download_detour": "direct-out",
+            "access_control_allow_private_network": True
+        }
     }
 }
 
