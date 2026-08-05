@@ -10,7 +10,15 @@ def parse_proxy_link(link: str) -> dict | None:
     if not link or link.startswith("#"):
         return None
 
-    parsed = urllib.parse.urlparse(link)
+    # Защита от некорректных URL (например, Invalid IPv6 URL)
+    try:
+        parsed = urllib.parse.urlparse(link)
+        # Принудительно обращаемся к hostname, чтобы отловить ошибку парсинга на этом этапе
+        _ = parsed.hostname
+    except ValueError:
+        print(f"Skipping malformed or invalid URL: {link[:30]}...")
+        return None
+
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
@@ -67,6 +75,8 @@ def parse_proxy_link(link: str) -> dict | None:
             outbound["tls"] = tls_opts
 
         net = net_type or "tcp"
+        if net == "raw":
+            net = "tcp"
         if net != "tcp":
             transport = {"type": net}
             path = params.get("path", [None])[0]
