@@ -6,18 +6,17 @@
   "dns": {
     "servers": [
       {
-        "type": "local",
-        "tag": "local"
-      },
-      {
         "type": "https",
-        "tag": "dns-remote",
+        "tag": "dns-local",
         "server": "1.1.1.1",
-        "detour": "proxy-out",
         "tls": {
           "enabled": true,
           "server_name": "cloudflare-dns.com"
         }
+      },
+      {
+        "type": "local",
+        "tag": "local"
       },
       {
         "type": "fakeip",
@@ -1308,7 +1307,7 @@
     "final": "proxy-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "default_domain_resolver": "dns-remote"
+    "default_domain_resolver": "dns-local"
   },
   "experimental": {
     "cache_file": {
