@@ -70,13 +70,7 @@
       "tag": "tun-in",
       "mtu": 1420,
       "address": "172.19.0.1/30",
-      "auto_route": true,
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "10.0.0.0/8",
-        "172.16.0.0/12",
-        "fc00::/7"
-      ]
+      "auto_route": true
     }
   ],
   "outbounds": [
@@ -1400,18 +1394,24 @@
             "protocol": "dns",
             "action": "hijack-dns"
         },
+
         {
             "ip_cidr": [
                 "127.0.0.0/8",
                 "10.0.0.0/8",
                 "172.16.0.0/12",
                 "192.168.0.0/16",
-                "198.18.0.0/15",
                 "::1/128",
-                "fc00::/7",
                 "fe80::/10"
             ],
             "outbound": "direct-out"
+        },
+            {
+            "ip_cidr": [
+                "198.18.0.0/15",
+                "fc00::/18"
+            ],
+            "outbound": "proxy-out"
         },
         {
             "rule_set": [
