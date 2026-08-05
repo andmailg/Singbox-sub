@@ -6,15 +6,6 @@
   "dns": {
     "servers": [
       {
-        "type": "https",
-        "tag": "dns-local",
-        "server": "1.1.1.1",
-        "tls": {
-          "enabled": true,
-          "server_name": "cloudflare-dns.com"
-        }
-      },
-      {
         "type": "local",
         "tag": "local"
       },
