@@ -1371,6 +1371,14 @@
       "action": "hijack-dns"
     },
     {
+        "rule_set": [
+          "db-category-ai-chat",
+          "geosite-category-media-ru-blocked",
+          "db-antizapret"
+        ],
+        "outbound": "proxy-out"
+    },
+    {
       "rule_set": [
         "geosite-category-ru",
         "geoip-ru"
