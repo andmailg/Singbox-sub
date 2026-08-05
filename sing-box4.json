@@ -1368,9 +1368,6 @@
       "action": "hijack-dns"
     },
     {
-      "action": "sniff"
-    },
-    {
       "ip_cidr": [
         "198.18.0.0/15",
         "fc00::/18"
