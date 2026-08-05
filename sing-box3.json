@@ -1370,21 +1370,6 @@
       "protocol": "dns",
       "action": "hijack-dns"
     },
-      {
-        "ip_cidr": [
-          "198.18.0.0/15",
-          "fc00::/18"
-        ],
-        "outbound": "proxy-out"
-      },
-    {
-        "rule_set": [
-          "db-category-ai-chat",
-          "geosite-category-media-ru-blocked",
-          "db-antizapret"
-        ],
-        "outbound": "proxy-out"
-      },
     {
       "rule_set": [
         "geosite-category-ru",
@@ -1437,7 +1422,7 @@
         "download_detour": "direct-out"
       }
     ],
-    "final": "direct-out",
+    "final": "proxy-out",
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "default_domain_resolver": "local"
