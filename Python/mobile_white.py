@@ -181,16 +181,27 @@ def parse_proxy_link(link: str) -> dict | None:
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
         try:
-            userinfo = parsed.username or (parsed.netloc.split("@")[0] if "@" in parsed.netloc else None)
+            # Извлекаем userinfo (все что до знака @)
+            userinfo = parsed.username
+            if not userinfo and parsed.netloc:
+                userinfo = parsed.netloc.split("@")[0] if "@" in parsed.netloc else None
+
             method, password = None, None
             if userinfo:
+                # Паддинг для Base64
                 userinfo += "=" * (-len(userinfo) % 4)
                 try:
                     decoded_userinfo = base64.b64decode(userinfo).decode("utf-8")
-                    method, password = decoded_userinfo.split(":", 1)
+                    # Делим с правого края, так как пароль всегда последний, а в методе могут быть двоеточия
+                    if ":" in decoded_userinfo:
+                        method, password = decoded_userinfo.rsplit(":", 1)
                 except Exception:
-                    method = parsed.username
-                    password = parsed.password
+                    pass
+
+            # Если base64 не сработал, пробуем стандартные свойства URL
+            if not method or not password:
+                method = parsed.username
+                password = parsed.password
 
             return {
                 "type": "shadowsocks",
@@ -202,7 +213,7 @@ def parse_proxy_link(link: str) -> dict | None:
             }
         except Exception:
             return None
-
+    
     return None
 
 def clean_outbound(outbound: dict) -> dict:
@@ -273,33 +284,29 @@ def clean_outbound(outbound: dict) -> dict:
 
     # 4. Валидация методов шифрования для Shadowsocks
     if outbound.get("type") == "shadowsocks":
-        # Список официально поддерживаемых методов в актуальных версиях Sing-Box
         ALLOWED_METHODS = [
-            "aes-128-gcm",
-            "aes-192-gcm",
-            "aes-256-gcm",
-            "chacha20-ietf-poly1305",
-            "xchacha20-ietf-poly1305",
-            "2022-blake3-aes-128-gcm",
-            "2022-blake3-aes-256-gcm",
-            "2022-blake3-chacha20-poly1305",
-            "none",
+            "aes-128-gcm", "aes-192-gcm", "aes-256-gcm",
+            "chacha20-ietf-poly1305", "xchacha20-ietf-poly1305",
+            "2022-blake3-aes-128-gcm", "2022-blake3-aes-256-gcm",
+            "2022-blake3-chacha20-poly1305", "none"
         ]
 
-        current_method = outbound.get("method", "")
-        if not current_method:
-            current_method = ""
+        current_method = outbound.get("method")
+        
+        # Строгая проверка на None, пустые строки и не-строковые типы
+        if current_method is None or not isinstance(current_method, str) or not current_method.strip():
+            current_method = "aes-256-gcm"
         else:
-            current_method = str(current_method).lower().strip()
+            current_method = current_method.lower().strip()
 
-        # Если метод пустой или его нет в белом списке Sing-Box
+        # Если метод не распознан Sing-Box — принудительно ставим рабочий дефолт
         if current_method not in ALLOWED_METHODS:
-            print(
-                f"Fixing shadowsocks method: '{current_method}' is invalid or empty for node '{outbound.get('tag')}'. Fallback to 'aes-256-gcm'"
-            )
-            outbound["method"] = "aes-256-gcm"
+            print(f"Fixing shadowsocks method: '{current_method}' replaced with 'aes-256-gcm' for node '{outbound.get('tag')}'")
+            current_method = "aes-256-gcm"
 
-        # Дополнительная защита: если пароль отсутствует, задаем заглушку во избежание краша
+        outbound["method"] = current_method
+
+        # Защита пароля
         if not outbound.get("password"):
             outbound["password"] = "password"
 
