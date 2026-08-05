@@ -10,7 +10,15 @@ def parse_proxy_link(link: str) -> dict | None:
     if not link or link.startswith("#"):
         return None
 
-    parsed = urllib.parse.urlparse(link)
+    # Защита от некорректных URL (например, Invalid IPv6 URL)
+    try:
+        parsed = urllib.parse.urlparse(link)
+        # Принудительно обращаемся к hostname, чтобы отловить ошибку парсинга на этом этапе
+        _ = parsed.hostname
+    except ValueError:
+        print(f"Skipping malformed or invalid URL: {link[:30]}...")
+        return None
+
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
@@ -244,7 +252,6 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
 
     return None
-
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
