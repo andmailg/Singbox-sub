@@ -99,7 +99,7 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
-            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS ---
+            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS (если вы добавляли её ранее) ---
             net = data.get("net", "tcp").lower()
             if net == "ws":
                 print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
@@ -120,15 +120,16 @@ def parse_proxy_link(link: str) -> dict | None:
                 "server": data.get("add"),
                 "server_port": int(data.get("port", 443)),
                 "uuid": data.get("id"),
-                "security": data.get("scy", "auto"),
+                "security": vmess_security,
             }
 
             if data.get("net"):
-                outbound["transport"] = {
-                    "type": data.get("net").lower(),
-                    "path": data.get("path"),
-                    "headers": {"Host": data.get("host")} if data.get("host") else None
-                }
+                transport_opts = {"type": data.get("net").lower()}
+                if data.get("path"):
+                    transport_opts["path"] = data.get("path")
+                if data.get("host"):
+                    transport_opts["headers"] = {"Host": data.get("host")}
+                outbound["transport"] = transport_opts
 
             if data.get("tls") == "tls":
                 tls_opts = {"enabled": True}
@@ -144,7 +145,7 @@ def parse_proxy_link(link: str) -> dict | None:
             return outbound
         except Exception:
             return None
-
+    
     # --- 3. TROJAN ---
     elif scheme == "trojan":
         security = params.get("security", ["tls"])[0].lower()
