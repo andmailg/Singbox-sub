@@ -599,7 +599,7 @@ def main():
             reader.close()
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
-    MAX_NODES_LIMIT = 200
+    MAX_NODES_LIMIT = 5000
     total_found = len(filtered_nodes)
 
     if total_found > MAX_NODES_LIMIT:
