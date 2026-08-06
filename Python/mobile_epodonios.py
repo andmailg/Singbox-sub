@@ -49,16 +49,16 @@ def parse_proxy_link(link: str) -> dict | None:
     if scheme == "vless":
         # КРИТЕРИЙ 1: Фильтрация по портам (Строго 443 или 8443)
         port = parsed.port
-        if port not in [443, 8443]:
+        if port not in:
             print(f"Skipping VLESS node: invalid port {port} (Only 443/8443 allowed) for tag '{tag}'")
             return None
 
-        # ИСПРАВЛЕНО: Безопасно достаем нулевой элемент из списка параметров
-        flow_param = params.get("flow", [""])
-        flow = flow_param[0].strip().lower() if flow_param else ""
+        # Безопасно достаем нулевой элемент из списка параметров
+        flow_param = params.get("flow")
+        flow = flow_param[0].strip().lower() if flow_param and flow_param[0] else ""
 
-        security_param = params.get("security", ["none"])
-        security = security_param[0].strip().lower() if security_param else "none"
+        security_param = params.get("security")
+        security = security_param[0].strip().lower() if security_param and security_param[0] else "none"
 
         is_vision = (flow == "xtls-rprx-vision")
         is_reality = (security == "reality")
@@ -83,33 +83,49 @@ def parse_proxy_link(link: str) -> dict | None:
         # Настройка безопасности (TLS или REALITY)
         if security in ["tls", "reality"] or is_vision:
             tls_opts = {"enabled": True}
-            sni = params.get("sni", [None])
-            if sni:
-                tls_opts["server_name"] = sni
+            
+            # ИСПРАВЛЕНО: Извлекаем SNI как строку, а не массив
+            sni_param = params.get("sni")
+            if sni_param and sni_param[0]:
+                tls_opts["server_name"] = sni_param[0].strip()
 
-            fp = params.get("fp", [None])
-            if fp:
-                tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
+            # ИСПРАВЛЕНО: Извлекаем fingerprint как строку
+            fp_param = params.get("fp")
+            if fp_param and fp_param[0]:
+                tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param[0].strip()}
 
             if is_reality:
-                pbk = params.get("pbk", [None])
-                sid = params.get("sid", [None])
+                # ИСПРАВЛЕНО: Извлекаем параметры Reality как строки
+                pbk_param = params.get("pbk")
+                sid_param = params.get("sid")
+                
                 reality_opts = {}
-                if pbk:
-                    reality_opts["public_key"] = pbk
-                if sid:
-                    reality_opts["short_id"] = sid
+                if pbk_param and pbk_param[0]:
+                    reality_opts["public_key"] = pbk_param[0].strip()
+                if sid_param and sid_param[0]:
+                    reality_opts["short_id"] = sid_param[0].strip()
+                    
                 tls_opts["reality"] = reality_opts
 
             outbound["tls"] = tls_opts
 
+        # Настройка параметров транспорта
         if net_type:
-            outbound["transport"] = {
-                "type": net_type,
-                "path": params.get("path", [None]),
-                "headers": {"Host": params.get("host", [None])} if params.get("host", [None]) else None,
-                "service_name": params.get("serviceName", [None])
-            }
+            # ИСПРАВЛЕНО: Извлекаем транспортные параметры как строки
+            path_param = params.get("path")
+            host_param = params.get("host")
+            service_param = params.get("serviceName")
+
+            transport_opts = {"type": net_type}
+            
+            if path_param and path_param[0]:
+                transport_opts["path"] = path_param[0].strip()
+            if host_param and host_param[0]:
+                transport_opts["headers"] = {"Host": host_param[0].strip()}
+            if service_param and service_param[0]:
+                transport_opts["service_name"] = service_param[0].strip()
+
+            outbound["transport"] = transport_opts
 
         return outbound
 
