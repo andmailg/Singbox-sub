@@ -38,6 +38,14 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 1. VLESS ---
     if scheme == "vless":
+        flow = params.get("flow", [""])[0].strip().lower()
+        security = params.get("security", ["none"])[0].strip().lower()
+
+        # КРИТЕРИЙ: Если нет НИ flow (Vision), НИ reality — отсекаем узел
+        if not flow and security != "reality":
+            print(f"Skipping standard VLESS (No Flow and No Reality): {tag}")
+            return None
+
         outbound = {
             "type": "vless",
             "tag": tag,
@@ -46,11 +54,11 @@ def parse_proxy_link(link: str) -> dict | None:
             "uuid": parsed.username,
         }
 
-        flow = params.get("flow", [None])[0]
+        # Добавляем flow только если он есть
         if flow:
             outbound["flow"] = flow
 
-        security = params.get("security", ["none"])[0]
+        # Настройка безопасности (TLS или REALITY)
         if security in ["tls", "reality"]:
             tls_opts = {"enabled": True}
             sni = params.get("sni", [None])[0]
@@ -73,8 +81,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
             outbound["tls"] = tls_opts
 
-        # Нам больше не нужны проверки "if net != 'tcp'". Пишем как есть.
-        # Если транспорт окажется кривым (kcp, tcpconfigprxy) — clean_outbound всё исправит.
         if net_type:
             outbound["transport"] = {
                 "type": net_type,
