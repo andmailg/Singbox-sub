@@ -436,11 +436,10 @@ def main():
     except Exception:
         links = content.splitlines()
 
-    # --- СКАЧИВАНИЕ ЛОКАЛЬНОЙ БАЗЫ GEOIP (Выполняется 1 раз за запуск) ---
+    # --- СКАЧИВАНИЕ ЛОКАЛЬНОЙ БАЗЫ GEOIP ---
     mmdb_path = "GeoLite2-Country.mmdb"
     if not os.path.exists(mmdb_path):
         print("Downloading local GeoIP database...")
-        # Скачиваем актуальную бесплатную базу стран из надежного зеркала
         db_url = "https://git.io/GeoLite2-Country.mmdb"
         try:
             db_resp = requests.get(db_url, timeout=30)
@@ -454,7 +453,6 @@ def main():
             print(f"Error downloading GeoIP database: {e}")
 
     outbounds = []
-    seen_tags = {}
     seen_servers = set()
     servers_to_resolve = set()
     pre_parsed_nodes = []
@@ -462,7 +460,7 @@ def main():
     # Разрешенные европейские страны
     EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT"}
 
-    # --- ШАГ 1: Быстрый предварительный парсинг и базовая фильтрация ---
+    # --- ШАГ 1: Быстрый предварительный парсинг и текстовая фильтрация ---
     print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
@@ -483,16 +481,14 @@ def main():
             seen_servers.add(server_address)
 
             pre_parsed_nodes.append(outbound)
-            # Если это VLESS, собираем его хост для DNS-резолвинга
             if outbound.get("type") == "vless" and server_address:
                 servers_to_resolve.add(server_address)
 
-    # --- ШАГ 2: Быстрый параллельный DNS-резолвинг (переводим домены в IP) ---
+    # --- ШАГ 2: Быстрый параллельный DNS-резолвинг ---
     server_to_ip_map = {}
 
     def resolve_dns(host):
         try:
-            # Превращает домен в чистый IP. Если это уже IP — вернет его обратно
             return host, socket.gethostbyname(host)
         except Exception:
             return host, None
@@ -504,8 +500,8 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: МГНОВЕННАЯ ЛОКАЛЬНАЯ ГЕО-ФИЛЬТРАЦИЯ ---
-    final_outbounds = []
+    # --- ШАГ 3: МГНОВЕННАЯ ЛОКАЛЬНАЯ ГЕО-ФИЛЬТРАЦИЯ (БЕЗ НУМЕРАЦИИ ТЕГОВ) ---
+    filtered_nodes = []
     
     if os.path.exists(mmdb_path) and maxminddb:
         print("Filtering VLESS nodes via local GeoIP database...")
@@ -515,58 +511,54 @@ def main():
                     server_address = str(outbound.get("server", "")).lower()
                     
                     if outbound.get("type") == "vless":
-                        # Получаем чистый IP адрес из нашей карты резолвинга
-                        ip_addr = server_to_ip_map.get(server_address)
-                        if not ip_addr:
-                            # Если домен не отрезолвился, считаем его IP равным исходной строке
-                            ip_addr = server_address
+                        ip_addr = server_to_ip_map.get(server_address) or server_address
                         
                         try:
-                            # Ищем локацию в бинарной базе данных MaxMind
                             geo_info = reader.get(ip_addr)
-                            if geo_info and "country" in geo_info:
-                                country_code = geo_info["country"].get("iso_code", "").upper()
-                            else:
-                                country_code = "UNKNOWN"
+                            country_code = geo_info["country"].get("iso_code", "").upper() if geo_info and "country" in geo_info else "UNKNOWN"
                         except Exception:
                             country_code = "UNKNOWN"
                         
-                        # Проверяем вхождение в белый список Европы
                         if country_code not in EUROPE_COUNTRIES:
-                            continue  # Пропускаем, если сервер вне Европы
+                            continue  # Пропускаем не-Европу
 
-                    # Обеспечиваем уникальность тегов
-                    base_tag = outbound["tag"]
-                    if base_tag in seen_tags:
-                        seen_tags[base_tag] += 1
-                        outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-                    else:
-                        seen_tags[base_tag] = 0
-
-                    final_outbounds.append(outbound)
-            outbounds = final_outbounds
+                    # Сохраняем ноды с их ИСХОДНЫМИ чистыми тегами
+                    filtered_nodes.append(outbound)
         except Exception as e:
-            print(f"Error reading local GeoIP database: {e}. Falling back to all nodes.")
-            outbounds = pre_parsed_nodes
+            print(f"Error reading local GeoIP database: {e}.")
+            filtered_nodes = pre_parsed_nodes
     else:
-        print("Warning: Local GeoIP database or maxminddb library missing! Taking all parsed nodes without geo-filtering.")
-        outbounds = pre_parsed_nodes
+        print("Warning: Local GeoIP database missing!")
+        filtered_nodes = pre_parsed_nodes
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
     MAX_NODES_LIMIT = 200
-    total_found = len(outbounds)
+    total_found = len(filtered_nodes)
 
     if total_found > MAX_NODES_LIMIT:
         print(f"Всего найдено уникальных европейских узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
         sampled_outbounds = []
         for i in range(MAX_NODES_LIMIT):
             index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
-            sampled_outbounds.append(outbounds[index])
+            sampled_outbounds.append(filtered_nodes[index])
         outbounds = sampled_outbounds
     else:
-        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все очищенные узлы.")
+        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все.")
+        outbounds = filtered_nodes
 
-    # Генерация списка тегов на основе финального отфильтрованного и урезанного списка
+    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ СТРОГО ДЛЯ ФИНАЛЬНОГО СПИСКА ---
+    seen_tags = {}
+    for outbound in outbounds:
+        base_tag = outbound.get("tag", "Node")
+        
+        if base_tag in seen_tags:
+            seen_tags[base_tag] += 1
+            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
+        else:
+            seen_tags[base_tag] = 0
+            outbound["tag"] = base_tag
+
+    # Перегенерация списка тегов для селекторов (теперь тут будет ровно до 200 элементов)
     node_tags = [o["tag"] for o in outbounds]
 
     if not node_tags:
