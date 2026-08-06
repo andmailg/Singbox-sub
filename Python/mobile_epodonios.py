@@ -49,7 +49,7 @@ def parse_proxy_link(link: str) -> dict | None:
     if scheme == "vless":
         # КРИТЕРИЙ 1: Фильтрация по портам (Строго 443 или 8443)
         port = parsed.port
-        if port not in:
+        if port not in [443, 8443]:
             print(f"Skipping VLESS node: invalid port {port} (Only 443/8443 allowed) for tag '{tag}'")
             return None
 
