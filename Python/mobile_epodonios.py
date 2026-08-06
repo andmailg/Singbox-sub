@@ -556,7 +556,7 @@ def main():
         filtered_nodes = pre_parsed_nodes
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
-    MAX_NODES_LIMIT = 200
+    MAX_NODES_LIMIT = 5000
     total_found = len(filtered_nodes)
 
     if total_found > MAX_NODES_LIMIT:
