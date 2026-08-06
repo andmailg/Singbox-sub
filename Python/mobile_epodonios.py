@@ -1,10 +1,17 @@
+from concurrent.futures import ThreadPoolExecutor
 import base64
 import json
 import os
+import socket
 import urllib.parse
 import requests
-from concurrent.futures import ThreadPoolExecutor
-import socket
+
+# Для работы с локальной базой GeoIP
+try:
+    import maxminddb
+except ImportError:
+    # Заглушка на случай запуска вне среды с установленной библиотекой
+    maxminddb = None
 
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
@@ -422,7 +429,6 @@ def main():
 
     content = resp.text.strip()
 
-    # Декодирование содержимого подписки (Base64 или обычный текст)
     try:
         content_padded = content + "=" * (-len(content) % 4)
         decoded_content = base64.b64decode(content_padded).decode("utf-8")
@@ -430,25 +436,40 @@ def main():
     except Exception:
         links = content.splitlines()
 
+    # --- СКАЧИВАНИЕ ЛОКАЛЬНОЙ БАЗЫ GEOIP (Выполняется 1 раз за запуск) ---
+    mmdb_path = "GeoLite2-Country.mmdb"
+    if not os.path.exists(mmdb_path):
+        print("Downloading local GeoIP database...")
+        # Скачиваем актуальную бесплатную базу стран из надежного зеркала
+        db_url = "https://github.com"
+        try:
+            db_resp = requests.get(db_url, timeout=30)
+            if db_resp.status_code == 200:
+                with open(mmdb_path, "wb") as db_file:
+                    db_file.write(db_resp.content)
+                print("Local GeoIP database downloaded successfully.")
+            else:
+                print(f"Failed to download GeoIP database. Status code: {db_resp.status_code}")
+        except Exception as e:
+            print(f"Error downloading GeoIP database: {e}")
+
     outbounds = []
     seen_tags = {}
-    seen_servers = set()  # Множество для отслеживания уникальных IP/доменов
+    seen_servers = set()
+    servers_to_resolve = set()
+    pre_parsed_nodes = []
 
-    # Белый список стран в формате ISO (Нидерланды, Германия, Финляндия, Польша, Франция, Великобритания и т.д.)
+    # Разрешенные европейские страны
     EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT"}
-    ip_country_cache = {}  # Кэш для минимизации сетевых запросов к ip-api
 
     # --- ШАГ 1: Быстрый предварительный парсинг и базовая фильтрация ---
-    pre_parsed_nodes = []
-    servers_to_resolve = set()
-
-    # Обрабатываем абсолютно все ссылки, чтобы собрать полный список для разброса
+    print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
 
-            # Текстовая фильтрация RU
+            # Текстовая фильтрация RU в названиях и доменах
             node_tag = str(outbound.get("tag", "")).lower()
             if "ru" in node_tag or "russia" in node_tag:
                 continue
@@ -456,103 +477,96 @@ def main():
             if server_address.endswith(".ru") or ".ru:" in server_address:
                 continue
 
-            # Дедупликация на лету
+            # Дедупликация серверов на лету
             if server_address in seen_servers:
                 continue
             seen_servers.add(server_address)
 
             pre_parsed_nodes.append(outbound)
+            # Если это VLESS, собираем его хост для DNS-резолвинга
             if outbound.get("type") == "vless" and server_address:
                 servers_to_resolve.add(server_address)
 
     # --- ШАГ 2: Быстрый параллельный DNS-резолвинг (переводим домены в IP) ---
-    ip_to_server_map = {}  # {чистый_ip: исходный_хост}
-    server_to_ip_map = {}  # {исходный_хост: чистый_ip}
+    server_to_ip_map = {}
 
     def resolve_dns(host):
         try:
-            # Если это уже IP, вернет его же, если домен - мгновенно отрезолвит
-            ip = socket.gethostbyname(host)
-            return host, ip
+            # Превращает домен в чистый IP. Если это уже IP — вернет его обратно
+            return host, socket.gethostbyname(host)
         except Exception:
             return host, None
 
-    print(f"Резолвим {len(servers_to_resolve)} доменов в фоновом режиме...")
-    with ThreadPoolExecutor(max_workers=50) as executor:
+    print(f"Resolving DNS for {len(servers_to_resolve)} VLESS domains in background...")
+    with ThreadPoolExecutor(max_workers=100) as executor:
         dns_results = executor.map(resolve_dns, servers_to_resolve)
         for host, ip in dns_results:
             if ip:
-                ip_to_server_map[ip] = host
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: Пакетный (Batch) GeoIP-запрос кодов стран ---
-    unique_ips = list(ip_to_server_map.keys())
-    ip_country_cache = {}  # {исходный_хост: код_страны}
-    
-    print(f"Отправляем пакетный GeoIP запрос для {len(unique_ips)} уникальных IP...")
-    # ip-api batch принимает до 100 объектов за раз. Делим наш список на куски по 100 элементов.
-    for chunk_start in range(0, len(unique_ips), 100):
-        chunk = unique_ips[chunk_start:chunk_start + 100]
-        # Формируем тело запроса по стандарту ip-api
-        batch_data = [{"query": ip, "fields": "status,countryCode"} for ip in chunk]
-        
-        try:
-            geo_resp = requests.post("http://ip-api.com", json=batch_data, timeout=10)
-            if geo_resp.status_code == 200:
-                results = geo_resp.json()
-                for item in results:
-                    if item.get("status") == "success":
-                        ip_addr = item.get("query")
-                        country_code = item.get("countryCode", "").upper()
-                        # Находим какой хост владел этим IP и записываем страну
-                        original_host = ip_to_server_map.get(ip_addr)
-                        if original_host:
-                            ip_country_cache[original_host] = country_code
-        except Exception as e:
-            print(f"Ошибка пакетного GeoIP запроса: {e}")
-
-    # --- ШАГ 4: Финальная мгновенная фильтрация VLESS по собранной карте стран ---
+    # --- ШАГ 3: МГНОВЕННАЯ ЛОКАЛЬНАЯ ГЕО-ФИЛЬТРАЦИЯ ---
     final_outbounds = []
-    for outbound in pre_parsed_nodes:
-        server_address = str(outbound.get("server", "")).lower()
-        
-        if outbound.get("type") == "vless":
-            # Достаем страну из подготовленного кэша
-            node_country = ip_country_cache.get(server_address, "UNKNOWN")
-            if node_country not in EUROPE_COUNTRIES:
-                # Если страны нет в кэше (не отрезолвилась) или она не европейская — пропускаем
-                continue
+    
+    if os.path.exists(mmdb_path) and maxminddb:
+        print("Filtering VLESS nodes via local GeoIP database...")
+        try:
+            with maxminddb.open_database(mmdb_path) as reader:
+                for outbound in pre_parsed_nodes:
+                    server_address = str(outbound.get("server", "")).lower()
+                    
+                    if outbound.get("type") == "vless":
+                        # Получаем чистый IP адрес из нашей карты резолвинга
+                        ip_addr = server_to_ip_map.get(server_address)
+                        if not ip_addr:
+                            # Если домен не отрезолвился, считаем его IP равным исходной строке
+                            ip_addr = server_address
+                        
+                        try:
+                            # Ищем локацию в бинарной базе данных MaxMind
+                            geo_info = reader.get(ip_addr)
+                            if geo_info and "country" in geo_info:
+                                country_code = geo_info["country"].get("iso_code", "").upper()
+                            else:
+                                country_code = "UNKNOWN"
+                        except Exception:
+                            country_code = "UNKNOWN"
+                        
+                        # Проверяем вхождение в белый список Европы
+                        if country_code not in EUROPE_COUNTRIES:
+                            continue  # Пропускаем, если сервер вне Европы
 
-        # Обеспечиваем уникальность тегов
-        base_tag = outbound["tag"]
-        if base_tag in seen_tags:
-            seen_tags[base_tag] += 1
-            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-        else:
-            seen_tags[base_tag] = 0
+                    # Обеспечиваем уникальность тегов
+                    base_tag = outbound["tag"]
+                    if base_tag in seen_tags:
+                        seen_tags[base_tag] += 1
+                        outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
+                    else:
+                        seen_tags[base_tag] = 0
 
-        final_outbounds.append(outbound)
+                    final_outbounds.append(outbound)
+            outbounds = final_outbounds
+        except Exception as e:
+            print(f"Error reading local GeoIP database: {e}. Falling back to all nodes.")
+            outbounds = pre_parsed_nodes
+    else:
+        print("Warning: Local GeoIP database or maxminddb library missing! Taking all parsed nodes without geo-filtering.")
+        outbounds = pre_parsed_nodes
 
-    outbounds = final_outbounds
-
-    # --- 4. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
+    # --- ШАГ 4: УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
     MAX_NODES_LIMIT = 5000
     total_found = len(outbounds)
 
     if total_found > MAX_NODES_LIMIT:
-        print(f"Всего найдено уникальных зарубежных узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
-        
+        print(f"Всего найдено уникальных европейских узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
         sampled_outbounds = []
         for i in range(MAX_NODES_LIMIT):
-            # Рассчитываем индекс так, чтобы шаг распределялся равномерно от 0 до последнего элемента
             index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
             sampled_outbounds.append(outbounds[index])
-            
         outbounds = sampled_outbounds
     else:
         print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все очищенные узлы.")
 
-    # Генерация списка тегов для групп на основе уже отфильтрованного и урезанного списка
+    # Генерация списка тегов на основе финального отфильтрованного и урезанного списка
     node_tags = [o["tag"] for o in outbounds]
 
     if not node_tags:
