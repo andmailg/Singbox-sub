@@ -110,12 +110,6 @@
         "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇺🇸 United States, New York | [BL]",
         "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]",
-        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]",
-        "🇵🇭 Philippines, Pasig | [BL]",
-        "🇵🇭 Philippines, Pasig | [BL] #1",
-        "🇵🇭 Philippines, Pasig | [BL] #2",
-        "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇺🇸 United States, Los Angeles | [BL]"
       ],
       "default": "auto"
@@ -143,12 +137,6 @@
         "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇺🇸 United States, New York | [BL]",
         "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]",
-        ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]",
-        "🇵🇭 Philippines, Pasig | [BL]",
-        "🇵🇭 Philippines, Pasig | [BL] #1",
-        "🇵🇭 Philippines, Pasig | [BL] #2",
-        "🇹🇼 Taiwan, Taoyuan | [BL]",
         "🇺🇸 United States, Los Angeles | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
@@ -358,92 +346,6 @@
       "tls": {
         "enabled": true,
         "server_name": "ned.leontunel.ru"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": ".𖥔 ݁ ˖ִ🛸༄˖°. | [BL]",
-      "server": "cindy52.ceoiii.com",
-      "server_port": 36803,
-      "uuid": "a6ab6513-6ec3-327f-a068-b89fe72954b8",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/hls/cctv5phd.m3u8",
-        "headers": {
-          "Host": "ajax.microsoft.com"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
-      "server": "cindy50.ceoiii.com",
-      "server_port": 36801,
-      "uuid": "a6ab6513-6ec3-327f-a068-b89fe72954b8",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/hls/cctv5phd.m3u8",
-        "headers": {
-          "Host": "ajax.microsoft.com"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇵🇭 Philippines, Pasig | [BL]",
-      "server": "61.245.11.60",
-      "server_port": 80,
-      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/vmess/",
-        "headers": {
-          "Host": "61.245.11.60"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇵🇭 Philippines, Pasig | [BL] #1",
-      "server": "61.245.11.60",
-      "server_port": 80,
-      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/vmess/",
-        "headers": null
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇵🇭 Philippines, Pasig | [BL] #2",
-      "server": "61.245.11.60",
-      "server_port": 80,
-      "uuid": "a3e3a710-79f8-4ae0-b83c-607aab40d197",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/vmess/",
-        "headers": null
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇹🇼 Taiwan, Taoyuan | [BL]",
-      "server": "twdx6.baidupi.top",
-      "server_port": 2096,
-      "uuid": "85ad21e1-c2cd-3407-aa90-815f3f3ea636",
-      "security": "auto",
-      "transport": {
-        "type": "ws",
-        "path": "/assets/images/",
-        "headers": {
-          "Host": "twdx6.baidupi.top"
-        }
       }
     },
     {
