@@ -20,12 +20,18 @@ def parse_proxy_link(link: str) -> dict | None:
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
+    # Извлекаем тип транспорта
     net_type = params.get("type", params.get("net", [""]))[0].lower()
 
     # ОСТАВЛЯЕМ: Фильтрация небезопасных соединений по вашему желанию
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
+        return None
+
+    # --- ФИЛЬТРАЦИЯ ТРАНСПОРТА WS ---
+    if net_type == "ws":
+        print(f"Skipping WebSocket (ws) node: {urllib.parse.unquote(parsed.fragment) if parsed.fragment else link[:30]}...")
         return None
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
