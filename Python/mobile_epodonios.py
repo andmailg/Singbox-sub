@@ -441,7 +441,7 @@ def main():
     if not os.path.exists(mmdb_path):
         print("Downloading local GeoIP database...")
         # Скачиваем актуальную бесплатную базу стран из надежного зеркала
-        db_url = "https://github.com"
+        db_url = "https://git.io/GeoLite2-Country.mmdb"
         try:
             db_resp = requests.get(db_url, timeout=30)
             if db_resp.status_code == 200:
