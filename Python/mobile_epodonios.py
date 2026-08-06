@@ -3,6 +3,8 @@ import json
 import os
 import urllib.parse
 import requests
+from concurrent.futures import ThreadPoolExecutor
+import socket
 
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
@@ -436,62 +438,102 @@ def main():
     EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT"}
     ip_country_cache = {}  # Кэш для минимизации сетевых запросов к ip-api
 
+    # --- ШАГ 1: Быстрый предварительный парсинг и базовая фильтрация ---
+    pre_parsed_nodes = []
+    servers_to_resolve = set()
+
     # Обрабатываем абсолютно все ссылки, чтобы собрать полный список для разброса
     for link in links:
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
 
-            # --- 1. ФИЛЬТРАЦИЯ РОССИЙСКИХ СЕРВЕРОВ ---
-            # Проверка по названию (тегу)
+            # Текстовая фильтрация RU
             node_tag = str(outbound.get("tag", "")).lower()
             if "ru" in node_tag or "russia" in node_tag:
-                continue  # Пропускаем российский узел
-
-            # Проверка по доменному имени сервера (зона .ru)
+                continue
             server_address = str(outbound.get("server", "")).lower()
             if server_address.endswith(".ru") or ".ru:" in server_address:
-                continue  # Пропускаем узел с российским доменом
+                continue
 
-            # --- 2. ГЕО-ФИЛЬТРАЦИЯ VLESS ПО GEOIP (ТОЛЬКО ЕВРОПА) ---
+            # Дедупликация на лету
+            if server_address in seen_servers:
+                continue
+            seen_servers.add(server_address)
+
+            pre_parsed_nodes.append(outbound)
             if outbound.get("type") == "vless" and server_address:
-                # Если этого сервера ещё нет в кэше — делаем один запрос к ip-api
-                if server_address not in ip_country_cache:
-                    try:
-                        geo_url = f"http://ip-api.com{server_address}?fields=status,countryCode"
-                        geo_resp = requests.get(geo_url, timeout=5)
-                        if geo_resp.status_code == 200:
-                            geo_data = geo_resp.json()
-                            if geo_data.get("status") == "success":
-                                ip_country_cache[server_address] = geo_data.get("countryCode", "").upper()
-                            else:
-                                ip_country_cache[server_address] = "UNKNOWN"
-                        else:
-                            ip_country_cache[server_address] = "UNKNOWN"
-                    except Exception:
-                        ip_country_cache[server_address] = "UNKNOWN"
+                servers_to_resolve.add(server_address)
 
-                # Проверяем локацию сервера по нашему белому списку
-                node_country = ip_country_cache[server_address]
-                if node_country not in EUROPE_COUNTRIES:
-                    print(f"Skipping VLESS node '{outbound.get('tag')}': server location is {node_country}")
-                    continue  # Исключаем узел, если он физически находится вне Европы
+    # --- ШАГ 2: Быстрый параллельный DNS-резолвинг (переводим домены в IP) ---
+    ip_to_server_map = {}  # {чистый_ip: исходный_хост}
+    server_to_ip_map = {}  # {исходный_хост: чистый_ip}
 
-            # --- 3. ДЕДУПЛИКАЦИЯ ---
-            if server_address:
-                if server_address in seen_servers:
-                    continue  # Пропускаем дубликат IP/домена
-                seen_servers.add(server_address)
+    def resolve_dns(host):
+        try:
+            # Если это уже IP, вернет его же, если домен - мгновенно отрезолвит
+            ip = socket.gethostbyname(host)
+            return host, ip
+        except Exception:
+            return host, None
 
-            # Обеспечиваем уникальность тегов (для не-удаленных узлов)
-            base_tag = outbound["tag"]
-            if base_tag in seen_tags:
-                seen_tags[base_tag] += 1
-                outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-            else:
-                seen_tags[base_tag] = 0
+    print(f"Резолвим {len(servers_to_resolve)} доменов в фоновом режиме...")
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        dns_results = executor.map(resolve_dns, servers_to_resolve)
+        for host, ip in dns_results:
+            if ip:
+                ip_to_server_map[ip] = host
+                server_to_ip_map[host] = ip
 
-            outbounds.append(outbound)
+    # --- ШАГ 3: Пакетный (Batch) GeoIP-запрос кодов стран ---
+    unique_ips = list(ip_to_server_map.keys())
+    ip_country_cache = {}  # {исходный_хост: код_страны}
+    
+    print(f"Отправляем пакетный GeoIP запрос для {len(unique_ips)} уникальных IP...")
+    # ip-api batch принимает до 100 объектов за раз. Делим наш список на куски по 100 элементов.
+    for chunk_start in range(0, len(unique_ips), 100):
+        chunk = unique_ips[chunk_start:chunk_start + 100]
+        # Формируем тело запроса по стандарту ip-api
+        batch_data = [{"query": ip, "fields": "status,countryCode"} for ip in chunk]
+        
+        try:
+            geo_resp = requests.post("http://ip-api.com", json=batch_data, timeout=10)
+            if geo_resp.status_code == 200:
+                results = geo_resp.json()
+                for item in results:
+                    if item.get("status") == "success":
+                        ip_addr = item.get("query")
+                        country_code = item.get("countryCode", "").upper()
+                        # Находим какой хост владел этим IP и записываем страну
+                        original_host = ip_to_server_map.get(ip_addr)
+                        if original_host:
+                            ip_country_cache[original_host] = country_code
+        except Exception as e:
+            print(f"Ошибка пакетного GeoIP запроса: {e}")
+
+    # --- ШАГ 4: Финальная мгновенная фильтрация VLESS по собранной карте стран ---
+    final_outbounds = []
+    for outbound in pre_parsed_nodes:
+        server_address = str(outbound.get("server", "")).lower()
+        
+        if outbound.get("type") == "vless":
+            # Достаем страну из подготовленного кэша
+            node_country = ip_country_cache.get(server_address, "UNKNOWN")
+            if node_country not in EUROPE_COUNTRIES:
+                # Если страны нет в кэше (не отрезолвилась) или она не европейская — пропускаем
+                continue
+
+        # Обеспечиваем уникальность тегов
+        base_tag = outbound["tag"]
+        if base_tag in seen_tags:
+            seen_tags[base_tag] += 1
+            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
+        else:
+            seen_tags[base_tag] = 0
+
+        final_outbounds.append(outbound)
+
+    outbounds = final_outbounds
 
     # --- 4. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
     MAX_NODES_LIMIT = 150
