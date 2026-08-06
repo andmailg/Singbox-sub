@@ -105,6 +105,15 @@ def parse_proxy_link(link: str) -> dict | None:
                 print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
                 return None
 
+            # --- НОВАЯ ФИЛЬТРАЦИЯ: VMess с security='auto' (обычный TLS/без TLS) ---
+            # Извлекаем тип безопасности (дефолт в VMess обычно 'auto' или 'none')
+            vmess_security = str(data.get("scy", "auto")).lower().strip()
+            
+            # Если безопасность 'auto' (или пустая) и при этом нет reality (которого у VMess и так не бывает)
+            if vmess_security == "auto" or vmess_security == "":
+                print(f"Skipping standard VMess (security='auto'): {data.get('ps', 'Node')}")
+                return None
+
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
