@@ -100,10 +100,19 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
-            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS ---
+            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS (если вы добавляли её ранее) ---
             net = data.get("net", "tcp").lower()
             if net == "ws":
                 print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
+                return None
+
+            # --- НОВАЯ ФИЛЬТРАЦИЯ: VMess с security='auto' (обычный TLS/без TLS) ---
+            # Извлекаем тип безопасности (дефолт в VMess обычно 'auto' или 'none')
+            vmess_security = str(data.get("scy", "auto")).lower().strip()
+            
+            # Если безопасность 'auto' (или пустая) и при этом нет reality (которого у VMess и так не бывает)
+            if vmess_security == "auto" or vmess_security == "":
+                print(f"Skipping standard VMess (security='auto'): {data.get('ps', 'Node')}")
                 return None
 
             outbound = {
@@ -112,15 +121,16 @@ def parse_proxy_link(link: str) -> dict | None:
                 "server": data.get("add"),
                 "server_port": int(data.get("port", 443)),
                 "uuid": data.get("id"),
-                "security": data.get("scy", "auto"),
+                "security": vmess_security,
             }
 
             if data.get("net"):
-                outbound["transport"] = {
-                    "type": data.get("net").lower(),
-                    "path": data.get("path"),
-                    "headers": {"Host": data.get("host")} if data.get("host") else None
-                }
+                transport_opts = {"type": data.get("net").lower()}
+                if data.get("path"):
+                    transport_opts["path"] = data.get("path")
+                if data.get("host"):
+                    transport_opts["headers"] = {"Host": data.get("host")}
+                outbound["transport"] = transport_opts
 
             if data.get("tls") == "tls":
                 tls_opts = {"enabled": True}
