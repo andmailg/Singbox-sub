@@ -352,11 +352,27 @@ def main():
 
     outbounds = []
     seen_tags = {}
+    seen_servers = set()  # Множество для отслеживания уникальных IP/доменов
+
+    # КРИТЕРИЙ 1: Максимальное количество узлов (измените под свои нужды)
+    MAX_NODES_LIMIT = 100
 
     for link in links:
+        # Если набрали нужное количество, прекращаем обработку остальных
+        if len(outbounds) >= MAX_NODES_LIMIT:
+            print(f"Достигнут лимит в {MAX_NODES_LIMIT} узлов. Остальные пропущены.")
+            break
+
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
+
+            # КРИТЕРИЙ 2: Фильтрация дубликатов по серверу
+            server_address = outbound.get("server")
+            if server_address:
+                if server_address in seen_servers:
+                    continue  # Пропускаем, если этот сервер уже есть в списке
+                seen_servers.add(server_address)
 
             # Обеспечиваем уникальность тегов
             base_tag = outbound["tag"]
