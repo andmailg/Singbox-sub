@@ -63,9 +63,10 @@ def parse_proxy_link(link: str) -> dict | None:
         is_vision = (flow == "xtls-rprx-vision")
         is_reality = (security == "reality")
 
-        # КРИТЕРИЙ 2: Узел должен иметь ИЛИ vision, ИЛИ reality, ИЛИ всё вместе
-        if not is_vision and not is_reality:
-            print(f"Skipping VLESS node: requires xtls-rprx-vision or reality (Got flow='{flow}', security='{security}') for tag '{tag}'")
+        # НОВЫЙ КРИТЕРИЙ 2: Узел ОБЯЗАН содержать flow = xtls-rprx-vision.
+        # Если flow не xtls-rprx-vision (даже если есть reality), узел удаляется.
+        if not is_vision:
+            print(f"Skipping VLESS node: missing or invalid flow (Got flow='{flow}', security='{security}') for tag '{tag}'")
             return None
 
         outbound = {
@@ -74,28 +75,23 @@ def parse_proxy_link(link: str) -> dict | None:
             "server": parsed.hostname,
             "server_port": port,
             "uuid": parsed.username,
+            "flow": "xtls-rprx-vision"  # Поле теперь присутствует всегда
         }
 
-        # Добавляем flow только если это строго разрешенный xtls-rprx-vision
-        if is_vision:
-            outbound["flow"] = "xtls-rprx-vision"
-
-        # Настройка безопасности (TLS или REALITY)
+        # Настройка безопасности (Включается для обычного TLS при Vision или для REALITY)
         if security in ["tls", "reality"] or is_vision:
             tls_opts = {"enabled": True}
             
-            # ИСПРАВЛЕНО: Извлекаем SNI как строку, а не массив
             sni_param = params.get("sni")
             if sni_param and sni_param[0]:
                 tls_opts["server_name"] = sni_param[0].strip()
 
-            # ИСПРАВЛЕНО: Извлекаем fingerprint как строку
             fp_param = params.get("fp")
             if fp_param and fp_param[0]:
                 tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param[0].strip()}
 
+            # Reality добавится только в том случае, если он идет вместе с Vision
             if is_reality:
-                # ИСПРАВЛЕНО: Извлекаем параметры Reality как строки
                 pbk_param = params.get("pbk")
                 sid_param = params.get("sid")
                 
@@ -111,7 +107,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
         # Настройка параметров транспорта
         if net_type:
-            # ИСПРАВЛЕНО: Извлекаем транспортные параметры как строки
             path_param = params.get("path")
             host_param = params.get("host")
             service_param = params.get("serviceName")
