@@ -553,7 +553,7 @@ def main():
         outbounds = pre_parsed_nodes
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
-    MAX_NODES_LIMIT = 5000
+    MAX_NODES_LIMIT = 200
     total_found = len(outbounds)
 
     if total_found > MAX_NODES_LIMIT:
