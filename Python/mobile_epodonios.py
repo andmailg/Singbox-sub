@@ -47,40 +47,49 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 1. VLESS ---
     if scheme == "vless":
-        flow = params.get("flow", [""])[0].strip().lower()
-        security = params.get("security", ["none"])[0].strip().lower()
+        # КРИТЕРИЙ 1: Фильтрация по портам (Строго 443 или 8443)
+        port = parsed.port
+        if port not in [443,8443]:
+            print(f"Skipping VLESS node: invalid port {port} (Only 443/8443 allowed) for tag '{tag}'")
+            return None
 
-        # КРИТЕРИЙ: Если нет НИ flow (Vision), НИ reality — отсекаем узел
-        if not flow and security != "reality":
-            print(f"Skipping standard VLESS (No Flow and No Reality): {tag}")
+        flow = params.get("flow", [""]).strip().lower()
+        security = params.get("security", ["none"]).strip().lower()
+
+        is_vision = (flow == "xtls-rprx-vision")
+        is_reality = (security == "reality")
+
+        # КРИТЕРИЙ 2: Узел должен иметь ИЛИ vision, ИЛИ reality, ИЛИ всё вместе
+        if not is_vision and not is_reality:
+            print(f"Skipping VLESS node: requires xtls-rprx-vision or reality (Got flow='{flow}', security='{security}') for tag '{tag}'")
             return None
 
         outbound = {
             "type": "vless",
             "tag": tag,
             "server": parsed.hostname,
-            "server_port": parsed.port,
+            "server_port": port,
             "uuid": parsed.username,
         }
 
-        # Добавляем flow только если он есть
-        if flow:
-            outbound["flow"] = flow
+        # Добавляем flow только если это строго разрешенный xtls-rprx-vision
+        if is_vision:
+            outbound["flow"] = "xtls-rprx-vision"
 
         # Настройка безопасности (TLS или REALITY)
-        if security in ["tls", "reality"]:
+        if security in ["tls", "reality"] or is_vision:
             tls_opts = {"enabled": True}
-            sni = params.get("sni", [None])[0]
+            sni = params.get("sni", [None])
             if sni:
                 tls_opts["server_name"] = sni
 
-            fp = params.get("fp", [None])[0]
+            fp = params.get("fp", [None])
             if fp:
                 tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
 
-            if security == "reality":
-                pbk = params.get("pbk", [None])[0]
-                sid = params.get("sid", [None])[0]
+            if is_reality:
+                pbk = params.get("pbk", [None])
+                sid = params.get("sid", [None])
                 reality_opts = {}
                 if pbk:
                     reality_opts["public_key"] = pbk
@@ -93,9 +102,9 @@ def parse_proxy_link(link: str) -> dict | None:
         if net_type:
             outbound["transport"] = {
                 "type": net_type,
-                "path": params.get("path", [None])[0],
-                "headers": {"Host": params.get("host", [None])[0]} if params.get("host", [None])[0] else None,
-                "service_name": params.get("serviceName", [None])[0]
+                "path": params.get("path", [None]),
+                "headers": {"Host": params.get("host", [None])} if params.get("host", [None]) else None,
+                "service_name": params.get("serviceName", [None])
             }
 
         return outbound
