@@ -121,6 +121,13 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 3. TROJAN ---
     elif scheme == "trojan":
+        security = params.get("security", ["tls"])[0].lower()
+        
+        # КРИТЕРИЙ: Если это обычный TLS (не Reality), сразу выбрасываем ноду
+        if security != "reality":
+            print(f"Skipping standard Trojan (No Reality): {tag}")
+            return None
+
         outbound = {
             "type": "trojan",
             "tag": tag,
@@ -129,28 +136,26 @@ def parse_proxy_link(link: str) -> dict | None:
             "password": parsed.username,
         }
 
-        security = params.get("security", ["tls"])[0]
-        if security in ["tls", "reality"]:
-            tls_opts = {"enabled": True}
-            sni = params.get("sni", [None])[0]
-            if sni:
-                tls_opts["server_name"] = sni.split(":")[0]
+        # Так как мы выше отсекли все, кроме reality, блок TLS собирается гарантированно под Reality
+        tls_opts = {"enabled": True}
+        sni = params.get("sni", [None])[0]
+        if sni:
+            tls_opts["server_name"] = sni.split(":")[0]
 
-            fp = params.get("fp", [None])[0]
-            if fp:
-                tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
+        fp = params.get("fp", [None])[0]
+        if fp:
+            tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
 
-            if security == "reality":
-                pbk = params.get("pbk", [None])[0]
-                sid = params.get("sid", [None])[0]
-                reality_opts = {}
-                if pbk:
-                    reality_opts["public_key"] = pbk
-                if sid:
-                    reality_opts["short_id"] = sid
-                tls_opts["reality"] = reality_opts
+        pbk = params.get("pbk", [None])[0]
+        sid = params.get("sid", [None])[0]
+        reality_opts = {}
+        if pbk:
+            reality_opts["public_key"] = pbk
+        if sid:
+            reality_opts["short_id"] = sid
+        tls_opts["reality"] = reality_opts
 
-            outbound["tls"] = tls_opts
+        outbound["tls"] = tls_opts
 
         if net_type:
             outbound["transport"] = {
