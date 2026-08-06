@@ -1,8 +1,18 @@
+import ipaddress  # Встроенный модуль для работы с IP и подсетями
+from concurrent.futures import ThreadPoolExecutor
 import base64
 import json
 import os
+import socket
 import urllib.parse
 import requests
+
+# Для работы с локальной базой GeoIP
+try:
+    import maxminddb
+except ImportError:
+    # Заглушка на случай запуска вне среды с установленной библиотекой
+    maxminddb = None
 
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
