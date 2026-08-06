@@ -214,6 +214,16 @@ def parse_proxy_link(link: str) -> dict | None:
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
         try:
+            # 1. ПРОВЕРКА ПОРТА (Должен быть 443 или пятизначный)
+            port = parsed.port
+            if not port:
+                return None
+            
+            is_valid_port = (port == 443) or (10000 <= port <= 99999)
+            if not is_valid_port:
+                print(f"Skipping SS node: invalid port {port} for tag '{tag}'")
+                return None
+
             # Извлекаем userinfo (все что до знака @)
             userinfo = parsed.username
             if not userinfo and parsed.netloc:
@@ -221,26 +231,56 @@ def parse_proxy_link(link: str) -> dict | None:
 
             method, password = None, None
             if userinfo:
-                # Паддинг для Base64
-                userinfo += "=" * (-len(userinfo) % 4)
+                userinfo_padded = userinfo + "=" * (-len(userinfo) % 4)
                 try:
-                    decoded_userinfo = base64.b64decode(userinfo).decode("utf-8")
-                    # Делим с правого края, так как пароль всегда последний, а в методе могут быть двоеточия
+                    decoded_userinfo = base64.b64decode(userinfo_padded).decode("utf-8")
                     if ":" in decoded_userinfo:
                         method, password = decoded_userinfo.rsplit(":", 1)
                 except Exception:
                     pass
 
-            # Если base64 не сработал, пробуем стандартные свойства URL
             if not method or not password:
                 method = parsed.username
                 password = parsed.password
+
+            if not method or not password:
+                return None
+
+            method = str(method).lower().strip()
+
+            # 2. ПРОВЕРКА МЕТОДА ШИФРОВАНИЯ (Строго Shadowsocks-2022)
+            ALLOWED_2022_METHODS = [
+                "2022-blake3-aes-128-gcm", 
+                "2022-blake3-aes-256-gcm", 
+                "2022-blake3-chacha20-poly1305"
+            ]
+            if method not in ALLOWED_2022_METHODS:
+                print(f"Skipping SS node: method '{method}' is not Shadowsocks-2022 for tag '{tag}'")
+                return None
+
+            # 3. ПРОВЕРКА ВАЛИДНОСТИ И ДЛИНЫ БАЗОВОГО КЛЮЧА В БАЙТАХ
+            try:
+                # Пароль в SS-2022 — это Base64 строка, добавляем паддинг и декодируем в байты
+                password_padded = password + "=" * (-len(password) % 4)
+                key_bytes = base64.b64decode(password_padded)
+                key_length = len(key_bytes)
+            except Exception:
+                print(f"Skipping SS node: password is not a valid Base64 string for tag '{tag}'")
+                return None
+
+            # Сверяем длину ключа в байтах со стандартом
+            if method == "2022-blake3-aes-128-gcm" and key_length != 16:
+                print(f"Skipping SS 2022-128: expected 16 bytes key, got {key_length} for tag '{tag}'")
+                return None
+            elif method in ["2022-blake3-aes-256-gcm", "2022-blake3-chacha20-poly1305"] and key_length != 32:
+                print(f"Skipping SS 2022-256: expected 32 bytes key, got {key_length} for tag '{tag}'")
+                return None
 
             return {
                 "type": "shadowsocks",
                 "tag": tag,
                 "server": parsed.hostname,
-                "server_port": parsed.port,
+                "server_port": port,
                 "method": method,
                 "password": password,
             }
