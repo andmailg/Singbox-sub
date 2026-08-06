@@ -109,8 +109,7 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL] #4",
         "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇺🇸 United States, New York | [BL]",
-        "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]",
-        "🇺🇸 United States, Los Angeles | [BL]"
+        "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]"
       ],
       "default": "auto"
     },
@@ -136,8 +135,7 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL] #4",
         "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇺🇸 United States, New York | [BL]",
-        "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]",
-        "🇺🇸 United States, Los Angeles | [BL]"
+        "🌐 Anycast-IP | 🇳🇱 🇵🇱 | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -347,14 +345,6 @@
         "enabled": true,
         "server_name": "ned.leontunel.ru"
       }
-    },
-    {
-      "type": "vmess",
-      "tag": "🇺🇸 United States, Los Angeles | [BL]",
-      "server": "lt.badns.help",
-      "server_port": 51360,
-      "uuid": "85ad21e1-c2cd-3407-aa90-815f3f3ea636",
-      "security": "auto"
     }
   ],
   "route": {
