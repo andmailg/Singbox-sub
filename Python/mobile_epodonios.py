@@ -93,6 +93,12 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
+            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS ---
+            net = data.get("net", "tcp").lower()
+            if net == "ws":
+                print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
+                return None
+
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
