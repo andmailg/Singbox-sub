@@ -37,8 +37,6 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #2",
-        "🇳🇱 The Netherlands, Dronten | [BL]",
-        "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇬🇧 United Kingdom, London | [BL]"
       ],
       "default": "auto"
@@ -62,8 +60,6 @@
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | [BL] #2",
-        "🇳🇱 The Netherlands, Dronten | [BL]",
-        "🇬🇧 United Kingdom, Coventry | [BL]",
         "🇬🇧 United Kingdom, London | [BL]"
       ],
       "url": "https://ipv6.google.com/generate_204",
@@ -230,28 +226,6 @@
       "tls": {
         "enabled": true,
         "server_name": "nl6.unlockvpn.online"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Dronten | [BL]",
-      "server": "ned.leontunel.ru",
-      "server_port": 443,
-      "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
-      "tls": {
-        "enabled": true,
-        "server_name": "ned.leontunel.ru"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇬🇧 United Kingdom, Coventry | [BL]",
-      "server": "ang.leontunel.ru",
-      "server_port": 443,
-      "password": "68b4b16e-2759-47a4-8a69-33118edf5ce6",
-      "tls": {
-        "enabled": true,
-        "server_name": "ang.leontunel.ru"
       }
     },
     {
