@@ -479,7 +479,8 @@ def main():
     servers_to_resolve = set()
     pre_parsed_nodes = []
 
-    EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT"}
+    # Разрешенные страны (Европа + США)
+    EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT", "US", "SG", "JP", "HK", "TR"}
 
     # --- ШАГ 1: Быстрый предварительный парсинг ---
     print(f"Parsing and deduplicating {len(links)} links...")
