@@ -398,7 +398,7 @@ def main():
             outbounds.append(outbound)
 
     # --- 3. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
-    MAX_NODES_LIMIT = 100
+    MAX_NODES_LIMIT = 500
     total_found = len(outbounds)
 
     if total_found > MAX_NODES_LIMIT:
