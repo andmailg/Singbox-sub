@@ -338,11 +338,16 @@ def main():
         return
 
     print("Fetching subscription...")
-    resp = requests.get(sub_url, timeout=15)
-    resp.raise_for_status()
+    try:
+        resp = requests.get(sub_url, timeout=15)
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"Error fetching subscription: {e}")
+        return
 
     content = resp.text.strip()
 
+    # Декодирование содержимого подписки (Base64 или обычный текст)
     try:
         content_padded = content + "=" * (-len(content) % 4)
         decoded_content = base64.b64decode(content_padded).decode("utf-8")
@@ -354,37 +359,30 @@ def main():
     seen_tags = {}
     seen_servers = set()  # Множество для отслеживания уникальных IP/доменов
 
-    # КРИТЕРИЙ 1: Максимальное количество узлов (измените под свои нужды)
-    MAX_NODES_LIMIT = 100
-
+    # Обрабатываем абсолютно все ссылки, чтобы собрать полный список для разброса
     for link in links:
-        # Если набрали нужное количество, прекращаем обработку остальных
-        if len(outbounds) >= MAX_NODES_LIMIT:
-            print(f"Достигнут лимит в {MAX_NODES_LIMIT} узлов. Остальные пропущены.")
-            break
-
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
 
-            # --- ФИЛЬТРАЦИЯ РОССИЙСКИХ СЕРВЕРОВ ---
-            # 1. Проверка по названию (тегу)
+            # --- 1. ФИЛЬТРАЦИЯ РОССИЙСКИХ СЕРВЕРОВ ---
+            # Проверка по названию (тегу)
             node_tag = str(outbound.get("tag", "")).lower()
             if "ru" in node_tag or "russia" in node_tag:
                 continue  # Пропускаем российский узел
 
-            # 2. Проверка по доменному имени сервера (зона .ru)
+            # Проверка по доменному имени сервера (зона .ru)
             server_address = str(outbound.get("server", "")).lower()
             if server_address.endswith(".ru") or ".ru:" in server_address:
                 continue  # Пропускаем узел с российским доменом
 
-            # --- ДЕДУПЛИКАЦИЯ ---
+            # --- 2. ДЕДУПЛИКАЦИЯ ---
             if server_address:
                 if server_address in seen_servers:
                     continue  # Пропускаем дубликат IP/домена
                 seen_servers.add(server_address)
 
-            # Обеспечиваем уникальность тегов
+            # Обеспечиваем уникальность тегов (для не-удаленных узлов)
             base_tag = outbound["tag"]
             if base_tag in seen_tags:
                 seen_tags[base_tag] += 1
@@ -394,7 +392,29 @@ def main():
 
             outbounds.append(outbound)
 
+    # --- 3. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
+    MAX_NODES_LIMIT = 100
+    total_found = len(outbounds)
+
+    if total_found > MAX_NODES_LIMIT:
+        print(f"Всего найдено уникальных зарубежных узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
+        
+        sampled_outbounds = []
+        for i in range(MAX_NODES_LIMIT):
+            # Рассчитываем индекс так, чтобы шаг распределялся равномерно от 0 до последнего элемента
+            index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
+            sampled_outbounds.append(outbounds[index])
+            
+        outbounds = sampled_outbounds
+    else:
+        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все очищенные узлы.")
+
+    # Генерация списка тегов для групп на основе уже отфильтрованного и урезанного списка
     node_tags = [o["tag"] for o in outbounds]
+
+    if not node_tags:
+        print("Error: No valid proxy nodes left after filtration!")
+        return
 
     selector_outbound = {
         "type": "selector",
