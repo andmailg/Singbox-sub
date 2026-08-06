@@ -53,8 +53,12 @@ def parse_proxy_link(link: str) -> dict | None:
             print(f"Skipping VLESS node: invalid port {port} (Only 443/8443 allowed) for tag '{tag}'")
             return None
 
-        flow = params.get("flow", [""]).strip().lower()
-        security = params.get("security", ["none"]).strip().lower()
+        # ИСПРАВЛЕНО: Безопасно достаем нулевой элемент из списка параметров
+        flow_param = params.get("flow", [""])
+        flow = flow_param[0].strip().lower() if flow_param else ""
+
+        security_param = params.get("security", ["none"])
+        security = security_param[0].strip().lower() if security_param else "none"
 
         is_vision = (flow == "xtls-rprx-vision")
         is_reality = (security == "reality")
