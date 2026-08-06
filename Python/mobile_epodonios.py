@@ -432,6 +432,10 @@ def main():
     seen_tags = {}
     seen_servers = set()  # Множество для отслеживания уникальных IP/доменов
 
+    # Белый список стран в формате ISO (Нидерланды, Германия, Финляндия, Польша, Франция, Великобритания и т.д.)
+    EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT"}
+    ip_country_cache = {}  # Кэш для минимизации сетевых запросов к ip-api
+
     # Обрабатываем абсолютно все ссылки, чтобы собрать полный список для разброса
     for link in links:
         outbound = parse_proxy_link(link)
@@ -449,7 +453,31 @@ def main():
             if server_address.endswith(".ru") or ".ru:" in server_address:
                 continue  # Пропускаем узел с российским доменом
 
-            # --- 2. ДЕДУПЛИКАЦИЯ ---
+            # --- 2. ГЕО-ФИЛЬТРАЦИЯ VLESS ПО GEOIP (ТОЛЬКО ЕВРОПА) ---
+            if outbound.get("type") == "vless" and server_address:
+                # Если этого сервера ещё нет в кэше — делаем один запрос к ip-api
+                if server_address not in ip_country_cache:
+                    try:
+                        geo_url = f"http://ip-api.com{server_address}?fields=status,countryCode"
+                        geo_resp = requests.get(geo_url, timeout=5)
+                        if geo_resp.status_code == 200:
+                            geo_data = geo_resp.json()
+                            if geo_data.get("status") == "success":
+                                ip_country_cache[server_address] = geo_data.get("countryCode", "").upper()
+                            else:
+                                ip_country_cache[server_address] = "UNKNOWN"
+                        else:
+                            ip_country_cache[server_address] = "UNKNOWN"
+                    except Exception:
+                        ip_country_cache[server_address] = "UNKNOWN"
+
+                # Проверяем локацию сервера по нашему белому списку
+                node_country = ip_country_cache[server_address]
+                if node_country not in EUROPE_COUNTRIES:
+                    print(f"Skipping VLESS node '{outbound.get('tag')}': server location is {node_country}")
+                    continue  # Исключаем узел, если он физически находится вне Европы
+
+            # --- 3. ДЕДУПЛИКАЦИЯ ---
             if server_address:
                 if server_address in seen_servers:
                     continue  # Пропускаем дубликат IP/домена
@@ -465,7 +493,7 @@ def main():
 
             outbounds.append(outbound)
 
-    # --- 3. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
+    # --- 4. УМНЫЙ РАЗБРОС (ВЫБОРКА ИЗ НАЧАЛА, СЕРЕДИНЫ И КОНЦА) ---
     MAX_NODES_LIMIT = 150
     total_found = len(outbounds)
 
