@@ -367,11 +367,21 @@ def main():
         if outbound:
             outbound = clean_outbound(outbound)
 
-            # КРИТЕРИЙ 2: Фильтрация дубликатов по серверу
-            server_address = outbound.get("server")
+            # --- ФИЛЬТРАЦИЯ РОССИЙСКИХ СЕРВЕРОВ ---
+            # 1. Проверка по названию (тегу)
+            node_tag = str(outbound.get("tag", "")).lower()
+            if "ru" in node_tag or "russia" in node_tag:
+                continue  # Пропускаем российский узел
+
+            # 2. Проверка по доменному имени сервера (зона .ru)
+            server_address = str(outbound.get("server", "")).lower()
+            if server_address.endswith(".ru") or ".ru:" in server_address:
+                continue  # Пропускаем узел с российским доменом
+
+            # --- ДЕДУПЛИКАЦИЯ ---
             if server_address:
                 if server_address in seen_servers:
-                    continue  # Пропускаем, если этот сервер уже есть в списке
+                    continue  # Пропускаем дубликат IP/домена
                 seen_servers.add(server_address)
 
             # Обеспечиваем уникальность тегов
