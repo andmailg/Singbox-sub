@@ -84,38 +84,45 @@ def parse_proxy_link(link: str) -> dict | None:
         is_vision = (flow == "xtls-rprx-vision")
         is_reality = (security == "reality")
 
+        # Удаляем все конфигурации VLESS с Reality
+        if is_reality:
+            print(f"Skipping VLESS node: Reality security is disabled for tag '{tag}'")
+            return None
+
+        # Обязательное условие: наличие xtls-rprx-vision
         if not is_vision:
             print(f"Skipping VLESS node: missing vision flow for tag '{tag}'")
             return None
 
+        # Считываем SNI
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        # Определяем итоговый server_host
+        server_host = hostname
+
+        # Если server и server_name не совпадают, перезаписываем server
+        if security in ["tls", "none"] and sni:
+            if hostname.lower() != sni.lower():
+                server_host = sni
+
         outbound = {
             "type": "vless",
             "tag": tag,
-            "server": hostname,
+            "server": server_host,
             "server_port": port,
             "uuid": parsed.username,
             "flow": "xtls-rprx-vision"
         }
 
-        if security in ["tls", "reality"] or is_vision:
+        if security == "tls" or is_vision:
             tls_opts = {"enabled": True}
-            sni_param = params.get("sni", [None])[0]
-            if sni_param:
-                tls_opts["server_name"] = sni_param.strip()
+            if sni:
+                tls_opts["server_name"] = sni
 
             fp_param = params.get("fp", [None])[0]
             if fp_param:
                 tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
-
-            if is_reality:
-                pbk_param = params.get("pbk", [None])[0]
-                sid_param = params.get("sid", [None])[0]
-                reality_opts = {}
-                if pbk_param:
-                    reality_opts["public_key"] = pbk_param.strip()
-                if sid_param:
-                    reality_opts["short_id"] = sid_param.strip()
-                tls_opts["reality"] = reality_opts
 
             outbound["tls"] = tls_opts
 
@@ -209,17 +216,40 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
+        # Безопасно извлекаем пароль из netloc (все, что до '@')
+        netloc = parsed.netloc
+        password = parsed.username
+
+        if not password and "@" in netloc:
+            user_part = netloc.split("@")[0]
+            # Если передано в формате user:pass, берем пароль или всю строку
+            password = user_part.split(":", 1)[-1] if ":" in user_part else user_part
+
+        if not password:
+            print(f"Skipping Hysteria2 node: missing password for tag '{tag}'")
+            return None
+
+        # Обработка SNI и перезапись server
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        server_host = hostname
+        tls_opts = {"enabled": True}
+
+        if sni:
+            tls_opts["server_name"] = sni
+            # Перезаписываем server, если он не совпадает с SNI (172.245.233.37 != hopp-us.yyuyy.com)
+            if hostname.lower() != sni.lower():
+                server_host = sni
+
         outbound = {
             "type": "hysteria2",
             "tag": tag,
-            "server": hostname,
+            "server": server_host,
             "server_port": parsed.port or 443,
-            "password": parsed.username,
-            "tls": {"enabled": True}
+            "password": urllib.parse.unquote(password),
+            "tls": tls_opts
         }
-        sni_param = params.get("sni", [None])[0]
-        if sni_param:
-            outbound["tls"]["server_name"] = sni_param.strip()
 
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
@@ -291,7 +321,6 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
 
     return outbound
-
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
 
