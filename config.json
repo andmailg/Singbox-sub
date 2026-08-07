@@ -24,7 +24,6 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇳🇱 The Netherlands, Almere Stad | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
@@ -39,7 +38,6 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇳🇱 The Netherlands, Almere Stad | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
@@ -69,17 +67,6 @@
       "password": "71cada65-d23e-418c-88e4-a06188d14689",
       "tls": {
         "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "213.202.219.29",
-      "server_port": 8443,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
       }
     },
     {
