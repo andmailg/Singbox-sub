@@ -22,13 +22,7 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇳🇱 The Netherlands, Almere Stad | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, New York | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]"
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]"
       ],
       "default": "auto"
     },
@@ -36,91 +30,21 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇳🇱 The Netherlands, Almere Stad | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, New York | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]"
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]"
       ],
-      "url": "https://ipv6.google.com/generate_204",
+      "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "2.26.85.26",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true,
-        "server_name": "fi-one.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
-      "server": "fi-one.quiet-rogue.site",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "93.114.194.120",
+      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+      "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
-      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
       "tls": {
         "enabled": true,
-        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Almere Stad | [BL]",
-      "server": "45.14.245.22",
-      "server_port": 8443,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "86.107.178.67",
-      "server_port": 8443,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-turbo-nl.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇺🇸 United States, New York | [BL]",
-      "server": "172.245.233.37",
-      "server_port": 8443,
-      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
-      "tls": {
-        "enabled": true,
-        "server_name": "hopp-us.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]",
-      "server": "nl7.unlockvpn.online",
-      "server_port": 10808,
-      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
-      "tls": {
-        "enabled": true
+        "server_name": "grape-sos-de.roxa.org"
       }
     }
   ],
