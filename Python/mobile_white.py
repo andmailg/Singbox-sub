@@ -462,7 +462,10 @@ def main():
     urltest_outbound = clean_urltest(urltest_outbound)
 
     singbox_config = {
-        "log": {"level": "warn", "timestamp": True},
+        "log": {
+            "level": "warn",
+            "timestamp": True
+        },
         "dns": {
             "servers": [
                 {
@@ -523,6 +526,31 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
+        "endpoints": [
+            {
+                "type": "wireguard",
+                "tag": "warp-ep",
+                "detour": "auto",
+                "address": [
+                "172.28.0.2/32",
+                "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
+                ],
+                "private_key": "MI1O5sSAtVkAejNZPY+qyl4tsip1KIwxMfxhbHVc43M=",
+                "mtu": 1280,
+                "peers": [
+                    {
+                        "address": "162.159.192.1",
+                        "port": 2408,
+                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                        "allowed_ips": [
+                            "0.0.0.0/0",
+                            "::/0"
+                            ],
+                        "reserved": [0, 0, 0]
+                    }
+                    ]
+                }
+        ],
         "inbounds": [
             {
                 "type": "tun",
@@ -561,7 +589,12 @@ def main():
         },
         {
             "rule_set": [
-                "db-category-ai-chat",
+                "db-category-ai-chat"
+        ],
+        "outbound": "warp-ep"
+      },
+        {
+            "rule_set": [
                 "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
