@@ -112,11 +112,6 @@
       "tag": "direct-out"
     },
     {
-      "type": "wireguard",
-      "tag": "warp-out",
-      "endpoint": "warp-ep"
-    },
-    {
       "type": "selector",
       "tag": "proxy-out",
       "outbounds": [
@@ -248,7 +243,7 @@
         "rule_set": [
           "db-category-ai-chat"
         ],
-        "outbound": "warp-out"
+        "outbound": "warp-ep"
       },
       {
         "rule_set": [
