@@ -84,19 +84,25 @@ def parse_proxy_link(link: str) -> dict | None:
         is_vision = (flow == "xtls-rprx-vision")
         is_reality = (security == "reality")
 
+        # Удаляем все конфигурации VLESS с Reality
+        if is_reality:
+            print(f"Skipping VLESS node: Reality security is disabled for tag '{tag}'")
+            return None
+
+        # Обязательное условие: наличие xtls-rprx-vision
         if not is_vision:
             print(f"Skipping VLESS node: missing vision flow for tag '{tag}'")
             return None
 
-        # Считываем SNI заранее
+        # Считываем SNI
         sni_param = params.get("sni", [None])[0]
         sni = sni_param.strip() if sni_param else None
 
         # Определяем итоговый server_host
         server_host = hostname
 
-        # Для обычного TLS (не Reality): если server и server_name не совпадают, перезаписываем server
-        if not is_reality and security in ["tls", "none"] and sni:
+        # Если server и server_name не совпадают, перезаписываем server
+        if security in ["tls", "none"] and sni:
             if hostname.lower() != sni.lower():
                 server_host = sni
 
@@ -109,7 +115,7 @@ def parse_proxy_link(link: str) -> dict | None:
             "flow": "xtls-rprx-vision"
         }
 
-        if security in ["tls", "reality"] or is_vision:
+        if security == "tls" or is_vision:
             tls_opts = {"enabled": True}
             if sni:
                 tls_opts["server_name"] = sni
@@ -117,16 +123,6 @@ def parse_proxy_link(link: str) -> dict | None:
             fp_param = params.get("fp", [None])[0]
             if fp_param:
                 tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
-
-            if is_reality:
-                pbk_param = params.get("pbk", [None])[0]
-                sid_param = params.get("sid", [None])[0]
-                reality_opts = {}
-                if pbk_param:
-                    reality_opts["public_key"] = pbk_param.strip()
-                if sid_param:
-                    reality_opts["short_id"] = sid_param.strip()
-                tls_opts["reality"] = reality_opts
 
             outbound["tls"] = tls_opts
 
