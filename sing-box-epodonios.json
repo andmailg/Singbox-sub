@@ -137,7 +137,12 @@
         "EPODONIOS #43",
         "EPODONIOS #44",
         "EPODONIOS #45",
-        "EPODONIOS #46"
+        "EPODONIOS #46",
+        "EPODONIOS #47",
+        "EPODONIOS #48",
+        "EPODONIOS #49",
+        "EPODONIOS #50",
+        "EPODONIOS #51"
       ],
       "default": "auto"
     },
@@ -191,7 +196,12 @@
         "EPODONIOS #43",
         "EPODONIOS #44",
         "EPODONIOS #45",
-        "EPODONIOS #46"
+        "EPODONIOS #46",
+        "EPODONIOS #47",
+        "EPODONIOS #48",
+        "EPODONIOS #49",
+        "EPODONIOS #50",
+        "EPODONIOS #51"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -445,8 +455,16 @@
       "password": "dyL+KqX8hIMn+UyADwSJOPm72A0A83TsDOFXBn6I2mA="
     },
     {
-      "type": "trojan",
+      "type": "shadowsocks",
       "tag": "EPODONIOS #23",
+      "server": "167.150.100.115",
+      "server_port": 27755,
+      "method": "2022-blake3-aes-256-gcm",
+      "password": "fnvo82p9y4AKykZXyIFtnodFy6fQmWnVlI2SvGleOB0="
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #24",
       "server": "179.237.74.104",
       "server_port": 361,
       "password": "---------BanV2ray------------",
@@ -468,7 +486,44 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #24",
+      "tag": "EPODONIOS #25",
+      "server": "185.126.64.171",
+      "server_port": 50585,
+      "password": "8M8U8Cv0eX",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.intel.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "public_key": "9w5q9YbHWO8hbLeUjQBQfw24Ng_INoWd9N5WlCYLq2Y",
+          "short_id": "6c05"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #26",
+      "server": "3-2--1-2-3-4-4-4--42_2_2_2_2_2_1_1_2.poki-pakipon.ir",
+      "server_port": 38863,
+      "password": "COPE-----AZ-----JKVPN",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.icloud.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "public_key": "BdrmMwrkBUCecrfj2LfquWZkU57969dpJhkSGNp8eDs"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #27",
       "server": "ho.apexi.shop",
       "server_port": 443,
       "password": "IH4t6apt3J28-5LWuiLr1slytzxtIyac",
@@ -487,7 +542,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #25",
+      "tag": "EPODONIOS #28",
       "server": "37.156.46.29",
       "server_port": 2053,
       "password": "Masir_Sefid",
@@ -506,7 +561,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #26",
+      "tag": "EPODONIOS #29",
       "server": "83.228.225.220",
       "server_port": 1040,
       "password": "Masir_Sefid",
@@ -525,7 +580,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #27",
+      "tag": "EPODONIOS #30",
       "server": "84.234.31.249",
       "server_port": 443,
       "password": "Masir_Sefid",
@@ -541,7 +596,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #28",
+      "tag": "EPODONIOS #31",
       "server": "46.8.78.175",
       "server_port": 45372,
       "password": "bu3x1qqcic114jnl",
@@ -560,7 +615,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #29",
+      "tag": "EPODONIOS #32",
       "server": "38.79.154.34",
       "server_port": 1818,
       "password": "ewpvezqjycgfeebg",
@@ -579,7 +634,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #30",
+      "tag": "EPODONIOS #33",
       "server": "mmd.asan9720.ir",
       "server_port": 8880,
       "password": "hGGbs2T6hf",
@@ -598,7 +653,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #31",
+      "tag": "EPODONIOS #34",
       "server": "85.9.204.140",
       "server_port": 443,
       "password": "hS6V52dkSy",
@@ -616,7 +671,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #32",
+      "tag": "EPODONIOS #35",
       "server": "1------------------------------------------------2.poki-pakipon.ir",
       "server_port": 22880,
       "password": "oeaQHjIg021hag3UB1gHR60iA1iaNSs2",
@@ -639,7 +694,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #33",
+      "tag": "EPODONIOS #36",
       "server": "2----------------------------------------------------3.poki-pakipon.ir",
       "server_port": 62181,
       "password": "oeaQHjIg021hag3UB1gHR60iA1iaNSs2",
@@ -662,7 +717,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #34",
+      "tag": "EPODONIOS #37",
       "server": "179.237.75.190",
       "server_port": 41464,
       "password": "uRkZYGid1r",
@@ -680,7 +735,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #35",
+      "tag": "EPODONIOS #38",
       "server": "6r6e6e6ryrfyfyydur6r6f6r6r6r6d6d6e6s6d6s6d7d7d7e6s.poki-pakipon.ir",
       "server_port": 41464,
       "password": "uRkZYGid1r",
@@ -698,7 +753,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #36",
+      "tag": "EPODONIOS #39",
       "server": "179.237.75.149",
       "server_port": 36029,
       "password": "yBN5491Fle",
@@ -719,7 +774,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #37",
+      "tag": "EPODONIOS #40",
       "server": "nl10.roscomsosal.de",
       "server_port": 443,
       "uuid": "0f3965de-fd00-40cb-94a6-d4c81a9b9216",
@@ -731,7 +786,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #38",
+      "tag": "EPODONIOS #41",
       "server": "fi1.hys.braidx.tech",
       "server_port": 8443,
       "uuid": "8787dd0a-095a-414e-804f-a7d16a1ae166",
@@ -747,7 +802,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #39",
+      "tag": "EPODONIOS #42",
       "server": "frx1.braidx.tech",
       "server_port": 8443,
       "uuid": "8787dd0a-095a-414e-804f-a7d16a1ae166",
@@ -763,7 +818,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #40",
+      "tag": "EPODONIOS #43",
       "server": "usamd2.95318.cf",
       "server_port": 443,
       "uuid": "de515b65-ad6f-4dfa-b3a2-405a7eef71be",
@@ -779,7 +834,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #41",
+      "tag": "EPODONIOS #44",
       "server": "nasnet-162191099-direct.mbghalibaf.com",
       "server_port": 443,
       "uuid": "e8b1500b-e9e8-5492-8312-f4eadf7d0767",
@@ -795,7 +850,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #42",
+      "tag": "EPODONIOS #45",
       "server": "jina-20218137249-direct.yektanet.co",
       "server_port": 443,
       "uuid": "jina",
@@ -811,7 +866,23 @@
     },
     {
       "type": "vmess",
-      "tag": "EPODONIOS #43",
+      "tag": "EPODONIOS #46",
+      "server": "159.223.13.109",
+      "server_port": 1234,
+      "uuid": "5c040f1d-45db-43bd-8d46-e4950e433735",
+      "security": "aes-128-gcm",
+      "tls": {
+        "enabled": true,
+        "server_name": "supervpn.super.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "vmess",
+      "tag": "EPODONIOS #47",
       "server": "46.183.187.73",
       "server_port": 443,
       "uuid": "92a048ec-a160-497e-8069-c2e902626d7a",
@@ -819,7 +890,15 @@
     },
     {
       "type": "vmess",
-      "tag": "EPODONIOS #44",
+      "tag": "EPODONIOS #48",
+      "server": "169.197.142.22",
+      "server_port": 18000,
+      "uuid": "f8c8dc3d-0d37-46b0-8b34-a7232882fcfe",
+      "security": "none"
+    },
+    {
+      "type": "vmess",
+      "tag": "EPODONIOS #49",
       "server": "216.106.185.141",
       "server_port": 22324,
       "uuid": "04621bae-ab36-11ec-b909-0242ac120002",
@@ -827,7 +906,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #45",
+      "tag": "EPODONIOS #50",
       "server": "hy2.123266.xyz",
       "server_port": 33333,
       "password": "bce6c821-200d-421f-bf3d-7159e5246ea0",
@@ -838,7 +917,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #46",
+      "tag": "EPODONIOS #51",
       "server": "hy2.561891.xyz",
       "server_port": 44356,
       "password": "dongtaiwang.com",

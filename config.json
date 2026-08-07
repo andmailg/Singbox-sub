@@ -22,7 +22,8 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -30,7 +31,8 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -38,13 +40,24 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tag": "🇫🇮 Finland, Helsinki | [BL]",
+      "server": "fi-one.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
       "tls": {
         "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
+        "server_name": "fi-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
+      "server": "nl1.unlockvpn.online",
+      "server_port": 10808,
+      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
+      "tls": {
+        "enabled": true,
+        "server_name": "nl1.unlockvpn.online"
       }
     }
   ],
