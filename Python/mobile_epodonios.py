@@ -96,8 +96,10 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 1. VLESS ---
     if scheme == "vless":
+        # --- Фильтрация по портам 443 и 8443 ---
         port = parsed.port or 443
         if port not in [443, 8443]:
+            print(f"Skipping VLESS node '{tag}': invalid port ({port})")
             return None
 
         flow = params.get("flow", [""])[0].strip().lower()
@@ -222,6 +224,12 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
+        # --- Фильтрация по портам 443 и 8443 ---
+        port = parsed.port or 443
+        if port not in [443, 8443]:
+            print(f"Skipping Hysteria2 node '{tag}': invalid port ({port})")
+            return None
+
         netloc = parsed.netloc
         password = parsed.username
 
@@ -247,7 +255,7 @@ def parse_proxy_link(link: str) -> dict | None:
             "type": "hysteria2",
             "tag": tag,
             "server": server_host,
-            "server_port": parsed.port or 443,
+            "server_port": port,  # Используем определенный ранее port
             "password": urllib.parse.unquote(password),
             "tls": tls_opts
         }
