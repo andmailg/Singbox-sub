@@ -88,10 +88,22 @@ def parse_proxy_link(link: str) -> dict | None:
             print(f"Skipping VLESS node: missing vision flow for tag '{tag}'")
             return None
 
+        # Считываем SNI заранее
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        # Определяем итоговый server_host
+        server_host = hostname
+
+        # Для обычного TLS (не Reality): если server и server_name не совпадают, перезаписываем server
+        if not is_reality and security in ["tls", "none"] and sni:
+            if hostname.lower() != sni.lower():
+                server_host = sni
+
         outbound = {
             "type": "vless",
             "tag": tag,
-            "server": hostname,
+            "server": server_host,
             "server_port": port,
             "uuid": parsed.username,
             "flow": "xtls-rprx-vision"
@@ -99,9 +111,8 @@ def parse_proxy_link(link: str) -> dict | None:
 
         if security in ["tls", "reality"] or is_vision:
             tls_opts = {"enabled": True}
-            sni_param = params.get("sni", [None])[0]
-            if sni_param:
-                tls_opts["server_name"] = sni_param.strip()
+            if sni:
+                tls_opts["server_name"] = sni
 
             fp_param = params.get("fp", [None])[0]
             if fp_param:
