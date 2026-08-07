@@ -209,17 +209,28 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        # Инициализируем имя сервера
+        server_host = hostname
+
+        tls_opts = {"enabled": True}
+
+        if sni:
+            tls_opts["server_name"] = sni
+            # Если server и server_name не совпадают, перезаписываем server
+            if hostname.lower() != sni.lower():
+                server_host = sni
+
         outbound = {
             "type": "hysteria2",
             "tag": tag,
-            "server": hostname,
+            "server": server_host,
             "server_port": parsed.port or 443,
             "password": parsed.username,
-            "tls": {"enabled": True}
+            "tls": tls_opts
         }
-        sni_param = params.get("sni", [None])[0]
-        if sni_param:
-            outbound["tls"]["server_name"] = sni_param.strip()
 
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
