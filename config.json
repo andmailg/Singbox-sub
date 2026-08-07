@@ -24,16 +24,7 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇮🇹 Italy, Milan | [BL]",
-        "🇮🇹 Italy, Milan | [BL] #1",
-        "🇲🇽 Mexico, Mexico City | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #1"
+        "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]"
       ],
       "default": "auto"
     },
@@ -43,16 +34,7 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇮🇹 Italy, Milan | [BL]",
-        "🇮🇹 Italy, Milan | [BL] #1",
-        "🇲🇽 Mexico, Mexico City | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #1"
+        "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]"
       ],
       "url": "https://ipv6.google.com/generate_204",
       "interval": "10m",
@@ -81,105 +63,8 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "76.164.202.216",
-      "server_port": 8443,
-      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
-      "tls": {
-        "enabled": true,
-        "server_name": "mercedes-grape.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL] #1",
-      "server": "76.164.202.217",
-      "server_port": 8443,
-      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
-      "tls": {
-        "enabled": true,
-        "server_name": "mercedes-grape.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "213.202.219.29",
-      "server_port": 8443,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "de-two.quiet-rogue.site",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-      "server": "93.114.194.119",
-      "server_port": 8443,
-      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇮🇹 Italy, Milan | [BL]",
-      "server": "31.76.113.32",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true,
-        "server_name": "it-one.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇮🇹 Italy, Milan | [BL] #1",
-      "server": "it-one.quiet-rogue.site",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇲🇽 Mexico, Mexico City | [BL]",
-      "server": "172.245.233.237",
-      "server_port": 8080,
-      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
-      "tls": {
-        "enabled": true,
-        "server_name": "hopp-us.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "nl1.unlockvpn.online",
-      "server_port": 10808,
-      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl1.unlockvpn.online"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
-      "server": "nl2.unlockvpn.online",
+      "tag": "🌐 Anycast-IP | 🇬🇧 🇳🇱 | [BL]",
+      "server": "nl7.unlockvpn.online",
       "server_port": 10808,
       "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
       "tls": {
