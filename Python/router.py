@@ -643,7 +643,7 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://ipv6.google.com/generate_204",
+        "url": "https://www.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50
     }
