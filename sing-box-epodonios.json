@@ -534,6 +534,21 @@
     {
       "type": "trojan",
       "tag": "EPODONIOS #19",
+      "server": "star-kiwi.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
+      "tls": {
+        "enabled": true,
+        "server_name": "star-kiwi.rooster465.autos",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #20",
       "server": "relaxed-gull.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -548,7 +563,48 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #20",
+      "tag": "EPODONIOS #21",
+      "server": "devoted-tapir.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
+      "tls": {
+        "enabled": true,
+        "server_name": "devoted-tapir.rooster465.autos",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #22",
+      "server": "pet-ghost.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
+      "tls": {
+        "enabled": true,
+        "server_name": "pet-ghost.rooster465.autos"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #23",
+      "server": "fleet-bonefish.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
+      "tls": {
+        "enabled": true,
+        "server_name": "fleet-bonefish.rooster465.autos",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #24",
       "server": "tidy-gelding.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -563,7 +619,18 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #21",
+      "tag": "EPODONIOS #25",
+      "server": "dynamic-grubworm.rooster465.autos",
+      "server_port": 443,
+      "password": "ND91608427",
+      "tls": {
+        "enabled": true,
+        "server_name": "dynamic-grubworm.rooster465.autos"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "EPODONIOS #26",
       "server": "gentle-raptor.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -574,7 +641,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #22",
+      "tag": "EPODONIOS #27",
       "server": "relaxing-bluebird.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -585,18 +652,18 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #23",
-      "server": "star-kiwi.rooster465.autos",
+      "tag": "EPODONIOS #28",
+      "server": "saving-octopus.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
       "tls": {
         "enabled": true,
-        "server_name": "star-kiwi.rooster465.autos"
+        "server_name": "saving-octopus.rooster465.autos"
       }
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #24",
+      "tag": "EPODONIOS #29",
       "server": "lucky-marmot.rooster465.autos",
       "server_port": 443,
       "password": "ON38567014",
@@ -607,7 +674,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #25",
+      "tag": "EPODONIOS #30",
       "server": "definite-ladybird.rooster465.autos",
       "server_port": 443,
       "password": "UO36402987",
@@ -622,7 +689,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #26",
+      "tag": "EPODONIOS #31",
       "server": "warm-bass.rooster465.autos",
       "server_port": 443,
       "password": "UO36402987",
@@ -637,7 +704,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #27",
+      "tag": "EPODONIOS #32",
       "server": "ww.offers.de5.net",
       "server_port": 443,
       "password": "VPNCUSTOMIZE",
@@ -648,7 +715,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #28",
+      "tag": "EPODONIOS #33",
       "server": "trojan.burgerip.co.uk",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -659,7 +726,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #29",
+      "tag": "EPODONIOS #34",
       "server": "nl10.roscomsosal.de",
       "server_port": 443,
       "uuid": "0f3965de-fd00-40cb-94a6-d4c81a9b9216",
@@ -671,7 +738,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #30",
+      "tag": "EPODONIOS #35",
       "server": "fi1.hys.braidx.tech",
       "server_port": 8443,
       "uuid": "8787dd0a-095a-414e-804f-a7d16a1ae166",
@@ -687,7 +754,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #31",
+      "tag": "EPODONIOS #36",
       "server": "frx1.braidx.tech",
       "server_port": 8443,
       "uuid": "8787dd0a-095a-414e-804f-a7d16a1ae166",
@@ -703,7 +770,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #32",
+      "tag": "EPODONIOS #37",
       "server": "usamd2.95318.cf",
       "server_port": 443,
       "uuid": "de515b65-ad6f-4dfa-b3a2-405a7eef71be",
@@ -719,7 +786,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #33",
+      "tag": "EPODONIOS #38",
       "server": "nasnet-162191099-direct.mbghalibaf.com",
       "server_port": 443,
       "uuid": "e8b1500b-e9e8-5492-8312-f4eadf7d0767",
@@ -735,7 +802,7 @@
     },
     {
       "type": "vless",
-      "tag": "EPODONIOS #34",
+      "tag": "EPODONIOS #39",
       "server": "jina-20218137249-direct.yektanet.co",
       "server_port": 443,
       "uuid": "jina",
@@ -751,7 +818,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #35",
+      "tag": "EPODONIOS #40",
       "server": "skilled-lioness.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -766,7 +833,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #36",
+      "tag": "EPODONIOS #41",
       "server": "classic-gator.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -781,7 +848,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #37",
+      "tag": "EPODONIOS #42",
       "server": "next-turkey.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -796,7 +863,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #38",
+      "tag": "EPODONIOS #43",
       "server": "eager-louse.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -807,7 +874,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #39",
+      "tag": "EPODONIOS #44",
       "server": "www.nintendogames.net",
       "server_port": 6357,
       "password": "d1960ba9f0f6353353994fa844cf817b",
@@ -818,29 +885,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #40",
-      "server": "pet-ghost.rooster465.autos",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "server_name": "pet-ghost.rooster465.autos"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "EPODONIOS #41",
-      "server": "devoted-tapir.rooster465.autos",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "server_name": "devoted-tapir.rooster465.autos"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "EPODONIOS #42",
+      "tag": "EPODONIOS #45",
       "server": "sincere-gelding.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -851,18 +896,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #43",
-      "server": "fleet-bonefish.rooster465.autos",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "server_name": "fleet-bonefish.rooster465.autos"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "EPODONIOS #44",
+      "tag": "EPODONIOS #46",
       "server": "discrete-basilisk.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -873,7 +907,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #45",
+      "tag": "EPODONIOS #47",
       "server": "great-krill.rooster465.autos",
       "server_port": 443,
       "password": "QV31589740",
@@ -884,7 +918,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #46",
+      "tag": "EPODONIOS #48",
       "server": "prompt-duckling.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -895,7 +929,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #47",
+      "tag": "EPODONIOS #49",
       "server": "smart-pup.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -906,7 +940,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #48",
+      "tag": "EPODONIOS #50",
       "server": "right-seahorse.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -917,7 +951,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #49",
+      "tag": "EPODONIOS #51",
       "server": "happy-mutt.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -928,7 +962,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #50",
+      "tag": "EPODONIOS #52",
       "server": "tough-robin.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -939,7 +973,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #51",
+      "tag": "EPODONIOS #53",
       "server": "perfect-slug.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -950,7 +984,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #52",
+      "tag": "EPODONIOS #54",
       "server": "casual-bee.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -961,7 +995,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #53",
+      "tag": "EPODONIOS #55",
       "server": "healthy-louse.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -972,7 +1006,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #54",
+      "tag": "EPODONIOS #56",
       "server": "social-mutt.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -983,7 +1017,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #55",
+      "tag": "EPODONIOS #57",
       "server": "definite-sturgeon.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -994,7 +1028,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #56",
+      "tag": "EPODONIOS #58",
       "server": "real-werewolf.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1005,7 +1039,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #57",
+      "tag": "EPODONIOS #59",
       "server": "clear-snail.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1016,7 +1050,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #58",
+      "tag": "EPODONIOS #60",
       "server": "picked-guinea.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1027,7 +1061,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #59",
+      "tag": "EPODONIOS #61",
       "server": "better-molly.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1038,7 +1072,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #60",
+      "tag": "EPODONIOS #62",
       "server": "learning-leopard.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1049,7 +1083,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #61",
+      "tag": "EPODONIOS #63",
       "server": "stunning-mite.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1060,7 +1094,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #62",
+      "tag": "EPODONIOS #64",
       "server": "internal-sunbird.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1071,7 +1105,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #63",
+      "tag": "EPODONIOS #65",
       "server": "upright-impala.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1082,7 +1116,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #64",
+      "tag": "EPODONIOS #66",
       "server": "adjusted-labrador.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1093,7 +1127,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #65",
+      "tag": "EPODONIOS #67",
       "server": "thankful-mustang.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1104,7 +1138,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #66",
+      "tag": "EPODONIOS #68",
       "server": "devoted-heron.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1115,7 +1149,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #67",
+      "tag": "EPODONIOS #69",
       "server": "sensible-mongrel.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1126,7 +1160,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #68",
+      "tag": "EPODONIOS #70",
       "server": "sure-humpback.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1137,7 +1171,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #69",
+      "tag": "EPODONIOS #71",
       "server": "striking-maggot.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1148,18 +1182,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #70",
-      "server": "saving-octopus.rooster465.autos",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "server_name": "saving-octopus.rooster465.autos"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "EPODONIOS #71",
+      "tag": "EPODONIOS #72",
       "server": "grateful-owl.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1170,7 +1193,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #72",
+      "tag": "EPODONIOS #73",
       "server": "distinct-llama.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1181,7 +1204,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #73",
+      "tag": "EPODONIOS #74",
       "server": "chief-bluegill.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1192,7 +1215,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #74",
+      "tag": "EPODONIOS #75",
       "server": "humorous-malamute.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1203,7 +1226,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #75",
+      "tag": "EPODONIOS #76",
       "server": "definite-malamute.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1214,7 +1237,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #76",
+      "tag": "EPODONIOS #77",
       "server": "exotic-chow.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1225,7 +1248,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #77",
+      "tag": "EPODONIOS #78",
       "server": "communal-sunbird.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1236,7 +1259,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #78",
+      "tag": "EPODONIOS #79",
       "server": "uncommon-feline.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1247,7 +1270,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #79",
+      "tag": "EPODONIOS #80",
       "server": "moved-meerkat.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1258,7 +1281,7 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #80",
+      "tag": "EPODONIOS #81",
       "server": "select-ferret.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
@@ -1269,24 +1292,13 @@
     },
     {
       "type": "trojan",
-      "tag": "EPODONIOS #81",
+      "tag": "EPODONIOS #82",
       "server": "ace-starling.rooster465.autos",
       "server_port": 443,
       "password": "ND91608427",
       "tls": {
         "enabled": true,
         "server_name": "ace-starling.rooster465.autos"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "EPODONIOS #82",
-      "server": "dynamic-grubworm.rooster465.autos",
-      "server_port": 443,
-      "password": "ND91608427",
-      "tls": {
-        "enabled": true,
-        "server_name": "dynamic-grubworm.rooster465.autos"
       }
     },
     {

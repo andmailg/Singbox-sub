@@ -120,8 +120,9 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]"
       ],
       "default": "auto"
     },
@@ -129,8 +130,9 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -138,24 +140,35 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "fi-one.quiet-rogue.site",
-      "server_port": 443,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
       "tls": {
         "enabled": true,
-        "server_name": "fi-one.quiet-rogue.site"
+        "server_name": "grape-sos-de.roxa.org"
       }
     },
     {
       "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "nl1.unlockvpn.online",
-      "server_port": 10808,
-      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
+      "server": "grape-zet-turbo-nl.yyuyy.com",
+      "server_port": 8443,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
       "tls": {
         "enabled": true,
-        "server_name": "nl1.unlockvpn.online"
+        "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, London | [BL]",
+      "server": "grape-turbo-fr.roxa.org",
+      "server_port": 8443,
+      "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-turbo-fr.roxa.org"
       }
     }
   ],
