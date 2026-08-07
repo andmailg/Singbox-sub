@@ -321,6 +321,7 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
 
     return outbound
+    
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
 
