@@ -123,16 +123,12 @@
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
-        "🇮🇳 India, Mumbai | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL] #1"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "default": "auto"
     },
@@ -143,16 +139,12 @@
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
-        "🇮🇳 India, Mumbai | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL] #1"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -199,6 +191,19 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
       "server": "grape-zet-ro-turbo.bumbleshrimp.com",
       "server_port": 8443,
@@ -208,45 +213,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
-      "server": "jp.cryptoofarm.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "tls": {
-        "enabled": true,
-        "server_name": "jp.cryptoofarm.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "grape-power-pl.ddnsguru.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
-      "server": "pol.cryptoofarm.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "tls": {
-        "enabled": true,
-        "server_name": "pol.cryptoofarm.com"
       }
     },
     {
@@ -299,32 +265,6 @@
       "tls": {
         "enabled": true,
         "server_name": "all.cryptoofarm.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇮🇳 India, Mumbai | [BL]",
-      "server": "tttyder.wsone.icu",
-      "server_port": 443,
-      "password": "M7v%25w11Se%2A",
-      "tls": {
-        "enabled": true,
-        "server_name": "tttyder.wsone.icu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇯🇵 Japan, Shibuya City | [BL] #1",
-      "server": "hk.catxstar.com",
-      "server_port": 20004,
-      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.catxstar.com"
       }
     }
   ],
