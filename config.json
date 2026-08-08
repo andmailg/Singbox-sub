@@ -22,9 +22,19 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
+        "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, Orem | [BL]",
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "default": "auto"
     },
@@ -32,13 +42,44 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
+        "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
+        "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, Orem | [BL]",
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
+      "server": "off.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "off.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL]",
+      "server": "fi-one.quiet-rogue.site",
+      "server_port": 443,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true
+      }
     },
     {
       "type": "hysteria2",
@@ -53,13 +94,79 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
+      "server": "on.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "on.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
+      "server": "jp.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw | [BL]",
+      "server": "grape-power-pl.ddnsguru.com",
+      "server_port": 8443,
+      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-power-pl.ddnsguru.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
+      "server": "pol.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "pol.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
+      "server": "nl1.unlockvpn.online",
+      "server_port": 10808,
+      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
+      "tls": {
+        "enabled": true,
+        "server_name": "nl1.unlockvpn.online"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
       "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
+      "server": "lin.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "lin.cryptoofarm.com"
       }
     },
     {
@@ -71,6 +178,28 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-turbo-fr.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Orem | [BL]",
+      "server": "sal.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "sal.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
+      "server": "all.cryptoofarm.com",
+      "server_port": 443,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "all.cryptoofarm.com"
       }
     }
   ],
