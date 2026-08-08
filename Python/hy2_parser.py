@@ -331,21 +331,18 @@ def main():
     else:
         outbounds = filtered_nodes
 
-    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ ---
-    seen_tags = {}
-    for outbound in outbounds:
-        base_tag = outbound.get("tag", "Hy2-Node")
-        if base_tag in seen_tags:
-            seen_tags[base_tag] += 1
-            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-        else:
-            seen_tags[base_tag] = 0
-            outbound["tag"] = base_tag
+    # --- ШАГ 5: ПЕРЕИМЕНОВАНИЕ И КРАСИВАЯ НУМЕРАЦИЯ ТЕГОВ ---
+    PREFIX = "Hy2" # Вы можете изменить префикс на любой другой (например, "Proxy")
+    
+    for idx, outbound in enumerate(outbounds, start=1):
+        # f"{idx:03d}" сделает нумерацию формата 001, 002... 010... 100
+        outbound["tag"] = f"{PREFIX}-{idx:03d}"
 
     # =========================================================================
     # СБОРКА СТРУКТУРЫ ПО ВАШЕМУ ТРЕБОВАНИЮ
     # =========================================================================
 
+    # Формируем список тегов СТРОГО ПОСЛЕ переименования
     node_tags = [o["tag"] for o in outbounds]
 
     if not node_tags:
@@ -355,18 +352,19 @@ def main():
     selector_outbound = {
         "type": "selector",
         "tag": "proxy-out",
-        "outbounds": ["auto"] + node_tags,
+        "outbounds": ["auto"] + node_tags, # Сюда попадут красивые теги (Hy2-001 и т.д.)
         "default": "auto",
     }
 
     urltest_outbound = {
         "type": "urltest",
         "tag": "auto",
-        "outbounds": node_tags,
+        "outbounds": node_tags,            # И сюда тоже
         "url": "https://connectivitycheck.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50,
     }
+    
     urltest_outbound = clean_urltest(urltest_outbound)
 
     singbox_config = {
