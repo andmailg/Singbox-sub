@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
-          git add sing_box_hy2_outbounds.json
+          git add sing-box-hy2.json
           git status
           # Проверяем наличие изменений в индексе (универсальный способ для всех добавленных файлов)
-          git diff --cached --quiet || (git commit -m "Auto-update sing_box_hy2_outbounds.json" && git push)
+          git diff --cached --quiet || (git commit -m "Auto-update sing-box-hy2.json" && git push)
