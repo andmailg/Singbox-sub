@@ -345,7 +345,7 @@ def parse_proxy_link(link: str) -> dict | None:
         return None
 
     return outbound
-    
+
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
 
@@ -767,7 +767,7 @@ def main():
             {
                 "type": "tun",
                 "tag": "tun-in",
-                "mtu": 1500,
+                "mtu": 1420,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
@@ -801,8 +801,13 @@ def main():
         },
         {
             "rule_set": [
-                "geosite-category-media-ru-blocked",
                 "db-category-ai-chat"
+        ],
+        "outbound": "warp-ep"
+      },
+        {
+            "rule_set": [
+                "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
         },
