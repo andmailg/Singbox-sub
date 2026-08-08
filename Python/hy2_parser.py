@@ -113,17 +113,22 @@ def parse_proxy_link(link: str) -> dict | None:
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Hy2-Node"
 
-    # 4. SNI
+    # 4. SNI (извлечение и жесткая проверка)
     sni_param = params.get("sni", [None])[0]
     sni = sni_param.strip() if sni_param else None
 
+    # ❌ ФИЛЬТР: Если SNI отсутствует или пустой — бракуем ноду
+    if not sni:
+        return None
+
     server_host = hostname
-    if sni and hostname.lower() != sni.lower():
+    if hostname.lower() != sni.lower():
         server_host = sni
 
-    tls_opts = {"enabled": True}
-    if sni:
-        tls_opts["server_name"] = sni
+    tls_opts = {
+        "enabled": True,
+        "server_name": sni
+    }
 
     outbound = {
         "type": "hysteria2",
@@ -140,14 +145,14 @@ def parse_proxy_link(link: str) -> dict | None:
     if not is_valid_server(outbound["server"]):
         return None
 
-    if sni:
-        sni_val = sni.lower()
-        if not is_valid_domain(sni_val):
-            return None
+    # Проверка формата SNI и запрет .ru доменов
+    sni_val = sni.lower()
+    if not is_valid_domain(sni_val):
+        return None
 
-        RU_ZONES = (".ru", ".su", ".рф")
-        if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
-            return None
+    RU_ZONES = (".ru", ".su", ".рф")
+    if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
+        return None
 
     return outbound
 
