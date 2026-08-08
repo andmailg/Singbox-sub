@@ -41,49 +41,6 @@ def is_valid_server(server: str) -> bool:
     clean_server = server.strip("[]")
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
-import ipaddress  # Встроенный модуль для работы с IP и подсетями
-from concurrent.futures import ThreadPoolExecutor
-import base64
-import json
-import os
-import socket
-import urllib.parse
-import requests
-import re
-
-# Для работы с локальной базой GeoIP
-try:
-    import maxminddb
-except ImportError:
-    # Заглушка на случай запуска вне среды с установленной библиотекой
-    maxminddb = None
-
-def is_valid_ip(address: str) -> bool:
-    """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
-    try:
-        ipaddress.ip_address(address.strip("[]"))
-        return True
-    except ValueError:
-        return False
-
-def is_valid_domain(domain: str) -> bool:
-    """
-    Проверяет, является ли строка валидным доменным именем (не IP-адресом).
-    """
-    if not domain or is_valid_ip(domain):
-        return False
-    domain_regex = re.compile(
-        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
-    )
-    return bool(domain_regex.match(domain))
-
-def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
-    if not server or "@" in server:
-        return False
-    clean_server = server.strip("[]")
-    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
-
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
     if not link or link.startswith("#"):
