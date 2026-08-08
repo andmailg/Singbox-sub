@@ -122,8 +122,11 @@
         "auto",
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇷 France, Paris | [BL]",
+        "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
         "🇯🇵 Japan, Shibuya City | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
@@ -142,8 +145,11 @@
       "outbounds": [
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇷 France, Paris | [BL]",
+        "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
         "🇯🇵 Japan, Shibuya City | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
@@ -181,6 +187,28 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇫🇷 France, Paris | [BL]",
+      "server": "mercedes-grape.yyuyy.com",
+      "server_port": 8443,
+      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
+      "tls": {
+        "enabled": true,
+        "server_name": "mercedes-grape.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷 France, Paris | [BL] #1",
+      "server": "key-very-far.mysynology.net",
+      "server_port": 8443,
+      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
+      "tls": {
+        "enabled": true,
+        "server_name": "key-very-far.mysynology.net"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
@@ -199,6 +227,17 @@
       "tls": {
         "enabled": true,
         "server_name": "on.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
+      "server": "grape-zet-ro-turbo.bumbleshrimp.com",
+      "server_port": 8443,
+      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
       }
     },
     {
