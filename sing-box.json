@@ -126,8 +126,7 @@
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "default": "auto"
     },
@@ -141,8 +140,7 @@
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
-        "🇯🇵 Japan, Shibuya City | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -237,17 +235,6 @@
       "tls": {
         "enabled": true,
         "server_name": "all.cryptoofarm.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
-      "server": "hk.catxstar.com",
-      "server_port": 20004,
-      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.catxstar.com"
       }
     }
   ],
