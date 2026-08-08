@@ -8,7 +8,6 @@ import urllib.parse
 import requests
 import re
 
-
 # Для работы с локальной базой GeoIP
 try:
     import maxminddb
@@ -58,402 +57,112 @@ def parse_proxy_link(link: str) -> dict | None:
         return None
 
     scheme = parsed.scheme.lower()
+    
+    # -------------------------------------------------------------------------
+    # ЖЕСТКИЙ ФИЛЬТР: Пропускаем ТОЛЬКО Hysteria2
+    # -------------------------------------------------------------------------
+    if scheme not in ["hysteria2", "hy2"]:
+        return None
+
     params = urllib.parse.parse_qs(parsed.query)
 
-    # Исправлена синтаксическая ошибка при получении типа сети
-    raw_net = params.get("type") or params.get("net") or [""]
-    net_type = raw_net[0].lower().strip()
-
-    # Фильтрация insecure
+    # 1. Фильтрация по insecure
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
         return None
 
-    # Фильтрация WebSocket (ws)
-    if net_type == "ws":
-        print(f"Skipping WebSocket node: {link[:30]}...")
+    # 2. Фильтрация по портам (оставляем только 443 и 8443)
+    port = parsed.port or 443
+    if port not in [443, 8443]:
+        print(f"Skipping Hy2 node: invalid port ({port})")
         return None
 
-    tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
-    outbound = None
+    # 3. Извлечение пароля
+    netloc = parsed.netloc
+    password = parsed.username
 
-    def build_transport(net: str) -> dict | None:
-        # Для TCP transport не создаем по правилам sing-box
-        if not net or net == "tcp":
-            return None
-        t_opts = {"type": net}
-        path_param = params.get("path", [None])[0]
-        host_param = params.get("host", [None])[0]
-        service_param = params.get("serviceName", [None])[0]
+    if not password and "@" in netloc:
+        user_part = netloc.split("@")[0]
+        password = user_part.split(":", 1)[-1] if ":" in user_part else user_part
 
-        if path_param:
-            t_opts["path"] = path_param.strip()
-        if host_param:
-            t_opts["headers"] = {"Host": host_param.strip()}
-        if service_param:
-            t_opts["service_name"] = service_param.strip()
-        return t_opts
+    if not password:
+        print(f"Skipping Hy2 node: missing password")
+        return None
 
-    # --- 1. VLESS ---
-    if scheme == "vless":
-        # --- Фильтрация по портам 443 и 8443 ---
-        port = parsed.port or 443
-        if port not in [443, 8443]:
-            print(f"Skipping VLESS node '{tag}': invalid port ({port})")
-            return None
+    tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Hy2-Node"
 
-        flow = params.get("flow", [""])[0].strip().lower()
-        security = params.get("security", ["none"])[0].strip().lower()
+    # 4. Обработка SNI
+    sni_param = params.get("sni", [None])[0]
+    sni = sni_param.strip() if sni_param else None
 
-        # Исключаем Reality
-        if security == "reality":
-            return None
+    server_host = hostname
+    if sni and hostname.lower() != sni.lower():
+        server_host = sni
 
-        if flow != "xtls-rprx-vision":
-            return None
+    tls_opts = {"enabled": True}
+    if sni:
+        tls_opts["server_name"] = sni
 
-        sni_param = params.get("sni", [None])[0]
-        sni = sni_param.strip() if sni_param else None
-
-        server_host = hostname
-        if security in ["tls", "none"] and sni:
-            if hostname.lower() != sni.lower():
-                server_host = sni
-
-        outbound = {
-            "type": "vless",
-            "tag": tag,
-            "server": server_host,
-            "server_port": port,
-            "uuid": parsed.username,
-            "flow": "xtls-rprx-vision"
-        }
-
-        tls_opts = {"enabled": True}
-        if sni:
-            tls_opts["server_name"] = sni
-
-        fp_param = params.get("fp", [None])[0]
-        if fp_param:
-            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
-
-        outbound["tls"] = tls_opts
-
-        transport = build_transport(net_type)
-        if transport:
-            outbound["transport"] = transport
-
-    # --- 2. VMESS ---
-    elif scheme == "vmess":
-        try:
-            b64_data = parsed.netloc
-            b64_data += "=" * (-len(b64_data) % 4)
-            decoded = base64.b64decode(b64_data).decode("utf-8")
-            data = json.loads(decoded)
-
-            net = data.get("net", "tcp").lower()
-            if net == "ws":
-                return None
-
-            vmess_security = str(data.get("scy", "auto")).lower().strip()
-            if vmess_security in ["auto", ""]:
-                return None
-
-            outbound = {
-                "type": "vmess",
-                "tag": data.get("ps", tag),
-                "server": str(data.get("add", "")).strip("[]"),
-                "server_port": int(data.get("port", 443)),
-                "uuid": data.get("id"),
-                "security": vmess_security,
-            }
-
-            # Транспорт создаем только если это НЕ tcp
-            if net and net != "tcp":
-                t_opts = {"type": net}
-                if data.get("path"):
-                    t_opts["path"] = data.get("path")
-                if data.get("host"):
-                    t_opts["headers"] = {"Host": data.get("host")}
-                outbound["transport"] = t_opts
-
-            if data.get("tls") == "tls":
-                tls_opts = {"enabled": True}
-                if data.get("sni"):
-                    tls_opts["server_name"] = data.get("sni")
-                if data.get("fp"):
-                    tls_opts["utls"] = {"enabled": True, "fingerprint": data.get("fp")}
-                outbound["tls"] = tls_opts
-        except Exception:
-            return None
-
-    # --- 3. TROJAN ---
-    elif scheme == "trojan":
-        security = params.get("security", ["tls"])[0].lower()
-        if security == "reality":
-            return None
-
-        sni_param = params.get("sni", [None])[0]
-        sni = sni_param.strip() if sni_param else None
-
-        server_host = hostname
-        if sni and hostname.lower() != sni.lower():
-            server_host = sni
-
-        outbound = {
-            "type": "trojan",
-            "tag": tag,
-            "server": server_host,
-            "server_port": parsed.port or 443,
-            "password": parsed.username,
-        }
-
-        tls_opts = {"enabled": True}
-        if sni:
-            tls_opts["server_name"] = sni.split(":")[0].strip()
-
-        fp_param = params.get("fp", [None])[0]
-        if fp_param:
-            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
-
-        outbound["tls"] = tls_opts
-
-        transport = build_transport(net_type)
-        if transport:
-            outbound["transport"] = transport
-
-    # --- 4. HYSTERIA2 / HY2 ---
-    elif scheme in ["hysteria2", "hy2"]:
-        # Фильтрация по портам 443 и 8443
-        port = parsed.port or 443
-        if port not in [443, 8443]:
-            print(f"Skipping Hysteria2 node '{tag}': invalid port ({port})")
-            return None
-
-        netloc = parsed.netloc
-        password = parsed.username
-
-        if not password and "@" in netloc:
-            user_part = netloc.split("@")[0]
-            password = user_part.split(":", 1)[-1] if ":" in user_part else user_part
-
-        if not password:
-            return None
-
-        sni_param = params.get("sni", [None])[0]
-        sni = sni_param.strip() if sni_param else None
-
-        server_host = hostname
-        if sni and hostname.lower() != sni.lower():
-            server_host = sni
-
-        tls_opts = {"enabled": True}
-        if sni:
-            tls_opts["server_name"] = sni
-
-        outbound = {
-            "type": "hysteria2",
-            "tag": tag,
-            "server": server_host,
-            "server_port": port,
-            "up_mbps": 10,
-            "down_mbps": 10,
-            "password": urllib.parse.unquote(password),
-            "tls": tls_opts
-        }
-
-    # --- 5. SHADOWSOCKS ---
-    elif scheme == "ss":
-        try:
-            port = parsed.port
-            if not port or not ((port == 443) or (10000 <= port <= 99999)):
-                return None
-
-            userinfo = parsed.username
-            if not userinfo and parsed.netloc:
-                userinfo = parsed.netloc.split("@")[0] if "@" in parsed.netloc else None
-
-            method, password = None, None
-            if userinfo:
-                userinfo_padded = userinfo + "=" * (-len(userinfo) % 4)
-                try:
-                    decoded_userinfo = base64.b64decode(userinfo_padded).decode("utf-8")
-                    if ":" in decoded_userinfo:
-                        method, password = decoded_userinfo.rsplit(":", 1)
-                except Exception:
-                    pass
-
-            if not method or not password:
-                method = parsed.username
-                password = parsed.password
-
-            if not method or not password:
-                return None
-
-            method = str(method).lower().strip()
-            ALLOWED_2022_METHODS = [
-                "2022-blake3-aes-128-gcm", 
-                "2022-blake3-aes-256-gcm", 
-                "2022-blake3-chacha20-poly1305"
-            ]
-            if method not in ALLOWED_2022_METHODS:
-                return None
-
-            outbound = {
-                "type": "shadowsocks",
-                "tag": tag,
-                "server": hostname,
-                "server_port": port,
-                "method": method,
-                "password": password,
-            }
-        except Exception:
-            return None
+    # 5. Сборка объекта outbound для sing-box
+    outbound = {
+        "type": "hysteria2",
+        "tag": tag,
+        "server": server_host,
+        "server_port": port,
+        "up_mbps": 10,
+        "down_mbps": 10,
+        "password": urllib.parse.unquote(password),
+        "tls": tls_opts
+    }
 
     # =========================================================================
-    # ГЛОБАЛЬНЫЕ ФИЛЬТРЫ И ВАЛИДАЦИЯ (TLS, SNI, SERVER, RU DMN)
+    # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER, SNI, RU DOMAINS)
     # =========================================================================
-    if not outbound:
+
+    # Проверка корректности адреса сервера
+    if not is_valid_server(outbound["server"]):
+        print(f"Skipping node '{tag}': invalid 'server' field ('{outbound['server']}')")
         return None
 
-    # 1. Проверка поля server на корректность
-    server_val = str(outbound.get("server", ""))
-    if not is_valid_server(server_val):
-        print(f"Skipping node '{tag}': invalid 'server' field ('{server_val}')")
-        return None
+    # Валидация SNI (если задан)
+    if sni:
+        sni_val = sni.lower()
+        if not is_valid_domain(sni_val):
+            print(f"Skipping node '{tag}': invalid SNI ('{sni_val}')")
+            return None
 
-    # 2. Исключение для Shadowsocks: разрешаем узлы без TLS
-    if outbound.get("type") == "shadowsocks":
-        return outbound
-
-    # 3. Обязательное наличие блока TLS для остальных протоколов
-    tls_config = outbound.get("tls")
-    if not tls_config or not tls_config.get("enabled"):
-        print(f"Skipping node '{tag}': TLS is missing or disabled")
-        return None
-
-    # 4. Валидация SNI (server_name)
-    sni_val = str(tls_config.get("server_name", "")).strip().lower()
-    
-    if not is_valid_domain(sni_val):
-        print(f"Skipping node '{tag}': invalid or missing SNI ('{sni_val}')")
-        return None
-
-    # 5. Запрет российских доменов в SNI
-    RU_ZONES = (".ru", ".su", ".рф")
-    if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
-        print(f"Skipping node '{tag}': forbidden Russian domain in SNI ('{sni_val}')")
-        return None
+        # Запрет российских доменов в SNI
+        RU_ZONES = (".ru", ".su", ".рф")
+        if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
+            print(f"Skipping node '{tag}': forbidden Russian domain in SNI ('{sni_val}')")
+            return None
 
     return outbound
 
 def clean_outbound(outbound: dict) -> dict:
-    """Применение исправлений для sing-box."""
+    """Очистка и приведение Hysteria2 ноды к спецификации sing-box."""
+    if not outbound or outbound.get("type") != "hysteria2":
+        return outbound
 
-    # 1. Валидация и очистка транспорта (Transport)
-    transport = outbound.get("transport", {})
-    if transport:
-        # Список транспортов, которые официально поддерживает Sing-Box
-        ALLOWED_TRANSPORTS = ["http", "ws", "grpc", "quic", "httpupgrade"]
-        current_type = transport.get("type", "").lower()
+    # Убеждаемся в наличии фиксированных скоростей
+    outbound.setdefault("up_mbps", 10)
+    outbound.setdefault("down_mbps", 10)
 
-        # Если транспорт tcp или неизвестный — полностью удаляем блок
-        if current_type not in ALLOWED_TRANSPORTS or current_type == "tcp":
-            if current_type and current_type != "tcp":
-                print(
-                    f"Fixing outbound: Unknown transport '{current_type}' removed for node '{outbound.get('tag')}'"
-                )
-            outbound.pop("transport", None)
-            outbound.pop("packet_encoding", None)
-        else:
-            # Специфичное исправление для транспорта HTTP
-            if current_type == "http":
-                # В Sing-Box для http нужен массив "host": ["example.com"], а не объект "headers"
-                if "headers" in transport and isinstance(
-                    transport["headers"], dict
-                ):
-                    host_val = transport["headers"].get(
-                        "Host"
-                    ) or transport["headers"].get("host")
-                    if host_val:
-                        transport["host"] = (
-                            [host_val] if isinstance(host_val, str) else host_val
-                        )
-
-                # Удаляем недопустимые для HTTP поля
-                transport.pop("headers", None)
-                transport.pop("path", None)
-                transport.pop("service_name", None)
-
-            # Очистка для других типов транспорта
-            else:
-                # Поле 'path' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
-                if current_type not in ["ws", "httpupgrade"]:
-                    transport.pop("path", None)
-
-                # Поле 'headers' разрешено ТОЛЬКО для 'ws' и 'httpupgrade'
-                if current_type not in ["ws", "httpupgrade"]:
-                    transport.pop("headers", None)
-
-                # Поле 'service_name' разрешено ТОЛЬКО для 'grpc'
-                if current_type != "grpc":
-                    transport.pop("service_name", None)
-
-    # 2. Очистка REALITY (fingerprint переносится в utls)
+    # Безопасный перенос fingerprint из reality (если он там случайно оказался) в utls
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
         reality_opts = tls_opts.get("reality", {})
-        if "fingerprint" in reality_opts:
-            fp = reality_opts.pop("fingerprint")
-            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            utls_opts["fingerprint"] = fp
-
-    # 3. Удаление alterId: 0 у VMess
-    if outbound.get("type") == "vmess":
-        if "alterId" in outbound and outbound.get("alterId") == 0:
-            outbound.pop("alterId", None)
-
-    # 4. Валидация методов шифрования для Shadowsocks
-    if outbound.get("type") == "shadowsocks":
-        ALLOWED_METHODS = [
-            "aes-128-gcm", "aes-192-gcm", "aes-256-gcm",
-            "chacha20-ietf-poly1305", "xchacha20-ietf-poly1305",
-            "2022-blake3-aes-128-gcm", "2022-blake3-aes-256-gcm",
-            "2022-blake3-chacha20-poly1305", "none"
-        ]
-
-        current_method = outbound.get("method")
+        fp_from_reality = reality_opts.pop("fingerprint", None)
         
-        # Строгая проверка на None, пустые строки и не-строковые типы
-        if current_method is None or not isinstance(current_method, str) or not current_method.strip():
-            current_method = "aes-256-gcm"
-        else:
-            current_method = current_method.lower().strip()
+        if fp_from_reality:
+            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
+            if "fingerprint" not in utls_opts:
+                utls_opts["fingerprint"] = fp_from_reality
 
-        # Если метод не распознан Sing-Box — принудительно ставим рабочий дефолт
-        if current_method not in ALLOWED_METHODS:
-            print(f"Fixing shadowsocks method: '{current_method}' replaced with 'aes-256-gcm' for node '{outbound.get('tag')}'")
-            current_method = "aes-256-gcm"
-
-        outbound["method"] = current_method
-
-        # Защита пароля
-        if not outbound.get("password"):
-            outbound["password"] = "password"
-
-    # 5. Исправление поля flow для VLESS
-    if outbound.get("type") == "vless":
-        flow = outbound.get("flow")
-        if flow and isinstance(flow, str):
-            flow = flow.lower().strip()
-            # Если в значении flow присутствует стандартный vision-поток, принудительно очищаем его от мусора
-            if "xtls-rprx-vision" in flow:
-                outbound["flow"] = "xtls-rprx-vision"
-            # Если там записан устаревший или неподдерживаемый поток (например, xtls-rprx-direct)
-            elif flow not in ["xtls-rprx-vision"]:
-                print(f"Removing unsupported flow '{flow}' for VLESS node '{outbound.get('tag')}'")
-                outbound.pop("flow", None)
+        # Если блок reality оказался пустым — удаляем его
+        if not reality_opts:
+            tls_opts.pop("reality", None)
 
     return outbound
 
