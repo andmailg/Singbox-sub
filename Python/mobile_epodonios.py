@@ -224,7 +224,7 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
-        # --- Фильтрация по портам 443 и 8443 ---
+        # Фильтрация по портам 443 и 8443
         port = parsed.port or 443
         if port not in [443, 8443]:
             print(f"Skipping Hysteria2 node '{tag}': invalid port ({port})")
@@ -255,7 +255,9 @@ def parse_proxy_link(link: str) -> dict | None:
             "type": "hysteria2",
             "tag": tag,
             "server": server_host,
-            "server_port": port,  # Используем определенный ранее port
+            "server_port": port,
+            "up_mbps": 10,
+            "down_mbps": 10,
             "password": urllib.parse.unquote(password),
             "tls": tls_opts
         }
