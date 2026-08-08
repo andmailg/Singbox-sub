@@ -6,6 +6,7 @@ import os
 import socket
 import urllib.parse
 import requests
+import re
 
 # Для работы с локальной базой GeoIP
 try:
