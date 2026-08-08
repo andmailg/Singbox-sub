@@ -743,7 +743,7 @@ def main():
             {
                 "type": "wireguard",
                 "tag": "warp-ep",
-                "detour": "auto",
+                "detour": "proxy-out",
                 "address": [
                 "172.28.0.2/32",
                 "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
@@ -802,13 +802,8 @@ def main():
         },
         {
             "rule_set": [
+                "geosite-category-media-ru-blocked",
                 "db-category-ai-chat"
-        ],
-        "outbound": "warp-ep"
-      },
-        {
-            "rule_set": [
-                "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
         },
