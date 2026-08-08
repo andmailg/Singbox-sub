@@ -120,8 +120,6 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇪🇪 Estonia [*CIDR]",
-        "🇩🇪 Germany [*CIDR]",
         "🇳🇱 The Netherlands [*CIDR]"
       ],
       "default": "auto"
@@ -130,39 +128,11 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇪🇪 Estonia [*CIDR]",
-        "🇩🇪 Germany [*CIDR]",
         "🇳🇱 The Netherlands [*CIDR]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇪🇪 Estonia [*CIDR]",
-      "server": "es2.frservice.xyz",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "78cffcbe-e2c2-40ba-ae4e-f28481b44134",
-      "tls": {
-        "enabled": true,
-        "server_name": "es2.frservice.xyz"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany [*CIDR]",
-      "server": "de-two.quiet-rogue.site",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-two.quiet-rogue.site"
-      }
     },
     {
       "type": "hysteria2",
