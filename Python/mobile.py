@@ -745,7 +745,7 @@ def main():
             {
                 "type": "tun",
                 "tag": "tun-in",
-                "mtu": 1280,
+                "mtu": 1500,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
@@ -779,13 +779,8 @@ def main():
         },
         {
             "rule_set": [
+                "geosite-category-media-ru-blocked",
                 "db-category-ai-chat"
-        ],
-        "outbound": "warp-ep"
-      },
-        {
-            "rule_set": [
-                "geosite-category-media-ru-blocked"
             ],
             "outbound": "proxy-out"
         },
