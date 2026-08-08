@@ -252,7 +252,8 @@ def parse_proxy_link(link: str) -> dict | None:
             ALLOWED_2022_METHODS = [
                 "2022-blake3-aes-128-gcm", 
                 "2022-blake3-aes-256-gcm", 
-                "2022-blake3-chacha20-poly1305"
+                "2022-blake3-chacha20-poly1305",
+                "chacha20-ietf-poly1305"
             ]
             if method not in ALLOWED_2022_METHODS:
                 print(f"Skipping SS node: method '{method}' is not Shadowsocks-2022 for tag '{tag}'")
