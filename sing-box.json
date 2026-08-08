@@ -96,7 +96,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "mtu": 1280,
+      "mtu": 1420,
       "address": "172.19.0.1/30",
       "auto_route": true,
       "route_exclude_address": [
@@ -121,7 +121,6 @@
       "outbounds": [
         "auto",
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
@@ -134,7 +133,8 @@
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL] #1"
       ],
       "default": "auto"
     },
@@ -143,7 +143,6 @@
       "tag": "auto",
       "outbounds": [
         "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
         "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
@@ -156,7 +155,8 @@
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL] #1"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -173,18 +173,6 @@
       "tls": {
         "enabled": true,
         "server_name": "off.cryptoofarm.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "fi-one.quiet-rogue.site",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true
       }
     },
     {
@@ -354,6 +342,21 @@
       "tls": {
         "enabled": true,
         "server_name": "all.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | [BL] #1",
+      "server": "hk.catxstar.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "edge"
+        }
       }
     }
   ],
