@@ -216,41 +216,43 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
-        # Безопасно извлекаем пароль из netloc (все, что до '@')
+        # Фильтрация по портам 443 и 8443
+        port = parsed.port or 443
+        if port not in [443, 8443]:
+            print(f"Skipping Hysteria2 node '{tag}': invalid port ({port})")
+            return None
+
         netloc = parsed.netloc
         password = parsed.username
 
         if not password and "@" in netloc:
             user_part = netloc.split("@")[0]
-            # Если передано в формате user:pass, берем пароль или всю строку
             password = user_part.split(":", 1)[-1] if ":" in user_part else user_part
 
         if not password:
-            print(f"Skipping Hysteria2 node: missing password for tag '{tag}'")
             return None
 
-        # Обработка SNI и перезапись server
         sni_param = params.get("sni", [None])[0]
         sni = sni_param.strip() if sni_param else None
 
         server_host = hostname
-        tls_opts = {"enabled": True}
+        if sni and hostname.lower() != sni.lower():
+            server_host = sni
 
+        tls_opts = {"enabled": True}
         if sni:
             tls_opts["server_name"] = sni
-            # Перезаписываем server, если он не совпадает с SNI (172.245.233.37 != hopp-us.yyuyy.com)
-            if hostname.lower() != sni.lower():
-                server_host = sni
 
         outbound = {
             "type": "hysteria2",
             "tag": tag,
             "server": server_host,
-            "server_port": parsed.port or 443,
+            "server_port": port,
+            "up_mbps": 10,
+            "down_mbps": 10,
             "password": urllib.parse.unquote(password),
             "tls": tls_opts
         }
-
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
         try:
@@ -743,7 +745,7 @@ def main():
             {
                 "type": "tun",
                 "tag": "tun-in",
-                "mtu": 1420,
+                "mtu": 1280,
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
