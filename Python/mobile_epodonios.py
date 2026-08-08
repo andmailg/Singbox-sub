@@ -96,52 +96,71 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 1. VLESS ---
     if scheme == "vless":
-        # --- Фильтрация по портам 443 и 8443 ---
         port = parsed.port or 443
         if port not in [443, 8443]:
-            print(f"Skipping VLESS node '{tag}': invalid port ({port})")
             return None
 
-        flow = params.get("flow", [""])[0].strip().lower()
         security = params.get("security", ["none"])[0].strip().lower()
 
-        # Исключаем Reality
-        if security == "reality":
+        # Разрешаем ТОЛЬКО Reality
+        if security != "reality":
             return None
 
-        if flow != "xtls-rprx-vision":
+        # Разрешаем ТОЛЬКО gRPC
+        if net_type != "grpc":
+            return None
+
+        # Обязательные параметры Reality
+        pbk = params.get("pbk", params.get("pk", [None]))[0]
+        sid = params.get("sid", params.get("short_id", [""]))[0]
+        if not pbk:
+            print(f"Skipping Reality node '{tag}': missing public key (pbk)")
             return None
 
         sni_param = params.get("sni", [None])[0]
         sni = sni_param.strip() if sni_param else None
 
         server_host = hostname
-        if security in ["tls", "none"] and sni:
-            if hostname.lower() != sni.lower():
-                server_host = sni
+        if sni and hostname.lower() != sni.lower():
+            server_host = sni
 
         outbound = {
             "type": "vless",
             "tag": tag,
             "server": server_host,
             "server_port": port,
-            "uuid": parsed.username,
-            "flow": "xtls-rprx-vision"
+            "uuid": parsed.username
         }
 
-        tls_opts = {"enabled": True}
+        # Блок TLS / Reality для sing-box
+        tls_opts = {
+            "enabled": True,
+            "reality": {
+                "enabled": True,
+                "public_key": pbk.strip(),
+                "short_id": sid.strip()
+            }
+        }
+
         if sni:
             tls_opts["server_name"] = sni
 
-        fp_param = params.get("fp", [None])[0]
-        if fp_param:
-            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
+        # Настройка uTLS (fingerprint идет в utls, а не в reality)
+        fp_param = params.get("fp", ["chrome"])[0].strip()
+        tls_opts["utls"] = {
+            "enabled": True,
+            "fingerprint": fp_param if fp_param else "chrome"
+        }
 
         outbound["tls"] = tls_opts
 
-        transport = build_transport(net_type)
-        if transport:
-            outbound["transport"] = transport
+        # Транспорт gRPC
+        service_param = params.get("serviceName", params.get("service_name", [None]))[0]
+        grpc_opts = {"type": "grpc"}
+        if service_param:
+            grpc_opts["service_name"] = service_param.strip()
+
+        outbound["transport"] = grpc_opts
 
     # --- 2. VMESS ---
     elif scheme == "vmess":
@@ -403,10 +422,15 @@ def clean_outbound(outbound: dict) -> dict:
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
         reality_opts = tls_opts.get("reality", {})
-        if "fingerprint" in reality_opts:
-            fp = reality_opts.pop("fingerprint")
+        
+        # Вырезаем fingerprint из reality, чтобы очистить его от мусора
+        fp_from_reality = reality_opts.pop("fingerprint", None)
+        
+        if fp_from_reality:
             utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            utls_opts["fingerprint"] = fp
+            # Записываем только если в utls еще НЕ БЫЛО фингерпринта
+            if "fingerprint" not in utls_opts:
+                utls_opts["fingerprint"] = fp_from_reality
 
     # 3. Удаление alterId: 0 у VMess
     if outbound.get("type") == "vmess":
