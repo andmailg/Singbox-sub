@@ -120,25 +120,23 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Финляндия [#РКП]",
-        "https://t.me/v2roay",
-        "🚀91@proxy_kafee",
-        "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
-        "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
-        "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
-        "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
-        "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
-        "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
-        "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
-        "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
-        "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
-        "Hy2-Node",
-        "Hy2-Node #1",
-        "Hy2-Node #2",
-        "Hy2-Node #3",
-        "Hy2-Node #4",
-        "Hy2-Node #5",
-        "Hy2-Node #6"
+        "Hy2-001",
+        "Hy2-002",
+        "Hy2-003",
+        "Hy2-004",
+        "Hy2-005",
+        "Hy2-006",
+        "Hy2-007",
+        "Hy2-008",
+        "Hy2-009",
+        "Hy2-010",
+        "Hy2-011",
+        "Hy2-012",
+        "Hy2-013",
+        "Hy2-014",
+        "Hy2-015",
+        "Hy2-016",
+        "Hy2-017"
       ],
       "default": "auto"
     },
@@ -146,25 +144,23 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Финляндия [#РКП]",
-        "https://t.me/v2roay",
-        "🚀91@proxy_kafee",
-        "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
-        "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
-        "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
-        "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
-        "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
-        "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
-        "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
-        "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
-        "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
-        "Hy2-Node",
-        "Hy2-Node #1",
-        "Hy2-Node #2",
-        "Hy2-Node #3",
-        "Hy2-Node #4",
-        "Hy2-Node #5",
-        "Hy2-Node #6"
+        "Hy2-001",
+        "Hy2-002",
+        "Hy2-003",
+        "Hy2-004",
+        "Hy2-005",
+        "Hy2-006",
+        "Hy2-007",
+        "Hy2-008",
+        "Hy2-009",
+        "Hy2-010",
+        "Hy2-011",
+        "Hy2-012",
+        "Hy2-013",
+        "Hy2-014",
+        "Hy2-015",
+        "Hy2-016",
+        "Hy2-017"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -172,7 +168,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇮 Финляндия [#РКП]",
+      "tag": "Hy2-001",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -185,19 +181,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "https://t.me/v2roay",
-      "server": "quran.mci.ai",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "28c05d48e2f470d07a4c392c9bd43849",
-      "tls": {
-        "enabled": true
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🚀91@proxy_kafee",
+      "tag": "Hy2-002",
       "server": "ffc60249-t53wg0-t92wi1-1qkeg.hk2.hyhuawei.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -210,7 +194,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
+      "tag": "Hy2-003",
       "server": "hopp-us.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -223,7 +207,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
+      "tag": "Hy2-004",
       "server": "lll.lucklyee.xyz",
       "server_port": 443,
       "up_mbps": 10,
@@ -236,7 +220,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
+      "tag": "Hy2-005",
       "server": "swe-one.quiet-rogue.site",
       "server_port": 443,
       "up_mbps": 10,
@@ -249,7 +233,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
+      "tag": "Hy2-006",
       "server": "fi-one.quiet-rogue.site",
       "server_port": 443,
       "up_mbps": 10,
@@ -262,7 +246,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
+      "tag": "Hy2-007",
       "server": "fr2.h2corp.org",
       "server_port": 443,
       "up_mbps": 10,
@@ -275,7 +259,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
+      "tag": "Hy2-008",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -288,7 +272,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
+      "tag": "Hy2-009",
       "server": "de-two.quiet-rogue.site",
       "server_port": 443,
       "up_mbps": 10,
@@ -301,7 +285,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
+      "tag": "Hy2-010",
       "server": "prodfr.h2corp.org",
       "server_port": 443,
       "up_mbps": 10,
@@ -314,7 +298,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
+      "tag": "Hy2-011",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -327,7 +311,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node",
+      "tag": "Hy2-012",
       "server": "lin.cryptoofarm.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -340,7 +324,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node #1",
+      "tag": "Hy2-013",
       "server": "pol.cryptoofarm.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -353,7 +337,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node #2",
+      "tag": "Hy2-014",
       "server": "de-two.quiet-rogue.site",
       "server_port": 8443,
       "up_mbps": 10,
@@ -366,7 +350,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node #3",
+      "tag": "Hy2-015",
       "server": "cze-01.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -379,7 +363,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node #4",
+      "tag": "Hy2-016",
       "server": "bel-03.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -392,7 +376,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-Node #5",
+      "tag": "Hy2-017",
       "server": "hy2.aspidnet.xyzAMIRVPN",
       "server_port": 443,
       "up_mbps": 10,
@@ -401,18 +385,6 @@
       "tls": {
         "enabled": true,
         "server_name": "hy2.aspidnet.xyzAMIRVPN"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Hy2-Node #6",
-      "server": "194.180.174.69",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
-      "tls": {
-        "enabled": true
       }
     }
   ],
