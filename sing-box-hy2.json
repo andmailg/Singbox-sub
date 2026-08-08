@@ -1,0 +1,491 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "1.1.1.1",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "https",
+        "tag": "dns-remote",
+        "server": "1.1.1.1",
+        "detour": "proxy-out",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "server": "dns-local"
+      },
+      {
+        "query_type": [
+          "HTTPS",
+          "SVCB"
+        ],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "rule_set": [
+          "db-category-ai-chat",
+          "geosite-category-media-ru-blocked"
+        ],
+        "server": "fakeip"
+      }
+    ],
+    "final": "dns-remote",
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 2048
+  },
+  "endpoints": [
+    {
+      "type": "wireguard",
+      "tag": "warp-ep",
+      "detour": "proxy-out",
+      "address": [
+        "172.28.0.2/32",
+        "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
+      ],
+      "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
+      "mtu": 1280,
+      "peers": [
+        {
+          "address": "162.159.192.1",
+          "port": 2408,
+          "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+          "allowed_ips": [
+            "0.0.0.0/0",
+            "::/0"
+          ],
+          "reserved": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 1420,
+      "address": "172.19.0.1/30",
+      "auto_route": true,
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "169.254.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32",
+        "fc00::/7"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "proxy-out",
+      "outbounds": [
+        "auto",
+        "🇫🇮 Финляндия [#РКП]",
+        "https://t.me/v2roay",
+        "🚀91@proxy_kafee",
+        "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
+        "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
+        "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
+        "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
+        "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
+        "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
+        "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
+        "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
+        "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
+        "Hy2-Node",
+        "Hy2-Node #1",
+        "Hy2-Node #2",
+        "Hy2-Node #3",
+        "Hy2-Node #4",
+        "Hy2-Node #5",
+        "Hy2-Node #6"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇫🇮 Финляндия [#РКП]",
+        "https://t.me/v2roay",
+        "🚀91@proxy_kafee",
+        "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
+        "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
+        "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
+        "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
+        "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
+        "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
+        "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
+        "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
+        "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
+        "Hy2-Node",
+        "Hy2-Node #1",
+        "Hy2-Node #2",
+        "Hy2-Node #3",
+        "Hy2-Node #4",
+        "Hy2-Node #5",
+        "Hy2-Node #6"
+      ],
+      "url": "https://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇮 Финляндия [#РКП]",
+      "server": "hopp-legend-se.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-legend-se.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "https://t.me/v2roay",
+      "server": "quran.mci.ai",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "28c05d48e2f470d07a4c392c9bd43849",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🚀91@proxy_kafee",
+      "server": "ffc60249-t53wg0-t92wi1-1qkeg.hk2.hyhuawei.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "a305ac08-d136-11ee-b6db-f23c91cfbbc9",
+      "tls": {
+        "enabled": true,
+        "server_name": "ffc60249-t53wg0-t92wi1-1qkeg.hk2.hyhuawei.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "US   HYSTERIA2-TCP-NTLS - BrainStorm Network, Inc  23.95.75.151",
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-us.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "US   HYSTERIA2-TCP-NTLS - XTOM  146.19.116.95",
+      "server": "lll.lucklyee.xyz",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "abckB4g2qeH8nx9d0dG2",
+      "tls": {
+        "enabled": true,
+        "server_name": "lll.lucklyee.xyz"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "SE   HYSTERIA2-TCP-NTLS - Play2go International Limited  87.121.105.108",
+      "server": "swe-one.quiet-rogue.site",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "swe-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "GB   HYSTERIA2-TCP-NTLS  2.26.85.26",
+      "server": "fi-one.quiet-rogue.site",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "fi-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "MD   HYSTERIA2-TCP-NTLS - MivoCloud SRL  194.180.174.69",
+      "server": "fr2.h2corp.org",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
+      "tls": {
+        "enabled": true,
+        "server_name": "fr2.h2corp.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "NL   HYSTERIA2-TCP-NTLS - Interkvm Host Srl  86.107.178.66",
+      "server": "grape-zet-turbo-nl.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "DE   HYSTERIA2-TCP-NTLS - Play2go International Limited  144.31.166.91",
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-two.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "DE   HYSTERIA2-TCP-NTLS - GHOSTnet GmbH  83.243.86.80",
+      "server": "prodfr.h2corp.org",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "1hOIVDVBG2hdKtJwOV2aUEFTDaFArCSH9-HrcOnps8yqQZeq",
+      "tls": {
+        "enabled": true,
+        "server_name": "prodfr.h2corp.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "DE   HYSTERIA2-TCP-NTLS - WIIT AG  213.202.219.29",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node",
+      "server": "lin.cryptoofarm.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "lin.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #1",
+      "server": "pol.cryptoofarm.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "pol.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #2",
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-two.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #3",
+      "server": "cze-01.node.lumixnet.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "8645697d-51c1-4e90-aca5-ba63a0392f11",
+      "tls": {
+        "enabled": true,
+        "server_name": "cze-01.node.lumixnet.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #4",
+      "server": "bel-03.node.lumixnet.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "d1224950-ffab-4b9a-8696-431b40a6cfbd",
+      "tls": {
+        "enabled": true,
+        "server_name": "bel-03.node.lumixnet.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #5",
+      "server": "hy2.aspidnet.xyzAMIRVPN",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "p7Q76LzlnS4hIzr1W3staBOnUe_WwSkR",
+      "tls": {
+        "enabled": true,
+        "server_name": "hy2.aspidnet.xyzAMIRVPN"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-Node #6",
+      "server": "194.180.174.69",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "qIg7TMxfJvx6t27er0c9P0osebAAPu2PYlB_aoWelV5kVVQ2",
+      "tls": {
+        "enabled": true
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-category-media-ru-blocked",
+          "db-category-ai-chat"
+        ],
+        "outbound": "proxy-out"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "outbound": "direct-out"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "db-github",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-media-ru-blocked",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-antizapret",
+        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-category-ai-chat",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+        "download_detour": "direct-out"
+      }
+    ],
+    "final": "proxy-out",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": "dns-local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
