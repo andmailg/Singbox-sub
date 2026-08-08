@@ -120,15 +120,14 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
-        "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL]"
       ],
       "default": "auto"
     },
@@ -136,32 +135,18 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
-        "🇺🇸 United States, Orem | [BL]",
-        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]"
+        "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
+        "🇯🇵 Japan, Shibuya City | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
-      "server": "off.cryptoofarm.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "tls": {
-        "enabled": true,
-        "server_name": "off.cryptoofarm.com"
-      }
     },
     {
       "type": "hysteria2",
@@ -179,27 +164,14 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "key-very-far.mysynology.net",
+      "server": "mercedes-grape.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
+      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
       "tls": {
         "enabled": true,
-        "server_name": "key-very-far.mysynology.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
+        "server_name": "mercedes-grape.yyuyy.com"
       }
     },
     {
@@ -213,6 +185,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw | [BL]",
+      "server": "grape-power-pl.ddnsguru.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-power-pl.ddnsguru.com"
       }
     },
     {
@@ -243,19 +228,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸 United States, Orem | [BL]",
-      "server": "sal.cryptoofarm.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "tls": {
-        "enabled": true,
-        "server_name": "sal.cryptoofarm.com"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
       "server": "all.cryptoofarm.com",
       "server_port": 443,
@@ -265,6 +237,17 @@
       "tls": {
         "enabled": true,
         "server_name": "all.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "🇯🇵 Japan, Shibuya City | [BL]",
+      "server": "hk.catxstar.com",
+      "server_port": 20004,
+      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
+      "tls": {
+        "enabled": true,
+        "server_name": "hk.catxstar.com"
       }
     }
   ],
