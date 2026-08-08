@@ -96,7 +96,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "mtu": 1420,
+      "mtu": 1280,
       "address": "172.19.0.1/30",
       "auto_route": true,
       "route_exclude_address": [
@@ -131,7 +131,6 @@
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
@@ -154,7 +153,6 @@
         "🇵🇱 Poland, Warsaw | [BL]",
         "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
         "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, Orem | [BL]",
@@ -169,6 +167,8 @@
       "tag": "🇪🇪 Estonia, Tallinn | 🌐 | [BL]",
       "server": "off.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -180,6 +180,8 @@
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
       "server": "fi-one.quiet-rogue.site",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "71cada65-d23e-418c-88e4-a06188d14689",
       "tls": {
         "enabled": true
@@ -190,6 +192,8 @@
       "tag": "🇫🇷 France, Paris | [BL]",
       "server": "mercedes-grape.yyuyy.com",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
       "tls": {
         "enabled": true,
@@ -201,6 +205,8 @@
       "tag": "🇫🇷 France, Paris | [BL] #1",
       "server": "key-very-far.mysynology.net",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
       "tls": {
         "enabled": true,
@@ -212,6 +218,8 @@
       "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
       "tls": {
         "enabled": true,
@@ -223,6 +231,8 @@
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
       "server": "on.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -234,6 +244,8 @@
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
       "server": "grape-zet-ro-turbo.bumbleshrimp.com",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
       "tls": {
         "enabled": true,
@@ -245,6 +257,8 @@
       "tag": "🇯🇵 Japan, Shibuya City | [BL]",
       "server": "jp.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -256,6 +270,8 @@
       "tag": "🇵🇱 Poland, Warsaw | [BL]",
       "server": "grape-power-pl.ddnsguru.com",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
       "tls": {
         "enabled": true,
@@ -267,6 +283,8 @@
       "tag": "🇵🇱 Poland, Warsaw | 🌐 | [BL]",
       "server": "pol.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -276,19 +294,10 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "nl1.unlockvpn.online",
-      "server_port": 10808,
-      "password": "99800091-8337-4112-8756-8cc60eb1ffa8",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl1.unlockvpn.online"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL] #1",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
       "tls": {
         "enabled": true,
@@ -300,6 +309,8 @@
       "tag": "🇳🇱 The Netherlands, Amsterdam | 🌐 | [BL]",
       "server": "lin.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -311,6 +322,8 @@
       "tag": "🇬🇧 United Kingdom, London | [BL]",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
       "tls": {
         "enabled": true,
@@ -322,6 +335,8 @@
       "tag": "🇺🇸 United States, Orem | [BL]",
       "server": "sal.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
@@ -333,6 +348,8 @@
       "tag": "🌐 Anycast-IP | 🇬🇧 🇸🇪 | [BL]",
       "server": "all.cryptoofarm.com",
       "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
       "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
       "tls": {
         "enabled": true,
