@@ -6,6 +6,8 @@ import os
 import socket
 import urllib.parse
 import requests
+import re
+
 
 # Для работы с локальной базой GeoIP
 try:
@@ -14,18 +16,42 @@ except ImportError:
     # Заглушка на случай запуска вне среды с установленной библиотекой
     maxminddb = None
 
+def is_valid_ip(address: str) -> bool:
+    """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
+    try:
+        ipaddress.ip_address(address.strip("[]"))
+        return True
+    except ValueError:
+        return False
+
+def is_valid_domain(domain: str) -> bool:
+    """
+    Проверяет, является ли строка валидным доменным именем (не IP-адресом).
+    """
+    if not domain or is_valid_ip(domain):
+        return False
+    domain_regex = re.compile(
+        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
+    )
+    return bool(domain_regex.match(domain))
+
+def is_valid_server(server: str) -> bool:
+    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
+    if not server or "@" in server:
+        return False
+    clean_server = server.strip("[]")
+    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
     if not link or link.startswith("#"):
         return None
 
-    # Защита от критического падения скрипта при битых URL
     try:
         parsed = urllib.parse.urlparse(link)
         hostname = parsed.hostname
         if not hostname:
             return None
-        # Очистка IPv6 от квадратных скобок для sing-box
         hostname = hostname.strip("[]")
     except ValueError:
         print(f"Skipping malformed URL: {link[:30]}...")
@@ -34,29 +60,28 @@ def parse_proxy_link(link: str) -> dict | None:
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
-    # Извлекаем тип транспорта
-    net_type = params.get("type", params.get("net", [""]))[0].lower().strip()
+    # Исправлена синтаксическая ошибка при получении типа сети
+    raw_net = params.get("type") or params.get("net") or [""]
+    net_type = raw_net[0].lower().strip()
 
-    # Фильтрация небезопасных соединений
+    # Фильтрация insecure
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
         return None
 
-    # Фильтрация транспорта WS (WebSocket)
+    # Фильтрация WebSocket (ws)
     if net_type == "ws":
-        print(f"Skipping WebSocket (ws) node: {link[:30]}...")
+        print(f"Skipping WebSocket node: {link[:30]}...")
         return None
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
     outbound = None
 
-    # --- Helper: Transport Block Builder ---
     def build_transport(net: str) -> dict | None:
-        # В sing-box для TCP транспортный блок НЕ НУЖЕН
+        # Для TCP transport не создаем по правилам sing-box
         if not net or net == "tcp":
             return None
-
         t_opts = {"type": net}
         path_param = params.get("path", [None])[0]
         host_param = params.get("host", [None])[0]
@@ -68,40 +93,30 @@ def parse_proxy_link(link: str) -> dict | None:
             t_opts["headers"] = {"Host": host_param.strip()}
         if service_param:
             t_opts["service_name"] = service_param.strip()
-
         return t_opts
 
     # --- 1. VLESS ---
     if scheme == "vless":
+        # --- Фильтрация по портам 443 и 8443 ---
         port = parsed.port or 443
         if port not in [443, 8443]:
-            print(f"Skipping VLESS node: invalid port {port} (Only 443/8443 allowed) for tag '{tag}'")
+            print(f"Skipping VLESS node '{tag}': invalid port ({port})")
             return None
 
         flow = params.get("flow", [""])[0].strip().lower()
         security = params.get("security", ["none"])[0].strip().lower()
 
-        is_vision = (flow == "xtls-rprx-vision")
-        is_reality = (security == "reality")
-
-        # Удаляем все конфигурации VLESS с Reality
-        if is_reality:
-            print(f"Skipping VLESS node: Reality security is disabled for tag '{tag}'")
+        # Исключаем Reality
+        if security == "reality":
             return None
 
-        # Обязательное условие: наличие xtls-rprx-vision
-        if not is_vision:
-            print(f"Skipping VLESS node: missing vision flow for tag '{tag}'")
+        if flow != "xtls-rprx-vision":
             return None
 
-        # Считываем SNI
         sni_param = params.get("sni", [None])[0]
         sni = sni_param.strip() if sni_param else None
 
-        # Определяем итоговый server_host
         server_host = hostname
-
-        # Если server и server_name не совпадают, перезаписываем server
         if security in ["tls", "none"] and sni:
             if hostname.lower() != sni.lower():
                 server_host = sni
@@ -115,16 +130,15 @@ def parse_proxy_link(link: str) -> dict | None:
             "flow": "xtls-rprx-vision"
         }
 
-        if security == "tls" or is_vision:
-            tls_opts = {"enabled": True}
-            if sni:
-                tls_opts["server_name"] = sni
+        tls_opts = {"enabled": True}
+        if sni:
+            tls_opts["server_name"] = sni
 
-            fp_param = params.get("fp", [None])[0]
-            if fp_param:
-                tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
+        fp_param = params.get("fp", [None])[0]
+        if fp_param:
+            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
 
-            outbound["tls"] = tls_opts
+        outbound["tls"] = tls_opts
 
         transport = build_transport(net_type)
         if transport:
@@ -140,24 +154,22 @@ def parse_proxy_link(link: str) -> dict | None:
 
             net = data.get("net", "tcp").lower()
             if net == "ws":
-                print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
                 return None
 
             vmess_security = str(data.get("scy", "auto")).lower().strip()
             if vmess_security in ["auto", ""]:
-                print(f"Skipping standard VMess (security='auto'): {data.get('ps', 'Node')}")
                 return None
 
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
-                "server": str(data.get("add")).strip("[]"),
+                "server": str(data.get("add", "")).strip("[]"),
                 "server_port": int(data.get("port", 443)),
                 "uuid": data.get("id"),
                 "security": vmess_security,
             }
 
-            # Удаляем transport: tcp из vmess
+            # Транспорт создаем только если это НЕ tcp
             if net and net != "tcp":
                 t_opts = {"type": net}
                 if data.get("path"):
@@ -179,35 +191,32 @@ def parse_proxy_link(link: str) -> dict | None:
     # --- 3. TROJAN ---
     elif scheme == "trojan":
         security = params.get("security", ["tls"])[0].lower()
-        if security != "reality":
-            print(f"Skipping standard Trojan (No Reality): {tag}")
+        if security == "reality":
             return None
+
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        server_host = hostname
+        if sni and hostname.lower() != sni.lower():
+            server_host = sni
 
         outbound = {
             "type": "trojan",
             "tag": tag,
-            "server": hostname,
+            "server": server_host,
             "server_port": parsed.port or 443,
             "password": parsed.username,
         }
 
         tls_opts = {"enabled": True}
-        sni_param = params.get("sni", [None])[0]
-        if sni_param:
-            tls_opts["server_name"] = sni_param.split(":")[0].strip()
+        if sni:
+            tls_opts["server_name"] = sni.split(":")[0].strip()
 
         fp_param = params.get("fp", [None])[0]
         if fp_param:
             tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
 
-        pbk_param = params.get("pbk", [None])[0]
-        sid_param = params.get("sid", [None])[0]
-        reality_opts = {}
-        if pbk_param:
-            reality_opts["public_key"] = pbk_param.strip()
-        if sid_param:
-            reality_opts["short_id"] = sid_param.strip()
-        tls_opts["reality"] = reality_opts
         outbound["tls"] = tls_opts
 
         transport = build_transport(net_type)
@@ -216,37 +225,40 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
-        # Безопасно извлекаем пароль из netloc (все, что до '@')
+        # Фильтрация по портам 443 и 8443
+        port = parsed.port or 443
+        if port not in [443, 8443]:
+            print(f"Skipping Hysteria2 node '{tag}': invalid port ({port})")
+            return None
+
         netloc = parsed.netloc
         password = parsed.username
 
         if not password and "@" in netloc:
             user_part = netloc.split("@")[0]
-            # Если передано в формате user:pass, берем пароль или всю строку
             password = user_part.split(":", 1)[-1] if ":" in user_part else user_part
 
         if not password:
-            print(f"Skipping Hysteria2 node: missing password for tag '{tag}'")
             return None
 
-        # Обработка SNI и перезапись server
         sni_param = params.get("sni", [None])[0]
         sni = sni_param.strip() if sni_param else None
 
         server_host = hostname
-        tls_opts = {"enabled": True}
+        if sni and hostname.lower() != sni.lower():
+            server_host = sni
 
+        tls_opts = {"enabled": True}
         if sni:
             tls_opts["server_name"] = sni
-            # Перезаписываем server, если он не совпадает с SNI (172.245.233.37 != hopp-us.yyuyy.com)
-            if hostname.lower() != sni.lower():
-                server_host = sni
 
         outbound = {
             "type": "hysteria2",
             "tag": tag,
             "server": server_host,
-            "server_port": parsed.port or 443,
+            "server_port": port,
+            "up_mbps": 10,
+            "down_mbps": 10,
             "password": urllib.parse.unquote(password),
             "tls": tls_opts
         }
@@ -256,7 +268,6 @@ def parse_proxy_link(link: str) -> dict | None:
         try:
             port = parsed.port
             if not port or not ((port == 443) or (10000 <= port <= 99999)):
-                print(f"Skipping SS node: invalid port {port} for tag '{tag}'")
                 return None
 
             userinfo = parsed.username
@@ -287,18 +298,6 @@ def parse_proxy_link(link: str) -> dict | None:
                 "2022-blake3-chacha20-poly1305"
             ]
             if method not in ALLOWED_2022_METHODS:
-                print(f"Skipping SS node: method '{method}' is not Shadowsocks-2022 for tag '{tag}'")
-                return None
-
-            try:
-                password_padded = password + "=" * (-len(password) % 4)
-                key_length = len(base64.b64decode(password_padded))
-            except Exception:
-                return None
-
-            if method == "2022-blake3-aes-128-gcm" and key_length != 16:
-                return None
-            elif method in ["2022-blake3-aes-256-gcm", "2022-blake3-chacha20-poly1305"] and key_length != 32:
                 return None
 
             outbound = {
@@ -312,13 +311,40 @@ def parse_proxy_link(link: str) -> dict | None:
         except Exception:
             return None
 
-    # --- Глобальная фильтрация российских доменов в SNI ---
-    if outbound and "tls" in outbound and outbound["tls"].get("enabled"):
-        sni = str(outbound["tls"].get("server_name", "")).lower().strip()
-        RU_ZONES = (".ru", ".su", ".рф")
-        if sni.endswith(RU_ZONES) or any(f"{zone}:" in sni for zone in RU_ZONES):
-            print(f"Skipping node '{tag}': forbidden Russian domain in server_name (SNI: '{sni}')")
-            return None
+    # =========================================================================
+    # ГЛОБАЛЬНЫЕ ФИЛЬТРЫ И ВАЛИДАЦИЯ (TLS, SNI, SERVER, RU DMN)
+    # =========================================================================
+    if not outbound:
+        return None
+
+    # 1. Проверка поля server на корректность
+    server_val = str(outbound.get("server", ""))
+    if not is_valid_server(server_val):
+        print(f"Skipping node '{tag}': invalid 'server' field ('{server_val}')")
+        return None
+
+    # 2. Исключение для Shadowsocks: разрешаем узлы без TLS
+    if outbound.get("type") == "shadowsocks":
+        return outbound
+
+    # 3. Обязательное наличие блока TLS для остальных протоколов
+    tls_config = outbound.get("tls")
+    if not tls_config or not tls_config.get("enabled"):
+        print(f"Skipping node '{tag}': TLS is missing or disabled")
+        return None
+
+    # 4. Валидация SNI (server_name)
+    sni_val = str(tls_config.get("server_name", "")).strip().lower()
+    
+    if not is_valid_domain(sni_val):
+        print(f"Skipping node '{tag}': invalid or missing SNI ('{sni_val}')")
+        return None
+
+    # 5. Запрет российских доменов в SNI
+    RU_ZONES = (".ru", ".su", ".рф")
+    if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
+        print(f"Skipping node '{tag}': forbidden Russian domain in SNI ('{sni_val}')")
+        return None
 
     return outbound
 
