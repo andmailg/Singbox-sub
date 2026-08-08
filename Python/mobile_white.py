@@ -5,15 +5,50 @@ import urllib.parse
 import requests
 
 
+# Для работы с локальной базой GeoIP
+try:
+    import maxminddb
+except ImportError:
+    # Заглушка на случай запуска вне среды с установленной библиотекой
+    maxminddb = None
+
+def is_valid_ip(address: str) -> bool:
+    """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
+    try:
+        ipaddress.ip_address(address.strip("[]"))
+        return True
+    except ValueError:
+        return False
+
+def is_valid_domain(domain: str) -> bool:
+    """
+    Проверяет, является ли строка валидным доменным именем (не IP-адресом).
+    """
+    if not domain or is_valid_ip(domain):
+        return False
+    domain_regex = re.compile(
+        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
+    )
+    return bool(domain_regex.match(domain))
+
+def is_valid_server(server: str) -> bool:
+    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
+    if not server or "@" in server:
+        return False
+    clean_server = server.strip("[]")
+    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
     if not link or link.startswith("#"):
         return None
 
-    # ОСТАВЛЯЕМ: Защита от критического падения скрипта при битых URL
     try:
         parsed = urllib.parse.urlparse(link)
-        _ = parsed.hostname  # Провоцируем проверку парсера
+        hostname = parsed.hostname
+        if not hostname:
+            return None
+        hostname = hostname.strip("[]")
     except ValueError:
         print(f"Skipping malformed URL: {link[:30]}...")
         return None
@@ -21,76 +56,89 @@ def parse_proxy_link(link: str) -> dict | None:
     scheme = parsed.scheme.lower()
     params = urllib.parse.parse_qs(parsed.query)
 
-    # Извлекаем тип транспорта
-    net_type = params.get("type", params.get("net", [""]))[0].lower()
+    # Исправлена синтаксическая ошибка при получении типа сети
+    raw_net = params.get("type") or params.get("net") or [""]
+    net_type = raw_net[0].lower().strip()
 
-    # ОСТАВЛЯЕМ: Фильтрация небезопасных соединений по вашему желанию
+    # Фильтрация insecure
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
         return None
 
-    # --- ФИЛЬТРАЦИЯ ТРАНСПОРТА WS ---
+    # Фильтрация WebSocket (ws)
     if net_type == "ws":
-        print(f"Skipping WebSocket (ws) node: {urllib.parse.unquote(parsed.fragment) if parsed.fragment else link[:30]}...")
+        print(f"Skipping WebSocket node: {link[:30]}...")
         return None
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Node"
+    outbound = None
+
+    def build_transport(net: str) -> dict | None:
+        # Для TCP transport не создаем по правилам sing-box
+        if not net or net == "tcp":
+            return None
+        t_opts = {"type": net}
+        path_param = params.get("path", [None])[0]
+        host_param = params.get("host", [None])[0]
+        service_param = params.get("serviceName", [None])[0]
+
+        if path_param:
+            t_opts["path"] = path_param.strip()
+        if host_param:
+            t_opts["headers"] = {"Host": host_param.strip()}
+        if service_param:
+            t_opts["service_name"] = service_param.strip()
+        return t_opts
 
     # --- 1. VLESS ---
     if scheme == "vless":
+        # --- Фильтрация по портам 443 и 8443 ---
+        port = parsed.port or 443
+        if port not in [443, 8443]:
+            print(f"Skipping VLESS node '{tag}': invalid port ({port})")
+            return None
+
         flow = params.get("flow", [""])[0].strip().lower()
         security = params.get("security", ["none"])[0].strip().lower()
 
-        # КРИТЕРИЙ: Если нет НИ flow (Vision), НИ reality — отсекаем узел
-        if not flow and security != "reality":
-            print(f"Skipping standard VLESS (No Flow and No Reality): {tag}")
+        # Исключаем Reality
+        if security == "reality":
             return None
+
+        if flow != "xtls-rprx-vision":
+            return None
+
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        server_host = hostname
+        if security in ["tls", "none"] and sni:
+            if hostname.lower() != sni.lower():
+                server_host = sni
 
         outbound = {
             "type": "vless",
             "tag": tag,
-            "server": parsed.hostname,
-            "server_port": parsed.port,
+            "server": server_host,
+            "server_port": port,
             "uuid": parsed.username,
+            "flow": "xtls-rprx-vision"
         }
 
-        # Добавляем flow только если он есть
-        if flow:
-            outbound["flow"] = flow
+        tls_opts = {"enabled": True}
+        if sni:
+            tls_opts["server_name"] = sni
 
-        # Настройка безопасности (TLS или REALITY)
-        if security in ["tls", "reality"]:
-            tls_opts = {"enabled": True}
-            sni = params.get("sni", [None])[0]
-            if sni:
-                tls_opts["server_name"] = sni
+        fp_param = params.get("fp", [None])[0]
+        if fp_param:
+            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
 
-            fp = params.get("fp", [None])[0]
-            if fp:
-                tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
+        outbound["tls"] = tls_opts
 
-            if security == "reality":
-                pbk = params.get("pbk", [None])[0]
-                sid = params.get("sid", [None])[0]
-                reality_opts = {}
-                if pbk:
-                    reality_opts["public_key"] = pbk
-                if sid:
-                    reality_opts["short_id"] = sid
-                tls_opts["reality"] = reality_opts
-
-            outbound["tls"] = tls_opts
-
-        if net_type:
-            outbound["transport"] = {
-                "type": net_type,
-                "path": params.get("path", [None])[0],
-                "headers": {"Host": params.get("host", [None])[0]} if params.get("host", [None])[0] else None,
-                "service_name": params.get("serviceName", [None])[0]
-            }
-
-        return outbound
+        transport = build_transport(net_type)
+        if transport:
+            outbound["transport"] = transport
 
     # --- 2. VMESS ---
     elif scheme == "vmess":
@@ -100,100 +148,76 @@ def parse_proxy_link(link: str) -> dict | None:
             decoded = base64.b64decode(b64_data).decode("utf-8")
             data = json.loads(decoded)
 
-            # --- ФИЛЬТРАЦИЯ WS ДЛЯ VMESS (если вы добавляли её ранее) ---
             net = data.get("net", "tcp").lower()
             if net == "ws":
-                print(f"Skipping VMess WebSocket node: {data.get('ps', 'Node')}")
                 return None
 
-            # --- НОВАЯ ФИЛЬТРАЦИЯ: VMess с security='auto' (обычный TLS/без TLS) ---
-            # Извлекаем тип безопасности (дефолт в VMess обычно 'auto' или 'none')
             vmess_security = str(data.get("scy", "auto")).lower().strip()
-            
-            # Если безопасность 'auto' (или пустая) и при этом нет reality (которого у VMess и так не бывает)
-            if vmess_security == "auto" or vmess_security == "":
-                print(f"Skipping standard VMess (security='auto'): {data.get('ps', 'Node')}")
+            if vmess_security in ["auto", ""]:
                 return None
 
             outbound = {
                 "type": "vmess",
                 "tag": data.get("ps", tag),
-                "server": data.get("add"),
+                "server": str(data.get("add", "")).strip("[]"),
                 "server_port": int(data.get("port", 443)),
                 "uuid": data.get("id"),
                 "security": vmess_security,
             }
 
-            if data.get("net"):
-                transport_opts = {"type": data.get("net").lower()}
+            # Транспорт создаем только если это НЕ tcp
+            if net and net != "tcp":
+                t_opts = {"type": net}
                 if data.get("path"):
-                    transport_opts["path"] = data.get("path")
+                    t_opts["path"] = data.get("path")
                 if data.get("host"):
-                    transport_opts["headers"] = {"Host": data.get("host")}
-                outbound["transport"] = transport_opts
+                    t_opts["headers"] = {"Host": data.get("host")}
+                outbound["transport"] = t_opts
 
             if data.get("tls") == "tls":
                 tls_opts = {"enabled": True}
                 if data.get("sni"):
                     tls_opts["server_name"] = data.get("sni")
                 if data.get("fp"):
-                    tls_opts["utls"] = {
-                        "enabled": True,
-                        "fingerprint": data.get("fp"),
-                    }
+                    tls_opts["utls"] = {"enabled": True, "fingerprint": data.get("fp")}
                 outbound["tls"] = tls_opts
-
-            return outbound
         except Exception:
             return None
 
     # --- 3. TROJAN ---
     elif scheme == "trojan":
         security = params.get("security", ["tls"])[0].lower()
-        
-        # КРИТЕРИЙ: Если это обычный TLS (не Reality), сразу выбрасываем ноду
-        if security != "reality":
-            print(f"Skipping standard Trojan (No Reality): {tag}")
+        if security == "reality":
             return None
+
+        sni_param = params.get("sni", [None])[0]
+        sni = sni_param.strip() if sni_param else None
+
+        server_host = hostname
+        if sni and hostname.lower() != sni.lower():
+            server_host = sni
 
         outbound = {
             "type": "trojan",
             "tag": tag,
-            "server": parsed.hostname,
-            "server_port": parsed.port,
+            "server": server_host,
+            "server_port": parsed.port or 443,
             "password": parsed.username,
         }
 
-        # Так как мы выше отсекли все, кроме reality, блок TLS собирается гарантированно под Reality
         tls_opts = {"enabled": True}
-        sni = params.get("sni", [None])[0]
         if sni:
-            tls_opts["server_name"] = sni.split(":")[0]
+            tls_opts["server_name"] = sni.split(":")[0].strip()
 
-        fp = params.get("fp", [None])[0]
-        if fp:
-            tls_opts["utls"] = {"enabled": True, "fingerprint": fp}
-
-        pbk = params.get("pbk", [None])[0]
-        sid = params.get("sid", [None])[0]
-        reality_opts = {}
-        if pbk:
-            reality_opts["public_key"] = pbk
-        if sid:
-            reality_opts["short_id"] = sid
-        tls_opts["reality"] = reality_opts
+        fp_param = params.get("fp", [None])[0]
+        if fp_param:
+            tls_opts["utls"] = {"enabled": True, "fingerprint": fp_param.strip()}
 
         outbound["tls"] = tls_opts
 
-        if net_type:
-            outbound["transport"] = {
-                "type": net_type,
-                "path": params.get("path", [None])[0],
-                "headers": {"Host": params.get("host", [None])[0]} if params.get("host", [None])[0] else None,
-                "service_name": params.get("serviceName", [None])[0]
-            }
-
-        return outbound
+        transport = build_transport(net_type)
+        if transport:
+            outbound["transport"] = transport
 
     # --- 4. HYSTERIA2 / HY2 ---
     elif scheme in ["hysteria2", "hy2"]:
@@ -238,17 +262,10 @@ def parse_proxy_link(link: str) -> dict | None:
     # --- 5. SHADOWSOCKS ---
     elif scheme == "ss":
         try:
-            # 1. ПРОВЕРКА ПОРТА (Должен быть 443 или пятизначный)
             port = parsed.port
-            if not port:
-                return None
-            
-            is_valid_port = (port == 443) or (10000 <= port <= 99999)
-            if not is_valid_port:
-                print(f"Skipping SS node: invalid port {port} for tag '{tag}'")
+            if not port or not ((port == 443) or (10000 <= port <= 99999)):
                 return None
 
-            # Извлекаем userinfo (все что до знака @)
             userinfo = parsed.username
             if not userinfo and parsed.netloc:
                 userinfo = parsed.netloc.split("@")[0] if "@" in parsed.netloc else None
@@ -271,47 +288,61 @@ def parse_proxy_link(link: str) -> dict | None:
                 return None
 
             method = str(method).lower().strip()
-
-            # 2. ПРОВЕРКА МЕТОДА ШИФРОВАНИЯ (Строго Shadowsocks-2022)
             ALLOWED_2022_METHODS = [
                 "2022-blake3-aes-128-gcm", 
                 "2022-blake3-aes-256-gcm", 
                 "2022-blake3-chacha20-poly1305"
             ]
             if method not in ALLOWED_2022_METHODS:
-                print(f"Skipping SS node: method '{method}' is not Shadowsocks-2022 for tag '{tag}'")
                 return None
 
-            # 3. ПРОВЕРКА ВАЛИДНОСТИ И ДЛИНЫ БАЗОВОГО КЛЮЧА В БАЙТАХ
-            try:
-                # Пароль в SS-2022 — это Base64 строка, добавляем паддинг и декодируем в байты
-                password_padded = password + "=" * (-len(password) % 4)
-                key_bytes = base64.b64decode(password_padded)
-                key_length = len(key_bytes)
-            except Exception:
-                print(f"Skipping SS node: password is not a valid Base64 string for tag '{tag}'")
-                return None
-
-            # Сверяем длину ключа в байтах со стандартом
-            if method == "2022-blake3-aes-128-gcm" and key_length != 16:
-                print(f"Skipping SS 2022-128: expected 16 bytes key, got {key_length} for tag '{tag}'")
-                return None
-            elif method in ["2022-blake3-aes-256-gcm", "2022-blake3-chacha20-poly1305"] and key_length != 32:
-                print(f"Skipping SS 2022-256: expected 32 bytes key, got {key_length} for tag '{tag}'")
-                return None
-
-            return {
+            outbound = {
                 "type": "shadowsocks",
                 "tag": tag,
-                "server": parsed.hostname,
+                "server": hostname,
                 "server_port": port,
                 "method": method,
                 "password": password,
             }
         except Exception:
             return None
+
+    # =========================================================================
+    # ГЛОБАЛЬНЫЕ ФИЛЬТРЫ И ВАЛИДАЦИЯ (TLS, SNI, SERVER, RU DMN)
+    # =========================================================================
+    if not outbound:
+        return None
+
+    # 1. Проверка поля server на корректность
+    server_val = str(outbound.get("server", ""))
+    if not is_valid_server(server_val):
+        print(f"Skipping node '{tag}': invalid 'server' field ('{server_val}')")
+        return None
+
+    # 2. Исключение для Shadowsocks: разрешаем узлы без TLS
+    if outbound.get("type") == "shadowsocks":
+        return outbound
+
+    # 3. Обязательное наличие блока TLS для остальных протоколов
+    tls_config = outbound.get("tls")
+    if not tls_config or not tls_config.get("enabled"):
+        print(f"Skipping node '{tag}': TLS is missing or disabled")
+        return None
+
+    # 4. Валидация SNI (server_name)
+    sni_val = str(tls_config.get("server_name", "")).strip().lower()
     
-    return None
+    if not is_valid_domain(sni_val):
+        print(f"Skipping node '{tag}': invalid or missing SNI ('{sni_val}')")
+        return None
+
+    # 5. Запрет российских доменов в SNI
+    RU_ZONES = (".ru", ".su", ".рф")
+    if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
+        print(f"Skipping node '{tag}': forbidden Russian domain in SNI ('{sni_val}')")
+        return None
+
+    return outbound
 
 def clean_outbound(outbound: dict) -> dict:
     """Применение исправлений для sing-box."""
@@ -436,8 +467,12 @@ def main():
         return
 
     print("Fetching subscription...")
-    resp = requests.get(sub_url, timeout=15)
-    resp.raise_for_status()
+    try:
+        resp = requests.get(sub_url, timeout=15)
+        resp.raise_for_status()
+    except Exception as e:
+        print(f"Error fetching subscription: {e}")
+        return
 
     content = resp.text.strip()
 
@@ -448,25 +483,176 @@ def main():
     except Exception:
         links = content.splitlines()
 
-    outbounds = []
-    seen_tags = {}
+    # --- СКАЧИВАНИЕ БАЗЫ GEOIP ---
+    mmdb_path = "GeoLite2-Country.mmdb"
+    if not os.path.exists(mmdb_path):
+        print("Downloading local GeoIP database...")
+        db_url = "https://git.io/GeoLite2-Country.mmdb"
+        try:
+            db_resp = requests.get(db_url, timeout=30)
+            if db_resp.status_code == 200:
+                with open(mmdb_path, "wb") as db_file:
+                    db_file.write(db_resp.content)
+                print("Local GeoIP database downloaded successfully.")
+        except Exception as e:
+            print(f"Error downloading GeoIP database: {e}")
 
+    # --- СКАЧИВАНИЕ И СБОРКА ЧЕРНОГО СПИСКА CIDR РКН ---
+    blocked_networks = []
+    print("Downloading RKN blocked CIDR list...")
+    # Используем raw-ссылку на файл для скачивания чистого текста
+    rkn_url = "https://github.com/1andrevich/Re-filter-lists/raw/refs/heads/main/ipsum.lst"
+    try:
+        rkn_resp = requests.get(rkn_url, timeout=15)
+        if rkn_resp.status_code == 200:
+            lines = rkn_resp.text.splitlines()
+            for line in lines:
+                line = line.strip()
+                # Пропускаем комментарии и пустые строки
+                if not line or line.startswith("#"):
+                    continue
+                try:
+                    # Преобразуем строку подсети (напр. '198.23.57.168/32') в объект IPv4Network
+                    net_obj = ipaddress.ip_network(line, strict=False)
+                    blocked_networks.append(net_obj)
+                except ValueError:
+                    continue
+            print(f"Successfully loaded {len(blocked_networks)} blocked networks from RKN list.")
+        else:
+            print(f"Failed to download RKN list. Status code: {rkn_resp.status_code}")
+    except Exception as e:
+        print(f"Error loading RKN blacklist: {e}")
+
+    outbounds = []
+    seen_servers = set()
+    servers_to_resolve = set()
+    pre_parsed_nodes = []
+
+    # Разрешенные страны (Европа + США)
+    EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT", "US", "SG", "JP", "HK", "TR"}
+
+    # --- ШАГ 1: Быстрый предварительный парсинг ---
+    print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
+            if not outbound:
+                continue
 
-            # Обеспечиваем уникальность тегов
-            base_tag = outbound["tag"]
-            if base_tag in seen_tags:
-                seen_tags[base_tag] += 1
-                outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-            else:
-                seen_tags[base_tag] = 0
+            node_tag = str(outbound.get("tag", "")).lower()
+            if "ru" in node_tag or "russia" in node_tag:
+                continue
+            server_address = str(outbound.get("server", "")).lower()
+            if server_address.endswith(".ru") or ".ru:" in server_address:
+                continue
 
-            outbounds.append(outbound)
+            if server_address in seen_servers:
+                continue
+            seen_servers.add(server_address)
 
+            pre_parsed_nodes.append(outbound)
+            # Собираем все домены/IP для резолвинга
+            if server_address:
+                servers_to_resolve.add(server_address)
+
+    # --- ШАГ 2: Параллельный DNS-резолвинг ---
+    server_to_ip_map = {}
+
+    def resolve_dns(host):
+        try:
+            return host, socket.gethostbyname(host)
+        except Exception:
+            return host, None
+
+    print(f"Resolving DNS for {len(servers_to_resolve)} domains...")
+    with ThreadPoolExecutor(max_workers=100) as executor:
+        dns_results = executor.map(resolve_dns, servers_to_resolve)
+        for host, ip in dns_results:
+            if ip:
+                server_to_ip_map[host] = ip
+
+    # --- ШАГ 3: МГНОВЕННАЯ ГЕО-ФИЛЬТРАЦИЯ + ФИЛЬТРАЦИЯ БЛОКИРОВОК РКН ---
+    filtered_nodes = []
+    
+    # Открываем базу MaxMind
+    mmdb_accessible = os.path.exists(mmdb_path) and maxminddb
+    reader = maxminddb.open_database(mmdb_path) if mmdb_accessible else None
+
+    try:
+        for outbound in pre_parsed_nodes:
+            server_address = str(outbound.get("server", "")).lower()
+            # Получаем чистый IP-адрес (из DNS-карты или напрямую)
+            ip_addr = server_to_ip_map.get(server_address) or server_address
+
+            # --- ПРОВЕРКА НА БЛОКИРОВКУ В CIDR РКН ---
+            if blocked_networks:
+                try:
+                    # Преобразуем IP ноды в объект IPv4Address для проверки
+                    ip_obj = ipaddress.ip_address(ip_addr)
+                    is_blocked = False
+                    
+                    # Проверяем, входит ли IP в какую-либо заблокированную подсеть
+                    for network in blocked_networks:
+                        if ip_obj in network:
+                            is_blocked = True
+                            break
+                    
+                    if is_blocked:
+                        print(f"Skipping node '{outbound.get('tag')}': IP {ip_addr} is blocked by RKN CIDR.")
+                        continue # Выкидываем ноду из списка
+                except ValueError:
+                    # Если адрес не является валидным IP (не отрезолвился домен), пропускаем проверку CIDR
+                    pass
+
+            # --- ГЕО-ФИЛЬТРАЦИЯ ДЛЯ VLESS ---
+            if outbound.get("type") == "vless" and reader:
+                try:
+                    geo_info = reader.get(ip_addr)
+                    country_code = geo_info["country"].get("iso_code", "").upper() if geo_info and "country" in geo_info else "UNKNOWN"
+                except Exception:
+                    country_code = "UNKNOWN"
+                
+                if country_code not in EUROPE_COUNTRIES:
+                    continue
+
+            filtered_nodes.append(outbound)
+    finally:
+        if reader:
+            reader.close()
+
+    # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
+    MAX_NODES_LIMIT = 5000
+    total_found = len(filtered_nodes)
+
+    if total_found > MAX_NODES_LIMIT:
+        print(f"Всего найдено уникальных европейских узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
+        sampled_outbounds = []
+        for i in range(MAX_NODES_LIMIT):
+            index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
+            sampled_outbounds.append(filtered_nodes[index])
+        outbounds = sampled_outbounds
+    else:
+        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все.")
+        outbounds = filtered_nodes
+
+    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ СТРОГО ДЛЯ ФИНАЛЬНОГО СПИСКА ---
+    seen_tags = {}
+    for outbound in outbounds:
+        base_tag = outbound.get("tag", "Node")
+        if base_tag in seen_tags:
+            seen_tags[base_tag] += 1
+            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
+        else:
+            seen_tags[base_tag] = 0
+            outbound["tag"] = base_tag
+
+    # Перегенерация списка тегов для селекторов (теперь тут будет ровно до 200 элементов)
     node_tags = [o["tag"] for o in outbounds]
+
+    if not node_tags:
+        print("Error: No valid proxy nodes left after filtration!")
+        return
 
     selector_outbound = {
         "type": "selector",
