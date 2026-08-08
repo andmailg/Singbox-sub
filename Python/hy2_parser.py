@@ -1,3 +1,6 @@
+Вот полный рабочий скрипт, интегрирующий парсинг **только Hysteria2** из 25 источников, фильтрацию по спискам РКН и GeoIP, а также сборку итогового конфига **строго в вашей структуре**:
+
+```python
 import os
 import re
 import json
@@ -15,7 +18,7 @@ except ImportError:
     maxminddb = None
 
 # =========================================================================
-# 1. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ВАЛИДАЦИИ И ПАРСИНГА HYSTERIA2
+# 1. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ВАЛИДАЦИИ И ОЧИСТКИ
 # =========================================================================
 
 def is_valid_ip(address: str) -> bool:
@@ -39,8 +42,37 @@ def is_valid_server(server: str) -> bool:
     clean_server = server.strip("[]")
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
+def clean_urltest(urltest_dict: dict) -> dict:
+    """Очистка параметров urltest согласно требованиям sing-box."""
+    urltest_dict.pop("lru", None)
+    urltest_dict.pop("timeout", None)
+    return urltest_dict
+
+def clean_outbound(outbound: dict) -> dict:
+    """Очистка Hysteria2 ноды."""
+    if not outbound or outbound.get("type") != "hysteria2":
+        return outbound
+
+    outbound.setdefault("up_mbps", 10)
+    outbound.setdefault("down_mbps", 10)
+
+    tls_opts = outbound.get("tls", {})
+    if tls_opts and tls_opts.get("enabled"):
+        reality_opts = tls_opts.get("reality", {})
+        fp_from_reality = reality_opts.pop("fingerprint", None)
+        
+        if fp_from_reality:
+            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
+            if "fingerprint" not in utls_opts:
+                utls_opts["fingerprint"] = fp_from_reality
+
+        if not reality_opts:
+            tls_opts.pop("reality", None)
+
+    return outbound
+
 def parse_proxy_link(link: str) -> dict | None:
-    """Парсинг ссылки. Пропускает ТОЛЬКО hysteria2 / hy2."""
+    """Парсинг ссылки. Оставляет ТОЛЬКО hysteria2 / hy2."""
     link = link.strip()
     if not link or link.startswith("#"):
         return None
@@ -56,7 +88,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
     scheme = parsed.scheme.lower()
     
-    # Жесткий фильтр только по Hy2
     if scheme not in ["hysteria2", "hy2"]:
         return None
 
@@ -108,7 +139,7 @@ def parse_proxy_link(link: str) -> dict | None:
         "tls": tls_opts
     }
 
-    # 5. Проверки адреса и SNI (включая .ru зоны)
+    # 5. Проверки адреса и SNI
     if not is_valid_server(outbound["server"]):
         return None
 
@@ -123,35 +154,11 @@ def parse_proxy_link(link: str) -> dict | None:
 
     return outbound
 
-def clean_outbound(outbound: dict) -> dict:
-    """Нормализация Hysteria2 структуры для sing-box."""
-    if not outbound or outbound.get("type") != "hysteria2":
-        return outbound
-
-    outbound.setdefault("up_mbps", 10)
-    outbound.setdefault("down_mbps", 10)
-
-    tls_opts = outbound.get("tls", {})
-    if tls_opts and tls_opts.get("enabled"):
-        reality_opts = tls_opts.get("reality", {})
-        fp_from_reality = reality_opts.pop("fingerprint", None)
-        
-        if fp_from_reality:
-            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            if "fingerprint" not in utls_opts:
-                utls_opts["fingerprint"] = fp_from_reality
-
-        if not reality_opts:
-            tls_opts.pop("reality", None)
-
-    return outbound
-
 # =========================================================================
-# 2. ОСНОВНАЯ ФУНКЦИЯ ОБРАБОТКИ
+# 2. ОСНОВНАЯ ЛОГИКА
 # =========================================================================
 
 def main():
-    # Формируем список из 25 ссылок
     sub_urls = [
         f"https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/{i}.txt"
         for i in range(1, 26)
@@ -159,9 +166,8 @@ def main():
 
     links = []
     print(f"Fetching subscriptions from {len(sub_urls)} sources...")
-    
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-    
+
     for url in sub_urls:
         try:
             resp = requests.get(url, headers=headers, timeout=15)
@@ -169,7 +175,6 @@ def main():
                 continue
             
             content = resp.text.strip()
-            # Проверка и декодирование Base64 (если список зашифрован целиком)
             try:
                 content_padded = content + "=" * (-len(content) % 4)
                 decoded_content = base64.b64decode(content_padded).decode("utf-8", errors="ignore")
@@ -215,8 +220,6 @@ def main():
                 except ValueError:
                     continue
             print(f"Successfully loaded {len(blocked_networks)} blocked networks from RKN list.")
-        else:
-            print(f"Failed to download RKN list. Status code: {rkn_resp.status_code}")
     except Exception as e:
         print(f"Error loading RKN blacklist: {e}")
 
@@ -225,7 +228,6 @@ def main():
     servers_to_resolve = set()
     pre_parsed_nodes = []
 
-    # Разрешенные страны (Европа + США + Азия)
     EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT", "US", "SG", "JP", "HK", "TR"}
 
     # --- ШАГ 1: Быстрый предварительный парсинг ---
@@ -240,12 +242,11 @@ def main():
             node_tag = str(outbound.get("tag", "")).lower()
             if "ru" in node_tag or "russia" in node_tag:
                 continue
-                
+
             server_address = str(outbound.get("server", "")).lower()
             if server_address.endswith((".ru", ".su", ".рф")) or ".ru:" in server_address:
                 continue
 
-            # Уникализация по сочетанию server:port:password
             node_key = f"{server_address}:{outbound.get('server_port')}:{outbound.get('password')}"
             if node_key in seen_servers:
                 continue
@@ -282,23 +283,17 @@ def main():
             server_address = str(outbound.get("server", "")).lower()
             ip_addr = server_to_ip_map.get(server_address) or server_address
 
-            # --- ПРОВЕРКА НА БЛОКИРОВКУ В CIDR РКН ---
+            # Проверка на блокировки CIDR РКН
             if blocked_networks:
                 try:
                     ip_obj = ipaddress.ip_address(ip_addr)
-                    is_blocked = False
-                    
-                    for network in blocked_networks:
-                        if ip_obj in network:
-                            is_blocked = True
-                            break
-                    
+                    is_blocked = any(ip_obj in network for network in blocked_networks)
                     if is_blocked:
-                        continue  # Отбрасываем ноду
+                        continue
                 except ValueError:
                     pass
 
-            # --- ГЕО-ФИЛЬТРАЦИЯ (Hysteria2) ---
+            # GeoIP фильтрация
             if reader:
                 try:
                     geo_info = reader.get(ip_addr)
@@ -306,7 +301,6 @@ def main():
                 except Exception:
                     country_code = "UNKNOWN"
                 
-                # Если локация определена и ее нет в белом списке — пропускаем
                 if country_code != "UNKNOWN" and country_code not in EUROPE_COUNTRIES:
                     continue
 
@@ -320,17 +314,16 @@ def main():
     total_found = len(filtered_nodes)
 
     if total_found > MAX_NODES_LIMIT:
-        print(f"Всего найдено уникальных целевых узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
+        print(f"Всего найдено узлов: {total_found}. Берем {MAX_NODES_LIMIT} с разбросом...")
         sampled_outbounds = []
         for i in range(MAX_NODES_LIMIT):
             index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
             sampled_outbounds.append(filtered_nodes[index])
         outbounds = sampled_outbounds
     else:
-        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все.")
         outbounds = filtered_nodes
 
-    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ СТРОГО ДЛЯ ФИНАЛЬНОГО СПИСКА ---
+    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ ---
     seen_tags = {}
     for outbound in outbounds:
         base_tag = outbound.get("tag", "Hy2-Node")
@@ -341,18 +334,232 @@ def main():
             seen_tags[base_tag] = 0
             outbound["tag"] = base_tag
 
+    # =========================================================================
+    # СБОРКА СТРУКТУРЫ ПО ВАШЕМУ ТРЕБОВАНИЮ
+    # =========================================================================
+
     node_tags = [o["tag"] for o in outbounds]
 
     if not node_tags:
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    # --- СОХРАНЕНИЕ В ФАЙЛ ---
-    output_filename = "sing_box_hy2_outbounds.json"
-    with open(output_filename, "w", encoding="utf-8") as f:
-        json.dump(outbounds, f, ensure_ascii=False, indent=2)
+    selector_outbound = {
+        "type": "selector",
+        "tag": "proxy-out",
+        "outbounds": ["auto"] + node_tags,
+        "default": "auto",
+    }
 
-    print(f"Успешно обработано! {len(outbounds)} Hysteria2 нод сохранено в '{output_filename}'.")
+    urltest_outbound = {
+        "type": "urltest",
+        "tag": "auto",
+        "outbounds": node_tags,
+        "url": "https://connectivitycheck.gstatic.com/generate_204",
+        "interval": "10m",
+        "tolerance": 50,
+    }
+    urltest_outbound = clean_urltest(urltest_outbound)
+
+    singbox_config = {
+        "log": {
+            "level": "warn",
+            "timestamp": True
+        },
+        "dns": {
+            "servers": [
+                {
+                    "type": "https",
+                    "tag": "dns-local",
+                    "server": "1.1.1.1",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "cloudflare-dns.com"
+                    }
+                },
+                {
+                    "type": "https",
+                    "tag": "dns-remote",
+                    "server": "1.1.1.1",
+                    "detour": "proxy-out",
+                    "tls": {
+                        "enabled": True,
+                        "server_name": "cloudflare-dns.com"
+                    }
+                },
+                {
+                    "type": "fakeip",
+                    "tag": "fakeip",
+                    "inet4_range": "198.18.0.0/15",
+                    "inet6_range": "fc00::/18"
+                },
+                {
+                    "type": "local",
+                    "tag": "local"
+                }
+            ],
+            "rules": [
+                {
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "server": "dns-local"
+                },
+                {
+                    "query_type": [
+                        "HTTPS",
+                        "SVCB"
+                    ],
+                    "action": "predefined",
+                    "rcode": "REFUSED"
+                },
+                {
+                    "rule_set": [
+                        "db-category-ai-chat",
+                        "geosite-category-media-ru-blocked"
+                    ],
+                    "server": "fakeip"
+                }
+            ],
+            "final": "dns-remote",
+            "strategy": "prefer_ipv4",
+            "cache_capacity": 2048
+        },
+        "endpoints": [
+            {
+                "type": "wireguard",
+                "tag": "warp-ep",
+                "detour": "proxy-out",
+                "address": [
+                    "172.28.0.2/32",
+                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
+                ],
+                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
+                "mtu": 1280,
+                "peers": [
+                    {
+                        "address": "162.159.192.1",
+                        "port": 2408,
+                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                        "allowed_ips": [
+                            "0.0.0.0/0",
+                            "::/0"
+                        ],
+                        "reserved": [0, 0, 0]
+                    }
+                ]
+            }
+        ],
+        "inbounds": [
+            {
+                "type": "tun",
+                "tag": "tun-in",
+                "mtu": 1420,
+                "address": "172.19.0.1/30",
+                "auto_route": True,
+                "route_exclude_address": [
+                    "10.0.0.0/8",
+                    "172.16.0.0/12",
+                    "192.168.0.0/16",
+                    "169.254.0.0/16",
+                    "224.0.0.0/4",
+                    "255.255.255.255/32",
+                    "fc00::/7"
+                ]
+            }
+        ],
+        "outbounds": [
+            {
+                "type": "direct",
+                "tag": "direct-out"
+            },
+            selector_outbound,
+            urltest_outbound,
+            *outbounds
+        ],
+        "route": {
+            "rules": [
+                {
+                    "action": "sniff"
+                },
+                {
+                    "protocol": "dns",
+                    "action": "hijack-dns"
+                },
+                {
+                    "rule_set": [
+                        "geosite-category-media-ru-blocked",
+                        "db-category-ai-chat"
+                    ],
+                    "outbound": "proxy-out"
+                },
+                {
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "outbound": "direct-out"
+                }
+            ],
+            "rule_set": [
+                {
+                    "type": "remote",
+                    "tag": "db-github",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+                    "download_detour": "direct-out"
+                },
+                {
+                    "type": "remote",
+                    "tag": "geosite-category-media-ru-blocked",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+                    "download_detour": "direct-out"
+                },
+                {
+                    "type": "remote",
+                    "tag": "geosite-category-ru",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+                    "download_detour": "direct-out"
+                },
+                {
+                    "type": "remote",
+                    "tag": "geoip-ru",
+                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+                    "download_detour": "direct-out"
+                },
+                {
+                    "type": "remote",
+                    "tag": "db-antizapret",
+                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+                    "download_detour": "direct-out"
+                },
+                {
+                    "type": "remote",
+                    "tag": "db-category-ai-chat",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+                    "download_detour": "direct-out"
+                }
+            ],
+            "final": "proxy-out",
+            "auto_detect_interface": True,
+            "override_android_vpn": True,
+            "default_domain_resolver": "dns-local"
+        },
+        "experimental": {
+            "cache_file": {
+                "enabled": True
+            }
+        }
+    }
+
+    # Сохраняем итоговый JSON
+    output_filename = "sing-box-hy2.json"
+    with open(output_filename, "w", encoding="utf-8") as f:
+        json.dump(singbox_config, f, ensure_ascii=False, indent=2)
+
+    print(f"Готово! Валидный JSON сохранен в '{output_filename}'")
 
 if __name__ == "__main__":
     main()
+
+```
