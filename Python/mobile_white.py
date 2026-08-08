@@ -1,8 +1,12 @@
+import ipaddress  # Встроенный модуль для работы с IP и подсетями
+from concurrent.futures import ThreadPoolExecutor
 import base64
 import json
 import os
+import socket
 import urllib.parse
 import requests
+import re
 
 
 # Для работы с локальной базой GeoIP
