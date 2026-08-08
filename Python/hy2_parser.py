@@ -45,16 +45,22 @@ def clean_urltest(urltest_dict: dict) -> dict:
     urltest_dict.pop("timeout", None)
     return urltest_dict
 
-def clean_outbound(outbound: dict) -> dict:
-    """Очистка Hysteria2 ноды."""
+def clean_outbound(outbound: dict) -> dict | None:
+    """Очистка Hysteria2 ноды и финальная проверка server_name."""
     if not outbound or outbound.get("type") != "hysteria2":
-        return outbound
+        return None
+
+    tls_opts = outbound.get("tls", {})
+    
+    # ❌ Проверяем наличие валидного server_name в объекте tls
+    server_name = tls_opts.get("server_name")
+    if not server_name or not str(server_name).strip():
+        return None
 
     outbound.setdefault("up_mbps", 10)
     outbound.setdefault("down_mbps", 10)
 
-    tls_opts = outbound.get("tls", {})
-    if tls_opts and tls_opts.get("enabled"):
+    if tls_opts.get("enabled"):
         reality_opts = tls_opts.get("reality", {})
         fp_from_reality = reality_opts.pop("fingerprint", None)
         
