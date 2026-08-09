@@ -126,7 +126,13 @@
         "Hy2-003",
         "Hy2-004",
         "Hy2-005",
-        "Hy2-006"
+        "Hy2-006",
+        "Hy2-007",
+        "Hy2-008",
+        "Hy2-009",
+        "Hy2-010",
+        "Hy2-011",
+        "Hy2-012"
       ],
       "default": "auto"
     },
@@ -139,7 +145,13 @@
         "Hy2-003",
         "Hy2-004",
         "Hy2-005",
-        "Hy2-006"
+        "Hy2-006",
+        "Hy2-007",
+        "Hy2-008",
+        "Hy2-009",
+        "Hy2-010",
+        "Hy2-011",
+        "Hy2-012"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -221,6 +233,84 @@
       "tls": {
         "enabled": true,
         "server_name": "nl-one.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-007",
+      "server": "lin.cryptoofarm.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "lin.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-008",
+      "server": "pol.cryptoofarm.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
+      "tls": {
+        "enabled": true,
+        "server_name": "pol.cryptoofarm.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-009",
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "71cada65-d23e-418c-88e4-a06188d14689",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-two.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-010",
+      "server": "cze-01.node.lumixnet.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "8645697d-51c1-4e90-aca5-ba63a0392f11",
+      "tls": {
+        "enabled": true,
+        "server_name": "cze-01.node.lumixnet.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-011",
+      "server": "bel-03.node.lumixnet.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "d1224950-ffab-4b9a-8696-431b40a6cfbd",
+      "tls": {
+        "enabled": true,
+        "server_name": "bel-03.node.lumixnet.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "Hy2-012",
+      "server": "hopp-legend-se.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-legend-se.roxa.org"
       }
     }
   ],
