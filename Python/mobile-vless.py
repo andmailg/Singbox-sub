@@ -132,23 +132,25 @@ def parse_proxy_link(link: str) -> dict | None:
 
 def clean_outbound(outbound: dict) -> dict | None:
     """Очистка и валидация VLESS HTTP ноды под спецификацию sing-box."""
-    if not outbound or outbound.get("type") != "vless":
-        return outbound
+    if not outbound:
+        return None
 
-    transport = outbound.get("transport", {})
+    # Если объект VLESS, проводим жесткую проверку блока transport
+    if outbound.get("type") == "vless":
+        transport = outbound.get("transport", {})
 
-    # Проверка: для http-транспорта обязательно наличие непустого поля host
-    if transport.get("type") == "http":
-        hosts = transport.get("host")
-        if not hosts or not isinstance(hosts, list) or len(hosts) == 0 or not hosts[0]:
-            return None  # Отбрасываем ноду, если host отсутствует
+        # Проверяем HTTP-транспорт на обязательное наличие непустого host
+        if transport.get("type") == "http":
+            hosts = transport.get("host")
+            if not hosts or not isinstance(hosts, list) or len(hosts) == 0 or not str(hosts[0]).strip():
+                return None  # Отбрасываем ноду без host
 
-    # Если в объекте случайно остался transport=tcp, вычищаем его
-    if transport.get("type") == "tcp":
-        outbound.pop("transport", None)
+        # Если остался transport=tcp, вычищаем его
+        if transport.get("type") == "tcp":
+            outbound.pop("transport", None)
 
-    # Гарантируем отсутствие TLS блоков
-    outbound.pop("tls", None)
+        # Гарантируем отсутствие TLS блоков
+        outbound.pop("tls", None)
 
     return outbound
 
@@ -546,7 +548,7 @@ def main():
         }
     }
 
-    output_filename = "sing-box-vless-http.json"
+    output_filename = "sing-box-vless.json"
     with open(output_filename, "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
