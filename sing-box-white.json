@@ -121,6 +121,7 @@
       "outbounds": [
         "auto",
         "🇩🇪 Germany [*CIDR]",
+        "🇩🇪 Germany [*CIDR] #1",
         "🇳🇱 The Netherlands [*CIDR]"
       ],
       "default": "auto"
@@ -130,6 +131,7 @@
       "tag": "auto",
       "outbounds": [
         "🇩🇪 Germany [*CIDR]",
+        "🇩🇪 Germany [*CIDR] #1",
         "🇳🇱 The Netherlands [*CIDR]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
@@ -139,6 +141,19 @@
     {
       "type": "hysteria2",
       "tag": "🇩🇪 Germany [*CIDR]",
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
+      "tls": {
+        "enabled": true,
+        "server_name": "de-two.quiet-rogue.site"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany [*CIDR] #1",
       "server": "j47lq.pleiades.codes",
       "server_port": 8443,
       "up_mbps": 10,
