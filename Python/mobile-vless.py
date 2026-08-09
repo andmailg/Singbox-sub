@@ -97,16 +97,16 @@ def parse_proxy_link(link: str) -> dict | None:
         print("Skipping VLESS node: missing UUID")
         return None
 
-    port = parsed.port or 80
-    tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-HTTP-Node"
-    host = params.get("host", [""])[0]
-
-    # --- ПРОВЕРКА НА НАЛИЧИЕ HOST ---
+    # 6. Обязательная проверка параметра host
+    host = params.get("host", [""])[0].strip()
     if not host:
-        print(f"Skipping node '{tag}': missing 'host' parameter")
+        print("Skipping VLESS node: missing required 'host' parameter")
         return None
 
-    # 6. Сборка объекта outbound для sing-box (Без TLS, с HTTP-транспортом)
+    port = parsed.port or 80
+    tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-HTTP-Node"
+
+    # 7. Сборка объекта outbound для sing-box (Без TLS, с HTTP-транспортом)
     outbound = {
         "type": "vless",
         "tag": tag,
@@ -130,13 +130,20 @@ def parse_proxy_link(link: str) -> dict | None:
     return outbound
 
 
-def clean_outbound(outbound: dict) -> dict:
-    """Очистка VLESS HTTP ноды под спецификацию sing-box."""
+def clean_outbound(outbound: dict) -> dict | None:
+    """Очистка и валидация VLESS HTTP ноды под спецификацию sing-box."""
     if not outbound or outbound.get("type") != "vless":
         return outbound
 
-    # Если в объекте случайно остался transport=tcp, вычищаем его
     transport = outbound.get("transport", {})
+
+    # Проверка: для http-транспорта обязательно наличие непустого поля host
+    if transport.get("type") == "http":
+        hosts = transport.get("host")
+        if not hosts or not isinstance(hosts, list) or len(hosts) == 0 or not hosts[0]:
+            return None  # Отбрасываем ноду, если host отсутствует
+
+    # Если в объекте случайно остался transport=tcp, вычищаем его
     if transport.get("type") == "tcp":
         outbound.pop("transport", None)
 
