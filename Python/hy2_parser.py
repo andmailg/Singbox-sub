@@ -167,14 +167,27 @@ def parse_proxy_link(link: str) -> dict | None:
 # =========================================================================
 
 def main():
-    sub_urls = [
-        f"https://github.com/AvenCores/goida-vpn-configs/raw/refs/heads/main/githubmirror/{i}.txt"
-        for i in range(1, 26)
-    ]
+    # URL файла с источниками подписок
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
 
-    links = []
-    print(f"Fetching subscriptions from {len(sub_urls)} sources...")
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+    # --- ЗАГРУЗКА СПИСКА ПОДПИСОК ИЗ JSON ---
+    print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
+    try:
+        sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
+        sources_resp.raise_for_status()
+        sub_urls = sources_resp.json()
+        if not isinstance(sub_urls, list):
+            raise ValueError("Expected a JSON array of URLs")
+        print(f"Successfully loaded {len(sub_urls)} subscription sources.")
+    except Exception as e:
+        print(f"Error fetching sources JSON: {e}")
+        return
+
+    # --- СБОР ЛИНКОВ ИЗ ИСТОЧНИКОВ ---
+    links = []
+    print(f"Fetching proxy links from {len(sub_urls)} sources...")
 
     for url in sub_urls:
         try:
