@@ -282,35 +282,33 @@ def main():
     mmdb_accessible = os.path.exists(mmdb_path) and maxminddb is not None
     reader = maxminddb.open_database(mmdb_path) if mmdb_accessible else None
 
-#    try:
-#        for outbound in pre_parsed_nodes:
-#            server_address = str(outbound.get("server", "")).lower()
-#            ip_addr = server_to_ip_map.get(server_address) or server_address
+    try:
+        for outbound in pre_parsed_nodes:
+            server_address = str(outbound.get("server", "")).lower()
+            ip_addr = server_to_ip_map.get(server_address) or server_address
 
-#            if blocked_networks:
-#                try:
-#                    ip_obj = ipaddress.ip_address(ip_addr)
-#                    if any(ip_obj in network for network in blocked_networks):
-#                        continue
-#                except ValueError:
-#                    pass
+            if blocked_networks:
+                try:
+                    ip_obj = ipaddress.ip_address(ip_addr)
+                    if any(ip_obj in network for network in blocked_networks):
+                        continue
+                except ValueError:
+                    pass
 
-#            if reader:
-#                try:
-#                    geo_info = reader.get(ip_addr)
-#                    country_code = geo_info["country"].get("iso_code", "").upper() if geo_info and "country" in geo_info else "UNKNOWN"
-#                except Exception:
-#                    country_code = "UNKNOWN"
+            if reader:
+                try:
+                    geo_info = reader.get(ip_addr)
+                    country_code = geo_info["country"].get("iso_code", "").upper() if geo_info and "country" in geo_info else "UNKNOWN"
+                except Exception:
+                    country_code = "UNKNOWN"
                 
-#                if country_code != "UNKNOWN" and country_code not in EUROPE_COUNTRIES:
-#                    continue
+                if country_code != "UNKNOWN" and country_code not in EUROPE_COUNTRIES:
+                    continue
 
-#            filtered_nodes.append(outbound)
-#    finally:
-#        if reader:
-#            reader.close()
-
-    filtered_nodes = list(pre_parsed_nodes)
+            filtered_nodes.append(outbound)
+    finally:
+        if reader:
+            reader.close()
 
     MAX_NODES_LIMIT = 5000
     total_found = len(filtered_nodes)
