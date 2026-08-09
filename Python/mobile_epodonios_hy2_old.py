@@ -578,7 +578,7 @@ def main():
     with open("sing-box-epodonios.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
-    print(f"Successfully generated sing-box-epodonios.json with {len(outbounds)} nodes.")
+    print(f"Successfully generated sing-box-epodonios-hy2-old.json with {len(outbounds)} nodes.")
 
 
 if __name__ == "__main__":
