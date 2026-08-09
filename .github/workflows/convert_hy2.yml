@@ -27,6 +27,11 @@ jobs:
         run: |
           python Python/hy2_parser.py
           python Python/mobile_epodonios_hy2_new.py
+
+      - name: Run scripts
+        env:
+          XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_EPODONIOS_ALL_CONFIGS_SUB }}
+        run: |
           python Python/mobile_epodonios_hy2_old.py
 
       - name: Commit and push if changed
