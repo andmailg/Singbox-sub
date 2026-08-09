@@ -160,25 +160,24 @@ def main():
     SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
-    # --- ЗАГРУЗКА ИСТОЧНИКОВ ИЗ JSON (С РЕЗЕРВНЫМ ПАРСИНГОМ) ---
+    # --- ЗАГРУЗКА ИСТОЧНИКОВ ИЗ JSON (С ПОДДЕРЖКОЙ СЛОВАРЕЙ И МАССИВОВ) ---
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
     try:
         sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
         sources_resp.raise_for_status()
         
-        # Пробуем распарсить стандартным методом
         try:
             sub_urls = sources_resp.json()
         except Exception:
-            # Если ctype не json или внутри обычный json string
             sub_urls = json.loads(sources_resp.text)
 
-        # Если файл пришел как словарь { "urls": [...] }, извлекаем список
+        # Если файл — JSON-объект {"1": "url1", "2": "url2"},
+        # извлекаем ВСЕ значения в список
         if isinstance(sub_urls, dict):
-            sub_urls = sub_urls.get("urls", list(sub_urls.values())[0])
+            sub_urls = list(sub_urls.values())
 
         if not isinstance(sub_urls, list):
-            raise ValueError(f"Expected list, got {type(sub_urls)}")
+            raise ValueError(f"Expected list or dict, got {type(sub_urls)}")
 
         print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")
 
