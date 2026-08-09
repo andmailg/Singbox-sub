@@ -333,36 +333,8 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: МГНОВЕННАЯ ГЕО-ФИЛЬТРАЦИЯ ---
-    filtered_nodes = []
-    
-    mmdb_accessible = os.path.exists(mmdb_path) and maxminddb
-    reader = maxminddb.open_database(mmdb_path) if mmdb_accessible else None
-    
-    try:
-        for outbound in pre_parsed_nodes:
-            server_address = str(outbound.get("server", "")).lower()
-            ip_addr = server_to_ip_map.get(server_address) or server_address
-    
-            # Определение страны по MMDB
-            country_code = "UNKNOWN"
-            if reader:
-                try:
-                    geo_info = reader.get(ip_addr)
-                    if geo_info and "country" in geo_info:
-                        country_code = geo_info["country"].get("iso_code", "").upper()
-                except Exception:
-                    country_code = "UNKNOWN"
-    
-            # Фильтрация по разрешенным странам
-            if country_code not in EUROPE_COUNTRIES:
-                print(f"Skipping node '{outbound.get('tag')}': country {country_code} not in allowed list.")
-                continue
-    
-            filtered_nodes.append(outbound)
-    finally:
-        if reader:
-            reader.close()
+    # --- ШАГ 3: ПРОПУСК УЗЛОВ БЕЗ ФИЛЬТРАЦИИ ---
+    filtered_nodes = list(pre_parsed_nodes)
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
     MAX_NODES_LIMIT = 5000
