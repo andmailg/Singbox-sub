@@ -42,7 +42,7 @@ jobs:
           fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json mobile-epodonios-hy2-new.py mobile-epodonios-hy2-old.py
+          git add sing-box-hy2.json sing-box-epodonios-hy2-new.json sing-box-epodonios-hy2-old.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
