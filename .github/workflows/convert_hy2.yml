@@ -27,7 +27,6 @@ jobs:
         run: |
           python Python/hy2_parser.py
           python Python/mobile_epodonios_hy2_new.py
-          python Python/mobile_epodonios_hy2_old.py
 
       - name: Commit and push if changed
         run: |
@@ -42,7 +41,7 @@ jobs:
           fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-epodonios-hy2-new.json sing-box-epodonios-hy2-old.json
+          git add sing-box-hy2.json sing-box-epodonios-hy2-new.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
