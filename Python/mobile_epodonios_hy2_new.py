@@ -108,9 +108,15 @@ def parse_proxy_link(link: str) -> dict | None:
     if sni and hostname.lower() != sni.lower():
         server_host = sni
 
-    tls_opts = {"enabled": True}
-    if sni:
-        tls_opts["server_name"] = sni
+    # Требуем обязательное наличие server_name в tls
+    if not sni:
+        print(f"Skipping node: missing SNI / server_name")
+        return None
+
+    tls_opts = {
+        "enabled": True,
+        "server_name": sni
+    }
 
     # 5. Сборка объекта outbound для sing-box
     outbound = {
@@ -300,6 +306,15 @@ def main():
         if outbound:
             outbound = clean_outbound(outbound)
             if not outbound:
+                continue
+
+            # Жесткая проверка наличия tls и server_name
+            tls_opts = outbound.get("tls", {})
+            if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
+                continue
+            
+            server_name = tls_opts.get("server_name")
+            if not server_name or not isinstance(server_name, str) or not server_name.strip():
                 continue
 
             node_tag = str(outbound.get("tag", "")).lower()
