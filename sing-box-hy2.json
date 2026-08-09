@@ -474,19 +474,6 @@
     {
       "type": "hysteria2",
       "tag": "node-23",
-      "server": "freedom.chenlan.top",
-      "server_port": 12765,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "STYyftThFn",
-      "tls": {
-        "enabled": true,
-        "server_name": "freedom.chenlan.top"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-24",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -495,6 +482,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-24",
+      "server": "freedom.chenlan.top",
+      "server_port": 12765,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "STYyftThFn",
+      "tls": {
+        "enabled": true,
+        "server_name": "freedom.chenlan.top"
       }
     },
     {
