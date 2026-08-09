@@ -333,8 +333,24 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: ПРОПУСК УЗЛОВ БЕЗ ФИЛЬТРАЦИИ ---
-    filtered_nodes = list(pre_parsed_nodes)
+    # --- ШАГ 3: ФИЛЬТРАЦИЯ БЛОКИРОВОК РКН ---
+    filtered_nodes = []
+    
+    for outbound in pre_parsed_nodes:
+        server_address = str(outbound.get("server", "")).lower()
+        ip_addr = server_to_ip_map.get(server_address) or server_address
+    
+        # Проверка на блокировку в CIDR РКН
+        if blocked_networks:
+            try:
+                ip_obj = ipaddress.ip_address(ip_addr)
+                if any(ip_obj in network for network in blocked_networks):
+                    print(f"Skipping node '{outbound.get('tag')}': IP {ip_addr} is blocked by RKN CIDR.")
+                    continue
+            except ValueError:
+                pass
+
+    filtered_nodes.append(outbound)
 
     # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
     MAX_NODES_LIMIT = 5000
