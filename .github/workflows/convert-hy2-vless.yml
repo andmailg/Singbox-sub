@@ -26,6 +26,7 @@ jobs:
       - name: Run scripts
         run: |
           python Python/mobile-hy2.py
+          python Python/mobile-vless.py
 
       - name: Commit and push if changed
         run: |
@@ -40,7 +41,7 @@ jobs:
           fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json
+          git add sing-box-hy2.json sing-box-vless.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
