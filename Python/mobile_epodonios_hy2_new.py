@@ -76,9 +76,9 @@ def parse_proxy_link(link: str) -> dict | None:
         print(f"Skipping insecure node: {link[:30]}...")
         return None
 
-    # 2. Фильтрация по портам (оставляем только 443 и 8443)
+    # 2. Фильтрация по портам (оставляем только 443)
     port = parsed.port or 443
-    if port in [443]:
+    if port != 443:
         print(f"Skipping Hy2 node: invalid port ({port})")
         return None
 
