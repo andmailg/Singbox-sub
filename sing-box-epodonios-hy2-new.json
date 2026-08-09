@@ -57,7 +57,6 @@
           "geosite-category-media-ru-blocked",
           "db-antizapret"
         ],
-        "action": "route",
         "server": "fakeip"
       }
     ],
@@ -122,12 +121,12 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "Hy2-001",
-        "Hy2-002",
-        "Hy2-003",
-        "Hy2-004",
-        "Hy2-005",
-        "Hy2-006"
+        "EPODONIOS",
+        "EPODONIOS #1",
+        "EPODONIOS #2",
+        "EPODONIOS #3",
+        "EPODONIOS #4",
+        "EPODONIOS #5"
       ],
       "default": "auto"
     },
@@ -135,12 +134,12 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "Hy2-001",
-        "Hy2-002",
-        "Hy2-003",
-        "Hy2-004",
-        "Hy2-005",
-        "Hy2-006"
+        "EPODONIOS",
+        "EPODONIOS #1",
+        "EPODONIOS #2",
+        "EPODONIOS #3",
+        "EPODONIOS #4",
+        "EPODONIOS #5"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -148,7 +147,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-001",
+      "tag": "EPODONIOS",
       "server": "lin.cryptoofarm.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -161,7 +160,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-002",
+      "tag": "EPODONIOS #1",
       "server": "pol.cryptoofarm.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -174,7 +173,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-003",
+      "tag": "EPODONIOS #2",
       "server": "de-two.quiet-rogue.site",
       "server_port": 443,
       "up_mbps": 10,
@@ -187,7 +186,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-004",
+      "tag": "EPODONIOS #3",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -200,7 +199,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-005",
+      "tag": "EPODONIOS #4",
       "server": "bel-03.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -213,7 +212,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-006",
+      "tag": "EPODONIOS #5",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -238,8 +237,7 @@
         "rule_set": [
           "geosite-category-media-ru-blocked",
           "db-category-ai-chat",
-          "db-antizapret",
-          "db-github"
+          "db-antizapret"
         ],
         "outbound": "proxy-out"
       },
