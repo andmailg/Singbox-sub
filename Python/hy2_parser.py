@@ -57,7 +57,7 @@ def clean_outbound(outbound: dict) -> dict | None:
     outbound.setdefault("up_mbps", 10)
     outbound.setdefault("down_mbps", 10)
 
-    # Нормализация TLS/uTLS для Hysteria2 (без Reality, так как Hy2 его не поддерживает)
+    # Нормализация TLS/uTLS для Hysteria2
     if tls_opts.get("enabled"):
         utls_opts = tls_opts.get("utls", {})
         if utls_opts.get("enabled") and not utls_opts.get("fingerprint"):
@@ -230,8 +230,10 @@ def main():
                 if not line or line.startswith("#"):
                     continue
                 try:
-                    blocked_networks.append(ipaddress.ip_network(line, strict=False))
-                except ValueError:
+                    # Извлекаем IP/CIDR до пробела (в файле есть столбцы со значениями репутации)
+                    clean_ip = line.split()[0]
+                    blocked_networks.append(ipaddress.ip_network(clean_ip, strict=False))
+                except (ValueError, IndexError):
                     pass
     except Exception as e:
         print(f"Warning: RKN list failed: {e}")
@@ -313,7 +315,7 @@ def main():
 
     MAX_NODES_LIMIT = 5000
     total_found = len(filtered_nodes)
-    if total_found > MAX_NODES_LIMIT:
+    if total_found > MAX_NODES_LIMIT and MAX_NODES_LIMIT > 1:
         outbounds = [filtered_nodes[int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))] for i in range(MAX_NODES_LIMIT)]
     else:
         outbounds = filtered_nodes
@@ -374,7 +376,7 @@ def main():
                 {"rule_set": ["geosite-category-ru", "geoip-ru"], "server": "dns-local"},
                 {"query_type": ["HTTPS", "SVCB"], "action": "predefined", "rcode": "REFUSED"},
                 {
-                    "rule_set": ["db-category-ai-chat", "geosite-category-media-ru-blocked"],
+                    "rule_set": ["db-category-ai-chat", "geosite-category-media-ru-blocked", "db-antizapret"],
                     "action": "route",
                     "server": "fakeip"
                 }
@@ -425,7 +427,15 @@ def main():
             "rules": [
                 {"action": "sniff"},
                 {"protocol": "dns", "action": "hijack-dns"},
-                {"rule_set": ["geosite-category-media-ru-blocked", "db-category-ai-chat"], "outbound": "proxy-out"},
+                {
+                    "rule_set": [
+                        "geosite-category-media-ru-blocked",
+                        "db-category-ai-chat",
+                        "db-antizapret",
+                        "db-github"
+                    ],
+                    "outbound": "proxy-out"
+                },
                 {"rule_set": ["geosite-category-ru", "geoip-ru"], "outbound": "direct-out"}
             ],
             "rule_set": [
