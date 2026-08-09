@@ -156,19 +156,31 @@ def parse_proxy_link(link: str) -> dict | None:
 # =========================================================================
 
 def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-
+    # --- ЗАГРУЗКА ИСТОЧНИКОВ ИЗ JSON (С РЕЗЕРВНЫМ ПАРСИНГОМ) ---
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
     try:
         sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
         sources_resp.raise_for_status()
-        sub_urls = sources_resp.json()
+        
+        # Пробуем распарсить стандартным методом
+        try:
+            sub_urls = sources_resp.json()
+        except Exception:
+            # Если ctype не json или внутри обычный json string
+            sub_urls = json.loads(sources_resp.text)
+
+        # Если файл пришел как словарь { "urls": [...] }, извлекаем список
+        if isinstance(sub_urls, dict):
+            sub_urls = sub_urls.get("urls", list(sub_urls.values())[0])
+
         if not isinstance(sub_urls, list):
-            raise ValueError("Expected a JSON array of URLs")
-        print(f"Loaded {len(sub_urls)} subscription sources.")
+            raise ValueError(f"Expected list, got {type(sub_urls)}")
+
+        print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")
+
     except Exception as e:
         print(f"❌ Error fetching sources JSON: {e}")
+        print(f"Raw content response preview: {sources_resp.text[:200] if 'sources_resp' in locals() else 'No response'}")
         sys.exit(1)
 
     links = []
