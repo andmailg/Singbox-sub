@@ -156,6 +156,10 @@ def parse_proxy_link(link: str) -> dict | None:
 # =========================================================================
 
 def main():
+    # --- ОБЪЯВЛЯЕМ ПЕРЕМЕННЫЕ ---
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
     # --- ЗАГРУЗКА ИСТОЧНИКОВ ИЗ JSON (С РЕЗЕРВНЫМ ПАРСИНГОМ) ---
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
     try:
