@@ -35,6 +35,27 @@ def is_valid_domain(domain: str) -> bool:
     return bool(domain_regex.match(domain))
 
 
+def is_valid_host(host_str: str) -> bool:
+    """Проверяет, является ли host строго валидным доменным именем.
+    IP-адреса, пути (/path) и рекламный мусор отбраковываются.
+    """
+    if not host_str or not isinstance(host_str, str):
+        return False
+    
+    clean_host = host_str.strip().strip("[]")
+    
+    # Отбрасываем, если строка начинается с '/' (это path, а не host)
+    if clean_host.startswith("/"):
+        return False
+
+    # host НЕ должен быть IP-адресом
+    if is_valid_ip(clean_host):
+        return False
+
+    # Проверяем строго на доменное имя
+    return is_valid_domain(clean_host)
+
+
 def is_valid_server(server: str) -> bool:
     """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
     if not server or "@" in server:
@@ -97,10 +118,10 @@ def parse_proxy_link(link: str) -> dict | None:
         print("Skipping VLESS node: missing UUID")
         return None
 
-    # 6. Обязательная проверка параметра host
+    # 6. Обязательная проверка и валидация параметра host (только домен)
     host = params.get("host", [""])[0].strip()
-    if not host:
-        print("Skipping VLESS node: missing required 'host' parameter")
+    if not host or not is_valid_host(host):
+        print(f"Skipping VLESS node: invalid or missing 'host' domain ('{host[:30]}...')")
         return None
 
     port = parsed.port or 80
@@ -139,11 +160,15 @@ def clean_outbound(outbound: dict) -> dict | None:
     if outbound.get("type") == "vless":
         transport = outbound.get("transport", {})
 
-        # Проверяем HTTP-транспорт на обязательное наличие непустого host
+        # Проверяем HTTP-транспорт на наличие хотя бы одного валидного доменного host
         if transport.get("type") == "http":
             hosts = transport.get("host")
-            if not hosts or not isinstance(hosts, list) or len(hosts) == 0 or not str(hosts[0]).strip():
-                return None  # Отбрасываем ноду без host
+            if not hosts or not isinstance(hosts, list) or len(hosts) == 0:
+                return None
+            
+            first_host = str(hosts[0]).strip()
+            if not is_valid_host(first_host):
+                return None  # Отбрасываем ноду с невалидным host
 
         # Если остался transport=tcp, вычищаем его
         if transport.get("type") == "tcp":
