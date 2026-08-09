@@ -354,13 +354,21 @@ def main():
     # --- ШАГ 5: УНИКАЛИЗАЦИЯ ТЕГОВ ---
     seen_tags = {}
     for outbound in outbounds:
-        base_tag = outbound.get("tag", "Node")
-        if base_tag in seen_tags:
-            seen_tags[base_tag] += 1
-            outbound["tag"] = f"{base_tag} #{seen_tags[base_tag]}"
-        else:
-            seen_tags[base_tag] = 0
-            outbound["tag"] = base_tag
+        # Берём исходный тег
+        raw_tag = outbound.get("tag", "hy2").strip()
+        
+        # Очищаем от старых суффиксов вида "-1", "#1", "_1"
+        clean_tag = re.sub(r"[\s#\-_]\d+$", "", raw_tag)
+        
+        # Убираем префикс "node-", если он уже присутствовал в названии
+        if clean_tag.lower().startswith("node-"):
+            clean_tag = clean_tag[5:]
+            
+        seen_tags[clean_tag] = seen_tags.get(clean_tag, 0) + 1
+        count = seen_tags[clean_tag]
+        
+        # Формируем итоговый тег: node-<Name>-<Index>
+        outbound["tag"] = f"node-{clean_tag}-{count}"
 
     node_tags = [o["tag"] for o in outbounds]
 
