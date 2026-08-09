@@ -45,7 +45,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@://github.com"
-          git add sing-box.json config.json sing-box-white.json sing-box-epodonios.json
+          git add sing-box.json config.json sing-box-white.json
           git status
           # Проверяем наличие изменений в индексе (универсальный способ для всех добавленных файлов)
           git diff --cached --quiet || (git commit -m "Auto-update sing-box and router subscriptions and sing-box-white and sing-box-epodonios.json" && git push)
