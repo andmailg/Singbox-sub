@@ -333,42 +333,32 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: МГНОВЕННАЯ ГЕО-ФИЛЬТРАЦИЯ + ФИЛЬТРАЦИЯ БЛОКИРОВОК РКН ---
+    # --- ШАГ 3: МГНОВЕННАЯ ГЕО-ФИЛЬТРАЦИЯ ---
     filtered_nodes = []
-
+    
     mmdb_accessible = os.path.exists(mmdb_path) and maxminddb
     reader = maxminddb.open_database(mmdb_path) if mmdb_accessible else None
-
+    
     try:
         for outbound in pre_parsed_nodes:
             server_address = str(outbound.get("server", "")).lower()
             ip_addr = server_to_ip_map.get(server_address) or server_address
-
-            # Проверка на блокировку в CIDR РКН
-            if blocked_networks:
-                try:
-                    ip_obj = ipaddress.ip_address(ip_addr)
-                    if any(ip_obj in network for network in blocked_networks):
-                        print(f"Skipping node '{outbound.get('tag')}': IP {ip_addr} is blocked by RKN CIDR.")
-                        continue
-                except ValueError:
-                    pass
-
-            if outbound.get("type") == "hysteria2" and reader:
+    
+            # Определение страны по MMDB
+            country_code = "UNKNOWN"
+            if reader:
                 try:
                     geo_info = reader.get(ip_addr)
-                    country_code = (
-                        geo_info["country"].get("iso_code", "").upper()
-                        if geo_info and "country" in geo_info
-                        else "UNKNOWN"
-                    )
+                    if geo_info and "country" in geo_info:
+                        country_code = geo_info["country"].get("iso_code", "").upper()
                 except Exception:
                     country_code = "UNKNOWN"
-
-                if country_code not in EUROPE_COUNTRIES:
-                    print(f"Skipping node '{outbound.get('tag')}': country {country_code} not in allowed list.")
-                    continue
-
+    
+            # Фильтрация по разрешенным странам
+            if country_code not in EUROPE_COUNTRIES:
+                print(f"Skipping node '{outbound.get('tag')}': country {country_code} not in allowed list.")
+                continue
+    
             filtered_nodes.append(outbound)
     finally:
         if reader:
