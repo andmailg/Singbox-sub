@@ -57,17 +57,11 @@ def clean_outbound(outbound: dict) -> dict | None:
     outbound.setdefault("up_mbps", 10)
     outbound.setdefault("down_mbps", 10)
 
+    # Нормализация TLS/uTLS для Hysteria2 (без Reality, так как Hy2 его не поддерживает)
     if tls_opts.get("enabled"):
-        reality_opts = tls_opts.get("reality", {})
-        fp_from_reality = reality_opts.pop("fingerprint", None)
-        
-        if fp_from_reality:
-            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            if "fingerprint" not in utls_opts:
-                utls_opts["fingerprint"] = fp_from_reality
-
-        if not reality_opts:
-            tls_opts.pop("reality", None)
+        utls_opts = tls_opts.get("utls", {})
+        if utls_opts.get("enabled") and not utls_opts.get("fingerprint"):
+            utls_opts["fingerprint"] = "chrome"
 
     return outbound
 
@@ -127,6 +121,9 @@ def parse_proxy_link(link: str) -> dict | None:
         "server_name": sni
     }
 
+    obfs_param = params.get("obfs", [None])[0]
+    obfs_password = params.get("obfs-password", [None])[0]
+
     outbound = {
         "type": "hysteria2",
         "tag": tag,
@@ -137,6 +134,12 @@ def parse_proxy_link(link: str) -> dict | None:
         "password": urllib.parse.unquote(password),
         "tls": tls_opts
     }
+
+    if obfs_param:
+        outbound["obfs"] = {
+            "type": obfs_param,
+            "password": urllib.parse.unquote(obfs_password) if obfs_password else ""
+        }
 
     if not is_valid_server(outbound["server"]):
         return None
@@ -156,11 +159,10 @@ def parse_proxy_link(link: str) -> dict | None:
 # =========================================================================
 
 def main():
-    # --- ОБЪЯВЛЯЕМ ПЕРЕМЕННЫЕ ---
     SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
-    # --- ЗАГРУЗКА ИСТОЧНИКОВ ИЗ JSON (С ПОДДЕРЖКОЙ СЛОВАРЕЙ И МАССИВОВ) ---
+    sources_resp = None
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
     try:
         sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
@@ -171,8 +173,6 @@ def main():
         except Exception:
             sub_urls = json.loads(sources_resp.text)
 
-        # Если файл — JSON-объект {"1": "url1", "2": "url2"},
-        # извлекаем ВСЕ значения в список
         if isinstance(sub_urls, dict):
             sub_urls = list(sub_urls.values())
 
@@ -183,7 +183,8 @@ def main():
 
     except Exception as e:
         print(f"❌ Error fetching sources JSON: {e}")
-        print(f"Raw content response preview: {sources_resp.text[:200] if 'sources_resp' in locals() else 'No response'}")
+        preview = sources_resp.text[:200] if sources_resp is not None else "No response"
+        print(f"Raw content response preview: {preview}")
         sys.exit(1)
 
     links = []
@@ -317,14 +318,12 @@ def main():
     else:
         outbounds = filtered_nodes
 
-    # Переименование и нумерация
     PREFIX = "Hy2"
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"{PREFIX}-{idx:03d}"
 
     node_tags = [o["tag"] for o in outbounds]
 
-    # ЕСЛИ НОД НЕТ — АВАРИЙНО ЗАВЕРШАЕМ С КРИТИЧЕСКОЙ ОШИБКОЙ
     if not node_tags:
         print("❌ CRITICAL ERROR: No valid proxy nodes left after filtration!")
         sys.exit(1)
@@ -374,7 +373,11 @@ def main():
             "rules": [
                 {"rule_set": ["geosite-category-ru", "geoip-ru"], "server": "dns-local"},
                 {"query_type": ["HTTPS", "SVCB"], "action": "predefined", "rcode": "REFUSED"},
-                {"rule_set": ["db-category-ai-chat", "geosite-category-media-ru-blocked"], "server": "fakeip"}
+                {
+                    "rule_set": ["db-category-ai-chat", "geosite-category-media-ru-blocked"],
+                    "action": "route",
+                    "server": "fakeip"
+                }
             ],
             "final": "dns-remote",
             "strategy": "prefer_ipv4",
@@ -473,7 +476,6 @@ def main():
         }
     }
 
-    # Гарантированное определение КОРНЯ репозитория для записи
     script_dir = os.path.dirname(os.path.abspath(__file__))
     root_dir = os.path.abspath(os.path.join(script_dir, ".."))
     output_filename = os.path.join(root_dir, "sing-box-hy2.json")
