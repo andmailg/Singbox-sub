@@ -2,9 +2,9 @@ name: Auto Convert Xray to Sing-Box (HY2)
 
 on:
   schedule:
-    # Запуск каждые 5 часа (в 00:00, 05:00, 10:00, 15:00 UTC и т.д.)
+    # Запуск каждые 5 часов
     - cron: '0 */5 * * *'
-  workflow_dispatch: # Позволяет запускать конвертацию вручную одной кнопкой
+  workflow_dispatch: # Ручной запуск
 
 jobs:
   convert:
@@ -28,12 +28,27 @@ jobs:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_BLACK_SS_ALL_RUS }}
         run: |
           python Python/hy2_parser.py
-          
+
       - name: Commit and push if changed
         run: |
+          # 1. Настройка бота GitHub Actions
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@://github.com"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # 2. Проверяем, создал ли Python-скрипт нужный файл
+          if [ ! -f "sing-box-hy2.json" ]; then
+            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/hy2_parser.py"
+            exit 1
+          fi
+
+          # 3. Добавляем файл в индекс
           git add sing-box-hy2.json
           git status
-          # Проверяем наличие изменений в индексе (универсальный способ для всех добавленных файлов)
-          git diff --cached --quiet || (git commit -m "Auto-update sing-box-hy2.json" && git push)
+          
+          # 4. Коммитим и пушим только при наличии изменений
+          if git diff --cached --quiet; then
+            echo "Нет изменений для коммита."
+          else
+            git commit -m "Auto-update sing-box-hy2.json"
+            git push
+          fi
