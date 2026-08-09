@@ -121,7 +121,7 @@
       "outbounds": [
         "auto",
         "🇩🇪 Germany [*CIDR]",
-        "🇳🇱 The Netherlands [*CIDR]"
+        "🇳🇱 The Netherlands | 🌐 [*CIDR]"
       ],
       "default": "auto"
     },
@@ -130,7 +130,7 @@
       "tag": "auto",
       "outbounds": [
         "🇩🇪 Germany [*CIDR]",
-        "🇳🇱 The Netherlands [*CIDR]"
+        "🇳🇱 The Netherlands | 🌐 [*CIDR]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -151,7 +151,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands [*CIDR]",
+      "tag": "🇳🇱 The Netherlands | 🌐 [*CIDR]",
       "server": "nl-one.quiet-rogue.site",
       "server_port": 443,
       "up_mbps": 10,
