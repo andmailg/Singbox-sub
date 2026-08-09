@@ -245,7 +245,6 @@ def main():
         blocked_networks = []
         print(f"Error loading RKN blacklist: {e}")
 
-    outbounds = []
     seen_servers = set()
     servers_to_resolve = set()
     pre_parsed_nodes = []
@@ -290,25 +289,11 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: ПРОПУСК УЗЛОВ БЕЗ ФИЛЬТРАЦИИ ---
-    filtered_nodes = list(pre_parsed_nodes)
+    # --- ШАГ 3: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ ---
+    outbounds = list(pre_parsed_nodes)
+    print(f"Всего выбрано {len(outbounds)} валидных VLESS HTTP узлов.")
 
-    # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
-    MAX_NODES_LIMIT = 5000
-    total_found = len(filtered_nodes)
-
-    if total_found > MAX_NODES_LIMIT:
-        print(f"Всего найдено уникальных узлов: {total_found}. Выбираем {MAX_NODES_LIMIT} с равномерным разбросом...")
-        sampled_outbounds = []
-        for i in range(MAX_NODES_LIMIT):
-            index = int(i * (total_found - 1) / (MAX_NODES_LIMIT - 1))
-            sampled_outbounds.append(filtered_nodes[index])
-        outbounds = sampled_outbounds
-    else:
-        print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все.")
-        outbounds = filtered_nodes
-
-    # --- ШАГ 5: УНИКАЛИЗАЦИЯ ТЕГОВ ---
+    # --- ШАГ 4: УНИКАЛИЗАЦИЯ ТЕГОВ ---
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"node-{idx}"
 
@@ -528,7 +513,7 @@ def main():
         }
     }
 
-    output_filename = "sing-box-vless.json"
+    output_filename = "sing-box-vless-http.json"
     with open(output_filename, "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
