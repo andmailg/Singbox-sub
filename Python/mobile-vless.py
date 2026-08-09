@@ -289,9 +289,35 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ ---
-    outbounds = list(pre_parsed_nodes)
-    print(f"Всего выбрано {len(outbounds)} валидных VLESS HTTP узлов.")
+    # --- ШАГ 3: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ И ФИЛЬТРАЦИЯ ПО РКН ---
+    filtered_nodes = []
+
+    for outbound in pre_parsed_nodes:
+        server = outbound.get("server", "").strip("[]")
+        
+        # 1. Определяем IP-адрес узла (из DNS-карты или напрямую, если server — это IP)
+        node_ip_str = server_to_ip_map.get(server) if not is_valid_ip(server) else server
+
+        if not node_ip_str:
+            # Если домен не удалось отрезолвить в IP, пропускаем
+            continue
+
+        try:
+            ip_obj = ipaddress.ip_address(node_ip_str)
+        except ValueError:
+            continue
+
+        # 2. Проверяем, входит ли IP-адрес узла в какую-либо из подсетей РКН
+        is_blocked = any(ip_obj in net for net in blocked_networks)
+
+        if is_blocked:
+            print(f"Skipping node '{outbound.get('tag')}': IP {node_ip_str} is in RKN blocked subnet.")
+            continue
+
+        filtered_nodes.append(outbound)
+
+    outbounds = filtered_nodes
+    print(f"Всего выбрано {len(outbounds)} валидных VLESS HTTP узлов (после очистки от подсетей РКН).")
 
     # --- ШАГ 4: УНИКАЛИЗАЦИЯ ТЕГОВ ---
     for idx, outbound in enumerate(outbounds, start=1):
