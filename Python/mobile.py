@@ -1,4 +1,4 @@
-import ipaddress  # Встроенный модуль для работы с IP и подсетями
+import ipaddress
 from concurrent.futures import ThreadPoolExecutor
 import base64
 import json
@@ -8,15 +8,12 @@ import urllib.parse
 import requests
 import re
 
-# Для работы с локальной базой GeoIP
 try:
     import maxminddb
 except ImportError:
-    # Заглушка на случай запуска вне среды с установленной библиотекой
     maxminddb = None
 
 def is_valid_ip(address: str) -> bool:
-    """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
     try:
         ipaddress.ip_address(address.strip("[]"))
         return True
@@ -24,9 +21,6 @@ def is_valid_ip(address: str) -> bool:
         return False
 
 def is_valid_domain(domain: str) -> bool:
-    """
-    Проверяет, является ли строка валидным доменным именем (не IP-адресом).
-    """
     if not domain or is_valid_ip(domain):
         return False
     domain_regex = re.compile(
@@ -35,7 +29,6 @@ def is_valid_domain(domain: str) -> bool:
     return bool(domain_regex.match(domain))
 
 def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
     if not server or "@" in server:
         return False
     clean_server = server.strip("[]")
@@ -58,27 +51,22 @@ def parse_proxy_link(link: str) -> dict | None:
 
     scheme = parsed.scheme.lower()
     
-    # -------------------------------------------------------------------------
-    # ЖЕСТКИЙ ФИЛЬТР: Пропускаем ТОЛЬКО Hysteria2
-    # -------------------------------------------------------------------------
+    # Жесткий фильтр: пропуск только Hysteria2
     if scheme not in ["hysteria2", "hy2"]:
         return None
 
     params = urllib.parse.parse_qs(parsed.query)
 
-    # 1. Фильтрация по insecure
     insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
     if insecure == "1" or insecure.lower() == "true":
         print(f"Skipping insecure node: {link[:30]}...")
         return None
 
-    # 2. Фильтрация по портам (оставляем только 443 и 8443)
     port = parsed.port or 443
     if port not in [443, 8443]:
         print(f"Skipping Hy2 node: invalid port ({port})")
         return None
 
-    # 3. Извлечение пароля
     netloc = parsed.netloc
     password = parsed.username
 
@@ -92,7 +80,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Hy2-Node"
 
-    # 4. Обработка SNI
     sni_param = params.get("sni", [None])[0]
     sni = sni_param.strip() if sni_param else None
 
@@ -104,7 +91,6 @@ def parse_proxy_link(link: str) -> dict | None:
     if sni:
         tls_opts["server_name"] = sni
 
-    # 5. Сборка объекта outbound для sing-box
     outbound = {
         "type": "hysteria2",
         "tag": tag,
@@ -116,23 +102,16 @@ def parse_proxy_link(link: str) -> dict | None:
         "tls": tls_opts
     }
 
-    # =========================================================================
-    # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER, SNI, RU DOMAINS)
-    # =========================================================================
-
-    # Проверка корректности адреса сервера
     if not is_valid_server(outbound["server"]):
         print(f"Skipping node '{tag}': invalid 'server' field ('{outbound['server']}')")
         return None
 
-    # Валидация SNI (если задан)
     if sni:
         sni_val = sni.lower()
         if not is_valid_domain(sni_val):
             print(f"Skipping node '{tag}': invalid SNI ('{sni_val}')")
             return None
 
-        # Запрет российских доменов в SNI
         RU_ZONES = (".ru", ".su", ".рф")
         if sni_val.endswith(RU_ZONES) or any(f"{zone}:" in sni_val for zone in RU_ZONES):
             print(f"Skipping node '{tag}': forbidden Russian domain in SNI ('{sni_val}')")
@@ -141,33 +120,14 @@ def parse_proxy_link(link: str) -> dict | None:
     return outbound
 
 def clean_outbound(outbound: dict) -> dict:
-    """Очистка и приведение Hysteria2 ноды к спецификации sing-box."""
     if not outbound or outbound.get("type") != "hysteria2":
         return outbound
 
-    # Убеждаемся в наличии фиксированных скоростей
     outbound.setdefault("up_mbps", 10)
     outbound.setdefault("down_mbps", 10)
-
-    # Безопасный перенос fingerprint из reality (если он там случайно оказался) в utls
-    tls_opts = outbound.get("tls", {})
-    if tls_opts and tls_opts.get("enabled"):
-        reality_opts = tls_opts.get("reality", {})
-        fp_from_reality = reality_opts.pop("fingerprint", None)
-        
-        if fp_from_reality:
-            utls_opts = tls_opts.setdefault("utls", {"enabled": True})
-            if "fingerprint" not in utls_opts:
-                utls_opts["fingerprint"] = fp_from_reality
-
-        # Если блок reality оказался пустым — удаляем его
-        if not reality_opts:
-            tls_opts.pop("reality", None)
-
     return outbound
 
 def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
     if outbound.get("type") == "urltest":
         outbound.pop("lru", None)
         outbound.pop("timeout", None)
@@ -196,7 +156,7 @@ def main():
     except Exception:
         links = content.splitlines()
 
-    # --- СКАЧИВАНИЕ БАЗЫ GEOIP ---
+    # GeoIP База
     mmdb_path = "GeoLite2-Country.mmdb"
     if not os.path.exists(mmdb_path):
         print("Downloading local GeoIP database...")
@@ -210,10 +170,9 @@ def main():
         except Exception as e:
             print(f"Error downloading GeoIP database: {e}")
 
-    # --- СКАЧИВАНИЕ И СБОРКА ЧЕРНОГО СПИСКА CIDR РКН ---
+    # Чёрный список CIDR РКН
     blocked_networks = []
     print("Downloading RKN blocked CIDR list...")
-    # Используем raw-ссылку на файл для скачивания чистого текста
     rkn_url = "https://github.com/1andrevich/Re-filter-lists/raw/refs/heads/main/ipsum.lst"
     try:
         rkn_resp = requests.get(rkn_url, timeout=15)
@@ -221,12 +180,12 @@ def main():
             lines = rkn_resp.text.splitlines()
             for line in lines:
                 line = line.strip()
-                # Пропускаем комментарии и пустые строки
                 if not line or line.startswith("#"):
                     continue
+                # Берём только первый элемент (защита от табуляций и комментариев в строке)
+                raw_cidr = line.split()[0]
                 try:
-                    # Преобразуем строку подсети (напр. '198.23.57.168/32') в объект IPv4Network
-                    net_obj = ipaddress.ip_network(line, strict=False)
+                    net_obj = ipaddress.ip_network(raw_cidr, strict=False)
                     blocked_networks.append(net_obj)
                 except ValueError:
                     continue
@@ -241,10 +200,9 @@ def main():
     servers_to_resolve = set()
     pre_parsed_nodes = []
 
-    # Разрешенные страны (Европа + США)
     EUROPE_COUNTRIES = {"NL", "DE", "FI", "PL", "FR", "GB", "EE", "LV", "LT", "SE", "CH", "AT", "US", "SG", "JP", "HK", "TR"}
 
-    # --- ШАГ 1: Быстрый предварительный парсинг ---
+    # ШАГ 1: Парсинг
     print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
@@ -265,11 +223,10 @@ def main():
             seen_servers.add(server_address)
 
             pre_parsed_nodes.append(outbound)
-            # Собираем все домены/IP для резолвинга
             if server_address:
                 servers_to_resolve.add(server_address)
 
-    # --- ШАГ 2: Параллельный DNS-резолвинг ---
+    # ШАГ 2: DNS
     server_to_ip_map = {}
 
     def resolve_dns(host):
@@ -285,41 +242,28 @@ def main():
             if ip:
                 server_to_ip_map[host] = ip
 
-    # --- ШАГ 3: МГНОВЕННАЯ ГЕО-ФИЛЬТРАЦИЯ + ФИЛЬТРАЦИЯ БЛОКИРОВОК РКН ---
+    # ШАГ 3: Фильтрация Geo + РКН
     filtered_nodes = []
-    
-    # Открываем базу MaxMind
     mmdb_accessible = os.path.exists(mmdb_path) and maxminddb
     reader = maxminddb.open_database(mmdb_path) if mmdb_accessible else None
 
     try:
         for outbound in pre_parsed_nodes:
             server_address = str(outbound.get("server", "")).lower()
-            # Получаем чистый IP-адрес (из DNS-карты или напрямую)
             ip_addr = server_to_ip_map.get(server_address) or server_address
 
-            # --- ПРОВЕРКА НА БЛОКИРОВКУ В CIDR РКН ---
+            # Проверка на блокировку РКН
             if blocked_networks:
                 try:
-                    # Преобразуем IP ноды в объект IPv4Address для проверки
                     ip_obj = ipaddress.ip_address(ip_addr)
-                    is_blocked = False
-                    
-                    # Проверяем, входит ли IP в какую-либо заблокированную подсеть
-                    for network in blocked_networks:
-                        if ip_obj in network:
-                            is_blocked = True
-                            break
-                    
-                    if is_blocked:
+                    if any(ip_obj in network for network in blocked_networks):
                         print(f"Skipping node '{outbound.get('tag')}': IP {ip_addr} is blocked by RKN CIDR.")
-                        continue # Выкидываем ноду из списка
+                        continue
                 except ValueError:
-                    # Если адрес не является валидным IP (не отрезолвился домен), пропускаем проверку CIDR
                     pass
 
-            # --- ГЕО-ФИЛЬТРАЦИЯ ДЛЯ VLESS ---
-            if outbound.get("type") == "vless" and reader:
+            # ИСПРАВЛЕНО: Гео-фильтрация применительно к Hysteria2
+            if outbound.get("type") in ["hysteria2", "vless"] and reader:
                 try:
                     geo_info = reader.get(ip_addr)
                     country_code = geo_info["country"].get("iso_code", "").upper() if geo_info and "country" in geo_info else "UNKNOWN"
@@ -327,6 +271,7 @@ def main():
                     country_code = "UNKNOWN"
                 
                 if country_code not in EUROPE_COUNTRIES:
+                    print(f"Skipping node '{outbound.get('tag')}': Country '{country_code}' not in allowed list.")
                     continue
 
             filtered_nodes.append(outbound)
@@ -334,8 +279,8 @@ def main():
         if reader:
             reader.close()
 
-    # --- ШАГ 4: УМНЫЙ РАЗБРОС ---
-    MAX_NODES_LIMIT = 5000
+    # ШАГ 4: Разброс
+    MAX_NODES_LIMIT = 500
     total_found = len(filtered_nodes)
 
     if total_found > MAX_NODES_LIMIT:
@@ -349,7 +294,7 @@ def main():
         print(f"Найдено {total_found} узлов (меньше лимита в {MAX_NODES_LIMIT}). Берем все.")
         outbounds = filtered_nodes
 
-    # --- ШАГ 5: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ ТЕГОВ СТРОГО ДЛЯ ФИНАЛЬНОГО СПИСКА ---
+    # ШАГ 5: Уникализация тегов
     seen_tags = {}
     for outbound in outbounds:
         base_tag = outbound.get("tag", "Node")
@@ -360,13 +305,13 @@ def main():
             seen_tags[base_tag] = 0
             outbound["tag"] = base_tag
 
-    # Перегенерация списка тегов для селекторов (теперь тут будет ровно до 200 элементов)
     node_tags = [o["tag"] for o in outbounds]
 
     if not node_tags:
         print("Error: No valid proxy nodes left after filtration!")
         return
 
+    # Конфигурация sing-box
     selector_outbound = {
         "type": "selector",
         "tag": "proxy-out",
@@ -385,65 +330,18 @@ def main():
     urltest_outbound = clean_urltest(urltest_outbound)
 
     singbox_config = {
-        "log": {
-            "level": "warn",
-            "timestamp": True
-        },
+        "log": {"level": "warn", "timestamp": True},
         "dns": {
             "servers": [
-                {
-                    "type": "https",
-                    "tag": "dns-local",
-                    "server": "1.1.1.1",
-                    "tls": {
-                        "enabled": True,
-                        "server_name": "cloudflare-dns.com"
-                    }
-                },
-                {
-                    "type": "https",
-                    "tag": "dns-remote",
-                    "server": "1.1.1.1",
-                    "detour": "proxy-out",
-                    "tls": {
-                        "enabled": True,
-                        "server_name": "cloudflare-dns.com"
-                    }
-                },
-                {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18"
-                },
-                {
-                    "type": "local",
-                    "tag": "local"
-                }
+                {"type": "https", "tag": "dns-local", "server": "1.1.1.1", "tls": {"enabled": True, "server_name": "cloudflare-dns.com"}},
+                {"type": "https", "tag": "dns-remote", "server": "1.1.1.1", "detour": "proxy-out", "tls": {"enabled": True, "server_name": "cloudflare-dns.com"}},
+                {"type": "fakeip", "tag": "fakeip", "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18"},
+                {"type": "local", "tag": "local"}
             ],
             "rules": [
-                {
-                    "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru"
-                    ],
-                    "server": "dns-local"
-                },
-                {
-                    "query_type": [
-                        "HTTPS",
-                        "SVCB"
-                    ],
-                    "action": "predefined",
-                    "rcode": "REFUSED"
-                },
-                {
-                    "rule_set": [
-                        "db-category-ai-chat",
-                        "geosite-category-media-ru-blocked"
-                    ],
-                    "server": "fakeip"
-                }
+                {"rule_set": ["geosite-category-ru", "geoip-ru"], "server": "dns-local"},
+                {"query_type": ["HTTPS", "SVCB"], "action": "predefined", "rcode": "REFUSED"},
+                {"rule_set": ["db-category-ai-chat", "geosite-category-media-ru-blocked"], "server": "fakeip"}
             ],
             "final": "dns-remote",
             "strategy": "prefer_ipv4",
@@ -454,25 +352,19 @@ def main():
                 "type": "wireguard",
                 "tag": "warp-ep",
                 "detour": "auto",
-                "address": [
-                "172.28.0.2/32",
-                "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
-                ],
-                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
+                "address": ["172.28.0.2/32", "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"],
+                "private_key": os.environ.get("WARP_PRIVATE_KEY", "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ="),
                 "mtu": 1280,
                 "peers": [
                     {
                         "address": "162.159.192.1",
                         "port": 2408,
                         "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "allowed_ips": [
-                            "0.0.0.0/0",
-                            "::/0"
-                            ],
+                        "allowed_ips": ["0.0.0.0/0", "::/0"],
                         "reserved": [0, 0, 0]
                     }
-                    ]
-                }
+                ]
+            }
         ],
         "inbounds": [
             {
@@ -482,109 +374,47 @@ def main():
                 "address": "172.19.0.1/30",
                 "auto_route": True,
                 "route_exclude_address": [
-                    "10.0.0.0/8",
-                    "172.16.0.0/12",
-                    "192.168.0.0/16",
-                    "169.254.0.0/16",
-                    "224.0.0.0/4",
-                    "255.255.255.255/32",
-                    "fc00::/7"
-                  ]
+                    "10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16",
+                    "169.254.0.0/16", "224.0.0.0/4", "255.255.255.255/32", "fc00::/7"
+                ]
             }
         ],
         "outbounds": [
-            {
-                "type": "direct",
-                "tag": "direct-out"
-            },
+            {"type": "direct", "tag": "direct-out"},
             selector_outbound,
             urltest_outbound,
             *outbounds
         ],
-  "route": {
-    "rules": [
-        {
-            "action": "sniff"
-        },
-        {
-            "protocol": "dns",
-            "action": "hijack-dns"
-        },
-        {
-            "rule_set": [
-                "db-category-ai-chat"
-        ],
-        "outbound": "warp-ep"
-      },
-        {
-            "rule_set": [
-                "geosite-category-media-ru-blocked"
+        "route": {
+            "rules": [
+                {"action": "sniff"},
+                {"protocol": "dns", "action": "hijack-dns"},
+                {"rule_set": ["db-category-ai-chat"], "outbound": "warp-ep"},
+                {"rule_set": ["geosite-category-media-ru-blocked"], "outbound": "proxy-out"},
+                {"rule_set": ["geosite-category-ru", "geoip-ru"], "outbound": "direct-out"}
             ],
-            "outbound": "proxy-out"
-        },
-        {
             "rule_set": [
-                "geosite-category-ru",
-                "geoip-ru"
+                {"type": "remote", "tag": "db-github", "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs", "download_detour": "direct-out"},
+                {"type": "remote", "tag": "geosite-category-media-ru-blocked", "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs", "download_detour": "direct-out"},
+                {"type": "remote", "tag": "geosite-category-ru", "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs", "download_detour": "direct-out"},
+                {"type": "remote", "tag": "geoip-ru", "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs", "download_detour": "direct-out"},
+                {"type": "remote", "tag": "db-antizapret", "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs", "download_detour": "direct-out"},
+                {"type": "remote", "tag": "db-category-ai-chat", "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs", "download_detour": "direct-out"}
             ],
-            "outbound": "direct-out"
+            "final": "proxy-out",
+            "auto_detect_interface": True,
+            "override_android_vpn": True,
+            "default_domain_resolver": "dns-local"
+        },
+        "experimental": {
+            "cache_file": {"enabled": True}
         }
-    ],
-    "rule_set": [
-        {
-            "type": "remote",
-            "tag": "db-github",
-            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-            "download_detour": "direct-out"
-        },
-        {
-            "type": "remote",
-            "tag": "geosite-category-media-ru-blocked",
-            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
-            "download_detour": "direct-out"
-        },
-        {
-            "type": "remote",
-            "tag": "geosite-category-ru",
-            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-            "download_detour": "direct-out"
-        },
-        {
-            "type": "remote",
-            "tag": "geoip-ru",
-            "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-            "download_detour": "direct-out"
-        },
-        {
-            "type": "remote",
-            "tag": "db-antizapret",
-            "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-            "download_detour": "direct-out"
-        },
-        {
-            "type": "remote",
-            "tag": "db-category-ai-chat",
-            "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-            "download_detour": "direct-out"
-        }
-    ],
-    "final": "proxy-out",
-    "auto_detect_interface": True,
-    "override_android_vpn": True,
-    "default_domain_resolver": "dns-local"
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": True
     }
-  }
-}
 
     with open("sing-box.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
     print(f"Successfully generated sing-box.json with {len(outbounds)} nodes.")
-
 
 if __name__ == "__main__":
     main()
