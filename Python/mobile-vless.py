@@ -101,6 +101,11 @@ def parse_proxy_link(link: str) -> dict | None:
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-HTTP-Node"
     host = params.get("host", [""])[0]
 
+    # --- ПРОВЕРКА НА НАЛИЧИЕ HOST ---
+    if not host:
+        print(f"Skipping node '{tag}': missing 'host' parameter")
+        return None
+
     # 6. Сборка объекта outbound для sing-box (Без TLS, с HTTP-транспортом)
     outbound = {
         "type": "vless",
@@ -108,16 +113,11 @@ def parse_proxy_link(link: str) -> dict | None:
         "server": hostname,
         "server_port": port,
         "uuid": uuid_str,
+        "transport": {
+            "type": "http",
+            "host": [host]
+        }
     }
-
-    # Для headerType=http в sing-box используется блок "transport" с типом "http"
-    transport_opts = {
-        "type": "http"
-    }
-    if host:
-        transport_opts["host"] = [host]
-
-    outbound["transport"] = transport_opts
 
     # =========================================================================
     # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER)
