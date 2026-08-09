@@ -192,11 +192,11 @@ def clean_urltest(outbound: dict) -> dict:
 
 def main():
     # --- НОВЫЙ ИСТОЧНИК ПОДПИСОК ИЗ ВНЕШНЕГО JSON ---
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"[cite: 2]
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}[cite: 2]
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
     sources_resp = None
-    print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")[cite: 2]
+    print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
     try:
         sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
         sources_resp.raise_for_status()
