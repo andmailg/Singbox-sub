@@ -146,7 +146,10 @@
         "node-23",
         "node-24",
         "node-25",
-        "node-26"
+        "node-26",
+        "node-27",
+        "node-28",
+        "node-29"
       ],
       "default": "auto"
     },
@@ -179,7 +182,10 @@
         "node-23",
         "node-24",
         "node-25",
-        "node-26"
+        "node-26",
+        "node-27",
+        "node-28",
+        "node-29"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -500,6 +506,45 @@
     {
       "type": "hysteria2",
       "tag": "node-25",
+      "server": "www.bing.com",
+      "server_port": 11000,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0c3bd8c8-53db-4126-a98f-d12d908d5301",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.bing.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-26",
+      "server": "es1.xiaoliyu.cyou",
+      "server_port": 4433,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "18cf8030-1ceb-4b7d-8c0c-c036413c144e",
+      "tls": {
+        "enabled": true,
+        "server_name": "es1.xiaoliyu.cyou"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-27",
+      "server": "xjp3.mangshe.xyz",
+      "server_port": 2060,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "9d3356a0-c07e-43cc-b30e-450bd50521b8",
+      "tls": {
+        "enabled": true,
+        "server_name": "xjp3.mangshe.xyz"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-28",
       "server": "hopp-us.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -512,7 +557,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-26",
+      "tag": "node-29",
       "server": "azer-tea-grape.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
