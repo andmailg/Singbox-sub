@@ -121,11 +121,9 @@
       "outbounds": [
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -134,11 +132,9 @@
       "tag": "auto",
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -159,19 +155,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "key-very-far.mysynology.net",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
-      "tls": {
-        "enabled": true,
-        "server_name": "key-very-far.mysynology.net"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
@@ -186,14 +169,14 @@
     {
       "type": "hysteria2",
       "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "de1.apexvpn.space",
-      "server_port": 443,
+      "server": "de-two.quiet-rogue.site",
+      "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "a4f6e26e-5507-420d-9473-ea8f8b6d565b",
+      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
       "tls": {
         "enabled": true,
-        "server_name": "de1.apexvpn.space"
+        "server_name": "de-two.quiet-rogue.site"
       }
     },
     {
@@ -207,19 +190,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]",
-      "server": "nl-one.quiet-rogue.site",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl-one.quiet-rogue.site"
       }
     }
   ],
