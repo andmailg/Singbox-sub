@@ -360,7 +360,7 @@ def main():
 
     if not node_tags:
         print("Error: No valid proxy nodes left after filtration!")
-        return
+        sys.exit(1) # <--- Уронит шаг Run scripts с понятным логом
 
     selector_outbound = {
         "type": "selector",
