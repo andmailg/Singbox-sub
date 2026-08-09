@@ -39,7 +39,6 @@ jobs:
         env:
           XRAY_SUBSCRIPTION_URL: ${{ secrets.XRAY_SUBSCRIPTION_URL_EPODONIOS_ALL_CONFIGS_SUB }}
         run: |
-          python Python/mobile_epodonios.py
           python Python/router.py
 
       - name: Commit and push if changed
