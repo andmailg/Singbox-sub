@@ -198,48 +198,48 @@ def main():
     sources_resp = None
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")[cite: 2]
     try:
-        sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)[cite: 2]
-        sources_resp.raise_for_status()[cite: 2]
+        sources_resp = requests.get(SOURCES_JSON_URL, headers=headers, timeout=15)
+        sources_resp.raise_for_status()
         
         try:
-            sub_urls = sources_resp.json()[cite: 2]
+            sub_urls = sources_resp.json()
         except Exception:
-            sub_urls = json.loads(sources_resp.text)[cite: 2]
+            sub_urls = json.loads(sources_resp.text)
 
-        if isinstance(sub_urls, dict):[cite: 2]
-            sub_urls = list(sub_urls.values())[cite: 2]
+        if isinstance(sub_urls, dict):
+            sub_urls = list(sub_urls.values())
 
-        if not isinstance(sub_urls, list):[cite: 2]
-            raise ValueError(f"Expected list or dict, got {type(sub_urls)}")[cite: 2]
+        if not isinstance(sub_urls, list):
+            raise ValueError(f"Expected list or dict, got {type(sub_urls)}")
 
-        print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")[cite: 2]
+        print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")
 
     except Exception as e:
-        print(f"❌ Error fetching sources JSON: {e}")[cite: 2]
-        preview = sources_resp.text[:200] if sources_resp is not None else "No response"[cite: 2]
-        print(f"Raw content response preview: {preview}")[cite: 2]
+        print(f"❌ Error fetching sources JSON: {e}")
+        preview = sources_resp.text[:200] if sources_resp is not None else "No response"
+        print(f"Raw content response preview: {preview}")
         return
 
     links = []
-    for url in sub_urls:[cite: 2]
+    for url in sub_urls:
         try:
-            resp = requests.get(url, headers=headers, timeout=15)[cite: 2]
-            if resp.status_code != 200:[cite: 2]
+            resp = requests.get(url, headers=headers, timeout=15)
+            if resp.status_code != 200:
                 continue
             
-            content = resp.text.strip()[cite: 2]
+            content = resp.text.strip()
             try:
-                content_padded = content + "=" * (-len(content) % 4)[cite: 2]
-                decoded_content = base64.b64decode(content_padded).decode("utf-8", errors="ignore")[cite: 2]
-                fetched_lines = decoded_content.splitlines()[cite: 2]
+                content_padded = content + "=" * (-len(content) % 4)
+                decoded_content = base64.b64decode(content_padded).decode("utf-8", errors="ignore")
+                fetched_lines = decoded_content.splitlines()
             except Exception:
-                fetched_lines = content.splitlines()[cite: 2]
+                fetched_lines = content.splitlines()
 
-            links.extend(fetched_lines)[cite: 2]
+            links.extend(fetched_lines)
         except Exception as e:
-            print(f"Error fetching {url}: {e}")[cite: 2]
+            print(f"Error fetching {url}: {e}")
 
-    print(f"Total raw lines collected: {len(links)}")[cite: 2]
+    print(f"Total raw lines collected: {len(links)}")
 
     # --- СКАЧИВАНИЕ БАЗЫ GEOIP ---
     mmdb_path = "GeoLite2-Country.mmdb"
