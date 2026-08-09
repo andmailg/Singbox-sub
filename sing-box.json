@@ -122,15 +122,11 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇫🇷 France, Paris | [BL] #2",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇱🇹 Lithuania, Vilnius | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]"
+        "🇳🇱 The Netherlands, Eygelshoven | [BL]"
       ],
       "default": "auto"
     },
@@ -140,15 +136,11 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇫🇷 France, Paris | [BL] #2",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇱🇹 Lithuania, Vilnius | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]"
+        "🇳🇱 The Netherlands, Eygelshoven | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -170,32 +162,6 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "iq5ny.pleiades.codes",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
-      "tls": {
-        "enabled": true,
-        "server_name": "iq5ny.pleiades.codes"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL] #1",
-      "server": "mercedes-grape.yyuyy.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "9Me_Jx935gnHx13_Nx45M_NYXe037js_Be4z",
-      "tls": {
-        "enabled": true,
-        "server_name": "mercedes-grape.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL] #2",
       "server": "key-very-far.mysynology.net",
       "server_port": 8443,
       "up_mbps": 10,
@@ -247,19 +213,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "grape-power-pl.ddnsguru.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -282,19 +235,6 @@
       "tls": {
         "enabled": true,
         "server_name": "nl-one.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇬🇧 United Kingdom, London | [BL]",
-      "server": "grape-turbo-fr.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-turbo-fr.roxa.org"
       }
     }
   ],
