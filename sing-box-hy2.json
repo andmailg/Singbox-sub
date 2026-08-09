@@ -54,7 +54,8 @@
       {
         "rule_set": [
           "db-category-ai-chat",
-          "geosite-category-media-ru-blocked"
+          "geosite-category-media-ru-blocked",
+          "db-antizapret"
         ],
         "action": "route",
         "server": "fakeip"
@@ -326,7 +327,9 @@
       {
         "rule_set": [
           "geosite-category-media-ru-blocked",
-          "db-category-ai-chat"
+          "db-category-ai-chat",
+          "db-antizapret",
+          "db-github"
         ],
         "outbound": "proxy-out"
       },
