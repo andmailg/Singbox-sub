@@ -130,8 +130,7 @@
         "Hy2-006",
         "Hy2-007",
         "Hy2-008",
-        "Hy2-009",
-        "Hy2-010"
+        "Hy2-009"
       ],
       "default": "auto"
     },
@@ -147,8 +146,7 @@
         "Hy2-006",
         "Hy2-007",
         "Hy2-008",
-        "Hy2-009",
-        "Hy2-010"
+        "Hy2-009"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -248,19 +246,6 @@
     {
       "type": "hysteria2",
       "tag": "Hy2-008",
-      "server": "cze-01.node.lumixnet.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "8645697d-51c1-4e90-aca5-ba63a0392f11",
-      "tls": {
-        "enabled": true,
-        "server_name": "cze-01.node.lumixnet.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "Hy2-009",
       "server": "bel-03.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -273,7 +258,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "Hy2-010",
+      "tag": "Hy2-009",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
