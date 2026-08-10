@@ -26,7 +26,7 @@ jobs:
       - name: Run scripts
         run: |
           python Python/mobile-hy2.py
-          python Python/mobile-vless.py
+          python Python/mobile-vless-http.py
 
       - name: Commit and push if changed
         run: |
@@ -39,15 +39,19 @@ jobs:
             echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/hy2_parser.py"
             exit 1
           fi
+          if [ ! -f "sing-box-vless-http.json" ]; then
+            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/hy2_parser.py"
+            exit 1
+          fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-vless.json
+          git add sing-box-hy2.json sing-box-vless-http.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-hy2.json"
+            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json"
             git push
           fi
