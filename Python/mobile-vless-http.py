@@ -573,7 +573,7 @@ def main():
         }
     }
 
-    output_filename = "sing-box-vless.json"
+    output_filename = "sing-box-vless-http.json"
     with open(output_filename, "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
