@@ -202,9 +202,15 @@ def clean_outbound(outbound: dict) -> dict | None:
     if has_workers_dev(outbound):
         return None
 
+    # --- ПРОВЕРКА БЛОКА TLS ---
     tls_config = outbound.get("tls")
-    if tls_config and tls_config.get("insecure") is True:
-        return None
+    if tls_config:
+        # Исключаем ноды с insecure: true
+        if tls_config.get("insecure") is True:
+            return None
+        # Исключаем ноды, у которых TLS включен, но отсутствует server_name
+        if not tls_config.get("server_name"):
+            return None
 
     if outbound.get("type") == "trojan":
         if outbound.get("server_port") == 443:
