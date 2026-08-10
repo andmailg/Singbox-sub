@@ -120,7 +120,8 @@
         "node-26",
         "node-27",
         "node-28",
-        "node-29"
+        "node-29",
+        "node-30"
       ],
       "default": "auto"
     },
@@ -156,7 +157,8 @@
         "node-26",
         "node-27",
         "node-28",
-        "node-29"
+        "node-29",
+        "node-30"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -516,6 +518,19 @@
     {
       "type": "hysteria2",
       "tag": "node-28",
+      "server": "aliyun-hkg.pku.pp.ua",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "8JCsPssfgS8tiRwiMlhARg==",
+      "tls": {
+        "enabled": true,
+        "server_name": "aliyun-hkg.pku.pp.ua"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-29",
       "server": "xjp3.mangshe.xyz",
       "server_port": 2060,
       "up_mbps": 10,
@@ -528,7 +543,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-29",
+      "tag": "node-30",
       "server": "azer-tea-grape.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
