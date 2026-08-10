@@ -29,10 +29,13 @@ def is_valid_domain(domain: str) -> bool:
     """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
     if not domain or is_valid_ip(domain):
         return False
+    # Удаляем двоеточие с портом, если они случайно попали в домен
+    clean_domain = domain.split(":")[0].strip()
+    
     domain_regex = re.compile(
         r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
     )
-    return bool(domain_regex.match(domain))
+    return bool(domain_regex.match(clean_domain))
 
 
 def is_valid_host(host_str: str) -> bool:
@@ -42,7 +45,8 @@ def is_valid_host(host_str: str) -> bool:
     if not host_str or not isinstance(host_str, str):
         return False
     
-    clean_host = host_str.strip().strip("[]")
+    # Очищаем от пробелов, скобок IPv6 и возможного порта в конце (domain.com:443 -> domain.com)
+    clean_host = host_str.strip().strip("[]").split(":")[0].strip()
     
     # Отбрасываем, если строка начинается с '/' (это path, а не host)
     if clean_host.startswith("/"):
