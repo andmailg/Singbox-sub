@@ -269,9 +269,11 @@ def main():
                 if not line or line.startswith("#"):
                     continue
                 try:
-                    net_obj = ipaddress.ip_network(line, strict=False)
+                    # Извлекаем чисто IP/CIDR до пробелов/табов
+                    cidr_str = line.split()[0]
+                    net_obj = ipaddress.ip_network(cidr_str, strict=False)
                     raw_blocked_networks.append(net_obj)
-                except ValueError:
+                except (ValueError, IndexError):
                     continue
             
             blocked_networks = list(ipaddress.collapse_addresses(raw_blocked_networks))
