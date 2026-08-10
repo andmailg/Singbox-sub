@@ -185,6 +185,11 @@ def clean_outbound(outbound: dict) -> dict | None:
     if not outbound:
         return None
 
+    # --- ФИЛЬТР: Отбрасываем ноды с insecure = True ---
+    tls_config = outbound.get("tls")
+    if tls_config and tls_config.get("insecure") is True:
+        return None
+
     if outbound.get("type") == "trojan":
         if outbound.get("server_port") == 443:
             return None
