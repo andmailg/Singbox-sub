@@ -201,13 +201,28 @@ def clean_outbound(outbound: dict) -> dict | None:
         return None
 
     if outbound.get("type") == "trojan":
-        # Дополнительная проверка: исключаем порт 443
         if outbound.get("server_port") == 443:
             return None
 
         transport = outbound.get("transport", {})
+        net_type = transport.get("type")
 
-        if transport.get("type") in ["http", "ws"]:
+        # Если транспорт WebSocket — КАТЕГОРИЧЕСКИ удаляем ключ "host" из transport, 
+        # оставляя его только внутри headers при наличии
+        if net_type == "ws":
+            raw_host = transport.pop("host", None)
+            if raw_host and "headers" not in transport:
+                h_val = raw_host[0] if isinstance(raw_host, list) else raw_host
+                if is_valid_host(str(h_val)):
+                    transport["headers"] = {"Host": str(h_val)}
+            
+            # Проверяем валидность host из headers
+            headers = transport.get("headers", {})
+            ws_host = headers.get("Host") or headers.get("host")
+            if ws_host and not is_valid_host(str(ws_host).strip()):
+                return None
+
+        elif net_type == "http":
             hosts = transport.get("host")
             if hosts:
                 first_host = hosts[0] if isinstance(hosts, list) else hosts
@@ -215,7 +230,7 @@ def clean_outbound(outbound: dict) -> dict | None:
                     return None
 
         # Очищаем transport=tcp
-        if transport.get("type") == "tcp":
+        if net_type == "tcp":
             outbound.pop("transport", None)
 
     return outbound
