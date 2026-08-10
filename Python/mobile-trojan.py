@@ -92,7 +92,6 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
         hostname = hostname.strip("[]")
         
-        # Безопасно извлекаем порт, защищаясь от корявых IPv6/мусора в URL
         try:
             port = parsed.port
         except ValueError:
@@ -123,20 +122,18 @@ def parse_proxy_link(link: str) -> dict | None:
 
     port = port or (443 if tls_enabled else 80)
 
-    # Исключаем порт 443
     if port == 443:
         return None
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Trojan-Node"
 
-    # 3. Извлекаем host и sni, ОЧИЩАЯ ИХ от порта (например, 'domain.com:443' -> 'domain.com')
+    # 3. Извлекаем host и sni
     host_raw = params.get("host", [""])[0].strip()
     sni_raw = params.get("sni", [""])[0].strip() or params.get("peer", [""])[0].strip()
 
     host = host_raw.split(":")[0].strip() if host_raw else ""
     sni = sni_raw.split(":")[0].strip() if sni_raw else ""
 
-    # Если задан host, проверяем его строго на домен
     if host and not is_valid_host(host):
         return None
 
@@ -149,7 +146,6 @@ def parse_proxy_link(link: str) -> dict | None:
         "password": password
     }
 
-    # Настройка TLS блока, если он включен
     if tls_enabled:
         tls_config = {"enabled": True}
         
@@ -166,28 +162,30 @@ def parse_proxy_link(link: str) -> dict | None:
         outbound["tls"] = tls_config
 
     # 5. Настройка транспорта (ws, http, grpc и т.д.)
-    net_type = params.get("type", [""])[0].lower() or params.get("net", [""])[0].lower()
+    # ПРОВЕРКА XHTTP: считываем все возможные ключи транспорта
+    net_type = (
+        params.get("type", [""])[0].lower() 
+        or params.get("net", [""])[0].lower()
+        or params.get("headerType", [""])[0].lower()
+    )
     
-    # Если транспорт не поддерживается sing-box (например, xhttp), пропускаем ноду
-    if net_type and net_type not in ["tcp", "ws", "http", "grpc", "httpupgrade", "quic"]:
+    # Явно отбрасываем xhttp и любые неподдерживаемые транспорты
+    if net_type in ["xhttp", "splithttp"] or (net_type and net_type not in ["tcp", "ws", "http", "grpc", "httpupgrade", "quic"]):
         return None
 
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
 
-        # 'path' допустим ТОЛЬКО для ws, http и httpupgrade
         path = params.get("path", [""])[0]
         if path and net_type in ["ws", "http", "httpupgrade"]:
             transport_config["path"] = path
 
-        # Обработка host / headers
         if host:
             if net_type == "http":
                 transport_config["host"] = [host]
             elif net_type in ["ws", "httpupgrade"]:
                 transport_config["headers"] = {"Host": host}
 
-        # Для gRPC используется service_name
         service_name = params.get("serviceName", [""])[0] or params.get("service_name", [""])[0]
         if service_name and net_type == "grpc":
             transport_config["service_name"] = service_name
@@ -210,14 +208,15 @@ def clean_outbound(outbound: dict) -> dict | None:
         if outbound.get("server_port") == 443:
             return None
 
-        transport = outbound.get("transport", {})
-        net_type = transport.get("type")
+        transport = outbound.get("transport")
+        
+        if transport:
+            net_type = transport.get("type")
 
-        # Отбраковываем неизвестные транспорты (например, xhttp)
-        if net_type and net_type not in ["ws", "http", "grpc", "httpupgrade", "quic"]:
-            return None
+            # Жесткий фильтр против xhttp и нестандартных транспортов
+            if not net_type or net_type in ["xhttp", "splithttp"] or net_type not in ["ws", "http", "grpc", "httpupgrade", "quic"]:
+                return None
 
-        if net_type:
             # 1. Если это не ws/http/httpupgrade — удаляем 'path'
             if net_type not in ["ws", "http", "httpupgrade"]:
                 transport.pop("path", None)
