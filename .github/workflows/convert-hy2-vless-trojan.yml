@@ -27,6 +27,7 @@ jobs:
         run: |
           python Python/mobile-hy2.py
           python Python/mobile-vless-http.py
+          thon Python/mobile-trojan.py
 
       - name: Commit and push if changed
         run: |
@@ -36,22 +37,26 @@ jobs:
           
           # 2. Проверяем, создал ли Python-скрипт нужный файл
           if [ ! -f "sing-box-hy2.json" ]; then
-            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/hy2_parser.py"
+            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/mobile-hy2.py"
             exit 1
           fi
           if [ ! -f "sing-box-vless-http.json" ]; then
-            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/hy2_parser.py"
+            echo "❌ Ошибка: Файл sing-box-vless-http.json не найден! Проверьте имя output_filename в Python/mobile-vless-http.py"
+            exit 1
+          fi
+          if [ ! -f "sing-box-trojan.json" ]; then
+            echo "❌ Ошибка: Файл sing-box-torjan.json не найден! Проверьте имя output_filename в Python/mobile-trojan.py"
             exit 1
           fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-vless-http.json
+          git add sing-box-hy2.json sing-box-vless-http.json sing-box-torjan.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json"
+            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json & sing-box-torjan.json"
             git push
           fi
