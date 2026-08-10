@@ -4,15 +4,9 @@ import json
 import os
 import re
 import socket
-import sys
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
-
-try:
-    import maxminddb
-except ImportError:
-    maxminddb = None
 
 
 def is_valid_ip(address: str) -> bool:
@@ -65,19 +59,6 @@ def is_valid_server(server: str) -> bool:
         return False
     clean_server = server.strip("[]")
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
-
-
-def is_valid_domain(domain: str) -> bool:
-    """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
-    if not domain or is_valid_ip(domain):
-        return False
-    # Удаляем двоеточие с портом, если они случайно попали в домен
-    clean_domain = domain.split(":")[0].strip()
-    
-    domain_regex = re.compile(
-        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
-    )
-    return bool(domain_regex.match(clean_domain))
 
 
 def parse_proxy_link(link: str) -> dict | None:
@@ -302,20 +283,6 @@ def main():
             print(f"Error fetching {url}: {e}")
 
     print(f"Total raw lines collected: {len(links)}")
-
-    # --- СКАЧИВАНИЕ БАЗЫ GEOIP ---
-    mmdb_path = "GeoLite2-Country.mmdb"
-    if not os.path.exists(mmdb_path):
-        print("Downloading local GeoIP database...")
-        db_url = "https://git.io/GeoLite2-Country.mmdb"
-        try:
-            db_resp = requests.get(db_url, timeout=30)
-            if db_resp.status_code == 200:
-                with open(mmdb_path, "wb") as db_file:
-                    db_file.write(db_resp.content)
-                print("Local GeoIP database downloaded successfully.")
-        except Exception as e:
-            print(f"Error downloading GeoIP database: {e}")
 
     # --- СКАЧИВАНИЕ И СБОРКА ЧЕРНОГО СПИСКА CIDR РКН ---
     raw_blocked_networks = []
