@@ -34,7 +34,8 @@
         "EPODONIOS #9",
         "EPODONIOS #10",
         "EPODONIOS #11",
-        "EPODONIOS #12"
+        "EPODONIOS #12",
+        "EPODONIOS #13"
       ],
       "default": "auto"
     },
@@ -54,7 +55,8 @@
         "EPODONIOS #9",
         "EPODONIOS #10",
         "EPODONIOS #11",
-        "EPODONIOS #12"
+        "EPODONIOS #12",
+        "EPODONIOS #13"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -115,6 +117,19 @@
     {
       "type": "hysteria2",
       "tag": "EPODONIOS #4",
+      "server": "j47lq.pleiades.codes",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "tls": {
+        "enabled": true,
+        "server_name": "j47lq.pleiades.codes"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "EPODONIOS #5",
       "server": "iq5ny.pleiades.codes",
       "server_port": 8443,
       "up_mbps": 10,
@@ -127,7 +142,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #5",
+      "tag": "EPODONIOS #6",
       "server": "mercedes-grape.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -140,7 +155,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #6",
+      "tag": "EPODONIOS #7",
       "server": "grape-power-pl.ddnsguru.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -153,7 +168,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #7",
+      "tag": "EPODONIOS #8",
       "server": "grape-zet-ro-turbo.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -166,7 +181,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #8",
+      "tag": "EPODONIOS #9",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -179,7 +194,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #9",
+      "tag": "EPODONIOS #10",
       "server": "bel-03.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -192,7 +207,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #10",
+      "tag": "EPODONIOS #11",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -205,7 +220,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #11",
+      "tag": "EPODONIOS #12",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -218,7 +233,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #12",
+      "tag": "EPODONIOS #13",
       "server": "hy2.aspidnet.xyz",
       "server_port": 443,
       "up_mbps": 10,

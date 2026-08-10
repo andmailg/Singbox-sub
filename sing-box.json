@@ -123,14 +123,8 @@
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇱🇹 Lithuania, Vilnius | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -141,14 +135,8 @@
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇱🇹 Lithuania, Vilnius | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -163,7 +151,8 @@
       "down_mbps": 10,
       "password": "71cada65-d23e-418c-88e4-a06188d14689",
       "tls": {
-        "enabled": true
+        "enabled": true,
+        "server_name": "fi-one.quiet-rogue.site"
       }
     },
     {
@@ -194,58 +183,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL]",
-      "server": "de-two.quiet-rogue.site",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
-      "tls": {
-        "enabled": true,
-        "server_name": "de-two.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-      "server": "de1.apexvpn.space",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "de1.apexvpn.space"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇱🇹 Lithuania, Vilnius | [BL]",
-      "server": "ltu-01.node.lumixnet.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "7c5566a7-4b55-4659-975f-06507d32fd3f",
-      "tls": {
-        "enabled": true,
-        "server_name": "ltu-01.node.lumixnet.com"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇵🇱 Poland, Warsaw | [BL]",
       "server": "luna.ultimagamest.com",
       "server_port": 443,
@@ -259,19 +196,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #1",
-      "server": "pl1.apexvpn.space",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "pl1.apexvpn.space"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -281,19 +205,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]",
-      "server": "nl-one.quiet-rogue.site",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
-      "tls": {
-        "enabled": true,
-        "server_name": "nl-one.quiet-rogue.site"
       }
     }
   ],

@@ -120,7 +120,7 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇳🇱 The Netherlands | 🌐 [*CIDR]"
+        "🇩🇪 Germany [*CIDR]"
       ],
       "default": "auto"
     },
@@ -128,7 +128,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇳🇱 The Netherlands | 🌐 [*CIDR]"
+        "🇩🇪 Germany [*CIDR]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -136,15 +136,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands | 🌐 [*CIDR]",
-      "server": "nl-one.quiet-rogue.site",
-      "server_port": 443,
+      "tag": "🇩🇪 Germany [*CIDR]",
+      "server": "j47lq.pleiades.codes",
+      "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "0f2dc4af-951f-4690-922e-07c6e8bab26a",
+      "password": "8f7eeebd-3378-4bf1-b80a-cb2a393a031d",
       "tls": {
         "enabled": true,
-        "server_name": "nl-one.quiet-rogue.site"
+        "server_name": "j47lq.pleiades.codes"
       }
     }
   ],
