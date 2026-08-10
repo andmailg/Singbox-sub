@@ -28,10 +28,13 @@ def is_valid_domain(domain: str) -> bool:
     """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
     if not domain or is_valid_ip(domain):
         return False
+    # Удаляем двоеточие с портом, если они случайно попали в домен
+    clean_domain = domain.split(":")[0].strip()
+    
     domain_regex = re.compile(
         r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
     )
-    return bool(domain_regex.match(domain))
+    return bool(domain_regex.match(clean_domain))
 
 
 def is_valid_host(host_str: str) -> bool:
@@ -41,8 +44,10 @@ def is_valid_host(host_str: str) -> bool:
     if not host_str or not isinstance(host_str, str):
         return False
     
-    clean_host = host_str.strip().strip("[]")
+    # Очищаем от пробелов, скобок IPv6 и возможного порта в конце (domain.com:443 -> domain.com)
+    clean_host = host_str.strip().strip("[]").split(":")[0].strip()
     
+    # Отбрасываем, если строка начинается с '/' (это path, а не host)
     if clean_host.startswith("/"):
         return False
 
@@ -50,6 +55,7 @@ def is_valid_host(host_str: str) -> bool:
     if is_valid_ip(clean_host):
         return False
 
+    # Проверяем строго на доменное имя
     return is_valid_domain(clean_host)
 
 
@@ -59,6 +65,19 @@ def is_valid_server(server: str) -> bool:
         return False
     clean_server = server.strip("[]")
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
+
+def is_valid_domain(domain: str) -> bool:
+    """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
+    if not domain or is_valid_ip(domain):
+        return False
+    # Удаляем двоеточие с портом, если они случайно попали в домен
+    clean_domain = domain.split(":")[0].strip()
+    
+    domain_regex = re.compile(
+        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
+    )
+    return bool(domain_regex.match(clean_domain))
 
 
 def parse_proxy_link(link: str) -> dict | None:
@@ -72,7 +91,14 @@ def parse_proxy_link(link: str) -> dict | None:
         if not hostname:
             return None
         hostname = hostname.strip("[]")
-    except ValueError:
+        
+        # Безопасно извлекаем порт, защищаясь от корявых IPv6/мусора в URL
+        try:
+            port = parsed.port
+        except ValueError:
+            return None
+
+    except Exception:
         print(f"Skipping malformed URL: {link[:30]}...")
         return None
 
@@ -89,30 +115,29 @@ def parse_proxy_link(link: str) -> dict | None:
         password = parsed.netloc.split("@")[0]
 
     if not password:
-        print("Skipping Trojan node: missing password")
         return None
 
-    # 2. Определяем TLS (по умолчанию включен, если security != "none")
+    # 2. Определяем TLS
     security = params.get("security", ["tls"])[0].lower()
     tls_enabled = security not in ["", "none"]
 
-    port = parsed.port or (443 if tls_enabled else 80)
+    port = port or (443 if tls_enabled else 80)
 
-    # -------------------------------------------------------------------------
-    # ЖЕСТКИЙ ФИЛЬТР: Исключаем порт 443
-    # -------------------------------------------------------------------------
+    # Исключаем порт 443
     if port == 443:
         return None
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Trojan-Node"
 
-    # 3. Извлекаем host и sni
-    host = params.get("host", [""])[0].strip()
-    sni = params.get("sni", [""])[0].strip() or params.get("peer", [""])[0].strip()
+    # 3. Извлекаем host и sni, ОЧИЩАЯ ИХ от порта (например, 'domain.com:443' -> 'domain.com')
+    host_raw = params.get("host", [""])[0].strip()
+    sni_raw = params.get("sni", [""])[0].strip() or params.get("peer", [""])[0].strip()
+
+    host = host_raw.split(":")[0].strip() if host_raw else ""
+    sni = sni_raw.split(":")[0].strip() if sni_raw else ""
 
     # Если задан host, проверяем его строго на домен
     if host and not is_valid_host(host):
-        print(f"Skipping Trojan node: invalid 'host' domain ('{host[:30]}...')")
         return None
 
     # 4. Сборка объекта outbound для sing-box
@@ -131,7 +156,6 @@ def parse_proxy_link(link: str) -> dict | None:
         server_name = sni or host
         if server_name:
             if not is_valid_domain(server_name):
-                print(f"Skipping Trojan node: invalid TLS server_name ('{server_name[:30]}...')")
                 return None
             tls_config["server_name"] = server_name
 
@@ -159,12 +183,8 @@ def parse_proxy_link(link: str) -> dict | None:
 
         outbound["transport"] = transport_config
 
-    # =========================================================================
     # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER)
-    # =========================================================================
-
     if not is_valid_server(outbound["server"]):
-        print(f"Skipping node '{tag}': invalid 'server' field ('{outbound['server']}')")
         return None
 
     return outbound
