@@ -170,16 +170,17 @@ def parse_proxy_link(link: str) -> dict | None:
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
         
-        # Разделяем формат host в зависимости от типа транспорта
+        path = params.get("path", [""])[0]
+        if path:
+            transport_config["path"] = path
+
+        # Разделяем обработку host под спецификацию sing-box
         if host:
             if net_type == "http":
                 transport_config["host"] = [host]
             elif net_type == "ws":
+                # В WebSocket передаем ТОЛЬКО через headers
                 transport_config["headers"] = {"Host": host}
-
-        path = params.get("path", [""])[0]
-        if path:
-            transport_config["path"] = path
 
         service_name = params.get("serviceName", [""])[0]
         if service_name and net_type == "grpc":
