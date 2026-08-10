@@ -3,10 +3,8 @@ import ipaddress  # Встроенный модуль для работы с IP 
 import json
 import os
 import re
-import socket
 import sys
 import urllib.parse
-from concurrent.futures import ThreadPoolExecutor
 import requests
 
 # Для работы с локальной базой GeoIP
@@ -61,11 +59,12 @@ def is_valid_host(host_str: str) -> bool:
 
 
 def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
+    """Проверяет корректность поля server (содержит strictly IP-адрес)."""
     if not server or "@" in server:
         return False
     clean_server = server.strip("[]")
-    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+    # Строго оставляем ТОЛЬКО IP-адреса
+    return is_valid_ip(clean_server)
 
 
 def parse_proxy_link(link: str) -> dict | None:
@@ -145,11 +144,11 @@ def parse_proxy_link(link: str) -> dict | None:
     }
 
     # =========================================================================
-    # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER)
+    # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER — только IP)
     # =========================================================================
 
     if not is_valid_server(outbound["server"]):
-        print(f"Skipping node '{tag}': invalid 'server' field ('{outbound['server']}')")
+        print(f"Skipping node '{tag}': 'server' is not a valid IP address ('{outbound['server']}')")
         return None
 
     return outbound
@@ -286,10 +285,9 @@ def main():
         print(f"Error loading RKN blacklist: {e}")
 
     seen_servers = set()
-    servers_to_resolve = set()
     pre_parsed_nodes = []
 
-    # --- ШАГ 1: Быстрый предварительный парсинг ---
+    # --- ШАГ 1: Быстрый предварительный парсинг (отбор только IP) ---
     print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
@@ -301,53 +299,27 @@ def main():
             node_tag = str(outbound.get("tag", "")).lower()
             if "ru" in node_tag or "russia" in node_tag:
                 continue
+            
             server_address = str(outbound.get("server", "")).lower()
-            if server_address.endswith(".ru") or ".ru:" in server_address:
-                continue
 
             if server_address in seen_servers:
                 continue
             seen_servers.add(server_address)
 
             pre_parsed_nodes.append(outbound)
-            if server_address:
-                servers_to_resolve.add(server_address)
 
-    # --- ШАГ 2: Параллельный DNS-резолвинг ---
-    server_to_ip_map = {}
-
-    def resolve_dns(host):
-        try:
-            return host, socket.gethostbyname(host)
-        except Exception:
-            return host, None
-
-    print(f"Resolving DNS for {len(servers_to_resolve)} domains...")
-    with ThreadPoolExecutor(max_workers=100) as executor:
-        dns_results = executor.map(resolve_dns, servers_to_resolve)
-        for host, ip in dns_results:
-            if ip:
-                server_to_ip_map[host] = ip
-
-    # --- ШАГ 3: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ И ФИЛЬТРАЦИЯ ПО РКН ---
+    # --- ШАГ 2: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ И ФИЛЬТРАЦИЯ ПО РКН ---
     filtered_nodes = []
 
     for outbound in pre_parsed_nodes:
-        server = outbound.get("server", "").strip("[]")
-        
-        # 1. Определяем IP-адрес узла (из DNS-карты или напрямую, если server — это IP)
-        node_ip_str = server_to_ip_map.get(server) if not is_valid_ip(server) else server
-
-        if not node_ip_str:
-            # Если домен не удалось отрезолвить в IP, пропускаем
-            continue
+        node_ip_str = outbound.get("server", "").strip("[]")
 
         try:
             ip_obj = ipaddress.ip_address(node_ip_str)
         except ValueError:
             continue
 
-        # 2. Проверяем, входит ли IP-адрес узла в какую-либо из подсетей РКН
+        # Проверяем, входит ли IP-адрес узла в какую-либо из подсетей РКН
         is_blocked = any(ip_obj in net for net in blocked_networks)
 
         if is_blocked:
@@ -357,9 +329,9 @@ def main():
         filtered_nodes.append(outbound)
 
     outbounds = filtered_nodes
-    print(f"Всего выбрано {len(outbounds)} валидных VLESS HTTP узлов (после очистки от подсетей РКН).")
+    print(f"Всего выбрано {len(outbounds)} валидных VLESS HTTP узлов с IP-серверами (после очистки от подсетей РКН).")
 
-    # --- ШАГ 4: УНИКАЛИЗАЦИЯ ТЕГОВ ---
+    # --- ШАГ 3: УНИКАЛИЗАЦИЯ ТЕГОВ ---
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"node-{idx}"
 
