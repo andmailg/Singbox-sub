@@ -3,9 +3,7 @@ import ipaddress
 import json
 import os
 import re
-import socket
 import urllib.parse
-from concurrent.futures import ThreadPoolExecutor
 import requests
 
 
@@ -22,7 +20,6 @@ def is_valid_domain(domain: str) -> bool:
     """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
     if not domain or is_valid_ip(domain):
         return False
-    # Удаляем двоеточие с портом, если они случайно попали в домен
     clean_domain = domain.split(":")[0].strip()
     
     domain_regex = re.compile(
@@ -32,29 +29,23 @@ def is_valid_domain(domain: str) -> bool:
 
 
 def is_valid_host(host_str: str) -> bool:
-    """Проверяет, является ли host строго валидным доменным именем.
-    IP-адреса, пути (/path) и рекламный мусор отбраковываются.
-    """
+    """Проверяет, является ли host строго валидным доменным именем."""
     if not host_str or not isinstance(host_str, str):
         return False
     
-    # Очищаем от пробелов, скобок IPv6 и возможного порта в конце (domain.com:443 -> domain.com)
     clean_host = host_str.strip().strip("[]").split(":")[0].strip()
     
-    # Отбрасываем, если строка начинается с '/' (это path, а не host)
     if clean_host.startswith("/"):
         return False
 
-    # host НЕ должен быть IP-адресом
     if is_valid_ip(clean_host):
         return False
 
-    # Проверяем строго на доменное имя
     return is_valid_domain(clean_host)
 
 
 def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (не содержит '@', является валидным домена или IP)."""
+    """Проверяет корректность поля server."""
     if not server or "@" in server:
         return False
     clean_server = server.strip("[]")
@@ -62,32 +53,27 @@ def is_valid_server(server: str) -> bool:
 
 
 def has_workers_dev(outbound: dict) -> bool:
-    """Проверяет, содержит ли нода 'workers.dev' в server, server_name или host."""
+    """Проверяет, содержит ли нода 'workers.dev'."""
     target = "workers.dev"
 
-    # 1. Проверка server
     server = outbound.get("server", "").lower()
     if target in server:
         return True
 
-    # 2. Проверка tls.server_name
     tls = outbound.get("tls", {})
     if isinstance(tls, dict):
         server_name = tls.get("server_name", "").lower()
         if target in server_name:
             return True
 
-    # 3. Проверка host в transport
     transport = outbound.get("transport", {})
     if isinstance(transport, dict):
-        # Проверка headers (ws, httpupgrade и др.)
         headers = transport.get("headers", {})
         if isinstance(headers, dict):
             for k, v in headers.items():
                 if k.lower() == "host" and target in str(v).lower():
                     return True
 
-        # Проверка списка host (http транспорт)
         hosts = transport.get("host", [])
         if isinstance(hosts, list):
             if any(target in str(h).lower() for h in hosts):
@@ -126,7 +112,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
     params = urllib.parse.parse_qs(parsed.query)
 
-    # 1. Извлечение пароля
     password = parsed.username
     if not password and "@" in parsed.netloc:
         password = parsed.netloc.split("@")[0]
@@ -134,7 +119,6 @@ def parse_proxy_link(link: str) -> dict | None:
     if not password:
         return None
 
-    # 2. Определяем TLS
     security = params.get("security", ["tls"])[0].lower()
     tls_enabled = security not in ["", "none"]
 
@@ -145,7 +129,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Trojan-Node"
 
-    # 3. Извлекаем host и sni
     host_raw = params.get("host", [""])[0].strip()
     sni_raw = params.get("sni", [""])[0].strip() or params.get("peer", [""])[0].strip()
 
@@ -155,7 +138,6 @@ def parse_proxy_link(link: str) -> dict | None:
     if host and not is_valid_host(host):
         return None
 
-    # 4. Сборка объекта outbound для sing-box
     outbound = {
         "type": "trojan",
         "tag": tag,
@@ -179,14 +161,12 @@ def parse_proxy_link(link: str) -> dict | None:
 
         outbound["tls"] = tls_config
 
-    # 5. Настройка транспорта (ws, http, grpc и т.д.)
     net_type = (
         params.get("type", [""])[0].lower() 
         or params.get("net", [""])[0].lower()
         or params.get("headerType", [""])[0].lower()
     )
     
-    # Явно отбрасываем xhttp и любые неподдерживаемые транспорты
     if net_type in ["xhttp", "splithttp"] or (net_type and net_type not in ["tcp", "ws", "http", "grpc", "httpupgrade", "quic"]):
         return None
 
@@ -209,7 +189,6 @@ def parse_proxy_link(link: str) -> dict | None:
 
         outbound["transport"] = transport_config
 
-    # ГЛОБАЛЬНЫЕ ПРОВЕРКИ (SERVER)
     if not is_valid_server(outbound["server"]):
         return None
 
@@ -217,15 +196,12 @@ def parse_proxy_link(link: str) -> dict | None:
 
 
 def clean_outbound(outbound: dict) -> dict | None:
-    """Очистка и валидация Trojan ноды под спецификацию sing-box."""
     if not outbound:
         return None
 
-    # --- ФИЛЬТР: Отбрасываем ноды, содержащие workers.dev ---
     if has_workers_dev(outbound):
         return None
 
-    # --- ФИЛЬТР: Отбрасываем ноды с insecure = True ---
     tls_config = outbound.get("tls")
     if tls_config and tls_config.get("insecure") is True:
         return None
@@ -239,15 +215,12 @@ def clean_outbound(outbound: dict) -> dict | None:
         if transport:
             net_type = transport.get("type")
 
-            # Жесткий фильтр против xhttp и нестандартных транспортов
             if not net_type or net_type in ["xhttp", "splithttp"] or net_type not in ["ws", "http", "grpc", "httpupgrade", "quic"]:
                 return None
 
-            # 1. Если это не ws/http/httpupgrade — удаляем 'path'
             if net_type not in ["ws", "http", "httpupgrade"]:
                 transport.pop("path", None)
 
-            # 2. Очистка и проверка для WebSocket / HTTPUpgrade
             if net_type in ["ws", "httpupgrade"]:
                 raw_host = transport.pop("host", None)
                 if raw_host and "headers" not in transport:
@@ -260,7 +233,6 @@ def clean_outbound(outbound: dict) -> dict | None:
                 if ws_host and not is_valid_host(str(ws_host).strip()):
                     return None
 
-            # 3. Очистка и проверка для HTTP
             elif net_type == "http":
                 hosts = transport.get("host")
                 if hosts:
@@ -272,7 +244,6 @@ def clean_outbound(outbound: dict) -> dict | None:
 
 
 def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
     if outbound.get("type") == "urltest":
         outbound.pop("lru", None)
         outbound.pop("timeout", None)
@@ -329,7 +300,6 @@ def main():
 
     print(f"Total raw lines collected: {len(links)}")
 
-    # --- СКАЧИВАНИЕ И СБОРКА ЧЕРНОГО СПИСКА CIDR РКН ---
     raw_blocked_networks = []
     print("Downloading RKN blocked CIDR list...")
     rkn_url = "https://github.com/1andrevich/Re-filter-lists/raw/refs/heads/main/ipsum.lst"
@@ -358,77 +328,49 @@ def main():
         print(f"Error loading RKN blacklist: {e}")
 
     seen_servers = set()
-    servers_to_resolve = set()
-    pre_parsed_nodes = []
-
-    # --- ШАГ 1: Быстрый предварительный парсинг ---
-    print(f"Parsing and deduplicating {len(links)} links...")
-    for link in links:
-        outbound = parse_proxy_link(link)
-        if outbound:
-            outbound = clean_outbound(outbound)
-            if not outbound:
-                continue
-
-            node_tag = str(outbound.get("tag", "")).lower()
-            if "ru" in node_tag or "russia" in node_tag:
-                continue
-            server_address = str(outbound.get("server", "")).lower()
-            if server_address.endswith(".ru") or ".ru:" in server_address:
-                continue
-
-            if server_address in seen_servers:
-                continue
-            seen_servers.add(server_address)
-
-            pre_parsed_nodes.append(outbound)
-            if server_address:
-                servers_to_resolve.add(server_address)
-
-    # --- ШАГ 2: Параллельный DNS-резолвинг ---
-    server_to_ip_map = {}
-
-    def resolve_dns(host):
-        try:
-            return host, socket.gethostbyname(host)
-        except Exception:
-            return host, None
-
-    print(f"Resolving DNS for {len(servers_to_resolve)} domains...")
-    with ThreadPoolExecutor(max_workers=100) as executor:
-        dns_results = executor.map(resolve_dns, servers_to_resolve)
-        for host, ip in dns_results:
-            if ip:
-                server_to_ip_map[host] = ip
-
-    # --- ШАГ 3: ФОРМИРОВАНИЕ ИТОГОВОГО СПИСКА УЗЛОВ И ФИЛЬТРАЦИЯ ПО РКН ---
     filtered_nodes = []
 
-    for outbound in pre_parsed_nodes:
-        server = outbound.get("server", "").strip("[]")
-        
-        node_ip_str = server_to_ip_map.get(server) if not is_valid_ip(server) else server
-
-        if not node_ip_str:
+    print(f"Parsing, filtering and deduplicating {len(links)} links...")
+    for link in links:
+        outbound = parse_proxy_link(link)
+        if not outbound:
             continue
 
+        outbound = clean_outbound(outbound)
+        if not outbound:
+            continue
+
+        server = str(outbound.get("server", "")).strip("[]")
+
+        # 1. Фильтр: только IP-адреса
+        if not is_valid_ip(server):
+            continue
+
+        # 2. Исключаем RU ноды по тегу или домену
+        node_tag = str(outbound.get("tag", "")).lower()
+        if "ru" in node_tag or "russia" in node_tag:
+            continue
+
+        # 3. Дедупликация по IP
+        if server in seen_servers:
+            continue
+
+        # 4. Проверка по черному списку РКН
         try:
-            ip_obj = ipaddress.ip_address(node_ip_str)
+            ip_obj = ipaddress.ip_address(server)
+            if any(ip_obj in net for net in blocked_networks):
+                print(f"Skipping node '{outbound.get('tag')}': IP {server} is in RKN blocked subnet.")
+                continue
         except ValueError:
             continue
 
-        is_blocked = any(ip_obj in net for net in blocked_networks)
-
-        if is_blocked:
-            print(f"Skipping node '{outbound.get('tag')}': IP {node_ip_str} is in RKN blocked subnet.")
-            continue
-
+        seen_servers.add(server)
         filtered_nodes.append(outbound)
 
     outbounds = filtered_nodes
-    print(f"Всего выбрано {len(outbounds)} валидных Trojan узлов (порт != 443).")
+    print(f"Всего выбрано {len(outbounds)} валидных Trojan узлов с IP-адресами (порт != 443).")
 
-    # --- ШАГ 4: УНИКАЛИЗАЦИЯ ТЕГОВ ---
+    # --- УНИКАЛИЗАЦИЯ ТЕГОВ ---
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"node-{idx}"
 
