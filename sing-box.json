@@ -126,8 +126,9 @@
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇩🇪 Germany, Kriftel | [BL]",
+        "🇱🇹 Lithuania, Vilnius | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
       ],
@@ -143,8 +144,9 @@
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | [BL] #1",
-        "🇩🇪 Germany, Kriftel | [BL]",
+        "🇱🇹 Lithuania, Vilnius | [BL]",
         "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL] #1",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇳🇱 The Netherlands, Eygelshoven | 🌐 | [BL]"
       ],
@@ -161,8 +163,7 @@
       "down_mbps": 10,
       "password": "71cada65-d23e-418c-88e4-a06188d14689",
       "tls": {
-        "enabled": true,
-        "server_name": "fi-one.quiet-rogue.site"
+        "enabled": true
       }
     },
     {
@@ -232,15 +233,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Kriftel | [BL]",
-      "server": "dx.janusgate.org",
+      "tag": "🇱🇹 Lithuania, Vilnius | [BL]",
+      "server": "ltu-01.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "22ad0e26-c73f-4a3e-be2f-e29929784598",
+      "password": "7c5566a7-4b55-4659-975f-06507d32fd3f",
       "tls": {
         "enabled": true,
-        "server_name": "dx.janusgate.org"
+        "server_name": "ltu-01.node.lumixnet.com"
       }
     },
     {
@@ -254,6 +255,19 @@
       "tls": {
         "enabled": true,
         "server_name": "luna.ultimagamest.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw | [BL] #1",
+      "server": "pl1.apexvpn.space",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "pl1.apexvpn.space"
       }
     },
     {
