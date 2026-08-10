@@ -121,10 +121,8 @@
       "outbounds": [
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇵🇱 Poland, Warsaw | [BL]"
       ],
       "default": "auto"
     },
@@ -133,10 +131,8 @@
       "tag": "auto",
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
         "🇫🇷 France, Paris | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇵🇱 Poland, Warsaw | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -145,19 +141,6 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "fi-one.quiet-rogue.site",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "71cada65-d23e-418c-88e4-a06188d14689",
-      "tls": {
-        "enabled": true,
-        "server_name": "fi-one.quiet-rogue.site"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
       "server": "fin1.apexvpn.space",
       "server_port": 443,
       "up_mbps": 10,
@@ -192,19 +175,6 @@
       "tls": {
         "enabled": true,
         "server_name": "luna.ultimagamest.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "grape-zet-turbo-nl.yyuyy.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-turbo-nl.yyuyy.com"
       }
     }
   ],
