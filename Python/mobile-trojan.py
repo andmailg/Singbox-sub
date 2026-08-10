@@ -170,8 +170,12 @@ def parse_proxy_link(link: str) -> dict | None:
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
         
+        # Разделяем формат host в зависимости от типа транспорта
         if host:
-            transport_config["host"] = [host] if net_type == "http" else host
+            if net_type == "http":
+                transport_config["host"] = [host]
+            elif net_type == "ws":
+                transport_config["headers"] = {"Host": host}
 
         path = params.get("path", [""])[0]
         if path:
