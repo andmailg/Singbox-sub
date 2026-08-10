@@ -27,7 +27,7 @@ jobs:
         run: |
           python Python/mobile-hy2.py
           python Python/mobile-vless-http.py
-          thon Python/mobile-trojan.py
+          python Python/mobile-trojan.py
 
       - name: Commit and push if changed
         run: |
