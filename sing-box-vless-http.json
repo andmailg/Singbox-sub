@@ -5649,6 +5649,19 @@
     {
       "type": "vless",
       "tag": "node-356",
+      "server": "ng.grizzzlyyyy.ir",
+      "server_port": 8080,
+      "uuid": "b47cac74-0fe9-4138-a8a0-0a039ae84621",
+      "transport": {
+        "type": "http",
+        "host": [
+          "varzesh3.com"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-357",
       "server": "91.99.151.199",
       "server_port": 443,
       "uuid": "2eaef053-5fd6-4def-b234-d760690355ff",
@@ -5661,7 +5674,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-357",
+      "tag": "node-358",
       "server": "185.209.21.36",
       "server_port": 40887,
       "uuid": "5c105446-0e06-48ad-e3d0-6ccc3f97a574",
@@ -5674,7 +5687,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-358",
+      "tag": "node-359",
       "server": "62.60.163.77",
       "server_port": 3333,
       "uuid": "7d283c1a-3a5b-4b2a-a924-0bd256e89726",
@@ -5687,7 +5700,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-359",
+      "tag": "node-360",
       "server": "139.162.175.65",
       "server_port": 443,
       "uuid": "0dcdcbae-0ff6-467c-addb-bff403cd689f",
@@ -5695,19 +5708,6 @@
         "type": "http",
         "host": [
           "zula.ir"
-        ]
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-360",
-      "server": "sd.mciickoir.ir",
-      "server_port": 9620,
-      "uuid": "3ed3966a-ca0e-4a46-a437-8000836fa495",
-      "transport": {
-        "type": "http",
-        "host": [
-          "uptvs.com"
         ]
       }
     },
