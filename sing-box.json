@@ -120,9 +120,7 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]"
       ],
       "default": "auto"
     },
@@ -130,9 +128,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -149,32 +145,6 @@
       "tls": {
         "enabled": true,
         "server_name": "fin1.apexvpn.space"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "key-very-far.mysynology.net",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
-      "tls": {
-        "enabled": true,
-        "server_name": "key-very-far.mysynology.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "luna.ultimagamest.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "a2d370ce-1783-485a-90f9-dba2b04dde03",
-      "tls": {
-        "enabled": true,
-        "server_name": "luna.ultimagamest.com"
       }
     }
   ],

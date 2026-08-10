@@ -35,7 +35,9 @@
         "EPODONIOS #10",
         "EPODONIOS #11",
         "EPODONIOS #12",
-        "EPODONIOS #13"
+        "EPODONIOS #13",
+        "EPODONIOS #14",
+        "EPODONIOS #15"
       ],
       "default": "auto"
     },
@@ -56,7 +58,9 @@
         "EPODONIOS #10",
         "EPODONIOS #11",
         "EPODONIOS #12",
-        "EPODONIOS #13"
+        "EPODONIOS #13",
+        "EPODONIOS #14",
+        "EPODONIOS #15"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -195,6 +199,19 @@
     {
       "type": "hysteria2",
       "tag": "EPODONIOS #10",
+      "server": "de1.apexvpn.space",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "de1.apexvpn.space"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "EPODONIOS #11",
       "server": "bel-03.node.lumixnet.com",
       "server_port": 443,
       "up_mbps": 10,
@@ -207,7 +224,20 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #11",
+      "tag": "EPODONIOS #12",
+      "server": "eh-spl1.craft-supply.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "df489ab2-2242-4952-a774-1074a3a31f41",
+      "tls": {
+        "enabled": true,
+        "server_name": "eh-spl1.craft-supply.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "EPODONIOS #13",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -220,7 +250,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #12",
+      "tag": "EPODONIOS #14",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -233,7 +263,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #13",
+      "tag": "EPODONIOS #15",
       "server": "hy2.aspidnet.xyz",
       "server_port": 443,
       "up_mbps": 10,
