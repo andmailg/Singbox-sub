@@ -50,7 +50,7 @@ jobs:
           fi
 
           # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-vless-http.json sing-box-torjan.json
+          git add sing-box-hy2.json sing-box-vless-http.json sing-box-trojan.json
           git status
           
           # 4. Коммитим и пушим только при наличии изменений
