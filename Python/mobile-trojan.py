@@ -169,20 +169,21 @@ def parse_proxy_link(link: str) -> dict | None:
     net_type = params.get("type", [""])[0].lower() or params.get("net", [""])[0].lower()
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
-        
+
+        # 'path' допустим ТОЛЬКО для ws, http и httpupgrade
         path = params.get("path", [""])[0]
-        if path:
+        if path and net_type in ["ws", "http", "httpupgrade"]:
             transport_config["path"] = path
 
-        # Разделяем обработку host под спецификацию sing-box
+        # Обработка host / headers
         if host:
             if net_type == "http":
                 transport_config["host"] = [host]
-            elif net_type == "ws":
-                # В WebSocket передаем ТОЛЬКО через headers
+            elif net_type in ["ws", "httpupgrade"]:
                 transport_config["headers"] = {"Host": host}
 
-        service_name = params.get("serviceName", [""])[0]
+        # Для gRPC используется service_name (без path!)
+        service_name = params.get("serviceName", [""])[0] or params.get("service_name", [""])[0]
         if service_name and net_type == "grpc":
             transport_config["service_name"] = service_name
 
@@ -207,31 +208,36 @@ def clean_outbound(outbound: dict) -> dict | None:
         transport = outbound.get("transport", {})
         net_type = transport.get("type")
 
-        # Если транспорт WebSocket — КАТЕГОРИЧЕСКИ удаляем ключ "host" из transport, 
-        # оставляя его только внутри headers при наличии
-        if net_type == "ws":
-            raw_host = transport.pop("host", None)
-            if raw_host and "headers" not in transport:
-                h_val = raw_host[0] if isinstance(raw_host, list) else raw_host
-                if is_valid_host(str(h_val)):
-                    transport["headers"] = {"Host": str(h_val)}
-            
-            # Проверяем валидность host из headers
-            headers = transport.get("headers", {})
-            ws_host = headers.get("Host") or headers.get("host")
-            if ws_host and not is_valid_host(str(ws_host).strip()):
-                return None
+        if net_type:
+            # 1. Если это не ws/http/httpupgrade — удаляем 'path'
+            if net_type not in ["ws", "http", "httpupgrade"]:
+                transport.pop("path", None)
 
-        elif net_type == "http":
-            hosts = transport.get("host")
-            if hosts:
-                first_host = hosts[0] if isinstance(hosts, list) else hosts
-                if not is_valid_host(str(first_host).strip()):
+            # 2. Очистка и проверка для WebSocket / HTTPUpgrade
+            if net_type in ["ws", "httpupgrade"]:
+                # Удаляем случайно попавший на верхний уровень 'host'
+                raw_host = transport.pop("host", None)
+                if raw_host and "headers" not in transport:
+                    h_val = raw_host[0] if isinstance(raw_host, list) else raw_host
+                    if is_valid_host(str(h_val)):
+                        transport["headers"] = {"Host": str(h_val)}
+
+                headers = transport.get("headers", {})
+                ws_host = headers.get("Host") or headers.get("host")
+                if ws_host and not is_valid_host(str(ws_host).strip()):
                     return None
 
-        # Очищаем transport=tcp
-        if net_type == "tcp":
-            outbound.pop("transport", None)
+            # 3. Очистка и проверка для HTTP
+            elif net_type == "http":
+                hosts = transport.get("host")
+                if hosts:
+                    first_host = hosts[0] if isinstance(hosts, list) else hosts
+                    if not is_valid_host(str(first_host).strip()):
+                        return None
+
+            # 4. Очистка для TCP (если случайно создался)
+            elif net_type == "tcp":
+                outbound.pop("transport", None)
 
     return outbound
 
