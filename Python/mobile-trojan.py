@@ -61,6 +61,43 @@ def is_valid_server(server: str) -> bool:
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
 
+def has_workers_dev(outbound: dict) -> bool:
+    """Проверяет, содержит ли нода 'workers.dev' в server, server_name или host."""
+    target = "workers.dev"
+
+    # 1. Проверка server
+    server = outbound.get("server", "").lower()
+    if target in server:
+        return True
+
+    # 2. Проверка tls.server_name
+    tls = outbound.get("tls", {})
+    if isinstance(tls, dict):
+        server_name = tls.get("server_name", "").lower()
+        if target in server_name:
+            return True
+
+    # 3. Проверка host в transport
+    transport = outbound.get("transport", {})
+    if isinstance(transport, dict):
+        # Проверка headers (ws, httpupgrade и др.)
+        headers = transport.get("headers", {})
+        if isinstance(headers, dict):
+            for k, v in headers.items():
+                if k.lower() == "host" and target in str(v).lower():
+                    return True
+
+        # Проверка списка host (http транспорт)
+        hosts = transport.get("host", [])
+        if isinstance(hosts, list):
+            if any(target in str(h).lower() for h in hosts):
+                return True
+        elif isinstance(hosts, str) and target in hosts.lower():
+            return True
+
+    return False
+
+
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
     if not link or link.startswith("#"):
@@ -143,7 +180,6 @@ def parse_proxy_link(link: str) -> dict | None:
         outbound["tls"] = tls_config
 
     # 5. Настройка транспорта (ws, http, grpc и т.д.)
-    # ПРОВЕРКА XHTTP: считываем все возможные ключи транспорта
     net_type = (
         params.get("type", [""])[0].lower() 
         or params.get("net", [""])[0].lower()
@@ -183,6 +219,10 @@ def parse_proxy_link(link: str) -> dict | None:
 def clean_outbound(outbound: dict) -> dict | None:
     """Очистка и валидация Trojan ноды под спецификацию sing-box."""
     if not outbound:
+        return None
+
+    # --- ФИЛЬТР: Отбрасываем ноды, содержащие workers.dev ---
+    if has_workers_dev(outbound):
         return None
 
     # --- ФИЛЬТР: Отбрасываем ноды с insecure = True ---
@@ -302,7 +342,6 @@ def main():
                 if not line or line.startswith("#"):
                     continue
                 try:
-                    # Извлекаем чисто IP/CIDR до пробелов/табов
                     cidr_str = line.split()[0]
                     net_obj = ipaddress.ip_network(cidr_str, strict=False)
                     raw_blocked_networks.append(net_obj)
