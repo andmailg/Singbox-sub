@@ -167,6 +167,11 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # 5. Настройка транспорта (ws, http, grpc и т.д.)
     net_type = params.get("type", [""])[0].lower() or params.get("net", [""])[0].lower()
+    
+    # Если транспорт не поддерживается sing-box (например, xhttp), пропускаем ноду
+    if net_type and net_type not in ["tcp", "ws", "http", "grpc", "httpupgrade", "quic"]:
+        return None
+
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
 
@@ -182,7 +187,7 @@ def parse_proxy_link(link: str) -> dict | None:
             elif net_type in ["ws", "httpupgrade"]:
                 transport_config["headers"] = {"Host": host}
 
-        # Для gRPC используется service_name (без path!)
+        # Для gRPC используется service_name
         service_name = params.get("serviceName", [""])[0] or params.get("service_name", [""])[0]
         if service_name and net_type == "grpc":
             transport_config["service_name"] = service_name
@@ -208,6 +213,10 @@ def clean_outbound(outbound: dict) -> dict | None:
         transport = outbound.get("transport", {})
         net_type = transport.get("type")
 
+        # Отбраковываем неизвестные транспорты (например, xhttp)
+        if net_type and net_type not in ["ws", "http", "grpc", "httpupgrade", "quic"]:
+            return None
+
         if net_type:
             # 1. Если это не ws/http/httpupgrade — удаляем 'path'
             if net_type not in ["ws", "http", "httpupgrade"]:
@@ -215,7 +224,6 @@ def clean_outbound(outbound: dict) -> dict | None:
 
             # 2. Очистка и проверка для WebSocket / HTTPUpgrade
             if net_type in ["ws", "httpupgrade"]:
-                # Удаляем случайно попавший на верхний уровень 'host'
                 raw_host = transport.pop("host", None)
                 if raw_host and "headers" not in transport:
                     h_val = raw_host[0] if isinstance(raw_host, list) else raw_host
@@ -234,10 +242,6 @@ def clean_outbound(outbound: dict) -> dict | None:
                     first_host = hosts[0] if isinstance(hosts, list) else hosts
                     if not is_valid_host(str(first_host).strip()):
                         return None
-
-            # 4. Очистка для TCP (если случайно создался)
-            elif net_type == "tcp":
-                outbound.pop("transport", None)
 
     return outbound
 
