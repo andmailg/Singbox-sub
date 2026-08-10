@@ -119,7 +119,8 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28"
+        "node-28",
+        "node-29"
       ],
       "default": "auto"
     },
@@ -154,7 +155,8 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28"
+        "node-28",
+        "node-29"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -202,32 +204,19 @@
     {
       "type": "hysteria2",
       "tag": "node-4",
-      "server": "hopp-legend-se.roxa.org",
+      "server": "grape-zet-ro-turbo.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
       "tls": {
         "enabled": true,
-        "server_name": "hopp-legend-se.roxa.org"
+        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-5",
-      "server": "de.jey.cc.cd",
-      "server_port": 37003,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "TelegramVPNjey",
-      "tls": {
-        "enabled": true,
-        "server_name": "de.jey.cc.cd"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-6",
       "server": "gorbachev-th.kvnfreetest.uk",
       "server_port": 55443,
       "up_mbps": 10,
@@ -240,7 +229,33 @@
     },
     {
       "type": "hysteria2",
+      "tag": "node-6",
+      "server": "de.jey.cc.cd",
+      "server_port": 37003,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "TelegramVPNjey",
+      "tls": {
+        "enabled": true,
+        "server_name": "de.jey.cc.cd"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "node-7",
+      "server": "j47lq.pleiades.codes",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "tls": {
+        "enabled": true,
+        "server_name": "j47lq.pleiades.codes"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-8",
       "server": "iq5ny.pleiades.codes",
       "server_port": 8443,
       "up_mbps": 10,
@@ -253,7 +268,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-8",
+      "tag": "node-9",
       "server": "nl2.unlockvpn.online",
       "server_port": 10808,
       "up_mbps": 10,
@@ -266,7 +281,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-9",
+      "tag": "node-10",
       "server": "nl7.unlockvpn.online",
       "server_port": 10808,
       "up_mbps": 10,
@@ -279,7 +294,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-10",
+      "tag": "node-11",
       "server": "nl9.unlockvpn.online",
       "server_port": 10808,
       "up_mbps": 10,
@@ -292,7 +307,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-11",
+      "tag": "node-12",
       "server": "mercedes-grape.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -305,7 +320,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-12",
+      "tag": "node-13",
       "server": "grape-power-pl.ddnsguru.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -314,19 +329,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-13",
-      "server": "grape-zet-ro-turbo.bumbleshrimp.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
       }
     },
     {
@@ -384,6 +386,19 @@
     {
       "type": "hysteria2",
       "tag": "node-18",
+      "server": "hopp-legend-se.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-legend-se.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-19",
       "server": "vhd.nth.gelzaro.ir",
       "server_port": 8083,
       "up_mbps": 10,
@@ -396,7 +411,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-19",
+      "tag": "node-20",
       "server": "assets.gateway-stream.com",
       "server_port": 52021,
       "up_mbps": 10,
@@ -409,7 +424,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-20",
+      "tag": "node-21",
       "server": "pro2.riziro.ir",
       "server_port": 44100,
       "up_mbps": 10,
@@ -422,7 +437,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-21",
+      "tag": "node-22",
       "server": "hy2.123266.xyz",
       "server_port": 33333,
       "up_mbps": 10,
@@ -435,7 +450,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-22",
+      "tag": "node-23",
       "server": "hy2.561891.xyz",
       "server_port": 44356,
       "up_mbps": 10,
@@ -444,19 +459,6 @@
       "tls": {
         "enabled": true,
         "server_name": "hy2.561891.xyz"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-23",
-      "server": "freedom.chenlan.top",
-      "server_port": 12765,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "STYyftThFn",
-      "tls": {
-        "enabled": true,
-        "server_name": "freedom.chenlan.top"
       }
     },
     {
@@ -475,6 +477,19 @@
     {
       "type": "hysteria2",
       "tag": "node-25",
+      "server": "freedom.chenlan.top",
+      "server_port": 12765,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "STYyftThFn",
+      "tls": {
+        "enabled": true,
+        "server_name": "freedom.chenlan.top"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-26",
       "server": "www.bing.com",
       "server_port": 11000,
       "up_mbps": 10,
@@ -487,7 +502,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-26",
+      "tag": "node-27",
       "server": "es1.xiaoliyu.cyou",
       "server_port": 4433,
       "up_mbps": 10,
@@ -500,7 +515,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-27",
+      "tag": "node-28",
       "server": "xjp3.mangshe.xyz",
       "server_port": 2060,
       "up_mbps": 10,
@@ -513,7 +528,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-28",
+      "tag": "node-29",
       "server": "azer-tea-grape.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
