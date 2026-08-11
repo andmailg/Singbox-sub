@@ -121,7 +121,28 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "node-1"
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18",
+        "node-19",
+        "node-20",
+        "node-21",
+        "node-22"
       ],
       "default": "auto"
     },
@@ -129,7 +150,28 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "node-1"
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18",
+        "node-19",
+        "node-20",
+        "node-21",
+        "node-22"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -138,6 +180,244 @@
     {
       "type": "trojan",
       "tag": "node-1",
+      "server": "179.237.74.104",
+      "server_port": 361,
+      "password": "---------BanV2ray------------",
+      "tls": {
+        "enabled": true,
+        "server_name": "world.yahoo.com"
+      },
+      "transport": {
+        "type": "grpc"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-2",
+      "server": "167.150.100.133",
+      "server_port": 450,
+      "password": "0_Oms89nH82l_Ki813_Nxmw81_Rbt_Jq190Kl_m",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-power-sg.roxa.org"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-3",
+      "server": "193.233.133.152",
+      "server_port": 19008,
+      "password": "6IlO2S33vN",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.amazon.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-4",
+      "server": "65.109.208.236",
+      "server_port": 55109,
+      "password": "6kcro2JWRvYBom13BJWnb89RYTrQtG70KBhE3arb9T4="
+    },
+    {
+      "type": "trojan",
+      "tag": "node-5",
+      "server": "65.109.215.50",
+      "server_port": 54673,
+      "password": "Ldbgt4IUYv0S+5cFrG4vcWEbvdf8RgPGmoIXhnnOEh4="
+    },
+    {
+      "type": "trojan",
+      "tag": "node-6",
+      "server": "151.101.64.172",
+      "server_port": 80,
+      "password": "MITIVPN",
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/usa---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "s4-mitivpn--mitivpn------mitivpn.global.ssl.fastly.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-7",
+      "server": "37.156.46.29",
+      "server_port": 2053,
+      "password": "Masir_Sefid",
+      "tls": {
+        "enabled": true,
+        "server_name": "store.steampowered.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-8",
+      "server": "83.228.225.220",
+      "server_port": 1040,
+      "password": "Masir_Sefid",
+      "tls": {
+        "enabled": true,
+        "server_name": "store.steampowered.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-9",
+      "server": "151.101.130.172",
+      "server_port": 80,
+      "password": "MiTiVPN",
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/NL---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "s4-mitivpn--mitivpn------mitivpn.global.ssl.fastly.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-10",
+      "server": "151.101.66.172",
+      "server_port": 80,
+      "password": "MiTiVPN",
+      "transport": {
+        "type": "ws",
+        "path": "/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/de---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN/---@MiTiVPN---@MiTiVPN",
+        "headers": {
+          "Host": "s1-mitivpn--mitivpn--mitivpn-mitivpn---mitivpn.global.ssl.fastly.net"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-11",
+      "server": "66.33.22.242",
+      "server_port": 30797,
+      "password": "TgTrWOUNeU",
+      "tls": {
+        "enabled": true,
+        "server_name": "is1-ssl.mzstatic.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-12",
+      "server": "38.79.154.34",
+      "server_port": 1818,
+      "password": "ewpvezqjycgfeebg",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.cloudflare.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-13",
+      "server": "95.163.176.238",
+      "server_port": 27972,
+      "password": "glsYVTidVX",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.amazon.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-14",
+      "server": "66.33.22.245",
+      "server_port": 29306,
+      "password": "jUh6yaJKdZ",
+      "tls": {
+        "enabled": true,
+        "server_name": "is1-ssl.mzstatic.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-15",
+      "server": "138.124.90.40",
+      "server_port": 59172,
+      "password": "qv9uJwZgsM",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.nvidia.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-16",
+      "server": "18.220.25.23",
+      "server_port": 22222,
+      "password": "telegram-id-directvpn",
+      "tls": {
+        "enabled": true,
+        "server_name": "trojan.burgerip.co.uk"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-17",
+      "server": "3.76.5.71",
+      "server_port": 22222,
+      "password": "telegram-id-directvpn",
+      "tls": {
+        "enabled": true,
+        "server_name": "trojan.burgerip.co.uk"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-18",
+      "server": "179.237.75.190",
+      "server_port": 41464,
+      "password": "uRkZYGid1r",
+      "tls": {
+        "enabled": true,
+        "server_name": "rd.autos.yahoo.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-19",
+      "server": "91.107.157.137",
+      "server_port": 35558,
+      "password": "wE0CA+qFy6HpXEYDckEg1SlhqL37BPtJaCPotkzYjE0="
+    },
+    {
+      "type": "trojan",
+      "tag": "node-20",
+      "server": "2.144.21.112",
+      "server_port": 40443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ignitelimit.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.ignitelimit.com"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-21",
+      "server": "18.163.180.201",
+      "server_port": 6357,
+      "password": "d1960ba9f0f6353353994fa844cf817b",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.nintendogames.net"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-22",
       "server": "2.144.21.150",
       "server_port": 2000,
       "password": "humanity",
