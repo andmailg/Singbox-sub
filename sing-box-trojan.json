@@ -121,8 +121,7 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "node-1",
-        "node-2"
+        "node-1"
       ],
       "default": "auto"
     },
@@ -130,8 +129,7 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "node-1",
-        "node-2"
+        "node-1"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -140,30 +138,16 @@
     {
       "type": "trojan",
       "tag": "node-1",
-      "server": "185.114.72.31",
-      "server_port": 2053,
+      "server": "2.144.21.150",
+      "server_port": 2000,
       "password": "humanity",
       "tls": {
         "enabled": true,
-        "server_name": "www.calmlunch.com"
+        "server_name": "www.ignitelimit.com"
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment",
-        "headers": {
-          "Host": "www.calmlunch.com"
-        }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-2",
-      "server": "217.217.222.230",
-      "server_port": 20004,
-      "password": "ba07a8af-5544-48ac-ab62-3b6c00a44fa6",
-      "tls": {
-        "enabled": true,
-        "server_name": "hk.catxstar.com"
+        "path": "/assignment"
       }
     }
   ],
