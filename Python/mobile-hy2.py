@@ -70,9 +70,9 @@ def parse_proxy_link(link: str) -> dict | None:
         return None
 
     # 2. Фильтрация по портам (исключаем 443)
-    port = parsed.port or 443
-    if port == 443:
-        return None
+#    port = parsed.port or 443
+#    if port == 443:
+#        return None
 
     # 3. Извлечение пароля
     netloc = parsed.netloc
