@@ -120,7 +120,10 @@
       "tag": "proxy-out",
       "outbounds": [
         "auto",
-        "🇫🇮 Finland, Helsinki | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇷 France, Paris | [BL]",
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -128,7 +131,10 @@
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇫🇮 Finland, Helsinki | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL]",
+        "🇫🇷 France, Paris | [BL]",
+        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -145,6 +151,45 @@
       "tls": {
         "enabled": true,
         "server_name": "fin1.apexvpn.space"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷 France, Paris | [BL]",
+      "server": "key-very-far.mysynology.net",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
+      "tls": {
+        "enabled": true,
+        "server_name": "key-very-far.mysynology.net"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
+      "server": "grape-zet-turbo-nl.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-turbo-nl.yyuyy.com"
       }
     }
   ],
