@@ -119,7 +119,11 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28"
+        "node-28",
+        "node-29",
+        "node-30",
+        "node-31",
+        "node-32"
       ],
       "default": "auto"
     },
@@ -154,7 +158,11 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28"
+        "node-28",
+        "node-29",
+        "node-30",
+        "node-31",
+        "node-32"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -450,7 +458,7 @@
       "type": "hysteria2",
       "tag": "node-23",
       "server": "assets.gateway-stream.com",
-      "server_port": 52050,
+      "server_port": 52021,
       "up_mbps": 10,
       "down_mbps": 10,
       "password": "k1dom6dyqelryllv",
@@ -522,6 +530,58 @@
       "tls": {
         "enabled": true,
         "server_name": "azer-tea-grape.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-29",
+      "server": "key-very-far.mysynology.net",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
+      "tls": {
+        "enabled": true,
+        "server_name": "key-very-far.mysynology.net"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-30",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-31",
+      "server": "srvhy1.ezcon24.online",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "130e6aab-9eba-441e-9021-22cbccc72832",
+      "tls": {
+        "enabled": true,
+        "server_name": "srvhy1.ezcon24.online"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-32",
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8080,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
