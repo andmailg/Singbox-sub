@@ -99,7 +99,8 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-8"
+        "node-8",
+        "node-9"
       ],
       "default": "auto"
     },
@@ -114,7 +115,8 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-8"
+        "node-8",
+        "node-9"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -123,6 +125,19 @@
     {
       "type": "hysteria2",
       "tag": "node-1",
+      "server": "fin1.apexvpn.space",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
+      "tls": {
+        "enabled": true,
+        "server_name": "fin1.apexvpn.space"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-2",
       "server": "host-vds2-fr.kvncococ.org",
       "server_port": 55443,
       "up_mbps": 10,
@@ -135,7 +150,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-2",
+      "tag": "node-3",
       "server": "key-very-far.mysynology.net",
       "server_port": 8443,
       "up_mbps": 10,
@@ -148,7 +163,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-3",
+      "tag": "node-4",
       "server": "grape-sos-de.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -161,7 +176,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-4",
+      "tag": "node-5",
       "server": "grape-zet-ro-turbo.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -174,7 +189,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-5",
+      "tag": "node-6",
       "server": "srvhy1.ezcon24.online",
       "server_port": 8443,
       "up_mbps": 10,
@@ -187,7 +202,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-6",
+      "tag": "node-7",
       "server": "hopp-us.yyuyy.com",
       "server_port": 8080,
       "up_mbps": 10,
@@ -200,7 +215,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-7",
+      "tag": "node-8",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
@@ -213,7 +228,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-8",
+      "tag": "node-9",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
