@@ -122,8 +122,9 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
+        "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇺🇸 United States, Westbury | [BL]"
       ],
@@ -135,8 +136,9 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
+        "🇫🇷 France, Paris | [BL] #1",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
         "🇺🇸 United States, Westbury | [BL]"
       ],
@@ -160,6 +162,19 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇷 France, Paris | [BL]",
+      "server": "iq5ny.pleiades.codes",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "tls": {
+        "enabled": true,
+        "server_name": "iq5ny.pleiades.codes"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇫🇷 France, Paris | [BL] #1",
       "server": "key-very-far.mysynology.net",
       "server_port": 8443,
       "up_mbps": 10,
@@ -185,15 +200,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-      "server": "srvhy1.ezcon24.online",
-      "server_port": 8443,
+      "tag": "🇵🇱 Poland, Warsaw | [BL]",
+      "server": "pl1.apexvpn.space",
+      "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "130e6aab-9eba-441e-9021-22cbccc72832",
+      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
       "tls": {
         "enabled": true,
-        "server_name": "srvhy1.ezcon24.online"
+        "server_name": "pl1.apexvpn.space"
       }
     },
     {

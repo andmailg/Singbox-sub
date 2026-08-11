@@ -36,8 +36,7 @@
         "EPODONIOS #11",
         "EPODONIOS #12",
         "EPODONIOS #13",
-        "EPODONIOS #14",
-        "EPODONIOS #15"
+        "EPODONIOS #14"
       ],
       "default": "auto"
     },
@@ -59,8 +58,7 @@
         "EPODONIOS #11",
         "EPODONIOS #12",
         "EPODONIOS #13",
-        "EPODONIOS #14",
-        "EPODONIOS #15"
+        "EPODONIOS #14"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -212,19 +210,6 @@
     {
       "type": "hysteria2",
       "tag": "EPODONIOS #11",
-      "server": "bel-03.node.lumixnet.com",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "d1224950-ffab-4b9a-8696-431b40a6cfbd",
-      "tls": {
-        "enabled": true,
-        "server_name": "bel-03.node.lumixnet.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "EPODONIOS #12",
       "server": "eh-spl1.craft-supply.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -237,7 +222,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #13",
+      "tag": "EPODONIOS #12",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -250,7 +235,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #14",
+      "tag": "EPODONIOS #13",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -263,7 +248,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "EPODONIOS #15",
+      "tag": "EPODONIOS #14",
       "server": "hy2.aspidnet.xyz",
       "server_port": 443,
       "up_mbps": 10,
