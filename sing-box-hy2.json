@@ -696,19 +696,6 @@
     {
       "type": "hysteria2",
       "tag": "node-38",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-39",
       "server": "ro.h2corp.org",
       "server_port": 443,
       "up_mbps": 10,
@@ -721,7 +708,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-40",
+      "tag": "node-39",
       "server": "jpaw5.awo-link.com",
       "server_port": 14101,
       "up_mbps": 10,
@@ -734,7 +721,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-41",
+      "tag": "node-40",
       "server": "freedom.chenlan.top",
       "server_port": 12765,
       "up_mbps": 10,
@@ -743,6 +730,19 @@
       "tls": {
         "enabled": true,
         "server_name": "freedom.chenlan.top"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-41",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
       }
     },
     {
