@@ -123,7 +123,9 @@
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States, Westbury | [BL]"
       ],
       "default": "auto"
     },
@@ -134,7 +136,9 @@
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇫🇷 France, Paris | [BL]",
         "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States, Westbury | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -181,6 +185,19 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+      "server": "srvhy1.ezcon24.online",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "130e6aab-9eba-441e-9021-22cbccc72832",
+      "tls": {
+        "enabled": true,
+        "server_name": "srvhy1.ezcon24.online"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -190,6 +207,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, Westbury | [BL]",
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
