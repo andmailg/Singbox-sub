@@ -36,7 +36,9 @@
         "EPODONIOS #11",
         "EPODONIOS #12",
         "EPODONIOS #13",
-        "EPODONIOS #14"
+        "EPODONIOS #14",
+        "EPODONIOS #15",
+        "EPODONIOS #16"
       ],
       "default": "auto"
     },
@@ -58,7 +60,9 @@
         "EPODONIOS #11",
         "EPODONIOS #12",
         "EPODONIOS #13",
-        "EPODONIOS #14"
+        "EPODONIOS #14",
+        "EPODONIOS #15",
+        "EPODONIOS #16"
       ],
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -249,6 +253,32 @@
     {
       "type": "hysteria2",
       "tag": "EPODONIOS #14",
+      "server": "ee2.sferavpn.pro",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "ee2.sferavpn.pro"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "EPODONIOS #15",
+      "server": "ru1.sferavpn.pro",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "ru1.sferavpn.pro"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "EPODONIOS #16",
       "server": "hy2.aspidnet.xyz",
       "server_port": 443,
       "up_mbps": 10,
