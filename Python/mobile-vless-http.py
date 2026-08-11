@@ -127,6 +127,11 @@ def parse_proxy_link(link: str) -> dict | None:
         print(f"Skipping VLESS node: invalid or missing 'host' domain ('{host[:30]}...')")
         return None
 
+    # --- ФИЛЬТР: Удаление нод с google.com в host ---
+    if "google.com" in host.lower():
+        print(f"Skipping VLESS node: 'host' contains google.com ('{host}')")
+        return None
+
     port = parsed.port or 80
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-HTTP-Node"
 
