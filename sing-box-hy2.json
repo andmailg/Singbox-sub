@@ -254,19 +254,6 @@
     {
       "type": "hysteria2",
       "tag": "node-4",
-      "server": "grape-zet-ro-turbo.bumbleshrimp.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-5",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 10,
@@ -275,6 +262,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-turbo-fr.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-5",
+      "server": "grape-zet-ro-turbo.bumbleshrimp.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "Jz40_mIJ934vK0_k9D3jz92_Vx48q_GHa1_sz0",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-zet-ro-turbo.bumbleshrimp.com"
       }
     },
     {
@@ -683,14 +683,14 @@
     {
       "type": "hysteria2",
       "tag": "node-37",
-      "server": "ro.h2corp.org",
-      "server_port": 443,
+      "server": "freedom.chenlan.top",
+      "server_port": 12765,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
+      "password": "STYyftThFn",
       "tls": {
         "enabled": true,
-        "server_name": "ro.h2corp.org"
+        "server_name": "freedom.chenlan.top"
       }
     },
     {
@@ -709,14 +709,14 @@
     {
       "type": "hysteria2",
       "tag": "node-39",
-      "server": "freedom.chenlan.top",
-      "server_port": 12765,
+      "server": "ro.h2corp.org",
+      "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "STYyftThFn",
+      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
       "tls": {
         "enabled": true,
-        "server_name": "freedom.chenlan.top"
+        "server_name": "ro.h2corp.org"
       }
     },
     {
