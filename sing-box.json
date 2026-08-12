@@ -121,12 +121,7 @@
       "outbounds": [
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, Westbury | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -135,12 +130,7 @@
       "tag": "auto",
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇷 France, Paris | [BL]",
-        "🇫🇷 France, Paris | [BL] #1",
-        "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, Westbury | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -149,66 +139,14 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "fin1.apexvpn.space",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "fin1.apexvpn.space"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL]",
-      "server": "iq5ny.pleiades.codes",
+      "server": "grape-power-pl.ddnsguru.com",
       "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "95e8532b-cc69-42d4-9553-e3c23292b15b",
+      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
       "tls": {
         "enabled": true,
-        "server_name": "iq5ny.pleiades.codes"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇷 France, Paris | [BL] #1",
-      "server": "key-very-far.mysynology.net",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Kaba_J9EW524x_Nx9gh5_Mzqkl9r_Se260",
-      "tls": {
-        "enabled": true,
-        "server_name": "key-very-far.mysynology.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Düsseldorf (Stadtbezirk IX) | [BL]",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "pl1.apexvpn.space",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "c175d956-d1f4-4c53-b2b1-8493bf8529c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "pl1.apexvpn.space"
+        "server_name": "grape-power-pl.ddnsguru.com"
       }
     },
     {
@@ -222,19 +160,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇺🇸 United States, Westbury | [BL]",
-      "server": "hopp-us.yyuyy.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
-      "tls": {
-        "enabled": true,
-        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
