@@ -121,8 +121,7 @@
       "outbounds": [
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
         "🇺🇸 United States, New York | [BL]"
       ],
       "default": "auto"
@@ -132,8 +131,7 @@
       "tag": "auto",
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇫🇮 Finland, Helsinki | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
         "🇺🇸 United States, New York | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
@@ -143,19 +141,6 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "grape-power-pl.ddnsguru.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "Apt1923_N9x234gn_Nal5Nx3j_s",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-pl.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
       "server": "fin1.apexvpn.space",
       "server_port": 443,
       "up_mbps": 10,
@@ -168,15 +153,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
-      "server": "grape-zet-turbo-nl.yyuyy.com",
+      "tag": "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
+      "server": "srvhy1.ezcon24.online",
       "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "password": "130e6aab-9eba-441e-9021-22cbccc72832",
       "tls": {
         "enabled": true,
-        "server_name": "grape-zet-turbo-nl.yyuyy.com"
+        "server_name": "srvhy1.ezcon24.online"
       }
     },
     {
