@@ -121,7 +121,9 @@
       "outbounds": [
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States, New York | [BL]"
       ],
       "default": "auto"
     },
@@ -130,7 +132,9 @@
       "tag": "auto",
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇫🇮 Finland, Helsinki | [BL] #1",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇺🇸 United States, New York | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -151,6 +155,19 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇫🇮 Finland, Helsinki | [BL] #1",
+      "server": "fin1.apexvpn.space",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "ee159b52-fc4e-4b42-a6bf-308f75118d80",
+      "tls": {
+        "enabled": true,
+        "server_name": "fin1.apexvpn.space"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -160,6 +177,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, New York | [BL]",
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
