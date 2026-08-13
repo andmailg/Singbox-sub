@@ -368,9 +368,9 @@ def main():
             except Exception:
                 pass
 
-        except ValueError:
-            # Буквенные домены (cloudfront.net) безопасно пропускают фильтр IP
-            pass
+            except ValueError:
+                # Буквенные домены (cloudfront.net) безопасно пропускают фильтр IP
+                pass
 
         filtered_nodes.append(outbound)
 
