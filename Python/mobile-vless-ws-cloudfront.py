@@ -368,7 +368,7 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://gstatic.com",
+        "url": "https://connectivitycheck.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50,
     }
@@ -440,31 +440,6 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
-        "endpoints": [
-            {
-                "type": "wireguard",
-                "tag": "warp-ep",
-                "detour": "proxy-out",
-                "address": [
-                    "172.28.0.2/32",
-                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
-                ],
-                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
-                "mtu": 1280,
-                "peers": [
-                    {
-                        "address": "162.159.192.1",
-                        "port": 2408,
-                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "allowed_ips": [
-                            "0.0.0.0/0",
-                            "::/0"
-                        ],
-                        "reserved": [0, 0, 0]
-                    }
-                ]
-            }
-        ],
         "inbounds": [
             {
                 "type": "tun",
