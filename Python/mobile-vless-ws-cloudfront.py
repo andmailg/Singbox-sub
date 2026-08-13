@@ -353,20 +353,20 @@ def main():
 
         filtered_nodes.append(outbound)
 
-            # 2. Использование GeoLite2: Исключение серверов из РФ
-            if reader:
-                try:
-                    geo_data = reader.get(node_ip_str)
-                    if geo_data and "country" in geo_data:
-                        country_iso = geo_data["country"].get("iso_code", "")
-                        if country_iso == "RU":
-                            print(
-                                f"Skipping node '{outbound.get('tag')}': "
-                                f"IP {node_ip_str} is located in Russia (GeoIP)."
-                            )
-                            continue
-                except Exception:
-                    pass
+        # 2. Использование GeoLite2: Исключение серверов из РФ
+        if reader:
+            try:
+                geo_data = reader.get(node_ip_str)
+                if geo_data and "country" in geo_data:
+                    country_iso = geo_data["country"].get("iso_code", "")
+                    if country_iso == "RU":
+                        print(
+                            f"Skipping node '{outbound.get('tag')}': "
+                            f"IP {node_ip_str} is located in Russia (GeoIP)."
+                        )
+                        continue
+            except Exception:
+                pass
 
         except ValueError:
             # Буквенные домены (cloudfront.net) безопасно пропускают фильтр IP
