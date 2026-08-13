@@ -141,8 +141,7 @@
         "node-18",
         "node-19",
         "node-20",
-        "node-21",
-        "node-22"
+        "node-21"
       ],
       "default": "auto"
     },
@@ -170,8 +169,7 @@
         "node-18",
         "node-19",
         "node-20",
-        "node-21",
-        "node-22"
+        "node-21"
       ],
       "url": "https://gstatic.com",
       "interval": "10m",
@@ -227,7 +225,7 @@
     {
       "type": "vless",
       "tag": "node-4",
-      "server": "18.238.109.113",
+      "server": "18.244.214.108",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -241,7 +239,7 @@
     {
       "type": "vless",
       "tag": "node-5",
-      "server": "18.238.109.17",
+      "server": "18.238.109.113",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -255,7 +253,7 @@
     {
       "type": "vless",
       "tag": "node-6",
-      "server": "18.238.109.26",
+      "server": "18.238.109.17",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -269,7 +267,7 @@
     {
       "type": "vless",
       "tag": "node-7",
-      "server": "3.170.185.91",
+      "server": "18.238.109.26",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -283,7 +281,7 @@
     {
       "type": "vless",
       "tag": "node-8",
-      "server": "18.244.214.27",
+      "server": "3.170.185.91",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -297,7 +295,7 @@
     {
       "type": "vless",
       "tag": "node-9",
-      "server": "18.244.214.28",
+      "server": "18.244.214.27",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -311,7 +309,7 @@
     {
       "type": "vless",
       "tag": "node-10",
-      "server": "18.238.109.28",
+      "server": "18.244.214.28",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -325,7 +323,7 @@
     {
       "type": "vless",
       "tag": "node-11",
-      "server": "18.244.214.108",
+      "server": "18.238.109.28",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -461,25 +459,6 @@
     {
       "type": "vless",
       "tag": "node-20",
-      "server": "18.238.109.17",
-      "server_port": 443,
-      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "d1yxsk0zprgivr.cloudfront.net"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "d1yxsk0zprgivr.cloudfront.net",
-        "insecure": false
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-21",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -493,7 +472,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-22",
+      "tag": "node-21",
       "server": "3.162.103.97",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
