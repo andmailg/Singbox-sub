@@ -53,7 +53,7 @@ def is_valid_server(server: str) -> bool:
     """Проверяет корректность поля server (может быть IP или домен вроде cloudfront.net)."""
     if not server or "@" in server:
         return False
-    clean_server = server.strip().strip("[]").split(":")[0]
+    clean_server = server.strip().strip("[]").split(":")[0].strip()
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
 
@@ -80,12 +80,12 @@ def parse_proxy_link(link: str) -> dict | None:
 
     params = urllib.parse.parse_qs(parsed.query)
 
-    # 1. Проверка типа сети (берем первый элемент из списка)
+    # 1. Проверка типа сети
     net_type = params.get("type", [""])[0].lower()
     if net_type != "ws":
         return None
 
-    # 2. Извлечение параметров host и path для ws (также через)
+    # 2. Извлечение параметров host и path для ws
     host = params.get("host", [""])[0].strip()
     path = params.get("path", ["/"])[0].strip()
 
@@ -99,7 +99,7 @@ def parse_proxy_link(link: str) -> dict | None:
     # 4. Извлечение UUID (user)
     uuid_str = parsed.username
     if not uuid_str and "@" in parsed.netloc:
-        uuid_str = parsed.netloc.split("@")[0]  # Здесь тоже нужен первый элемент строки
+        uuid_str = parsed.netloc.split("@")[0]
     if not uuid_str:
         print("Skipping VLESS node: missing UUID")
         return None
@@ -118,19 +118,14 @@ def parse_proxy_link(link: str) -> dict | None:
         "server": hostname,
         "server_port": port,
         "uuid": uuid_str,
-        "transport": {
-            "type": "ws", 
-            "path": path
-        },
+        "transport": {"type": "ws", "path": path},
     }
 
     if host:
-        # Для sing-box 1.10+ хост передается как HTTP-заголовок Host в секции headers
-        outbound["transport"]["headers"] = {
-            "Host": host
-        }
+        # Для sing-box 1.10+ передается внутри объекта headers
+        outbound["transport"]["headers"] = {"Host": host}
 
-    # 6. Динамическая настройка шифрования (исправлено извлечение)
+    # 6. Динамическая настройка шифрования
     security = params.get("security", ["none"])[0].lower()
     if security in ["tls", "reality"]:
         outbound["tls"] = {
@@ -138,7 +133,6 @@ def parse_proxy_link(link: str) -> dict | None:
             "server_name": host if host else hostname,
             "insecure": False,
         }
-        # Исправление для Reality: извлекаем строки, а не списки
         if security == "reality":
             pbk = params.get("pbk", [""])[0].strip()
             sid = params.get("sid", [""])[0].strip()
@@ -276,7 +270,8 @@ def main():
         blocked_networks = []
         print(f"Error loading RKN blacklist: {e}")
 
-    seen_servers = set()
+    # --- ШАГ 1: ПАРСИНГ И ДЕДУПЛИКАЦИЯ С УЧЕТОМ UUID ---
+    seen_nodes_fingerprints = set()
     pre_parsed_nodes = []
 
     print(f"Parsing and deduplicating {len(links)} links...")
@@ -290,13 +285,18 @@ def main():
             if "ru" in node_tag or "russia" in node_tag:
                 continue
 
-            server_address = str(outbound.get("server", "")).lower()
-            if server_address in seen_servers:
+            # ИЗМЕНЕНО: уникальность проверяется по комбинации server + port + uuid + path
+            server_val = str(outbound.get("server", "")).lower()
+            port_val = str(outbound.get("server_port", "80"))
+            uuid_val = str(outbound.get("uuid", "")).lower()
+            path_val = str(outbound.get("transport", {}).get("path", "/")).lower()
+            fingerprint = f"{server_val}:{port_val}:{uuid_val}:{path_val}"
+            if fingerprint in seen_nodes_fingerprints:
                 continue
-            seen_servers.add(server_address)
+            seen_nodes_fingerprints.add(fingerprint)
             pre_parsed_nodes.append(outbound)
 
-    # --- Инициализация ридера GeoIP для фильтрации ---
+    # --- Инициализация ридера GeoIP ---
     reader = None
     if maxminddb and os.path.exists(mmdb_path):
         try:
@@ -310,21 +310,14 @@ def main():
     for outbound in pre_parsed_nodes:
         node_server = outbound.get("server", "").strip("[]")
         node_ip_str = node_server
-
-        # Если в server указан домен (например, server-18-239-134-69.bkk50.r.cloudfront.net)
         if not is_valid_ip(node_server):
             try:
-                # Превращаем домен в реальный IP-адрес
                 node_ip_str = socket.gethostbyname(node_server)
             except socket.gaierror:
-                print(f"⚠️ Warning: Could not resolve domain '{node_server}'. Skipping verification.")
-                # Если домен не резолвится (умер), всё равно оставляем ноду или можно сделать continue, чтобы удалить её
-                #filtered_nodes.append(outbound)
                 continue
 
         try:
             ip_obj = ipaddress.ip_address(node_ip_str)
-
             # 1. Проверка на блокировку в подсетях РКН
             is_blocked = any(ip_obj in net for net in blocked_networks)
             if is_blocked:
@@ -348,30 +341,8 @@ def main():
                             continue
                 except Exception:
                     pass
-
         except ValueError:
             pass
-
-        filtered_nodes.append(outbound)
-
-        # 2. Использование GeoLite2: Исключение серверов из РФ
-        if reader:
-            try:
-                geo_data = reader.get(node_ip_str)
-                if geo_data and "country" in geo_data:
-                    country_iso = geo_data["country"].get("iso_code", "")
-                    if country_iso == "RU":
-                        print(
-                            f"Skipping node '{outbound.get('tag')}': "
-                            f"IP {node_ip_str} is located in Russia (GeoIP)."
-                        )
-                        continue
-            except Exception:
-                pass
-
-            except ValueError:
-                # Буквенные домены (cloudfront.net) безопасно пропускают фильтр IP
-                pass
 
         filtered_nodes.append(outbound)
 
@@ -380,39 +351,16 @@ def main():
 
     outbounds = filtered_nodes
     print(
-        f"Всего выбрано {len(outbounds)} валидных VLESS WS узлов (с шифрованием и без)."
+        f"Всего выбрано {len(outbounds)} валидных VLESS WS узлов после всех этапов фильтрации."
     )
 
     if not outbounds:
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    # --- ШАГ 3: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ И ПРИСВОЕНИЕ УНИКАЛЬНЫХ ТЕГОВ ---
-    unique_outbounds = []
-    seen_node_keys = set()
-
-    for outbound in outbounds:
-        # Создаем уникальный ключ для каждой ноды (комбинация домена/IP и UUID)
-        node_key = f"{outbound.get('server')}:{outbound.get('uuid')}"
-        
-        if node_key in seen_node_keys:
-            continue
-            
-        seen_node_keys.add(node_key)
-        unique_outbounds.append(outbound)
-
-    # Перезаписываем отфильтрованный массив
-    outbounds = unique_outbounds
-    print(f"После финальной дедупликации осталось {len(outbounds)} абсолютно уникальных узлов.")
-
-    if not outbounds:
-        print("Error: No valid proxy nodes left after filtration!")
-        return
-
-    # Присваиваем теги строго по порядку, гарантируя отсутствие дубликатов
+    # --- ШАГ 3: ПРИСВОЕНИЕ УНИКАЛЬНЫХ ТЕГОВ С НУЛЯ (Исключает ошибку дублирования) ---
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"node-{idx}"
-        
     node_tags = [o["tag"] for o in outbounds]
 
     selector_outbound = {
@@ -421,12 +369,11 @@ def main():
         "outbounds": ["auto"] + node_tags,
         "default": "auto",
     }
-    
     urltest_outbound = {
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://connectivitycheck.gstatic.com/generate_204",
+        "url": "https://gstatic.com",
         "interval": "10m",
         "tolerance": 50,
     }
@@ -498,6 +445,31 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
+        "endpoints": [
+            {
+                "type": "wireguard",
+                "tag": "warp-ep",
+                "detour": "proxy-out",
+                "address": [
+                    "172.28.0.2/32",
+                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
+                ],
+                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
+                "mtu": 1280,
+                "peers": [
+                    {
+                        "address": "162.159.192.1",
+                        "port": 2408,
+                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                        "allowed_ips": [
+                            "0.0.0.0/0",
+                            "::/0"
+                        ],
+                        "reserved": [0, 0, 0]
+                    }
+                ]
+            }
+        ],
         "inbounds": [
             {
                 "type": "tun",
