@@ -122,11 +122,7 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, New York | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "default": "auto"
     },
@@ -136,11 +132,7 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL]",
-        "🇵🇱 Poland, Warsaw | [BL] #1",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇺🇸 United States, New York | [BL]"
+        "🇳🇱 The Netherlands, Amsterdam | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -149,14 +141,14 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "31.76.245.66.nip.io",
+      "server": "fin1.apexvpn.space",
       "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "ee84dcf5-94e4-402c-b39a-55ee7e8633d7",
+      "password": "ee159b52-fc4e-4b42-a6bf-308f75118d80",
       "tls": {
         "enabled": true,
-        "server_name": "31.76.245.66.nip.io"
+        "server_name": "fin1.apexvpn.space"
       }
     },
     {
@@ -174,45 +166,6 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇩🇪 Germany, Frankfurt am Main (Innenstadt I) | [BL]",
-      "server": "144.31.221.35.nip.io",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "ee84dcf5-94e4-402c-b39a-55ee7e8633d7",
-      "tls": {
-        "enabled": true,
-        "server_name": "144.31.221.35.nip.io"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL]",
-      "server": "2.26.225.107.nip.io",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "ee84dcf5-94e4-402c-b39a-55ee7e8633d7",
-      "tls": {
-        "enabled": true,
-        "server_name": "2.26.225.107.nip.io"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇵🇱 Poland, Warsaw | [BL] #1",
-      "server": "2.26.225.10.nip.io",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "ee84dcf5-94e4-402c-b39a-55ee7e8633d7",
-      "tls": {
-        "enabled": true,
-        "server_name": "2.26.225.10.nip.io"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -222,19 +175,6 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇺🇸 United States, New York | [BL]",
-      "server": "hopp-us.yyuyy.com",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
-      "tls": {
-        "enabled": true,
-        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
