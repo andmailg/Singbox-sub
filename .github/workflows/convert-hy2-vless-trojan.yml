@@ -28,35 +28,22 @@ jobs:
           python Python/mobile-hy2.py
           python Python/mobile-vless-http.py
           python Python/mobile-trojan.py
+          python Python/router.py
 
       - name: Commit and push if changed
         run: |
           # 1. Настройка бота GitHub Actions
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # 2. Проверяем, создал ли Python-скрипт нужный файл
-          if [ ! -f "sing-box-hy2.json" ]; then
-            echo "❌ Ошибка: Файл sing-box-hy2.json не найден! Проверьте имя output_filename в Python/mobile-hy2.py"
-            exit 1
-          fi
-          if [ ! -f "sing-box-vless-http.json" ]; then
-            echo "❌ Ошибка: Файл sing-box-vless-http.json не найден! Проверьте имя output_filename в Python/mobile-vless-http.py"
-            exit 1
-          fi
-          if [ ! -f "sing-box-trojan.json" ]; then
-            echo "❌ Ошибка: Файл sing-box-torjan.json не найден! Проверьте имя output_filename в Python/mobile-trojan.py"
-            exit 1
-          fi
 
-          # 3. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-vless-http.json sing-box-trojan.json
+          # 2. Добавляем файл в индекс
+          git add sing-box-hy2.json sing-box-vless-http.json sing-box-trojan.json router.json
           git status
           
-          # 4. Коммитим и пушим только при наличии изменений
+          # 3. Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json & sing-box-torjan.json"
+            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json & sing-box-torjan.json & router.json"
             git push
           fi
