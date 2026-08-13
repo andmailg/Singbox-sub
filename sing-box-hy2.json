@@ -616,45 +616,19 @@
     {
       "type": "hysteria2",
       "tag": "node-32",
-      "server": "ee1.sferavpn.pro",
+      "server": "ro.h2corp.org",
       "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
       "tls": {
         "enabled": true,
-        "server_name": "ee1.sferavpn.pro"
+        "server_name": "ro.h2corp.org"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-33",
-      "server": "ee2.sferavpn.pro",
-      "server_port": 443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
-      "tls": {
-        "enabled": true,
-        "server_name": "ee2.sferavpn.pro"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-34",
-      "server": "grape-sos-de.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-sos-de.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-35",
       "server": "freedom.chenlan.top",
       "server_port": 12765,
       "up_mbps": 10,
@@ -667,7 +641,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-36",
+      "tag": "node-34",
       "server": "ru1.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 10,
@@ -680,15 +654,41 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-37",
-      "server": "ro.h2corp.org",
+      "tag": "node-35",
+      "server": "ee2.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
+      "password": "cd74c0a406664a5bc0bac098220a2468",
       "tls": {
         "enabled": true,
-        "server_name": "ro.h2corp.org"
+        "server_name": "ee2.sferavpn.pro"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-36",
+      "server": "grape-sos-de.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0I_Vi934gK9_Mq3240Xs_Bv2_kUi8Q34183g9hj_Bv6_7a",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-sos-de.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-37",
+      "server": "ee1.sferavpn.pro",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "ee1.sferavpn.pro"
       }
     },
     {

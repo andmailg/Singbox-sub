@@ -2401,6 +2401,17 @@
     {
       "type": "trojan",
       "tag": "node-59",
+      "server": "160.16.110.77",
+      "server_port": 55682,
+      "password": "7d8e6db4-96cc-4710-afc0-619edde2d7a1",
+      "tls": {
+        "enabled": true,
+        "server_name": "t11.qifei.app"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-60",
       "server": "2.144.21.150",
       "server_port": 2000,
       "password": "humanity",
@@ -2415,7 +2426,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-60",
+      "tag": "node-61",
       "server": "194.147.33.102",
       "server_port": 8443,
       "password": "humanity",
@@ -2426,17 +2437,6 @@
       "transport": {
         "type": "ws",
         "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-61",
-      "server": "160.16.110.77",
-      "server_port": 55682,
-      "password": "7d8e6db4-96cc-4710-afc0-619edde2d7a1",
-      "tls": {
-        "enabled": true,
-        "server_name": "t11.qifei.app"
       }
     },
     {
