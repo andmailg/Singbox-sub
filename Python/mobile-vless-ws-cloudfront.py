@@ -3,6 +3,7 @@ import ipaddress  # Встроенный модуль для работы с IP 
 import json
 import os
 import re
+import socket
 import sys
 import urllib.parse
 import requests
