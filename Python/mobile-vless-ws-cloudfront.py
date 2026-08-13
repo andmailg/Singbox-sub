@@ -387,8 +387,32 @@ def main():
         print("Error: No valid proxy nodes left after filtration!")
         return
 
+    # --- ШАГ 3: ЖЕСТКАЯ УНИКАЛИЗАЦИЯ И ПРИСВОЕНИЕ УНИКАЛЬНЫХ ТЕГОВ ---
+    unique_outbounds = []
+    seen_node_keys = set()
+
+    for outbound in outbounds:
+        # Создаем уникальный ключ для каждой ноды (комбинация домена/IP и UUID)
+        node_key = f"{outbound.get('server')}:{outbound.get('uuid')}"
+        
+        if node_key in seen_node_keys:
+            continue
+            
+        seen_node_keys.add(node_key)
+        unique_outbounds.append(outbound)
+
+    # Перезаписываем отфильтрованный массив
+    outbounds = unique_outbounds
+    print(f"После финальной дедупликации осталось {len(outbounds)} абсолютно уникальных узлов.")
+
+    if not outbounds:
+        print("Error: No valid proxy nodes left after filtration!")
+        return
+
+    # Присваиваем теги строго по порядку, гарантируя отсутствие дубликатов
     for idx, outbound in enumerate(outbounds, start=1):
         outbound["tag"] = f"node-{idx}"
+        
     node_tags = [o["tag"] for o in outbounds]
 
     selector_outbound = {
