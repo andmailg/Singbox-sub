@@ -110,8 +110,8 @@ def parse_proxy_link(link: str) -> dict | None:
         "tag": tag,
         "server": server_host,
         "server_port": port,
-        "up_mbps": 10,
-        "down_mbps": 10,
+        "up_mbps": 20,
+        "down_mbps": 20,
         "password": urllib.parse.unquote(password),
         "tls": tls_opts
     }
@@ -144,10 +144,6 @@ def clean_outbound(outbound: dict) -> dict:
     """Очистка и приведение Hysteria2 ноды к спецификации sing-box."""
     if not outbound or outbound.get("type") != "hysteria2":
         return outbound
-
-    # Убеждаемся в наличии фиксированных скоростей
-    outbound.setdefault("up_mbps", 10)
-    outbound.setdefault("down_mbps", 10)
 
     # Безопасный перенос fingerprint из reality (если он там случайно оказался) в utls
     tls_opts = outbound.get("tls", {})
