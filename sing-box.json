@@ -122,9 +122,10 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇰🇿 Kazakhstan, Almaty | [BL]",
+        "🇱🇹 Lithuania, Vilnius | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw (Śródmieście) | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, New York | [BL]"
       ],
       "default": "auto"
@@ -135,9 +136,10 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇰🇿 Kazakhstan, Almaty | [BL]",
+        "🇱🇹 Lithuania, Vilnius | [BL]",
+        "🇵🇱 Poland, Warsaw | [BL]",
+        "🇵🇱 Poland, Warsaw (Śródmieście) | [BL]",
         "🇳🇱 The Netherlands, Amsterdam | [BL]",
-        "🇬🇧 United Kingdom, London | [BL]",
         "🇺🇸 United States, New York | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
@@ -147,14 +149,14 @@
     {
       "type": "hysteria2",
       "tag": "🇫🇮 Finland, Helsinki | [BL]",
-      "server": "fin1.apexvpn.space",
+      "server": "core-3017.atlanta-games.com",
       "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "ee159b52-fc4e-4b42-a6bf-308f75118d80",
+      "password": "b11841e3-2acc-45ff-afe0-a9ed9a823aaa",
       "tls": {
         "enabled": true,
-        "server_name": "fin1.apexvpn.space"
+        "server_name": "core-3017.atlanta-games.com"
       }
     },
     {
@@ -172,15 +174,41 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇰🇿 Kazakhstan, Almaty | [BL]",
-      "server": "borat-hopp.bumbleshrimp.com",
-      "server_port": 8443,
+      "tag": "🇱🇹 Lithuania, Vilnius | [BL]",
+      "server": "ltu-01.node.lumixnet.com",
+      "server_port": 443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "password": "7c5566a7-4b55-4659-975f-06507d32fd3f",
       "tls": {
         "enabled": true,
-        "server_name": "borat-hopp.bumbleshrimp.com"
+        "server_name": "ltu-01.node.lumixnet.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw | [BL]",
+      "server": "node.embrofree.org",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "4e82f6c9-e180-4672-9d63-9060679ebdb9",
+      "tls": {
+        "enabled": true,
+        "server_name": "node.embrofree.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇵🇱 Poland, Warsaw (Śródmieście) | [BL]",
+      "server": "rpc-2068.internet-booster.com",
+      "server_port": 443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "b11841e3-2acc-45ff-afe0-a9ed9a823aaa",
+      "tls": {
+        "enabled": true,
+        "server_name": "rpc-2068.internet-booster.com"
       }
     },
     {
@@ -198,28 +226,15 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇬🇧 United Kingdom, London | [BL]",
-      "server": "grape-turbo-fr.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 10,
-      "down_mbps": 10,
-      "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-turbo-fr.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "🇺🇸 United States, New York | [BL]",
-      "server": "grape-honk.yyuyy.com",
+      "server": "hopp-us.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 10,
       "down_mbps": 10,
-      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
       "tls": {
         "enabled": true,
-        "server_name": "grape-honk.yyuyy.com"
+        "server_name": "hopp-us.yyuyy.com"
       }
     }
   ],
