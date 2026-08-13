@@ -115,8 +115,8 @@ def parse_proxy_link(link: str) -> dict | None:
         "tag": tag,
         "server": server_host,
         "server_port": port,
-        "up_mbps": 20,
-        "down_mbps": 20,
+        "up_mbps": 100,
+        "down_mbps": 100,
         "password": urllib.parse.unquote(password),
         "tls": tls_opts,
     }
