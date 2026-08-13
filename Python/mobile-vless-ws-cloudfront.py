@@ -110,18 +110,24 @@ def parse_proxy_link(link: str) -> dict | None:
         else "VLESS-WS-Node"
     )
 
-    # 5. Сборка объекта outbound для sing-box (WS-транспорт)
+    # 5. Сборка объекта outbound для sing-box (Современный WS-транспорт)
     outbound = {
         "type": "vless",
         "tag": tag,
         "server": hostname,
         "server_port": port,
         "uuid": uuid_str,
-        "transport": {"type": "ws", "path": path},
+        "transport": {
+            "type": "ws", 
+            "path": path
+        },
     }
 
     if host:
-        outbound["transport"]["host"] = [host]
+        # Для sing-box 1.10+ хост передается как HTTP-заголовок Host в секции headers
+        outbound["transport"]["headers"] = {
+            "Host": host
+        }
 
     # 6. Динамическая настройка шифрования (исправлено извлечение)
     security = params.get("security", ["none"])[0].lower()
