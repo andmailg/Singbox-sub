@@ -375,7 +375,10 @@ def main():
     urltest_outbound = clean_urltest(urltest_outbound)
 
     singbox_config = {
-        "log": {"level": "warn", "timestamp": True},
+        "log": {
+            "level": "warn",
+            "timestamp": True
+        },
         "dns": {
             "servers": [
                 {
@@ -384,8 +387,8 @@ def main():
                     "server": "1.1.1.1",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com",
-                    },
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "https",
@@ -394,40 +397,74 @@ def main():
                     "detour": "proxy-out",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com",
-                    },
+                        "server_name": "cloudflare-dns.com"
+                    }
                 },
                 {
                     "type": "fakeip",
                     "tag": "fakeip",
                     "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18",
+                    "inet6_range": "fc00::/18"
                 },
-                {"type": "local", "tag": "local"},
+                {
+                    "type": "local",
+                    "tag": "local"
+                }
             ],
             "rules": [
                 {
-                    "rule_set": ["geosite-category-ru", "geoip-ru"],
-                    "server": "dns-local",
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "server": "dns-local"
                 },
                 {
-                    "query_type": ["HTTPS", "SVCB"],
+                    "query_type": [
+                        "HTTPS",
+                        "SVCB"
+                    ],
                     "action": "predefined",
-                    "rcode": "REFUSED",
+                    "rcode": "REFUSED"
                 },
                 {
                     "rule_set": [
                         "db-category-ai-chat",
                         "geosite-category-media-ru-blocked",
-                        "db-antizapret",
+                        "db-antizapret"
                     ],
-                    "server": "fakeip",
-                },
+                    "server": "fakeip"
+                }
             ],
             "final": "dns-remote",
             "strategy": "prefer_ipv4",
-            "cache_capacity": 2048,
+            "cache_capacity": 2048
         },
+        "endpoints": [
+            {
+                "type": "wireguard",
+                "tag": "warp-ep",
+                "detour": "proxy-out",
+                "address": [
+                    "172.28.0.2/32",
+                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
+                ],
+                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
+                "mtu": 1280,
+                "peers": [
+                    {
+                        "address": "162.159.192.1",
+                        "port": 2408,
+                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                        "allowed_ips": [
+                            "0.0.0.0/0",
+                            "::/0"
+                        ],
+                        "reserved": [0, 0, 0]
+                    }
+                ]
+            }
+        ],
         "inbounds": [
             {
                 "type": "tun",
@@ -442,77 +479,92 @@ def main():
                     "169.254.0.0/16",
                     "224.0.0.0/4",
                     "255.255.255.255/32",
-                    "fc00::/7",
-                ],
+                    "fc00::/7"
+                ]
             }
         ],
         "outbounds": [
-            {"type": "direct", "tag": "direct-out"},
+            {
+                "type": "direct",
+                "tag": "direct-out"
+            },
             selector_outbound,
             urltest_outbound,
-            *outbounds,
+            *outbounds
         ],
         "route": {
             "rules": [
-                {"action": "sniff"},
-                {"protocol": "dns", "action": "hijack-dns"},
+                {
+                    "action": "sniff"
+                },
+                {
+                    "protocol": "dns",
+                    "action": "hijack-dns"
+                },
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
                         "db-category-ai-chat",
-                        "db-antizapret",
+                        "db-antizapret"
                     ],
-                    "outbound": "proxy-out",
+                    "outbound": "proxy-out"
                 },
                 {
-                    "rule_set": ["geosite-category-ru", "geoip-ru"],
-                    "outbound": "direct-out",
-                },
+                    "rule_set": [
+                        "geosite-category-ru",
+                        "geoip-ru"
+                    ],
+                    "outbound": "direct-out"
+                }
             ],
             "rule_set": [
                 {
                     "type": "remote",
                     "tag": "db-github",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
+                    "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-media-ru-blocked",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
+                    "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-ru",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
+                    "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geoip-ru",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
+                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+                    "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "db-antizapret",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
+                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
+                    "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "db-category-ai-chat",
-                    "url": "https://github.com",
-                    "download_detour": "direct-out",
-                },
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
+                    "download_detour": "direct-out"
+                }
             ],
             "final": "proxy-out",
             "auto_detect_interface": True,
             "override_android_vpn": True,
-            "default_domain_resolver": "dns-local",
+            "default_domain_resolver": "dns-local"
         },
-        "experimental": {"cache_file": {"enabled": True}},
+        "experimental": {
+            "cache_file": {
+                "enabled": True
+            }
+        }
     }
 
     output_filename = "sing-box-vless-ws.json"
