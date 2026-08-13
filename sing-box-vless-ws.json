@@ -1,0 +1,479 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "1.1.1.1",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "https",
+        "tag": "dns-remote",
+        "server": "1.1.1.1",
+        "detour": "proxy-out",
+        "tls": {
+          "enabled": true,
+          "server_name": "cloudflare-dns.com"
+        }
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "server": "dns-local"
+      },
+      {
+        "query_type": [
+          "HTTPS",
+          "SVCB"
+        ],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "rule_set": [
+          "db-category-ai-chat",
+          "geosite-category-media-ru-blocked",
+          "db-antizapret"
+        ],
+        "server": "fakeip"
+      }
+    ],
+    "final": "dns-remote",
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 2048
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 1420,
+      "address": "172.19.0.1/30",
+      "auto_route": true,
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "169.254.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32",
+        "fc00::/7"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "proxy-out",
+      "outbounds": [
+        "auto",
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "node-1",
+        "node-2",
+        "node-3",
+        "node-4",
+        "node-5",
+        "node-6",
+        "node-7",
+        "node-8",
+        "node-9",
+        "node-10",
+        "node-11",
+        "node-12",
+        "node-13",
+        "node-14",
+        "node-15",
+        "node-16",
+        "node-17",
+        "node-18"
+      ],
+      "url": "https://gstatic.com",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "vless",
+      "tag": "node-1",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-2",
+      "server": "18.238.109.113",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-3",
+      "server": "18.238.109.17",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-4",
+      "server": "18.238.109.26",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-5",
+      "server": "3.170.185.91",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-6",
+      "server": "18.244.214.27",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-7",
+      "server": "18.244.214.28",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-8",
+      "server": "18.238.109.28",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-9",
+      "server": "18.244.214.108",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "host": [
+          "d16l6nb4do0zu4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-10",
+      "server": "18.239.134.69",
+      "server_port": 80,
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "host": [
+          "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-11",
+      "server": "143.14.11.236",
+      "server_port": 80,
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "host": [
+          "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-12",
+      "server": "157.85.105.179",
+      "server_port": 80,
+      "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "host": [
+          "d2pwbkmfr5lxa4.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-13",
+      "server": "18.172.202.92",
+      "server_port": 80,
+      "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
+      "transport": {
+        "type": "ws",
+        "path": "/fnet50",
+        "host": [
+          "duatoup3wk8q2.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-14",
+      "server": "157.85.97.238",
+      "server_port": 80,
+      "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
+      "transport": {
+        "type": "ws",
+        "path": "/knl8",
+        "host": [
+          "d7iwyzy9wpvuu.cloudfront.net"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-15",
+      "server": "18.239.83.52",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "host": [
+          "d1yxsk0zprgivr.cloudfront.net"
+        ]
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-16",
+      "server": "www.bandmusic.ir",
+      "server_port": 8880,
+      "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "host": [
+          "join.2.kiava.cloud.speedtest.net.xn--mgba2h8quf.cdn.ws80.cloudfront.net.kiava.fun"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-17",
+      "server": "join.kiava.cloud.ohbah.com",
+      "server_port": 8880,
+      "uuid": "f467b6a4-70e0-4f3d-b6ad-093c3b600576",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "host": [
+          "join.2.kiava.cloud.speedtest.net.xn--mgba2h8quf.cdn.ws87.cloudfront.net.kiava.fun"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-18",
+      "server": "3.162.103.97",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "host": [
+          "d1yxsk0zprgivr.cloudfront.net"
+        ]
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-category-media-ru-blocked",
+          "db-category-ai-chat",
+          "db-antizapret"
+        ],
+        "outbound": "proxy-out"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru"
+        ],
+        "outbound": "direct-out"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "db-github",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-media-ru-blocked",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-antizapret",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      },
+      {
+        "type": "remote",
+        "tag": "db-category-ai-chat",
+        "url": "https://github.com",
+        "download_detour": "direct-out"
+      }
+    ],
+    "final": "proxy-out",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": "dns-local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
