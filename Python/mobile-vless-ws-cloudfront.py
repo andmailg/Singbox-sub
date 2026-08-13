@@ -307,18 +307,51 @@ def main():
     # --- ШАГ 2: ФИЛЬТРАЦИЯ ПО РКН И ГЕОЛОКАЦИИ (GeoIP) ---
     filtered_nodes = []
     for outbound in pre_parsed_nodes:
-        node_ip_str = outbound.get("server", "").strip("[]")
+        node_server = outbound.get("server", "").strip("[]")
+        node_ip_str = node_server
+
+        # Если в server указан домен (например, server-18-239-134-69.bkk50.r.cloudfront.net)
+        if not is_valid_ip(node_server):
+            try:
+                # Превращаем домен в реальный IP-адрес
+                node_ip_str = socket.gethostbyname(node_server)
+            except socket.gaierror:
+                print(f"⚠️ Warning: Could not resolve domain '{node_server}'. Skipping verification.")
+                # Если домен не резолвится (умер), всё равно оставляем ноду или можно сделать continue, чтобы удалить её
+                #filtered_nodes.append(outbound)
+                continue
+
         try:
             ip_obj = ipaddress.ip_address(node_ip_str)
-            
+
             # 1. Проверка на блокировку в подсетях РКН
             is_blocked = any(ip_obj in net for net in blocked_networks)
             if is_blocked:
                 print(
                     f"Skipping node '{outbound.get('tag')}': "
-                    f"IP {node_ip_str} is in RKN blocked subnet."
+                    f"IP {node_ip_str} ({node_server}) is in RKN blocked subnet."
                 )
                 continue
+
+            # 2. Использование GeoLite2: Исключение серверов из РФ
+            if reader:
+                try:
+                    geo_data = reader.get(node_ip_str)
+                    if geo_data and "country" in geo_data:
+                        country_iso = geo_data["country"].get("iso_code", "")
+                        if country_iso == "RU":
+                            print(
+                                f"Skipping node '{outbound.get('tag')}': "
+                                f"IP {node_ip_str} ({node_server}) is located in Russia (GeoIP)."
+                            )
+                            continue
+                except Exception:
+                    pass
+
+        except ValueError:
+            pass
+
+        filtered_nodes.append(outbound)
 
             # 2. Использование GeoLite2: Исключение серверов из РФ
             if reader:
