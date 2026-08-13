@@ -79,14 +79,14 @@ def parse_proxy_link(link: str) -> dict | None:
 
     params = urllib.parse.parse_qs(parsed.query)
 
-    # 1. Проверка типа сети (должен быть строго "ws")
+    # 1. Проверка типа сети (берем первый элемент из списка)
     net_type = params.get("type", [""])[0].lower()
     if net_type != "ws":
         return None
 
-    # 2. Извлечение параметров host и path для ws
-    host = params.get("host", [""]).strip()
-    path = params.get("path", ["/"]).strip()
+    # 2. Извлечение параметров host и path для ws (также через)
+    host = params.get("host", [""])[0].strip()
+    path = params.get("path", ["/"])[0].strip()
 
     # 3. ФИЛЬТР CLOUDFRONT: server ИЛИ host должны содержать cloudfront.net
     has_cloudfront = (
@@ -98,7 +98,7 @@ def parse_proxy_link(link: str) -> dict | None:
     # 4. Извлечение UUID (user)
     uuid_str = parsed.username
     if not uuid_str and "@" in parsed.netloc:
-        uuid_str = parsed.netloc.split("@")[0]
+        uuid_str = parsed.netloc.split("@")[0]  # Здесь тоже нужен первый элемент строки
     if not uuid_str:
         print("Skipping VLESS node: missing UUID")
         return None
@@ -123,7 +123,7 @@ def parse_proxy_link(link: str) -> dict | None:
     if host:
         outbound["transport"]["host"] = [host]
 
-    # 6. Динамическая настройка шифрования (пропускаем и TLS, и none/пусто)
+    # 6. Динамическая настройка шифрования (исправлено извлечение)
     security = params.get("security", ["none"])[0].lower()
     if security in ["tls", "reality"]:
         outbound["tls"] = {
@@ -131,10 +131,10 @@ def parse_proxy_link(link: str) -> dict | None:
             "server_name": host if host else hostname,
             "insecure": False,
         }
-        # Если это Reality, переносим специфичные параметры
+        # Исправление для Reality: извлекаем строки, а не списки
         if security == "reality":
-            pbk = params.get("pbk", [""])[0]
-            sid = params.get("sid", [""])[0]
+            pbk = params.get("pbk", [""])[0].strip()
+            sid = params.get("sid", [""])[0].strip()
             if pbk:
                 outbound["tls"]["reality"] = {
                     "enabled": True,
