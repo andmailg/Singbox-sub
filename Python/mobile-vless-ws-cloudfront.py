@@ -80,7 +80,7 @@ def parse_proxy_link(link: str) -> dict | None:
     params = urllib.parse.parse_qs(parsed.query)
 
     # 1. Проверка типа сети (должен быть строго "ws")
-    net_type = params.get("type", [""]).lower()
+    net_type = params.get("type", [""])[0].lower()
     if net_type != "ws":
         return None
 
@@ -124,7 +124,7 @@ def parse_proxy_link(link: str) -> dict | None:
         outbound["transport"]["host"] = [host]
 
     # 6. Динамическая настройка шифрования (пропускаем и TLS, и none/пусто)
-    security = params.get("security", ["none"]).lower()
+    security = params.get("security", ["none"])[0].lower()
     if security in ["tls", "reality"]:
         outbound["tls"] = {
             "enabled": True,
