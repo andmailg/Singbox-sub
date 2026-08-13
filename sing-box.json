@@ -122,7 +122,10 @@
         "auto",
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇰🇿 Kazakhstan, Almaty | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, New York | [BL]"
       ],
       "default": "auto"
     },
@@ -132,7 +135,10 @@
       "outbounds": [
         "🇫🇮 Finland, Helsinki | [BL]",
         "🇩🇪 Germany, Frankfurt am Main | 🌐 | [BL]",
-        "🇳🇱 The Netherlands, Amsterdam | [BL]"
+        "🇰🇿 Kazakhstan, Almaty | [BL]",
+        "🇳🇱 The Netherlands, Amsterdam | [BL]",
+        "🇬🇧 United Kingdom, London | [BL]",
+        "🇺🇸 United States, New York | [BL]"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -166,6 +172,19 @@
     },
     {
       "type": "hysteria2",
+      "tag": "🇰🇿 Kazakhstan, Almaty | [BL]",
+      "server": "borat-hopp.bumbleshrimp.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "tls": {
+        "enabled": true,
+        "server_name": "borat-hopp.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
       "tag": "🇳🇱 The Netherlands, Amsterdam | [BL]",
       "server": "grape-zet-turbo-nl.yyuyy.com",
       "server_port": 8443,
@@ -175,6 +194,32 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-zet-turbo-nl.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇬🇧 United Kingdom, London | [BL]",
+      "server": "grape-turbo-fr.roxa.org",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "s0_sdK93x9wer_D02Lz9cvK3_Sa014Oakl_C2z",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-turbo-fr.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸 United States, New York | [BL]",
+      "server": "grape-honk.yyuyy.com",
+      "server_port": 8443,
+      "up_mbps": 10,
+      "down_mbps": 10,
+      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-honk.yyuyy.com"
       }
     }
   ],
