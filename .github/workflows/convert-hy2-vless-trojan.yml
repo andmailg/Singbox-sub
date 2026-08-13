@@ -37,13 +37,13 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # 2. Добавляем файл в индекс
-          git add sing-box-hy2.json sing-box-vless-http.json sing-box-trojan.json router.json
+          git add sing-box-hy2.json sing-box-vless-http.json sing-box-trojan.json config.json
           git status
           
           # 3. Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json & sing-box-torjan.json & router.json"
+            git commit -m "Auto-update sing-box-hy2.json & sing-box-vless-http.json & sing-box-torjan.json & config.json"
             git push
           fi
