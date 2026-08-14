@@ -373,7 +373,7 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://gstatic.com",
+        "url": "https://connectivitycheck.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50,
     }
