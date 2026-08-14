@@ -171,27 +171,13 @@
         "node-20",
         "node-21"
       ],
-      "url": "https://gstatic.com",
+      "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50
     },
     {
       "type": "vless",
       "tag": "node-1",
-      "server": "www.true.th",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-2",
       "server": "www.true.th",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -210,7 +196,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-3",
+      "tag": "node-2",
       "server": "www.true.th",
       "server_port": 80,
       "uuid": "cb700418-90ba-4da0-b319-64a2d46f754e",
@@ -224,91 +210,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-4",
-      "server": "18.238.109.113",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-5",
-      "server": "18.238.109.17",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-6",
-      "server": "3.170.185.91",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-7",
-      "server": "18.244.214.27",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-8",
-      "server": "18.244.214.28",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-9",
-      "server": "18.238.109.28",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-10",
+      "tag": "node-3",
       "server": "18.239.134.69",
       "server_port": 80,
       "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
@@ -322,7 +224,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-11",
+      "tag": "node-4",
       "server": "143.14.11.236",
       "server_port": 80,
       "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
@@ -336,7 +238,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-12",
+      "tag": "node-5",
       "server": "157.85.105.179",
       "server_port": 80,
       "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
@@ -350,7 +252,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-13",
+      "tag": "node-6",
       "server": "18.172.202.92",
       "server_port": 80,
       "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
@@ -364,7 +266,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-14",
+      "tag": "node-7",
       "server": "157.85.97.238",
       "server_port": 80,
       "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
@@ -378,7 +280,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-15",
+      "tag": "node-8",
       "server": "18.239.134.69",
       "server_port": 80,
       "uuid": "de27291c-15a9-4256-9ba7-ad517569877e",
@@ -392,7 +294,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-16",
+      "tag": "node-9",
       "server": "www.true.th",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -411,7 +313,21 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-10",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-11",
       "server": "18.239.83.52",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -430,7 +346,49 @@
     },
     {
       "type": "vless",
-      "tag": "node-18",
+      "tag": "node-12",
+      "server": "3.170.185.91",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-13",
+      "server": "18.238.109.113",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-14",
+      "server": "18.238.109.17",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-15",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -444,7 +402,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-19",
+      "tag": "node-16",
       "server": "18.244.214.108",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -458,7 +416,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-20",
+      "tag": "node-17",
       "server": "18.238.109.26",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -472,7 +430,35 @@
     },
     {
       "type": "vless",
-      "tag": "node-21",
+      "tag": "node-18",
+      "server": "18.244.214.28",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-19",
+      "server": "18.244.214.27",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-20",
       "server": "3.162.103.97",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -487,6 +473,20 @@
         "enabled": true,
         "server_name": "d1yxsk0zprgivr.cloudfront.net",
         "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-21",
+      "server": "18.238.109.28",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
       }
     }
   ],
