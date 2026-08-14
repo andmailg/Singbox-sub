@@ -142,8 +142,7 @@
         "node-19",
         "node-20",
         "node-21",
-        "node-22",
-        "node-23"
+        "node-22"
       ],
       "default": "auto"
     },
@@ -172,8 +171,7 @@
         "node-19",
         "node-20",
         "node-21",
-        "node-22",
-        "node-23"
+        "node-22"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -332,7 +330,7 @@
     {
       "type": "vless",
       "tag": "node-11",
-      "server": "18.238.109.28",
+      "server": "18.154.132.94",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
@@ -510,25 +508,6 @@
         "headers": {
           "Host": "d16l6nb4do0zu4.cloudfront.net"
         }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-23",
-      "server": "3.170.185.121",
-      "server_port": 443,
-      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "d1yxsk0zprgivr.cloudfront.net"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "d1yxsk0zprgivr.cloudfront.net",
-        "insecure": false
       }
     }
   ],
