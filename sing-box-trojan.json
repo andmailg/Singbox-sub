@@ -2228,7 +2228,7 @@
     {
       "type": "trojan",
       "tag": "node-44",
-      "server": "77.221.138.199",
+      "server": "194.147.33.102",
       "server_port": 8443,
       "password": "humanity",
       "tls": {
@@ -2246,6 +2246,24 @@
     {
       "type": "trojan",
       "tag": "node-45",
+      "server": "77.221.138.199",
+      "server_port": 8443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.calmlunch.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-46",
       "server": "167.150.100.133",
       "server_port": 450,
       "password": "0_Oms89nH82l_Ki813_Nxmw81_Rbt_Jq190Kl_m",
@@ -2256,14 +2274,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-46",
+      "tag": "node-47",
       "server": "65.109.215.50",
       "server_port": 54673,
       "password": "Ldbgt4IUYv0S+5cFrG4vcWEbvdf8RgPGmoIXhnnOEh4="
     },
     {
       "type": "trojan",
-      "tag": "node-47",
+      "tag": "node-48",
       "server": "151.101.64.172",
       "server_port": 80,
       "password": "MITIVPN",
@@ -2277,7 +2295,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-48",
+      "tag": "node-49",
       "server": "37.156.46.29",
       "server_port": 2053,
       "password": "Masir_Sefid",
@@ -2288,7 +2306,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-49",
+      "tag": "node-50",
       "server": "83.228.225.220",
       "server_port": 1040,
       "password": "Masir_Sefid",
@@ -2299,7 +2317,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-50",
+      "tag": "node-51",
       "server": "151.101.130.172",
       "server_port": 80,
       "password": "MiTiVPN",
@@ -2313,7 +2331,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-51",
+      "tag": "node-52",
       "server": "151.101.66.172",
       "server_port": 80,
       "password": "MiTiVPN",
@@ -2327,7 +2345,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-52",
+      "tag": "node-53",
       "server": "66.33.22.242",
       "server_port": 30797,
       "password": "TgTrWOUNeU",
@@ -2338,7 +2356,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-53",
+      "tag": "node-54",
       "server": "193.233.133.152",
       "server_port": 28390,
       "password": "oRKpDRDR4Y",
@@ -2349,7 +2367,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-54",
+      "tag": "node-55",
       "server": "18.220.25.23",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2360,7 +2378,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-55",
+      "tag": "node-56",
       "server": "3.76.5.71",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2371,7 +2389,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-56",
+      "tag": "node-57",
       "server": "179.237.75.190",
       "server_port": 41464,
       "password": "uRkZYGid1r",
@@ -2382,9 +2400,9 @@
     },
     {
       "type": "trojan",
-      "tag": "node-57",
-      "server": "194.147.33.102",
-      "server_port": 8443,
+      "tag": "node-58",
+      "server": "212.118.52.236",
+      "server_port": 2053,
       "password": "humanity",
       "tls": {
         "enabled": true,
@@ -2393,17 +2411,6 @@
       "transport": {
         "type": "ws",
         "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-58",
-      "server": "193.124.46.134",
-      "server_port": 8441,
-      "password": "tunnel-ljlcf",
-      "tls": {
-        "enabled": true,
-        "server_name": "tr-1.stunnel.cc"
       }
     },
     {
@@ -2424,16 +2431,12 @@
     {
       "type": "trojan",
       "tag": "node-60",
-      "server": "212.118.52.236",
-      "server_port": 2053,
-      "password": "humanity",
+      "server": "193.124.46.134",
+      "server_port": 8441,
+      "password": "tunnel-ljlcf",
       "tls": {
         "enabled": true,
-        "server_name": "www.calmlunch.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
+        "server_name": "tr-1.stunnel.cc"
       }
     },
     {
