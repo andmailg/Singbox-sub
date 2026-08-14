@@ -4,6 +4,7 @@ import ipaddress
 import json
 import os
 import re
+import socket
 import urllib.parse
 import requests
 
@@ -42,10 +43,44 @@ def is_valid_host(host_str: str) -> bool:
     return is_valid_domain(clean_host)
 
 def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (содержит strictly IP-адрес)."""
+    """Проверяет корректность поля server (содержит strictly IP-адрес или домен)."""
     if not server or "@" in server:
         return False
-    return is_valid_ip(server.strip("[]"))
+    clean_server = server.strip("[]").split(":")[0].strip()
+    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
+def is_russian_node(server_str: str, mmdb_path: str = "GeoLite2-Country.mmdb") -> bool:
+    """
+    Проверяет, относится ли сервер (IP или домен) к Российской Федерации.
+    Использует базу maxminddb. Если это домен, сначала резолвит его в IP.
+    """
+    if not maxminddb:
+        return False
+        
+    clean_server = server_str.strip("[]").split(":")[0].strip()
+    ip_to_check = None
+    
+    if is_valid_ip(clean_server):
+        ip_to_check = clean_server
+    elif is_valid_domain(clean_server):
+        try:
+            ip_to_check = socket.gethostbyname(clean_server)
+        except Exception:
+            return False
+    else:
+        return False
+
+    try:
+        if os.path.exists(mmdb_path):
+            with maxminddb.open_database(mmdb_path) as reader:
+                record = reader.get(ip_to_check)
+                if record and isinstance(record, dict):
+                    country_iso = record.get("country", {}).get("iso_code")
+                    return country_iso == "RU"
+    except Exception as e:
+        print(f"Error checking GeoIP for {ip_to_check}: {e}")
+        
+    return False
 
 def parse_proxy_link(link: str) -> dict | None:
     link = link.strip()
@@ -60,47 +95,47 @@ def parse_proxy_link(link: str) -> dict | None:
     except ValueError:
         print(f"Skipping malformed URL: {link[:30]}...")
         return None
-
+        
     scheme = parsed.scheme.lower()
     if scheme != "vless":
         return None
-
+        
     params = urllib.parse.parse_qs(parsed.query)
     security = params.get("security", ["none"])[0].lower()
     if security not in ["", "none"]:
         return None
-
+        
     encryption = params.get("encryption", ["none"])[0].lower()
     if encryption != "none":
         return None
-
+        
     net_type = params.get("type", ["tcp"])[0].lower()
     if net_type != "tcp":
         return None
-
+        
     header_type = params.get("headerType", [""])[0].lower()
     if header_type != "http":
         return None
-
+        
     uuid_str = parsed.username
     if not uuid_str and "@" in parsed.netloc:
         uuid_str = parsed.netloc.split("@")[0]
     if not uuid_str:
         print("Skipping VLESS node: missing UUID")
         return None
-
+        
     host = params.get("host", [""])[0].strip()
     if not host or not is_valid_host(host):
         print(f"Skipping VLESS node: invalid or missing 'host' domain ('{host[:30]}...')")
         return None
-
+        
     if "google.com" in host.lower():
         print(f"Skipping VLESS node: 'host' contains google.com ('{host}')")
         return None
-
+        
     port = parsed.port or 80
     tag = urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-HTTP-Node"
-
+    
     outbound = {
         "type": "vless",
         "tag": tag,
@@ -112,11 +147,6 @@ def parse_proxy_link(link: str) -> dict | None:
             "host": [host]
         }
     }
-
-    if not is_valid_server(outbound["server"]):
-        print(f"Skipping node '{tag}': 'server' is not a valid IP address ('{outbound['server']}')")
-        return None
-
     return outbound
 
 def clean_outbound(outbound: dict) -> dict | None:
@@ -142,6 +172,7 @@ def clean_urltest(outbound: dict) -> dict:
     return outbound
 
 def main():
+    # Укажите вашу ссылку на JSON-список подписок
     SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     
@@ -154,9 +185,9 @@ def main():
             sub_urls = list(sub_urls.values())
         if not isinstance(sub_urls, list):
             raise ValueError(f"Expected list or dict, got {type(sub_urls)}")
-        print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")
+        print(f" Successfully loaded {len(sub_urls)} subscription sources.")
     except Exception as e:
-        print(f"❌ Error fetching sources JSON: {e}")
+        print(f" Error fetching sources JSON: {e}")
         return
 
     links = []
@@ -175,16 +206,16 @@ def main():
             links.extend(fetched_lines)
         except Exception as e:
             print(f"Error fetching {url}: {e}")
-
+            
     print(f"Total raw lines collected: {len(links)}")
 
-    # --- СКАЧИВАНИЕ БАЗЫ GEOIP (Обновленная рабочая ссылка) ---
+    # --- СКАЧИВАНИЕ БАЗЫ GEOIP ---
     mmdb_path = "GeoLite2-Country.mmdb"
     if not os.path.exists(mmdb_path):
         print("Downloading local GeoIP database...")
         db_url = "https://git.io/GeoLite2-Country.mmdb"
         try:
-            db_resp = requests.get(db_url, timeout=30)
+            db_resp = requests.get(db_url, timeout=45)
             if db_resp.status_code == 200:
                 with open(mmdb_path, "wb") as db_file:
                     db_file.write(db_resp.content)
@@ -196,10 +227,8 @@ def main():
     print("Downloading RKN blocked CIDR list...")
     rkn_url = "https://github.com/1andrevich/Re-filter-lists/raw/refs/heads/main/ipsum.lst"
     
-    # Списки для бинарного поиска (отдельно для IPv4 и IPv6)
     rkn_ranges_v4 = []
     rkn_ranges_v6 = []
-
     try:
         rkn_resp = requests.get(rkn_url, timeout=15)
         if rkn_resp.status_code == 200:
@@ -209,25 +238,30 @@ def main():
                 if not line or line.startswith("#"):
                     continue
                 try:
-                    cidr_str = line.split()[0]
-                    net_obj = ipaddress.ip_network(cidr_str, strict=False)
-                    raw_blocked_networks.append(net_obj)
+                    # В оригинальном dump.csv от zapret-info подсети разделены ';'
+                    # Парсим первый элемент строки на наличие валидных сетей
+                    parts = line.split(';')
+                    if not parts:
+                        continue
+                    cidr_candidates = parts[0].split(',') # Бывают перечисления через запятую
+                    for candidate in cidr_candidates:
+                        candidate = candidate.strip()
+                        if '/' in candidate:
+                            net_obj = ipaddress.ip_network(candidate, strict=False)
+                            raw_blocked_networks.append(net_obj)
                 except (ValueError, IndexError):
                     continue
             
             blocked_networks = list(ipaddress.collapse_addresses(raw_blocked_networks))
             
-            # Подготовка интервалов для сверхбыстрого поиска через bisect
             for net in blocked_networks:
                 if net.version == 4:
                     rkn_ranges_v4.append((int(net.network_address), int(net.broadcast_address)))
                 else:
                     rkn_ranges_v6.append((int(net.network_address), int(net.broadcast_address)))
             
-            # Сортируем интервалы по начальному IP
             rkn_ranges_v4.sort(key=lambda x: x[0])
             rkn_ranges_v6.sort(key=lambda x: x[0])
-            
             print(f"Successfully loaded and optimized {len(blocked_networks)} networks from RKN list.")
         else:
             print(f"Failed to download RKN list. Status code: {rkn_resp.status_code}")
@@ -239,7 +273,6 @@ def main():
     starts_v6 = [r[0] for r in rkn_ranges_v6]
 
     def is_ip_blocked(ip_str: str) -> bool:
-        """Проверяет заблокирован ли IP с помощью быстрого бинарного поиска."""
         try:
             ip_obj = ipaddress.ip_address(ip_str)
             ip_int = int(ip_obj)
@@ -258,28 +291,43 @@ def main():
 
     seen_servers = set()
     pre_parsed_nodes = []
+    print(f"Parsing, deduplicating and geo-filtering {len(links)} links...")
 
-    print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
         if outbound:
             outbound = clean_outbound(outbound)
             if not outbound:
                 continue
+
             node_tag = str(outbound.get("tag", "")).lower()
+            server_address = str(outbound.get("server", "")).strip().lower()
+
+            # --- СТРОГАЯ ФИЛЬТРАЦИЯ РФ (Тег + База GeoIP) ---
             if "ru" in node_tag or "russia" in node_tag:
                 continue
-            
-            server_address = str(outbound.get("server", "")).lower()
+
+            if is_russian_node(server_address, mmdb_path):
+                print(f"Skipping node '{outbound.get('tag')}': Server {server_address} is physically located in RU.")
+                continue
+
             if server_address in seen_servers:
                 continue
             seen_servers.add(server_address)
             pre_parsed_nodes.append(outbound)
 
-    # --- ФИЛЬТРАЦИЯ ПО РКН ---
+    # --- ВТОРОЙ ЭТАП: ФИЛЬТРАЦИЯ ПО КЛАДБИЩУ IP РКН ---
     filtered_nodes = []
     for outbound in pre_parsed_nodes:
         node_ip_str = outbound.get("server", "").strip("[]")
+
+        # Если в server домен — резолвим его в IP для сверки с подсетями РКН
+        if not is_valid_ip(node_ip_str):
+            try:
+                node_ip_str = socket.gethostbyname(node_ip_str)
+            except Exception:
+                pass  # Если не резолвится, оставляем как есть
+
         if is_ip_blocked(node_ip_str):
             print(f"Skipping node '{outbound.get('tag')}': IP {node_ip_str} is in RKN blocked subnet.")
             continue
@@ -307,12 +355,13 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "https://connectivitycheck.gstatic.com/generate_204",
+        "url": "gstatic.com",
         "interval": "10m",
         "tolerance": 50,
     }
     urltest_outbound = clean_urltest(urltest_outbound)
 
+    # Синтаксически корректные правила и remote-ссылки для srs-наборов sing-box
     singbox_config = {
         "log": {
             "level": "warn",
@@ -353,7 +402,7 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-category-ru",
+                        "geosite-ru",
                         "geoip-ru"
                     ],
                     "server": "dns-local"
@@ -369,8 +418,7 @@ def main():
                 {
                     "rule_set": [
                         "db-category-ai-chat",
-                        "geosite-category-media-ru-blocked",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "server": "fakeip"
                 }
@@ -379,31 +427,6 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
-        "endpoints": [
-            {
-                "type": "wireguard",
-                "tag": "warp-ep",
-                "detour": "proxy-out",
-                "address": [
-                    "172.28.0.2/32",
-                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
-                ],
-                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
-                "mtu": 1280,
-                "peers": [
-                    {
-                        "address": "162.159.192.1",
-                        "port": 2408,
-                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "allowed_ips": [
-                            "0.0.0.0/0",
-                            "::/0"
-                        ],
-                        "reserved": [0, 0, 0]
-                    }
-                ]
-            }
-        ],
         "inbounds": [
             {
                 "type": "tun",
@@ -442,15 +465,13 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "geosite-category-media-ru-blocked",
-                        "db-category-ai-chat",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "outbound": "proxy-out"
                 },
                 {
                     "rule_set": [
-                        "geosite-category-ru",
+                        "geosite-ru",
                         "geoip-ru"
                     ],
                     "outbound": "direct-out"
@@ -460,41 +481,41 @@ def main():
                 {
                     "type": "remote",
                     "tag": "db-github",
-                    "url": "github.com",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
                     "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-media-ru-blocked",
-                    "url": "github.com",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
                     "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-ru",
-                    "url": "github.com",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
                     "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "geoip-ru",
-                    "url": "github.com",
+                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
                     "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "db-antizapret",
-                    "url": "github.com",
+                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
                     "download_detour": "direct-out"
                 },
                 {
                     "type": "remote",
                     "tag": "db-category-ai-chat",
-                    "url": "github.com",
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
                     "download_detour": "direct-out"
                 }
             ],
-            "final": "proxy-out",
+            "final": "direct-out",
             "auto_detect_interface": True,
             "override_android_vpn": True,
             "default_domain_resolver": "dns-local"
