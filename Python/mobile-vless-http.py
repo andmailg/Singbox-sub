@@ -164,13 +164,6 @@ def clean_outbound(outbound: dict) -> dict | None:
         outbound.pop("tls", None)
     return outbound
 
-def clean_urltest(outbound: dict) -> dict:
-    """Удаление lru и timeout из urltest."""
-    if outbound.get("type") == "urltest":
-        outbound.pop("lru", None)
-        outbound.pop("timeout", None)
-    return outbound
-
 def main():
     # Укажите вашу ссылку на JSON-список подписок
     SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
@@ -355,11 +348,10 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "gstatic.com",
+        "url": "https://connectivitycheck.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50,
     }
-    urltest_outbound = clean_urltest(urltest_outbound)
 
     # Синтаксически корректные правила и remote-ссылки для srs-наборов sing-box
     singbox_config = {
