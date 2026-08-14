@@ -141,7 +141,8 @@
         "node-18",
         "node-19",
         "node-20",
-        "node-21"
+        "node-21",
+        "node-22"
       ],
       "default": "auto"
     },
@@ -169,7 +170,8 @@
         "node-18",
         "node-19",
         "node-20",
-        "node-21"
+        "node-21",
+        "node-22"
       ],
       "url": "https://gstatic.com",
       "interval": "10m",
@@ -225,20 +227,6 @@
     {
       "type": "vless",
       "tag": "node-4",
-      "server": "18.244.214.108",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-5",
       "server": "18.238.109.113",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -252,7 +240,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-6",
+      "tag": "node-5",
       "server": "18.238.109.17",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -266,7 +254,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-7",
+      "tag": "node-6",
       "server": "18.238.109.26",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -280,7 +268,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-8",
+      "tag": "node-7",
       "server": "3.170.185.91",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -294,7 +282,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-9",
+      "tag": "node-8",
       "server": "18.244.214.27",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -308,7 +296,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-10",
+      "tag": "node-9",
       "server": "18.244.214.28",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -322,8 +310,22 @@
     },
     {
       "type": "vless",
-      "tag": "node-11",
+      "tag": "node-10",
       "server": "18.238.109.28",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-11",
+      "server": "18.244.214.108",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
       "transport": {
@@ -421,12 +423,12 @@
     {
       "type": "vless",
       "tag": "node-18",
-      "server": "18.239.83.52",
+      "server": "www.true.th",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/fp=chrome",
         "headers": {
           "Host": "d1yxsk0zprgivr.cloudfront.net"
         }
@@ -440,12 +442,12 @@
     {
       "type": "vless",
       "tag": "node-19",
-      "server": "www.true.th",
+      "server": "18.239.83.52",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
         "type": "ws",
-        "path": "/fp=chrome",
+        "path": "/",
         "headers": {
           "Host": "d1yxsk0zprgivr.cloudfront.net"
         }
@@ -474,6 +476,25 @@
       "type": "vless",
       "tag": "node-21",
       "server": "3.162.103.97",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d1yxsk0zprgivr.cloudfront.net"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-22",
+      "server": "18.238.109.17",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
