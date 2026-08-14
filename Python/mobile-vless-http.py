@@ -142,7 +142,7 @@ def clean_urltest(outbound: dict) -> dict:
     return outbound
 
 def main():
-    SOURCES_JSON_URL = "https://github.com"
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     
     print(f"Fetching subscription sources from {SOURCES_JSON_URL}...")
@@ -182,7 +182,7 @@ def main():
     mmdb_path = "GeoLite2-Country.mmdb"
     if not os.path.exists(mmdb_path):
         print("Downloading local GeoIP database...")
-        db_url = "https://github.com"
+        db_url = "https://git.io/GeoLite2-Country.mmdb"
         try:
             db_resp = requests.get(db_url, timeout=30)
             if db_resp.status_code == 200:
@@ -194,7 +194,7 @@ def main():
 
     # --- СКАЧИВАНИЕ И ПОДГОТОВКА ЧЕРНОГО СПИСКА CIDR РКН ---
     print("Downloading RKN blocked CIDR list...")
-    rkn_url = "https://github.com"
+    rkn_url = "https://github.com/1andrevich/Re-filter-lists/raw/refs/heads/main/ipsum.lst"
     
     # Списки для бинарного поиска (отдельно для IPv4 и IPv6)
     rkn_ranges_v4 = []
@@ -307,7 +307,7 @@ def main():
         "type": "urltest",
         "tag": "auto",
         "outbounds": node_tags,
-        "url": "gstatic.com",
+        "url": "https://connectivitycheck.gstatic.com/generate_204",
         "interval": "10m",
         "tolerance": 50,
     }
