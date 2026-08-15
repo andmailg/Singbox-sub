@@ -86,7 +86,9 @@
         "node-62",
         "node-63",
         "node-64",
-        "node-65"
+        "node-65",
+        "node-66",
+        "node-67"
       ],
       "default": "auto"
     },
@@ -158,7 +160,9 @@
         "node-62",
         "node-63",
         "node-64",
-        "node-65"
+        "node-65",
+        "node-66",
+        "node-67"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -674,6 +678,19 @@
     {
       "type": "hysteria2",
       "tag": "node-40",
+      "server": "node1.sferavpn.pro",
+      "server_port": 443,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "node1.sferavpn.pro"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-41",
       "server": "hy2.123266.xyz",
       "server_port": 33333,
       "up_mbps": 100,
@@ -686,7 +703,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-41",
+      "tag": "node-42",
       "server": "hy2.561891.xyz",
       "server_port": 44356,
       "up_mbps": 100,
@@ -699,7 +716,20 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-42",
+      "tag": "node-43",
+      "server": "onecloudstream.com",
+      "server_port": 9443,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "password": "b8f1b61e-d5c4-4765-866d-ece1fc8e590b",
+      "tls": {
+        "enabled": true,
+        "server_name": "onecloudstream.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-44",
       "server": "freedom.chenlan.top",
       "server_port": 12765,
       "up_mbps": 100,
@@ -712,46 +742,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-43",
-      "server": "hopp-legend-se.roxa.org",
-      "server_port": 8443,
-      "up_mbps": 100,
-      "down_mbps": 100,
-      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
-      "tls": {
-        "enabled": true,
-        "server_name": "hopp-legend-se.roxa.org"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-44",
-      "server": "ee1.sferavpn.pro",
-      "server_port": 443,
-      "up_mbps": 100,
-      "down_mbps": 100,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
-      "tls": {
-        "enabled": true,
-        "server_name": "ee1.sferavpn.pro"
-      }
-    },
-    {
-      "type": "hysteria2",
       "tag": "node-45",
-      "server": "de2.sferavpn.pro",
-      "server_port": 443,
-      "up_mbps": 100,
-      "down_mbps": 100,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
-      "tls": {
-        "enabled": true,
-        "server_name": "de2.sferavpn.pro"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-46",
       "server": "grape-honk.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 100,
@@ -764,28 +755,41 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-47",
-      "server": "speedtestmark.com",
+      "tag": "node-46",
+      "server": "borat-hopp.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 100,
       "down_mbps": 100,
-      "password": "b8f1b61e-d5c4-4765-866d-ece1fc8e590b",
+      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
       "tls": {
         "enabled": true,
-        "server_name": "speedtestmark.com"
+        "server_name": "borat-hopp.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-47",
+      "server": "ee1.sferavpn.pro",
+      "server_port": 443,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "tls": {
+        "enabled": true,
+        "server_name": "ee1.sferavpn.pro"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-48",
-      "server": "onecloudstream.com",
-      "server_port": 9443,
+      "server": "hopp-legend-se.roxa.org",
+      "server_port": 8443,
       "up_mbps": 100,
       "down_mbps": 100,
-      "password": "b8f1b61e-d5c4-4765-866d-ece1fc8e590b",
+      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
       "tls": {
         "enabled": true,
-        "server_name": "onecloudstream.com"
+        "server_name": "hopp-legend-se.roxa.org"
       }
     },
     {
@@ -804,27 +808,27 @@
     {
       "type": "hysteria2",
       "tag": "node-50",
-      "server": "borat-hopp.bumbleshrimp.com",
+      "server": "speedtestmark.com",
       "server_port": 8443,
       "up_mbps": 100,
       "down_mbps": 100,
-      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "password": "b8f1b61e-d5c4-4765-866d-ece1fc8e590b",
       "tls": {
         "enabled": true,
-        "server_name": "borat-hopp.bumbleshrimp.com"
+        "server_name": "speedtestmark.com"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-51",
-      "server": "usa1.spectrumproxy.shop",
+      "server": "de2.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 100,
       "down_mbps": 100,
-      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
+      "password": "cd74c0a406664a5bc0bac098220a2468",
       "tls": {
         "enabled": true,
-        "server_name": "usa1.spectrumproxy.shop"
+        "server_name": "de2.sferavpn.pro"
       }
     },
     {
@@ -843,14 +847,14 @@
     {
       "type": "hysteria2",
       "tag": "node-53",
-      "server": "ro.h2corp.org",
+      "server": "usa1.spectrumproxy.shop",
       "server_port": 443,
       "up_mbps": 100,
       "down_mbps": 100,
-      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
+      "password": "76713d07-5a6b-49c2-abd8-bc450a2fa7fc",
       "tls": {
         "enabled": true,
-        "server_name": "ro.h2corp.org"
+        "server_name": "usa1.spectrumproxy.shop"
       }
     },
     {
@@ -869,6 +873,19 @@
     {
       "type": "hysteria2",
       "tag": "node-55",
+      "server": "ro.h2corp.org",
+      "server_port": 443,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "password": "uj7XGZGUqRlmdpk6rysyZMN333RWsxTFj0hBIMaFV-NUCd5r",
+      "tls": {
+        "enabled": true,
+        "server_name": "ro.h2corp.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-56",
       "server": "yg3.mangshe.xyz",
       "server_port": 2056,
       "up_mbps": 100,
@@ -881,7 +898,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-56",
+      "tag": "node-57",
       "server": "pg-usa2-hy2.gigatapbot.top",
       "server_port": 1443,
       "up_mbps": 100,
@@ -894,7 +911,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-57",
+      "tag": "node-58",
       "server": "www.cloudflare.com",
       "server_port": 36723,
       "up_mbps": 100,
@@ -907,7 +924,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-58",
+      "tag": "node-59",
       "server": "anymath.ir",
       "server_port": 443,
       "up_mbps": 100,
@@ -920,7 +937,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-59",
+      "tag": "node-60",
       "server": "nl2.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 100,
@@ -933,7 +950,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-60",
+      "tag": "node-61",
       "server": "azer-tea-grape.bumbleshrimp.com",
       "server_port": 8443,
       "up_mbps": 100,
@@ -946,7 +963,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-61",
+      "tag": "node-62",
       "server": "www.amazon.com",
       "server_port": 443,
       "up_mbps": 100,
@@ -959,7 +976,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-62",
+      "tag": "node-63",
       "server": "www.linux.com",
       "server_port": 443,
       "up_mbps": 100,
@@ -972,7 +989,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-63",
+      "tag": "node-64",
       "server": "at164.mechvpn.online",
       "server_port": 443,
       "up_mbps": 100,
@@ -985,7 +1002,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-64",
+      "tag": "node-65",
       "server": "premium-de-hy2.geodema.network",
       "server_port": 8444,
       "up_mbps": 100,
@@ -998,7 +1015,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-65",
+      "tag": "node-66",
       "server": "grape-beer.yyuyy.com",
       "server_port": 8443,
       "up_mbps": 100,
@@ -1007,6 +1024,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-beer.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-67",
+      "server": "premium-nl.geodema.network",
+      "server_port": 8444,
+      "up_mbps": 100,
+      "down_mbps": 100,
+      "password": "e8c93f75-4ed5-41b1-a32e-a846e54582e8",
+      "tls": {
+        "enabled": true,
+        "server_name": "premium-nl.geodema.network"
       }
     }
   ],
