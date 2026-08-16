@@ -185,20 +185,6 @@
       "type": "vless",
       "tag": "node-1",
       "server": "www.true.th",
-      "server_port": 80,
-      "uuid": "cb700418-90ba-4da0-b319-64a2d46f754e",
-      "transport": {
-        "type": "ws",
-        "path": "/kind1",
-        "headers": {
-          "Host": "d3saayob5cvi7l.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-2",
-      "server": "www.true.th",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
@@ -212,6 +198,20 @@
         "enabled": true,
         "server_name": "d1yxsk0zprgivr.cloudfront.net",
         "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-2",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "cb700418-90ba-4da0-b319-64a2d46f754e",
+      "transport": {
+        "type": "ws",
+        "path": "/kind1",
+        "headers": {
+          "Host": "d3saayob5cvi7l.cloudfront.net"
+        }
       }
     },
     {
@@ -396,25 +396,6 @@
     {
       "type": "vless",
       "tag": "node-14",
-      "server": "18.154.132.116",
-      "server_port": 443,
-      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "d1yxsk0zprgivr.cloudfront.net"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "d1yxsk0zprgivr.cloudfront.net",
-        "insecure": false
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-15",
       "server": "www.true.th",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -433,7 +414,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-16",
+      "tag": "node-15",
       "server": "www.true.th",
       "server_port": 80,
       "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
@@ -447,7 +428,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-17",
+      "tag": "node-16",
       "server": "3.162.103.97",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -466,8 +447,27 @@
     },
     {
       "type": "vless",
-      "tag": "node-18",
+      "tag": "node-17",
       "server": "18.238.109.17",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d1yxsk0zprgivr.cloudfront.net"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-18",
+      "server": "18.154.132.116",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
