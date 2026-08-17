@@ -69,16 +69,16 @@ def parse_proxy_link(link: str) -> dict | None:
     if insecure == "1" or insecure.lower() == "true":
         return None
 
-    # 2. Обработка портов: первое число из диапазона или удаление узла, если порт не указан
+    # 2. Обработка портов: берем первое число из диапазона или пропускаем узел, если порт не указан
     try:
         port = parsed.port
     except ValueError:
-        # В случае диапазона портов (например, 21000-21199) извлекаем первое число
+        # Извлекаем порт из netloc при диапазоне (например, '21000-21199')
         port_part = parsed.netloc.rsplit(":", 1)[-1].split("?")[0].split("#")[0]
         first_port = port_part.split("-")[0]
         port = int(first_port) if first_port.isdigit() else None
 
-    # Если порт не указан в ссылке или не определен, пропускаем узел
+    # Если порт отсутствует в ссылке или равен None
     if not port:
         return None
 
