@@ -472,20 +472,6 @@
     {
       "type": "vless",
       "tag": "node-18",
-      "server": "www.true.th",
-      "server_port": 80,
-      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
-      "transport": {
-        "type": "ws",
-        "path": "/than",
-        "headers": {
-          "Host": "d16l6nb4do0zu4.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-19",
       "server": "3.162.103.97",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -504,7 +490,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-20",
+      "tag": "node-19",
       "server": "18.239.83.52",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -523,7 +509,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-21",
+      "tag": "node-20",
       "server": "18.238.109.28",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
@@ -538,6 +524,20 @@
         "enabled": true,
         "server_name": "d1yxsk0zprgivr.cloudfront.net",
         "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-21",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
       }
     },
     {
