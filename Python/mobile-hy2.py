@@ -69,10 +69,18 @@ def parse_proxy_link(link: str) -> dict | None:
     if insecure == "1" or insecure.lower() == "true":
         return None
 
-    # 2. Фильтрация по портам (исключаем 443)
-    port = parsed.port or 443
-#    if port == 443:
-#        return None
+    # 2. Обработка портов: первое число из диапазона или удаление узла, если порт не указан
+    try:
+        port = parsed.port
+    except ValueError:
+        # В случае диапазона портов (например, 21000-21199) извлекаем первое число
+        port_part = parsed.netloc.rsplit(":", 1)[-1].split("?")[0].split("#")[0]
+        first_port = port_part.split("-")[0]
+        port = int(first_port) if first_port.isdigit() else None
+
+    # Если порт не указан в ссылке или не определен, пропускаем узел
+    if not port:
+        return None
 
     # 3. Извлечение пароля
     netloc = parsed.netloc
