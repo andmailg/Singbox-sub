@@ -145,7 +145,9 @@
         "node-22",
         "node-23",
         "node-24",
-        "node-25"
+        "node-25",
+        "node-26",
+        "node-27"
       ],
       "default": "auto"
     },
@@ -177,7 +179,9 @@
         "node-22",
         "node-23",
         "node-24",
-        "node-25"
+        "node-25",
+        "node-26",
+        "node-27"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -528,7 +532,7 @@
     {
       "type": "vless",
       "tag": "node-21",
-      "server": "3.162.103.97",
+      "server": "13.249.8.83",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
@@ -547,21 +551,26 @@
     {
       "type": "vless",
       "tag": "node-22",
-      "server": "www.true.th",
-      "server_port": 80,
-      "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
+      "server": "52.84.199.15",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
         "type": "ws",
-        "path": "/fnetvpn2026",
+        "path": "/",
         "headers": {
-          "Host": "d3gxy6d0a9fs18.cloudfront.net"
+          "Host": "d1yxsk0zprgivr.cloudfront.net"
         }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
       }
     },
     {
       "type": "vless",
       "tag": "node-23",
-      "server": "18.238.109.28",
+      "server": "3.162.103.97",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
       "transport": {
@@ -580,6 +589,39 @@
     {
       "type": "vless",
       "tag": "node-24",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
+      "transport": {
+        "type": "ws",
+        "path": "/fnetvpn2026",
+        "headers": {
+          "Host": "d3gxy6d0a9fs18.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-25",
+      "server": "18.238.109.28",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d1yxsk0zprgivr.cloudfront.net"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-26",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -593,7 +635,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-25",
+      "tag": "node-27",
       "server": "3.170.185.121",
       "server_port": 443,
       "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
