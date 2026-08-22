@@ -394,7 +394,7 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-ru",
+                        "geosite-category-ru",
                         "geoip-ru"
                     ],
                     "server": "dns-local"
