@@ -1580,17 +1580,6 @@
     {
       "type": "trojan",
       "tag": "node-1",
-      "server": "128.1.248.162",
-      "server_port": 5692,
-      "password": "fg20mtCFHy",
-      "tls": {
-        "enabled": true,
-        "server_name": "quicknet.southbyte.xyz"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-2",
       "server": "128.14.156.48",
       "server_port": 5529,
       "password": "fg20mtCFHy",
@@ -1601,13 +1590,24 @@
     },
     {
       "type": "trojan",
-      "tag": "node-3",
+      "tag": "node-2",
       "server": "128.14.148.84",
       "server_port": 5531,
       "password": "fg20mtCFHy",
       "tls": {
         "enabled": true,
         "server_name": "ycgsc.southbyte.xyz"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-3",
+      "server": "128.1.248.162",
+      "server_port": 5692,
+      "password": "fg20mtCFHy",
+      "tls": {
+        "enabled": true,
+        "server_name": "quicknet.southbyte.xyz"
       }
     },
     {
@@ -2267,6 +2267,17 @@
     {
       "type": "trojan",
       "tag": "node-57",
+      "server": "45.90.216.147",
+      "server_port": 8443,
+      "password": "5e19b3c8-c1dc-4163-95e2-895319c15d6c",
+      "tls": {
+        "enabled": true,
+        "server_name": "cloud.mail.ru"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-58",
       "server": "185.126.236.186",
       "server_port": 19684,
       "password": "BEwWAh0ftF",
@@ -2280,7 +2291,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-58",
+      "tag": "node-59",
       "server": "23.95.77.74",
       "server_port": 22019,
       "password": "ID--KANAL--JKVPN--JKVPN",
@@ -2294,7 +2305,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-59",
+      "tag": "node-60",
       "server": "3.35.149.60",
       "server_port": 15364,
       "password": "IjeKXCOkPOrW",
@@ -2305,14 +2316,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-60",
+      "tag": "node-61",
       "server": "65.109.215.50",
       "server_port": 54673,
       "password": "Ldbgt4IUYv0S+5cFrG4vcWEbvdf8RgPGmoIXhnnOEh4="
     },
     {
       "type": "trojan",
-      "tag": "node-61",
+      "tag": "node-62",
       "server": "37.156.46.29",
       "server_port": 2053,
       "password": "Masir_Sefid",
@@ -2323,7 +2334,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-62",
+      "tag": "node-63",
       "server": "83.228.225.220",
       "server_port": 1040,
       "password": "Masir_Sefid",
@@ -2334,31 +2345,13 @@
     },
     {
       "type": "trojan",
-      "tag": "node-63",
+      "tag": "node-64",
       "server": "66.33.22.242",
       "server_port": 30797,
       "password": "TgTrWOUNeU",
       "tls": {
         "enabled": true,
         "server_name": "is1-ssl.mzstatic.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-64",
-      "server": "45.85.118.88",
-      "server_port": 2053,
-      "password": "ZJU29smXwp",
-      "tls": {
-        "enabled": true,
-        "server_name": "omid.teama.tk"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "k.teama.tk"
-        }
       }
     },
     {
@@ -2408,9 +2401,9 @@
     {
       "type": "trojan",
       "tag": "node-69",
-      "server": "35.157.241.124",
+      "server": "13.41.217.121",
       "server_port": 22222,
-      "password": "telegram-id-directvpn",
+      "password": "telegram-id-privatevpns",
       "tls": {
         "enabled": true,
         "server_name": "trojan.burgerip.co.uk"
@@ -2601,6 +2594,31 @@
     {
       "type": "trojan",
       "tag": "node-85",
+      "server": "151.101.74.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-86",
+      "server": "45.85.118.88",
+      "server_port": 2053,
+      "password": "ZJU29smXwp",
+      "tls": {
+        "enabled": true,
+        "server_name": "omid.teama.tk"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-87",
+      "server": "199.232.1.2",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-88",
       "server": "83.228.230.226",
       "server_port": 2087,
       "password": "SoftNetConnect",
@@ -2611,21 +2629,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-86",
-      "server": "151.101.130.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-87",
-      "server": "151.101.122.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-88",
+      "tag": "node-89",
       "server": "127.0.0.1",
       "server_port": 40443,
       "password": "humanity",
@@ -2636,46 +2640,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-89",
-      "server": "151.101.66.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
       "tag": "node-90",
-      "server": "151.101.243.172",
-      "server_port": 80,
-      "password": "MITIVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-91",
-      "server": "8.6.112.0",
-      "server_port": 2096,
-      "password": "8r%3C%5B9%27l6hAO%238ZQi",
-      "tls": {
-        "enabled": true,
-        "server_name": "Koma-YT.PAGeS.Dev"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-92",
       "server": "151.101.64.172",
       "server_port": 80,
       "password": "MITIVPN"
     },
     {
       "type": "trojan",
-      "tag": "node-93",
-      "server": "151.101.194.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-94",
+      "tag": "node-91",
       "server": "185.236.233.111",
       "server_port": 2053,
       "password": "ba74833c-8c0f-4dcd-8cbc-13e3c32d3765",
@@ -2686,33 +2658,54 @@
     },
     {
       "type": "trojan",
+      "tag": "node-92",
+      "server": "8.6.112.0",
+      "server_port": 2096,
+      "password": "8r%3C%5B9%27l6hAO%238ZQi",
+      "tls": {
+        "enabled": true,
+        "server_name": "Koma-YT.PAGeS.Dev"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-93",
+      "server": "151.101.66.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-94",
+      "server": "151.101.130.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
       "tag": "node-95",
-      "server": "151.101.74.172",
+      "server": "151.101.0.194",
       "server_port": 80,
       "password": "MiTiVPN"
     },
     {
       "type": "trojan",
       "tag": "node-96",
-      "server": "45.85.118.0",
-      "server_port": 2053,
-      "password": "ZJU29smXwp",
-      "tls": {
-        "enabled": true,
-        "server_name": "web2.teama.tk"
-      }
+      "server": "151.101.243.172",
+      "server_port": 80,
+      "password": "MITIVPN"
     },
     {
       "type": "trojan",
       "tag": "node-97",
-      "server": "199.232.1.2",
+      "server": "151.101.194.172",
       "server_port": 80,
       "password": "MiTiVPN"
     },
     {
       "type": "trojan",
       "tag": "node-98",
-      "server": "151.101.0.194",
+      "server": "151.101.122.172",
       "server_port": 80,
       "password": "MiTiVPN"
     },
