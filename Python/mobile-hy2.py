@@ -123,8 +123,8 @@ def parse_proxy_link(link: str) -> dict | None:
         "tag": tag,
         "server": server_host,
         "server_port": port,
-        "up_mbps": 10,
-        "down_mbps": 10,
+        "up_mbps": 20,
+        "down_mbps": 20,
         "password": urllib.parse.unquote(password),
         "tls": tls_opts,
     }
@@ -152,8 +152,8 @@ def clean_outbound(outbound: dict) -> dict:
     if not outbound or outbound.get("type") != "hysteria2":
         return outbound
 
-    outbound.setdefault("up_mbps", 10)
-    outbound.setdefault("down_mbps", 10)
+    outbound.setdefault("up_mbps", 20)
+    outbound.setdefault("down_mbps", 20)
 
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
