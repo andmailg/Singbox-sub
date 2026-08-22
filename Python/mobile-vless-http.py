@@ -463,7 +463,7 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "geosite-ru",
+                        "geosite-category-ru",
                         "geoip-ru"
                     ],
                     "outbound": "direct-out"
