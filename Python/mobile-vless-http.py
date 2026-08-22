@@ -410,7 +410,7 @@ def main():
                 {
                     "rule_set": [
                         "db-category-ai-chat",
-                        "antizapret"
+                        "db-antizapret"
                     ],
                     "server": "fakeip"
                 }
@@ -457,7 +457,7 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "antizapret"
+                        "db-antizapret"
                     ],
                     "outbound": "proxy-out"
                 },
