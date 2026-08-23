@@ -261,20 +261,6 @@
     {
       "type": "vless",
       "tag": "node-8",
-      "server": "www.true.th",
-      "server_port": 80,
-      "uuid": "cb700418-90ba-4da0-b319-64a2d46f754e",
-      "transport": {
-        "type": "ws",
-        "path": "/kind1",
-        "headers": {
-          "Host": "d3saayob5cvi7l.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-9",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -283,6 +269,20 @@
         "path": "/?ed=2560",
         "headers": {
           "Host": "join.2.kiava.cloud.speedtest.net.xn--mgba2h8quf.cdn.ws80.cloudfront.net.kiava.fun"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-9",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "cb700418-90ba-4da0-b319-64a2d46f754e",
+      "transport": {
+        "type": "ws",
+        "path": "/kind1",
+        "headers": {
+          "Host": "d3saayob5cvi7l.cloudfront.net"
         }
       }
     },
