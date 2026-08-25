@@ -1,10 +1,8 @@
 import base64
+import functools
 import ipaddress
 import json
-import os
 import re
-import socket
-import sys
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
@@ -14,6 +12,7 @@ session = requests.Session()
 session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
 
 
+@functools.lru_cache(maxsize=4096)
 def is_valid_ip(address: str) -> bool:
     """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
     try:
@@ -23,6 +22,7 @@ def is_valid_ip(address: str) -> bool:
         return False
 
 
+@functools.lru_cache(maxsize=4096)
 def is_valid_domain(domain: str) -> bool:
     """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
     if not domain or is_valid_ip(domain):
@@ -31,6 +31,38 @@ def is_valid_domain(domain: str) -> bool:
         r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
     )
     return bool(domain_regex.match(domain))
+
+
+# Зоны, узлы которых блокируются глобально
+RU_ZONES = (".ru", ".su", ".рф")
+
+
+def _is_ru_zone(hostname: str) -> bool:
+    """Проверяет, относится ли хост к заблокированным зонам."""
+    h = hostname.lower()
+    return h.endswith(RU_ZONES) or any(f"{z}:" in h for z in RU_ZONES)
+
+
+def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
+    """Быстрая фильтрация ноды после парсинга."""
+    if not outbound:
+        return False
+    tls_opts = outbound.get("tls")
+    if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
+        return False
+    server_name = tls_opts.get("server_name")
+    if not server_name or not isinstance(server_name, str) or not server_name.strip():
+        return False
+    node_tag = str(outbound.get("tag", "")).lower()
+    if "ru" in node_tag or "russia" in node_tag:
+        return False
+    server_address = str(outbound.get("server", "")).lower()
+    if _is_ru_zone(server_address):
+        return False
+    if server_address in seen_servers:
+        return False
+    seen_servers.add(server_address)
+    return True
 
 
 def is_valid_server(server: str) -> bool:
@@ -138,10 +170,7 @@ def parse_proxy_link(link: str) -> dict | None:
         if not is_valid_domain(sni_val):
             return None
 
-        RU_ZONES = (".ru", ".su", ".рф")
-        if sni_val.endswith(RU_ZONES) or any(
-            f"{zone}:" in sni_val for zone in RU_ZONES
-        ):
+        if _is_ru_zone(sni_val):
             return None
 
     return outbound
@@ -207,57 +236,23 @@ def main():
         print(f"❌ Error fetching sources JSON: {e}")
         return
 
-    # Параллельное скачивание содержимого всех подписок
-    links = []
-    print("Downloading subscription links in parallel...")
+    # --- ШАГ 1: Ленивый парсинг, фильтрация и дедупликация в одном проходе ---
+    seen_servers: set[str] = set()
+    outbounds: list[dict] = []
+
+    print("Downloading and parsing links in parallel...")
     with ThreadPoolExecutor(max_workers=20) as executor:
-        results = executor.map(fetch_subscription, sub_urls)
-        for lines in results:
-            links.extend(lines)
-
-    print(f"Total raw lines collected: {len(links)}")
-
-    outbounds = []
-    seen_servers = set()
-    pre_parsed_nodes = []
-
-    # --- ШАГ 1: Парсинг и фильтрация ---
-    print(f"Parsing and deduplicating {len(links)} links...")
-    for link in links:
-        outbound = parse_proxy_link(link)
-        if outbound:
-            outbound = clean_outbound(outbound)
-            if not outbound:
-                continue
-
-            tls_opts = outbound.get("tls", {})
-            if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
-                continue
-
-            server_name = tls_opts.get("server_name")
-            if not server_name or not isinstance(server_name, str) or not server_name.strip():
-                continue
-
-            node_tag = str(outbound.get("tag", "")).lower()
-            if "ru" in node_tag or "russia" in node_tag:
-                continue
-
-            server_address = str(outbound.get("server", "")).lower()
-            if server_address.endswith(".ru") or ".ru:" in server_address:
-                continue
-
-            if server_address in seen_servers:
-                continue
-            seen_servers.add(server_address)
-
-            pre_parsed_nodes.append(outbound)
-
-    outbounds = list(pre_parsed_nodes)
-    print(f"Всего выбрано {len(outbounds)} валидных Hysteria2 узлов.")
-
-    # --- ШАГ 2: УНИКАЛИЗАЦИЯ ТЕГОВ ---
-    for idx, outbound in enumerate(outbounds, start=1):
-        outbound["tag"] = f"node-{idx}"
+        for lines in executor.map(fetch_subscription, sub_urls):
+            for link in lines:
+                outbound = parse_proxy_link(link)
+                if not should_accept_outbound(outbound, seen_servers):
+                    continue
+                outbound = clean_outbound(outbound)
+                if not outbound:
+                    continue
+                # Single-pass tagging
+                outbound["tag"] = f"node-{len(outbounds) + 1}"
+                outbounds.append(outbound)
 
     node_tags = [o["tag"] for o in outbounds]
 
