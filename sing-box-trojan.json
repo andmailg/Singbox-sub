@@ -1560,6 +1560,13 @@
     {
       "type": "trojan",
       "tag": "node-1",
+      "server": "91.107.155.9",
+      "server_port": 58332,
+      "password": "wNgd%2FazFXW6lXalq4vi5MgzyDuc6R1UZRdmuQMg9hPs%3D"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-2",
       "server": "89.150.34.41",
       "server_port": 2053,
       "password": "humanity",
@@ -1577,7 +1584,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-2",
+      "tag": "node-3",
       "server": "168.100.9.178",
       "server_port": 2053,
       "password": "humanity",
@@ -1595,14 +1602,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-3",
+      "tag": "node-4",
       "server": "65.109.211.136",
       "server_port": 22002,
       "password": "HgkGFrFPuvmaiE90Va%2B2JwUgiGAqDEZ51YnksOtCMAI%3D"
     },
     {
       "type": "trojan",
-      "tag": "node-4",
+      "tag": "node-5",
       "server": "167.150.100.81",
       "server_port": 29842,
       "password": "q-9wViLXkoZWQua9YT7BWoDTC9GQzqR2",
@@ -1613,7 +1620,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-5",
+      "tag": "node-6",
       "server": "86.38.247.109",
       "server_port": 2087,
       "password": "sshs8_6481354771",
@@ -1624,7 +1631,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-6",
+      "tag": "node-7",
       "server": "16.162.109.29",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1635,7 +1642,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-7",
+      "tag": "node-8",
       "server": "95.40.14.123",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1646,7 +1653,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-8",
+      "tag": "node-9",
       "server": "16.162.160.61",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1657,7 +1664,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-9",
+      "tag": "node-10",
       "server": "18.167.167.216",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1668,7 +1675,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-10",
+      "tag": "node-11",
       "server": "43.198.248.187",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1679,7 +1686,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-11",
+      "tag": "node-12",
       "server": "95.40.8.2",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1690,7 +1697,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-12",
+      "tag": "node-13",
       "server": "43.198.243.26",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1701,7 +1708,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-13",
+      "tag": "node-14",
       "server": "18.162.120.218",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1712,7 +1719,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-14",
+      "tag": "node-15",
       "server": "95.40.43.135",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1723,7 +1730,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-15",
+      "tag": "node-16",
       "server": "95.40.110.184",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1734,7 +1741,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-16",
+      "tag": "node-17",
       "server": "18.162.125.164",
       "server_port": 50887,
       "password": "6ec301428255a78a1d826988d86cc87e",
@@ -1745,7 +1752,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-17",
+      "tag": "node-18",
       "server": "160.16.110.77",
       "server_port": 55682,
       "password": "7d8e6db4-96cc-4710-afc0-619edde2d7a1",
@@ -1756,7 +1763,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-18",
+      "tag": "node-19",
       "server": "150.241.83.159",
       "server_port": 2053,
       "password": "4PZV9xYUGS3OgZR92y9PrQ",
@@ -1767,7 +1774,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-19",
+      "tag": "node-20",
       "server": "179.237.74.76",
       "server_port": 2665,
       "password": "------BanV2ray-------",
@@ -1782,7 +1789,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-20",
+      "tag": "node-21",
       "server": "188.213.131.90",
       "server_port": 59618,
       "password": "7f5rouvmiqm83905",
@@ -1793,7 +1800,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-21",
+      "tag": "node-22",
       "server": "179.237.75.89",
       "server_port": 55606,
       "password": "-----------BanV2ray------------",
@@ -1807,7 +1814,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-22",
+      "tag": "node-23",
       "server": "83.228.227.156",
       "server_port": 47154,
       "password": "-----------BanV2ray-----------",
@@ -1821,7 +1828,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-23",
+      "tag": "node-24",
       "server": "83.228.250.78",
       "server_port": 13349,
       "password": "---------------BanV2ray-------------",
@@ -1835,7 +1842,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-24",
+      "tag": "node-25",
       "server": "179.237.75.125",
       "server_port": 10713,
       "password": "--------------BanV2ray-----------",
@@ -1849,7 +1856,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-25",
+      "tag": "node-26",
       "server": "37.156.45.60",
       "server_port": 2426,
       "password": "------------BanV2ray-----------",
@@ -1863,7 +1870,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-26",
+      "tag": "node-27",
       "server": "179.237.74.104",
       "server_port": 1772,
       "password": "---------BanV2ray---------",
@@ -1877,7 +1884,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-27",
+      "tag": "node-28",
       "server": "179.237.75.217",
       "server_port": 8880,
       "password": "uESA3PX0XW",
@@ -1891,7 +1898,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-28",
+      "tag": "node-29",
       "server": "83.228.235.99",
       "server_port": 19289,
       "password": "0A0kFGWA0t",
@@ -1905,7 +1912,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-29",
+      "tag": "node-30",
       "server": "179.237.75.149",
       "server_port": 36029,
       "password": "yBN5491Fle",
@@ -1919,7 +1926,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-30",
+      "tag": "node-31",
       "server": "179.237.75.177",
       "server_port": 58491,
       "password": "938a1fb2b751d876bb4c8d3ba706054f",
@@ -1933,7 +1940,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-31",
+      "tag": "node-32",
       "server": "179.237.73.93",
       "server_port": 44528,
       "password": "oeaQHjIg021hag3UB1gHR60iA1iaNSs2",
@@ -1948,7 +1955,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-32",
+      "tag": "node-33",
       "server": "179.237.73.111",
       "server_port": 21681,
       "password": "oeaQHjIg021hag3UB1gHR60iA1iaNSs2",
@@ -1963,7 +1970,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-33",
+      "tag": "node-34",
       "server": "47.80.107.173",
       "server_port": 2398,
       "password": "3632736327",
@@ -1974,7 +1981,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-34",
+      "tag": "node-35",
       "server": "45.82.14.144",
       "server_port": 2025,
       "password": "vpn",
@@ -1992,7 +1999,18 @@
     },
     {
       "type": "trojan",
-      "tag": "node-35",
+      "tag": "node-36",
+      "server": "5.180.21.146",
+      "server_port": 4443,
+      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "tls": {
+        "enabled": true,
+        "server_name": "borat-hopp.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-37",
       "server": "94.228.162.57",
       "server_port": 14276,
       "password": "BKvz1AHxyv",
@@ -2003,7 +2021,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-36",
+      "tag": "node-38",
       "server": "77.110.110.146",
       "server_port": 30128,
       "password": "s5Wz4l25DH",
@@ -2014,7 +2032,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-37",
+      "tag": "node-39",
       "server": "138.124.90.40",
       "server_port": 40476,
       "password": "ZpbROQ5hRn",
@@ -2025,7 +2043,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-38",
+      "tag": "node-40",
       "server": "46.29.142.57",
       "server_port": 4443,
       "password": "C0ldyfh-vpnjantit.com",
@@ -2036,7 +2054,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-39",
+      "tag": "node-41",
       "server": "80.91.86.179",
       "server_port": 277,
       "password": "6AQTpuZtJT",
@@ -2047,7 +2065,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-40",
+      "tag": "node-42",
       "server": "212.227.98.235",
       "server_port": 4433,
       "password": "t1k5znTjT8",
@@ -2061,7 +2079,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-41",
+      "tag": "node-43",
       "server": "185.114.72.31",
       "server_port": 2053,
       "password": "humanity",
@@ -2079,7 +2097,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-42",
+      "tag": "node-44",
       "server": "45.154.206.208",
       "server_port": 61426,
       "password": "dc0ebcb2-c103-466a-bd30-be492c477379",
@@ -2090,7 +2108,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-43",
+      "tag": "node-45",
       "server": "38.79.154.34",
       "server_port": 1818,
       "password": "ewpvezqjycgfeebg",
@@ -2101,7 +2119,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-44",
+      "tag": "node-46",
       "server": "146.75.0.242",
       "server_port": 80,
       "password": "MiTiVPN",
@@ -2115,7 +2133,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-45",
+      "tag": "node-47",
       "server": "212.192.210.192",
       "server_port": 14078,
       "password": "a%2F3uGr4hCWHE%2F7%2FzgIw9%2BA%3D%3D",
@@ -2126,7 +2144,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-46",
+      "tag": "node-48",
       "server": "161.33.76.218",
       "server_port": 8443,
       "password": "521314",
@@ -2144,7 +2162,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-47",
+      "tag": "node-49",
       "server": "64.177.65.95",
       "server_port": 43493,
       "password": "F42UEtSEue3xZeeomz%2FBnvE8zoS4RiuHzNHD%2Bq1MWjg%3D",
@@ -2155,14 +2173,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-48",
+      "tag": "node-50",
       "server": "157.85.102.28",
       "server_port": 1084,
       "password": "Rm6JhT-Rz8H6Mjy3dtSglA"
     },
     {
       "type": "trojan",
-      "tag": "node-49",
+      "tag": "node-51",
       "server": "109.206.241.10",
       "server_port": 449,
       "password": "oiiaB38ywjEHCWRs_O_a_1113_Il_KeyyyHop_Bes1",
@@ -2173,7 +2191,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-50",
+      "tag": "node-52",
       "server": "167.68.4.199",
       "server_port": 2053,
       "password": "Aimer",
@@ -2184,7 +2202,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-51",
+      "tag": "node-53",
       "server": "160.16.72.205",
       "server_port": 491,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2195,7 +2213,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-52",
+      "tag": "node-54",
       "server": "160.16.105.192",
       "server_port": 1933,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2206,7 +2224,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-53",
+      "tag": "node-55",
       "server": "160.16.144.208",
       "server_port": 3076,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2217,7 +2235,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-54",
+      "tag": "node-56",
       "server": "2.144.21.112",
       "server_port": 40443,
       "password": "humanity",
@@ -2235,7 +2253,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-55",
+      "tag": "node-57",
       "server": "45.67.201.210",
       "server_port": 20065,
       "password": "7e70223b-f331-41d5-9313-02b8d2df2885",
@@ -2246,14 +2264,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-56",
+      "tag": "node-58",
       "server": "65.109.215.50",
       "server_port": 54673,
       "password": "Ldbgt4IUYv0S+5cFrG4vcWEbvdf8RgPGmoIXhnnOEh4="
     },
     {
       "type": "trojan",
-      "tag": "node-57",
+      "tag": "node-59",
       "server": "37.156.46.29",
       "server_port": 2053,
       "password": "Masir_Sefid",
@@ -2264,7 +2282,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-58",
+      "tag": "node-60",
       "server": "83.228.225.220",
       "server_port": 1040,
       "password": "Masir_Sefid",
@@ -2275,7 +2293,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-59",
+      "tag": "node-61",
       "server": "66.33.22.242",
       "server_port": 30797,
       "password": "TgTrWOUNeU",
@@ -2286,7 +2304,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-60",
+      "tag": "node-62",
       "server": "193.233.133.152",
       "server_port": 28390,
       "password": "oRKpDRDR4Y",
@@ -2297,18 +2315,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-61",
-      "server": "13.60.118.52",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "tls": {
-        "enabled": true,
-        "server_name": "trojan.burgerip.co.uk"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-62",
+      "tag": "node-63",
       "server": "35.177.149.156",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2319,7 +2326,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-63",
+      "tag": "node-64",
       "server": "179.237.75.190",
       "server_port": 41464,
       "password": "uRkZYGid1r",
@@ -2330,7 +2337,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-64",
+      "tag": "node-65",
       "server": "103.173.255.234",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2341,7 +2348,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-65",
+      "tag": "node-66",
       "server": "103.173.255.228",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2352,7 +2359,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-66",
+      "tag": "node-67",
       "server": "103.173.255.127",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2363,7 +2370,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-67",
+      "tag": "node-68",
       "server": "103.173.255.21",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2374,7 +2381,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-68",
+      "tag": "node-69",
       "server": "103.195.236.24",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2385,7 +2392,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-69",
+      "tag": "node-70",
       "server": "20.24.44.110",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2396,7 +2403,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-70",
+      "tag": "node-71",
       "server": "91.243.81.42",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2407,7 +2414,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-71",
+      "tag": "node-72",
       "server": "18.162.207.193",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2418,7 +2425,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-72",
+      "tag": "node-73",
       "server": "202.8.9.27",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2429,7 +2436,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-73",
+      "tag": "node-74",
       "server": "202.8.9.67",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2440,7 +2447,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-74",
+      "tag": "node-75",
       "server": "141.147.191.85",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2451,7 +2458,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-75",
+      "tag": "node-76",
       "server": "155.248.172.87",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2462,7 +2469,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-76",
+      "tag": "node-77",
       "server": "212.90.123.130",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2473,7 +2480,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-77",
+      "tag": "node-78",
       "server": "45.82.253.234",
       "server_port": 28443,
       "password": "f033bd38-fe03-4705-883c-e45654eaa082",
@@ -2484,7 +2491,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-78",
+      "tag": "node-79",
       "server": "77.221.138.199",
       "server_port": 8443,
       "password": "humanity",
@@ -2499,7 +2506,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-79",
+      "tag": "node-80",
       "server": "172.67.176.206",
       "server_port": 2053,
       "password": "ZJU29smXwp",
@@ -2510,7 +2517,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-80",
+      "tag": "node-81",
       "server": "119.195.0.158",
       "server_port": 35342,
       "password": "rYuChHcwQZskq9E0zdoR",
@@ -2521,7 +2528,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-81",
+      "tag": "node-82",
       "server": "121.178.83.161",
       "server_port": 26214,
       "password": "GKHWMe2R4qwNcNxu6l3KMkdd",
@@ -2532,7 +2539,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-82",
+      "tag": "node-83",
       "server": "103.45.245.208",
       "server_port": 2053,
       "password": "rYuChHcwQZskq9E0zdoR",
@@ -2543,7 +2550,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-83",
+      "tag": "node-84",
       "server": "194.53.53.249",
       "server_port": 2083,
       "password": "d6b8011a-c725-435a-9fec-bf6d3530392c",
@@ -2554,7 +2561,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-84",
+      "tag": "node-85",
       "server": "194.53.53.11",
       "server_port": 2096,
       "password": "d6b8011a-c725-435a-9fec-bf6d3530392c",
@@ -2565,7 +2572,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-85",
+      "tag": "node-86",
       "server": "185.231.112.217",
       "server_port": 40443,
       "password": "humanity",
@@ -2583,7 +2590,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-86",
+      "tag": "node-87",
       "server": "185.204.169.164",
       "server_port": 2087,
       "password": "SoftNetConnect",
@@ -2597,7 +2604,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-87",
+      "tag": "node-88",
       "server": "160.16.107.37",
       "server_port": 3169,
       "password": "44e660b0ee21cf3ac66aee2c08af85d2",
@@ -2608,28 +2615,42 @@
     },
     {
       "type": "trojan",
-      "tag": "node-88",
-      "server": "151.101.243.172",
-      "server_port": 80,
-      "password": "MITIVPN"
-    },
-    {
-      "type": "trojan",
       "tag": "node-89",
-      "server": "151.101.0.194",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-90",
       "server": "151.101.74.172",
       "server_port": 80,
       "password": "MiTiVPN"
     },
     {
       "type": "trojan",
+      "tag": "node-90",
+      "server": "151.101.130.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
       "tag": "node-91",
+      "server": "151.101.0.194",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-92",
+      "server": "151.101.194.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-93",
+      "server": "151.101.66.172",
+      "server_port": 80,
+      "password": "MiTiVPN"
+    },
+    {
+      "type": "trojan",
+      "tag": "node-94",
       "server": "185.236.233.111",
       "server_port": 2053,
       "password": "ba74833c-8c0f-4dcd-8cbc-13e3c32d3765",
@@ -2640,25 +2661,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-92",
-      "server": "199.232.1.2",
+      "tag": "node-95",
+      "server": "151.101.64.172",
       "server_port": 80,
-      "password": "MiTiVPN"
+      "password": "MITIVPN"
     },
     {
       "type": "trojan",
-      "tag": "node-93",
-      "server": "167.150.100.133",
-      "server_port": 450,
-      "password": "0_Oms89nH82l_Ki813_Nxmw81_Rbt_Jq190Kl_m",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-power-sg.roxa.org"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-94",
+      "tag": "node-96",
       "server": "127.0.0.1",
       "server_port": 40443,
       "password": "humanity",
@@ -2669,14 +2679,18 @@
     },
     {
       "type": "trojan",
-      "tag": "node-95",
-      "server": "151.101.66.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
+      "tag": "node-97",
+      "server": "83.228.230.226",
+      "server_port": 2087,
+      "password": "SoftNetConnect",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yahoo.com"
+      }
     },
     {
       "type": "trojan",
-      "tag": "node-96",
+      "tag": "node-98",
       "server": "8.6.112.0",
       "server_port": 2096,
       "password": "8r%3C%5B9%27l6hAO%238ZQi",
@@ -2687,42 +2701,24 @@
     },
     {
       "type": "trojan",
-      "tag": "node-97",
+      "tag": "node-99",
       "server": "151.101.122.172",
       "server_port": 80,
       "password": "MiTiVPN"
     },
     {
       "type": "trojan",
-      "tag": "node-98",
-      "server": "151.101.64.172",
+      "tag": "node-100",
+      "server": "151.101.243.172",
       "server_port": 80,
       "password": "MITIVPN"
     },
     {
       "type": "trojan",
-      "tag": "node-99",
-      "server": "151.101.194.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-100",
-      "server": "151.101.130.172",
-      "server_port": 80,
-      "password": "MiTiVPN"
-    },
-    {
-      "type": "trojan",
       "tag": "node-101",
-      "server": "83.228.230.226",
-      "server_port": 2087,
-      "password": "SoftNetConnect",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.yahoo.com"
-      }
+      "server": "199.232.1.2",
+      "server_port": 80,
+      "password": "MiTiVPN"
     },
     {
       "type": "trojan",
