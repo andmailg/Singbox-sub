@@ -491,6 +491,19 @@
     {
       "type": "hysteria2",
       "tag": "node-26",
+      "server": "borat-hopp.bumbleshrimp.com",
+      "server_port": 8443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "tls": {
+        "enabled": true,
+        "server_name": "borat-hopp.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-27",
       "server": "ru1.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 20,
@@ -503,7 +516,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-27",
+      "tag": "node-28",
       "server": "hopp-germany-new.ddnsguru.com",
       "server_port": 8443,
       "up_mbps": 20,
@@ -512,19 +525,6 @@
       "tls": {
         "enabled": true,
         "server_name": "hopp-germany-new.ddnsguru.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-28",
-      "server": "borat-hopp.bumbleshrimp.com",
-      "server_port": 8443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
-      "tls": {
-        "enabled": true,
-        "server_name": "borat-hopp.bumbleshrimp.com"
       }
     },
     {
