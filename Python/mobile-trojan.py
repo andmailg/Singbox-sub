@@ -443,8 +443,7 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru"
+                        "geosite-category-ru"
                     ],
                     "server": "dns-local"
                 },
@@ -521,7 +520,14 @@ def main():
             urltest_outbound,
             *outbounds
         ],
+        "http_clients": [
+            {
+                "tag": "rules-downloader",
+                "detour": "direct-out"
+            }
+        ],
         "route": {
+            "default_http_client": "rules-downloader",
             "rules": [
                 {
                     "action": "sniff"
