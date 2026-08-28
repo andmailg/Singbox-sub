@@ -1047,9 +1047,9 @@
     {
       "type": "vless",
       "tag": "node-1",
-      "server": "213.156.152.110",
-      "server_port": 443,
-      "uuid": "79c08658-753d-41f7-90af-dd03b0e68f75",
+      "server": "test.soundfiy.ir",
+      "server_port": 31579,
+      "uuid": "b7f48f17-98db-4379-9b48-943ea54346b9",
       "transport": {
         "type": "http",
         "host": [
@@ -1060,9 +1060,9 @@
     {
       "type": "vless",
       "tag": "node-2",
-      "server": "test.soundfiy.ir",
-      "server_port": 31579,
-      "uuid": "b7f48f17-98db-4379-9b48-943ea54346b9",
+      "server": "213.156.152.110",
+      "server_port": 443,
+      "uuid": "79c08658-753d-41f7-90af-dd03b0e68f75",
       "transport": {
         "type": "http",
         "host": [
