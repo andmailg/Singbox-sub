@@ -372,7 +372,7 @@ def main():
         "http_clients": [
             {
                 "tag": "rules-downloader",
-                "detour": "proxy-out"
+                "detour": "direct-out"
             }
         ],
         "route": {
