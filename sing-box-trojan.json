@@ -2310,6 +2310,21 @@
     {
       "type": "trojan",
       "tag": "node-70",
+      "server": "2.144.21.112",
+      "server_port": 40443,
+      "password": "humanity",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ignitelimit.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-71",
       "server": "167.68.4.199",
       "server_port": 2053,
       "password": "Aimer",
@@ -2324,28 +2339,13 @@
     },
     {
       "type": "trojan",
-      "tag": "node-71",
+      "tag": "node-72",
       "server": "77.221.138.199",
       "server_port": 8443,
       "password": "humanity",
       "tls": {
         "enabled": true,
         "server_name": "www.calmlunch.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-72",
-      "server": "2.144.21.112",
-      "server_port": 40443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.ignitelimit.com"
       },
       "transport": {
         "type": "ws",
