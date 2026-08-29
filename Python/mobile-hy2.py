@@ -371,9 +371,8 @@ def main():
         ],
         "http_clients": [
             {
-                "tag": "rules-downloader",
-                "detour": "proxy-out",
-                "h3": false
+                "tag": "rules-downloader"
+                //"detour": "proxy-out"
             }
         ],
         "route": {
