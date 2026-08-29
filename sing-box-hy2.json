@@ -647,7 +647,8 @@
   "http_clients": [
     {
       "tag": "rules-downloader",
-      "detour": "proxy-out"
+      "detour": "proxy-out",
+      "h3": false
     }
   ],
   "route": {
