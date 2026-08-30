@@ -368,14 +368,8 @@ def main():
             selector_outbound,
             urltest_outbound,
             *outbounds
-        ],
-        "http_clients": [
-            {
-                "tag": "rules-downloader"
-            }
-        ],
+        ]
         "route": {
-            "default_http_client": "rules-downloader",
             "rules": [
                 {
                     "action": "sniff"
