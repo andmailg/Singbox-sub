@@ -304,16 +304,16 @@ def main():
                     }
                 },
                 {
+                    "type": "https",
+                    "tag": "smart-dns",
+                    "server": "dns.comss.one",
+                    "domain_resolver": "dns-local"
+                },
+                {
                     "type": "fakeip",
                     "tag": "fakeip",
                     "inet4_range": "198.18.0.0/15",
                     "inet6_range": "fc00::/18"
-                },
-                {
-                    "type": "https",
-                    "tag": "smart-dns",
-                    "server": "xbox-dns.ru",
-                    "domain_resolver": "dns-local"
                 },
                 {
                     "type": "local",
