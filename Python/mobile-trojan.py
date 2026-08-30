@@ -523,7 +523,6 @@ def main():
         "http_clients": [
             {
                 "tag": "rules-downloader"
-                //"detour": "direct-out"
             }
         ],
         "route": {
