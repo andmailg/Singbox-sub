@@ -31,6 +31,11 @@
         "inet6_range": "fc00::/18"
       },
       {
+        "type": "https",
+        "tag": "smart-dns",
+        "server": "xbox-dns.ru"
+      },
+      {
         "type": "local",
         "tag": "local"
       }
@@ -43,6 +48,12 @@
         "server": "dns-local"
       },
       {
+        "rule_set": [
+          "db-category-ai-chat"
+        ],
+        "server": "smart-dns"
+      },
+      {
         "query_type": [
           "HTTPS",
           "SVCB"
@@ -52,7 +63,6 @@
       },
       {
         "rule_set": [
-          "db-category-ai-chat",
           "geosite-category-media-ru-blocked",
           "db-antizapret"
         ],
@@ -1308,7 +1318,6 @@
       {
         "rule_set": [
           "geosite-category-media-ru-blocked",
-          "db-category-ai-chat",
           "db-antizapret"
         ],
         "outbound": "proxy-out"
@@ -1316,7 +1325,8 @@
       {
         "rule_set": [
           "geosite-category-ru",
-          "geoip-ru"
+          "geoip-ru",
+          "db-category-ai-chat"
         ],
         "outbound": "direct-out"
       }
