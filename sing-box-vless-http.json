@@ -2259,19 +2259,6 @@
     {
       "type": "vless",
       "tag": "node-91",
-      "server": "104.248.93.196",
-      "server_port": 8880,
-      "uuid": "603819a3-dd65-408a-abab-15d8dc49887f",
-      "transport": {
-        "type": "http",
-        "host": [
-          "store.steampowered.com"
-        ]
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-92",
       "server": "142.93.168.161",
       "server_port": 8880,
       "uuid": "Luxynet_bot",
@@ -2279,6 +2266,19 @@
         "type": "http",
         "host": [
           "agrinet.ch"
+        ]
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-92",
+      "server": "104.248.93.196",
+      "server_port": 8880,
+      "uuid": "603819a3-dd65-408a-abab-15d8dc49887f",
+      "transport": {
+        "type": "http",
+        "host": [
+          "store.steampowered.com"
         ]
       }
     },
