@@ -1288,14 +1288,8 @@
         "server_name": "content.ru.mediavitrina.com"
       }
     }
-  ],
-  "http_clients": [
-    {
-      "tag": "rules-downloader"
-    }
-  ],
+  ]
   "route": {
-    "default_http_client": "rules-downloader",
     "rules": [
       {
         "action": "sniff"
