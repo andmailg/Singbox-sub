@@ -33,7 +33,8 @@
       {
         "type": "https",
         "tag": "smart-dns",
-        "server": "xbox-dns.ru"
+        "server": "xbox-dns.ru",
+        "domain_resolver": "dns-local"
       },
       {
         "type": "local",
