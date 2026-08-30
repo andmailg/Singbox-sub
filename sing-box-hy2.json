@@ -82,6 +82,9 @@
       "address": "172.19.0.1/30",
       "auto_route": true,
       "stack": "mixed",
+      "udp_timeout": "5m",
+      "udp_mapping": "endpoint_independent",
+      "udp_filtering": "endpoint_independent",
       "route_exclude_address": [
         "10.0.0.0/8",
         "172.16.0.0/12",
