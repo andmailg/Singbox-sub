@@ -310,6 +310,12 @@ def main():
                     "inet6_range": "fc00::/18"
                 },
                 {
+                    "type": "https",
+                    "tag": "smart-dns",
+                    "server": "xbox-dns.ru",
+                    "domain_resolver": "dns-local"
+                },
+                {
                     "type": "local",
                     "tag": "local"
                 }
@@ -322,6 +328,12 @@ def main():
                     "server": "dns-local"
                 },
                 {
+                    "rule_set": [
+                        "db-category-ai-chat"
+                    ],
+                    "server": "smart-dns"
+                },
+                {
                     "query_type": [
                         "HTTPS",
                         "SVCB"
@@ -331,7 +343,6 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat",
                         "geosite-category-media-ru-blocked",
                         "db-antizapret"
                     ],
@@ -388,7 +399,6 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
-                        "db-category-ai-chat",
                         "db-antizapret"
                     ],
                     "outbound": "proxy-out"
@@ -396,7 +406,8 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-ru",
-                        "geoip-ru"
+                        "geoip-ru",
+                        "db-category-ai-chat"
                     ],
                     "outbound": "direct-out"
                 }
