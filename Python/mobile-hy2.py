@@ -36,6 +36,9 @@ def is_valid_domain(domain: str) -> bool:
 # Зоны, узлы которых блокируются глобально
 RU_ZONES = (".ru", ".su", ".рф")
 
+# Домены фейковых нод, которые блокируются
+FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei")
+
 
 def _is_ru_zone(hostname: str) -> bool:
     """Проверяет, относится ли хост к заблокированным зонам."""
@@ -53,11 +56,15 @@ def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
     server_name = tls_opts.get("server_name")
     if not server_name or not isinstance(server_name, str) or not server_name.strip():
         return False
+    if any(d in server_name.lower() for d in FAKE_DOMAINS):
+        return False
     node_tag = str(outbound.get("tag", "")).lower()
     if "ru" in node_tag or "russia" in node_tag:
         return False
     server_address = str(outbound.get("server", "")).lower()
     if _is_ru_zone(server_address):
+        return False
+    if any(d in server_address for d in FAKE_DOMAINS):
         return False
     if server_address in seen_servers:
         return False
