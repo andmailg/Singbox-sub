@@ -170,6 +170,10 @@ def parse_proxy_link(link: str) -> dict | None:
     if net_type in ["xhttp", "splithttp"] or (net_type and net_type not in ["tcp", "ws", "http", "grpc", "httpupgrade", "quic"]):
         return None
 
+    # Сохраняем значения для фильтрации
+    path_for_filter = params.get("path", [""])[0]
+    service_name_for_filter = params.get("serviceName", [""])[0] or params.get("service_name", [""])[0]
+
     if net_type and net_type != "tcp":
         transport_config = {"type": net_type}
 
@@ -190,6 +194,15 @@ def parse_proxy_link(link: str) -> dict | None:
         outbound["transport"] = transport_config
 
     if not is_valid_server(outbound["server"]):
+        return None
+
+    # Финальная фильтрация нод с "BanV2ray" в любом из полей
+    banv2ray_lower = "banv2ray"
+    if (
+        banv2ray_lower in password.lower()
+        or banv2ray_lower in str(path_for_filter).lower()
+        or banv2ray_lower in str(service_name_for_filter).lower()
+    ):
         return None
 
     return outbound
