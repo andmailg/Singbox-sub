@@ -208,6 +208,9 @@ def parse_proxy_link(link: str) -> dict | None:
 
     # 5. Сборка объекта outbound для sing-box
     packet_encoding = params.get("packetEncoding", [None])[0]
+    if packet_encoding and packet_encoding.lower() not in ("xudp", "udp"):
+        return None
+
     outbound = {
         "type": "vless",
         "tag": tag,
