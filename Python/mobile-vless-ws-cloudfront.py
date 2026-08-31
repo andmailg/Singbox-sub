@@ -45,6 +45,7 @@ class RKNBlockList:
             for n in self.v6_networks
         ]
 
+    @lru_cache(maxsize=8192)
     def is_blocked(self, ip_str: str) -> bool:
         """Проверяет, находится ли IP в заблокированных подсетях."""
         try:
@@ -80,13 +81,50 @@ def is_valid_ip(address: str) -> bool:
         return False
 
 
-@lru_cache(maxsize=1024)
+@lru_cache(maxsize=4096)
 def resolve_dns(domain: str) -> str | None:
     """Кэшированный DNS-резолвинг."""
     try:
         return socket.gethostbyname(domain)
     except socket.gaierror:
         return None
+
+
+@lru_cache(maxsize=4096)
+def resolve_and_check(
+    server: str,
+    blocked_networks: "RKNBlockList",
+    reader=None,
+) -> dict | None:
+    """Атомарная проверка IP: DNS-резолвинг + RKN + GeoIP. Кэшируется."""
+    node_ip_str = server.strip("[]")
+    if not is_valid_ip(node_ip_str):
+        resolved = resolve_dns(node_ip_str)
+        if resolved is None:
+            return None
+        node_ip_str = resolved
+
+    try:
+        ip_obj = ipaddress.ip_address(node_ip_str)
+    except ValueError:
+        return None
+
+    # 1. RKN check
+    if blocked_networks.is_blocked(node_ip_str):
+        return None
+
+    # 2. GeoIP check
+    if reader:
+        try:
+            geo_data = reader.get(node_ip_str)
+            if geo_data and "country" in geo_data:
+                country_iso = geo_data["country"].get("iso_code", "")
+                if country_iso == "RU":
+                    return None
+        except Exception:
+            pass
+
+    return {"ip": node_ip_str}
 
 
 def is_valid_domain(domain: str) -> bool:
@@ -393,46 +431,34 @@ def main():
         except Exception as e:
             print(f"Error opening GeoIP database: {e}")
 
-    # --- ШАГ 2: ФИЛЬТРАЦИЯ ПО РКН И ГЕОЛОКАЦИИ (GeoIP) ---
+    # --- ШАГ 2: ФИЛЬТРАЦИЯ ПО РКН И ГЕОЛОКАЦИИ (GeoIP) — параллельная ---
     filtered_nodes = []
-    for outbound in pre_parsed_nodes:
-        node_server = outbound.get("server", "").strip("[]")
-        node_ip_str = node_server
-        if not is_valid_ip(node_server):
-            resolved = resolve_dns(node_server)
-            if resolved is None:
-                continue
-            node_ip_str = resolved
+    num_workers = min(8, len(pre_parsed_nodes))
+    print(f"Filtering {len(pre_parsed_nodes)} nodes with {num_workers} workers...")
 
-        try:
-            ip_obj = ipaddress.ip_address(node_ip_str)
-            # 1. Проверка на блокировку в подсетях РКН (оптимизировано)
-            is_blocked = blocked_networks.is_blocked(node_ip_str)
-            if is_blocked:
-                print(
-                    f"Skipping node '{outbound.get('tag')}': "
-                    f"IP {node_ip_str} ({node_server}) is in RKN blocked subnet."
-                )
-                continue
+    with ThreadPoolExecutor(max_workers=num_workers) as executor:
+        future_to_idx = {
+            executor.submit(
+                resolve_and_check,
+                outbound.get("server", "").strip("[]"),
+                blocked_networks,
+                reader,
+            ): idx
+            for idx, outbound in enumerate(pre_parsed_nodes)
+        }
 
-            # 2. Использование GeoLite2: Исключение серверов из РФ
-            if reader:
-                try:
-                    geo_data = reader.get(node_ip_str)
-                    if geo_data and "country" in geo_data:
-                        country_iso = geo_data["country"].get("iso_code", "")
-                        if country_iso == "RU":
-                            print(
-                                f"Skipping node '{outbound.get('tag')}': "
-                                f"IP {node_ip_str} ({node_server}) is located in Russia (GeoIP)."
-                            )
-                            continue
-                except Exception:
-                    pass
-        except ValueError:
-            pass
+        results = [None] * len(pre_parsed_nodes)
+        for future in as_completed(future_to_idx):
+            idx = future_to_idx[future]
+            try:
+                check_result = future.result()
+                results[idx] = check_result
+            except Exception:
+                results[idx] = None
 
-        filtered_nodes.append(outbound)
+    for idx, check_result in enumerate(results):
+        if check_result is not None:
+            filtered_nodes.append(pre_parsed_nodes[idx])
 
     if reader:
         reader.close()
