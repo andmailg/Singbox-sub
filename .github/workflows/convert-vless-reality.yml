@@ -25,7 +25,9 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/mobile-vless-reality.py
+          python Python/mobile-vless-reality-sb.py
+          python Python/mobile-vless-reality-V2Ray.py
+
 
       - name: Commit and push if changed
         run: |
@@ -34,13 +36,13 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # 2. Добавляем файл в индекс
-          git add sing-box-vless-reality.json
+          git add vless-reality-sb.json vless-reality-v2ray.txt
           git status
           
           # 3. Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-vless-reality.json"
+            git commit -m "Auto-update vless-reality-sb.json & vless-reality-v2ray.txt"
             git push
           fi
