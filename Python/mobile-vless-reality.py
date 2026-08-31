@@ -349,6 +349,12 @@ def main():
                     }
                 },
                 {
+                    "type": "https",
+                    "tag": "smart-dns",
+                    "server": "dns.comss.one",
+                    "domain_resolver": "dns-local"
+                },
+                {
                     "type": "fakeip",
                     "tag": "fakeip",
                     "inet4_range": "198.18.0.0/15",
@@ -362,10 +368,15 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru"
+                        "geosite-category-ru"
                     ],
                     "server": "dns-local"
+                },
+                {
+                    "rule_set": [
+                        "db-category-ai-chat"
+                    ],
+                    "server": "smart-dns"
                 },
                 {
                     "query_type": [
@@ -377,7 +388,6 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat",
                         "geosite-category-media-ru-blocked",
                         "db-antizapret"
                     ],
@@ -415,7 +425,13 @@ def main():
             urltest_outbound,
             *outbounds
         ],
+        "http_clients": [
+            {
+                "tag": "rules-downloader"
+            }
+        ],
         "route": {
+            "default_http_client": "rules-downloader",
             "rules": [
                 {
                     "action": "sniff"
@@ -427,7 +443,6 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
-                        "db-category-ai-chat",
                         "db-antizapret"
                     ],
                     "outbound": "proxy-out"
@@ -435,7 +450,8 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-ru",
-                        "geoip-ru"
+                        "geoip-ru",
+                        "db-category-ai-chat"
                     ],
                     "outbound": "direct-out"
                 }
@@ -444,38 +460,32 @@ def main():
                 {
                     "type": "remote",
                     "tag": "db-github",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-media-ru-blocked",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs"
                 },
                 {
                     "type": "remote",
                     "tag": "geosite-category-ru",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs"
                 },
                 {
                     "type": "remote",
                     "tag": "geoip-ru",
-                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs"
                 },
                 {
                     "type": "remote",
                     "tag": "db-antizapret",
-                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
                 },
                 {
                     "type": "remote",
                     "tag": "db-category-ai-chat",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-                    "download_detour": "direct-out"
+                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
                 }
             ],
             "final": "proxy-out",
