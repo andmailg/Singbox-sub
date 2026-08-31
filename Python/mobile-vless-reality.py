@@ -130,11 +130,6 @@ def parse_proxy_link(link: str) -> dict | None:
     sni_param = params.get("sni", [None])[0]
     sni = sni_param.strip() if sni_param else None
 
-    # Переопределение server значением SNI (если они различаются)
-    server_host = hostname
-    if sni and hostname.lower() != sni.lower():
-        server_host = sni
-
     # SNI обязателен для TLS
     if not sni:
         return None
@@ -162,7 +157,7 @@ def parse_proxy_link(link: str) -> dict | None:
     outbound = {
         "type": "vless",
         "tag": tag,
-        "server": server_host,
+        "server": hostname,
         "server_port": port,
         "uuid": urllib.parse.unquote(uuid),
         "packet_encoding": "xudp",
