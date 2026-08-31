@@ -34,10 +34,14 @@ def is_valid_domain(domain: str) -> bool:
 @functools.lru_cache(maxsize=4096)
 def _is_valid_reality_public_key(s: str) -> bool:
     """Проверяет валидность public_key для reality."""
-    if not s or len(s) < 10:
+    if not s:
         return False
     # Проверяем что это не служебное слово
     if s.lower() in ("enabled", "none", "null", "true", "false"):
+        return False
+    # X25519 public key в base64url всегда 43 символа (+ padding =)
+    # 32 байта -> base64url = ceil(32/3)*4 = 44 символа, но обычно без padding = 43
+    if len(s) not in (43, 44):
         return False
     # Конвертируем base64url в base64
     normalized = s.replace('-', '+').replace('_', '/')
@@ -46,8 +50,7 @@ def _is_valid_reality_public_key(s: str) -> bool:
     # Строгая валидация base64
     try:
         decoded = base64.b64decode(padded, validate=True)
-        # Reality public key обычно 32 байта (x25519)
-        return len(decoded) >= 16
+        return len(decoded) == 32  # X25519 public key = 32 байта
     except Exception:
         return False
 
