@@ -332,20 +332,20 @@ def main():
                 {
                     "type": "https",
                     "tag": "dns-local",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
                 },
                 {
                     "type": "https",
                     "tag": "dns-remote",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "detour": "proxy-out",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
                 },
                 {
