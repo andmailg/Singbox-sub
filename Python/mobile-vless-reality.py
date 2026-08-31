@@ -74,7 +74,7 @@ def is_valid_server(server: str) -> bool:
 
 
 def parse_proxy_link(link: str) -> dict | None:
-    """Парсит ссылки формата Hysteria2."""
+    """Парсит ссылки формата VLESS with Reality."""
     link = link.strip()
     if not link or link.startswith("#"):
         return None
@@ -90,52 +90,42 @@ def parse_proxy_link(link: str) -> dict | None:
 
     scheme = parsed.scheme.lower()
 
-    # Фильтр: Только Hysteria2
-    if scheme not in ["hysteria2", "hy2"]:
+    # Фильтр: Только VLESS
+    if scheme != "vless":
         return None
 
     params = urllib.parse.parse_qs(parsed.query)
 
-    # 1. Фильтрация небезопасных узлов
-    insecure = params.get("allowInsecure", params.get("insecure", ["0"]))[0]
-    if insecure == "1" or insecure.lower() == "true":
-        return None
-
-    # 2. Обработка портов: первое число из диапазона или удаление узла, если порт не указан
+    # 1. Обработка портов
     try:
         port = parsed.port
     except ValueError:
-        # В случае диапазона портов (например, 21000-21199) извлекаем первое число
         port_part = parsed.netloc.rsplit(":", 1)[-1].split("?")[0].split("#")[0]
         first_port = port_part.split("-")[0]
         port = int(first_port) if first_port.isdigit() else None
 
-    # Если порт не указан в ссылке или не определен, пропускаем узел
     if not port:
         return None
 
-    # 3. Извлечение пароля
-    netloc = parsed.netloc
-    password = parsed.username
+    # 2. Извлечение UUID (пароля для VLESS)
+    uuid = parsed.username
 
-    if not password and "@" in netloc:
-        user_part = netloc.split("@")[0]
-        password = (
-            user_part.split(":", 1)[-1] if ":" in user_part else user_part
-        )
+    if not uuid and "@" in parsed.netloc:
+        user_part = parsed.netloc.split("@")[0]
+        uuid = user_part.split(":", 1)[-1] if ":" in user_part else user_part
 
-    if not password:
+    if not uuid:
         return None
 
     tag = (
-        urllib.parse.unquote(parsed.fragment) if parsed.fragment else "Hy2-Node"
+        urllib.parse.unquote(parsed.fragment) if parsed.fragment else "VLESS-Node"
     )
 
-    # 4. Обработка SNI
+    # 3. Обработка SNI (serverName)
     sni_param = params.get("sni", [None])[0]
     sni = sni_param.strip() if sni_param else None
 
-    # Переопределение server_host значением SNI (если они различаются)
+    # Переопределение server значением SNI (если они различаются)
     server_host = hostname
     if sni and hostname.lower() != sni.lower():
         server_host = sni
@@ -144,20 +134,29 @@ def parse_proxy_link(link: str) -> dict | None:
     if not sni:
         return None
 
+    # 4. Сборка TLS options для reality
     tls_opts = {
         "enabled": True,
-        "server_name": sni
+        "server_name": sni,
+        "reality": {
+            "enabled": True,
+            "public_key": params.get("pbk", [None])[0],
+            "short_id": params.get("sid", [None])[0] or "",
+        }
     }
+
+    # Убираем пустой short_id если не указан
+    if not tls_opts["reality"]["public_key"]:
+        return None
 
     # 5. Сборка объекта outbound для sing-box
     outbound = {
-        "type": "hysteria2",
+        "type": "vless",
         "tag": tag,
         "server": server_host,
         "server_port": port,
-        "up_mbps": 20,
-        "down_mbps": 20,
-        "password": urllib.parse.unquote(password),
+        "uuid": urllib.parse.unquote(uuid),
+        "packet_encoding": "xudp",
         "tls": tls_opts,
     }
 
@@ -165,29 +164,27 @@ def parse_proxy_link(link: str) -> dict | None:
     if not is_valid_server(outbound["server"]):
         return None
 
-    if sni:
-        sni_val = sni.lower()
-        if not is_valid_domain(sni_val):
-            return None
+    sni_val = sni.lower()
+    if not is_valid_domain(sni_val):
+        return None
 
-        if _is_ru_zone(sni_val):
-            return None
+    if _is_ru_zone(sni_val):
+        return None
 
     return outbound
 
 
 def clean_outbound(outbound: dict) -> dict:
-    """Очистка и приведение Hysteria2 ноды к спецификации sing-box."""
-    if not outbound or outbound.get("type") != "hysteria2":
+    """Очистка и приведение VLESS ноды к спецификации sing-box."""
+    if not outbound or outbound.get("type") != "vless":
         return outbound
-
-    outbound.setdefault("up_mbps", 20)
-    outbound.setdefault("down_mbps", 20)
 
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
-        # Очищаем неиспользуемый блок reality для hysteria2
-        tls_opts.pop("reality", None)
+        reality_opts = tls_opts.get("reality", {})
+        # Очищаем пустой short_id если не указан
+        if reality_opts and not reality_opts.get("short_id"):
+            reality_opts.pop("short_id", None)
 
     return outbound
 
@@ -445,10 +442,10 @@ def main():
         }
     }
 
-    with open("sing-box-hy2.json", "w", encoding="utf-8") as f:
+    with open("sing-box-vless.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
-    print(f"Successfully generated sing-box-hy2.json with {len(outbounds)} nodes.")
+    print(f"Successfully generated sing-box-vless.json with {len(outbounds)} nodes.")
 
 
 if __name__ == "__main__":
