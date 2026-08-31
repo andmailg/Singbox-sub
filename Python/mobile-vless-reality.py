@@ -32,14 +32,27 @@ def is_valid_domain(domain: str) -> bool:
 
 
 @functools.lru_cache(maxsize=4096)
-def _is_valid_base64(s: str) -> bool:
-    """Проверяет, является ли строка валидной base64-кодировкой."""
-    if not s or len(s) < 4:
+def _is_valid_reality_public_key(s: str) -> bool:
+    """Проверяет валидность public_key для reality."""
+    if not s or len(s) < 10:
         return False
+    # Проверяем что это не служебное слово
+    if s.lower() in ("enabled", "none", "null", "true", "false"):
+        return False
+    # Допустимые символы для base64/base64url
+    if not re.fullmatch(r'[A-Za-z0-9+/=_\-]+', s):
+        return False
+    # Проверяем что длина соответствует ожидаемой (32-64 символа для 32-байтного ключа)
+    if len(s) < 30:
+        return False
+    # Пробуем декодировать как base64 (включая base64url)
     try:
-        decoded = base64.b64decode(s, validate=True)
-        # Base64 должен декодироваться в нетривиальную длину (обычно 32 байта для reality public key)
-        return len(decoded) >= 16
+        # Конвертируем base64url в base64
+        normalized = s.replace('-', '+').replace('_', '/')
+        # Добавляем padding если нужно
+        padded = normalized + '=' * (-len(normalized) % 4)
+        decoded = base64.b64decode(padded, validate=False)
+        return len(decoded) >= 16  # минимум 16 байт
     except Exception:
         return False
 
@@ -158,7 +171,7 @@ def parse_proxy_link(link: str) -> dict | None:
     sid = params.get("sid", [None])[0] or ""
 
     # Универсальная валидация полей reality
-    if not pbk or not _is_valid_base64(pbk):
+    if not pbk or not _is_valid_reality_public_key(pbk):
         return None
     if not _is_valid_hex(sid):
         return None
