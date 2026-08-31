@@ -174,12 +174,22 @@ def parse_proxy_link(link: str) -> dict | None:
     if not _is_valid_hex(sid):
         return None
 
+    # Читаем fp (fingerprint) из URL
+    fp = params.get("fp", [None])[0]
+    if not fp:
+        return None
+
+    # Проверяем что security = reality
+    security = params.get("security", [None])[0]
+    if security and security.lower() != "reality":
+        return None
+
     tls_opts = {
         "enabled": True,
         "server_name": sni,
         "utls": {
             "enabled": True,
-            "fingerprint": "chrome"
+            "fingerprint": fp
         },
         "reality": {
             "enabled": True,
@@ -189,25 +199,24 @@ def parse_proxy_link(link: str) -> dict | None:
     }
 
     # 5. Сборка объекта outbound для sing-box
+    packet_encoding = params.get("packetEncoding", [None])[0]
     outbound = {
         "type": "vless",
         "tag": tag,
         "server": hostname,
         "server_port": port,
         "uuid": urllib.parse.unquote(uuid),
-        "packet_encoding": "xudp",
         "tls": tls_opts,
     }
+    if packet_encoding:
+        outbound["packet_encoding"] = packet_encoding
 
-    # Глобальные проверки (SERVER, SNI, RU DOMAINS)
+    # Глобальные проверки (SERVER, SNI)
     if not is_valid_server(outbound["server"]):
         return None
 
     sni_val = sni.lower()
     if not is_valid_domain(sni_val):
-        return None
-
-    if _is_ru_zone(sni_val):
         return None
 
     return outbound
@@ -220,16 +229,6 @@ def clean_outbound(outbound: dict) -> dict:
 
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
-        # Убедимся, что utls присутствует для reality
-        if tls_opts.get("reality", {}).get("enabled"):
-            utls_opts = tls_opts.get("utls", {})
-            if not isinstance(utls_opts, dict) or not utls_opts.get("enabled"):
-                tls_opts["utls"] = {
-                    "enabled": True,
-                    "fingerprint": "chrome"
-                }
-            elif not utls_opts.get("fingerprint"):
-                utls_opts["fingerprint"] = "chrome"
         reality_opts = tls_opts.get("reality", {})
         # Очищаем пустой short_id если не указан
         if reality_opts and not reality_opts.get("short_id"):
