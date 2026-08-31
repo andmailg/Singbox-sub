@@ -31,7 +31,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/mobile-hy2.py
+          python Python/mobile-hy2-SB.py
+          python Python/mobile-hy2-V2Ray.py
 
       - name: Commit and push if changed
         run: |
@@ -40,12 +41,12 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@://github.com"
 
           # Добавляем файл в индекс
-          git add sing-box-hy2.json
+          git add hy2-SB.json hy2-V2Ray.json
           
           # Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-hy2.json"
+            git commit -m "Auto-update hy2-sb & hy2-V2Ray.json"
             git push
           fi
