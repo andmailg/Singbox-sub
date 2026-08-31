@@ -9,14 +9,20 @@ on:
 jobs:
   convert:
     runs-on: ubuntu-latest
+    
+    # Права на запись оставляем, они необходимы для git push
+    permissions:
+      contents: write
+      
     steps:
-     # - name: Check out repository
-        #uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-     # - name: Set up Python
-     #   uses: actions/setup-python@v5
-      #  with:
-      #    python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          # Ошибочная строка кэша удалена
 
       - name: Install dependencies
         run: |
@@ -29,15 +35,14 @@ jobs:
 
       - name: Commit and push if changed
         run: |
-          # 1. Настройка бота GitHub Actions
+          # Настройка бота GitHub Actions
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
 
-          # 2. Добавляем файл в индекс
+          # Добавляем файл в индекс
           git add sing-box-hy2.json
-          git status
           
-          # 3. Коммитим и пушим только при наличии изменений
+          # Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else

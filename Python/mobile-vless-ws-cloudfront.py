@@ -685,7 +685,7 @@ def main():
         }
     }
 
-    output_filename = "sing-box-vless-ws.json"
+    output_filename = "sing-box-vless-ws-cloudfront.json"
     with open(output_filename, "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
     print(
