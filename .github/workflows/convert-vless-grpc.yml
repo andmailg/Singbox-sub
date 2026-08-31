@@ -31,7 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/mobile-gRPC-SB.py
+          python Python/mobile-vless-gRPC-SB.py
 
       - name: Commit and push if changed
         run: |
