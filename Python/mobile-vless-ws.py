@@ -192,14 +192,7 @@ def parse_proxy_link(link: str) -> dict | None:
     host = params.get("host", [""])[0].strip()
     path = params.get("path", ["/"])[0].strip()
 
-    # 3. ФИЛЬТР CLOUDFRONT: server ИЛИ host должны содержать cloudfront.net
-    has_cloudfront = (
-        "cloudfront.net" in hostname.lower() or "cloudfront.net" in host.lower()
-    )
-    if not has_cloudfront:
-        return None
-
-    # 4. Извлечение UUID (user)
+    # 3. Извлечение UUID (user)
     uuid_str = parsed.username
     if not uuid_str and "@" in parsed.netloc:
         uuid_str = parsed.netloc.split("@")[0]
