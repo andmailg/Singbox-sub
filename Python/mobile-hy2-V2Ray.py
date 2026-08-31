@@ -287,212 +287,31 @@ def main():
     outbounds = valid_outbounds
     print(f"✅ {len(outbounds)} nodes passed DNS check.")
 
-    node_tags = [o["tag"] for o in outbounds]
-
-    if not node_tags:
+    if not outbounds:
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    selector_outbound = {
-        "type": "selector",
-        "tag": "proxy-out",
-        "outbounds": ["auto"] + node_tags,
-        "default": "auto",
-    }
+    # --- ШАГ 3: ЭКСПОРТ НОД В ФОРМАТЕ V2RAY (hysteria2:// ссылки) ---
+    v2ray_links: list[str] = []
+    for outbound in outbounds:
+        tag = outbound.get("tag", "node")
+        server = outbound.get("server", "")
+        port = outbound.get("server_port", 443)
+        password = outbound.get("password", "")
+        sni = outbound.get("tls", {}).get("server_name", "")
 
-    urltest_outbound = {
-        "type": "urltest",
-        "tag": "auto",
-        "outbounds": node_tags,
-        "url": "https://connectivitycheck.gstatic.com/generate_204",
-        "interval": "10m",
-        "tolerance": 50,
-    }
+        # Формируем ссылку hysteria2://password@server:port?sni=xxx#tag
+        query_params = urllib.parse.urlencode({"sni": sni, "security": "tls"})
+        fragment = urllib.parse.quote(tag)
+        netloc = f"{server}:{port}"
+        v2ray_link = f"hysteria2://{urllib.parse.quote(password, safe='')}@{netloc}?{query_params}#{fragment}"
+        v2ray_links.append(v2ray_link)
 
-    # --- ШАГ 3: СБОРКА ИТОГОВОГО КОНФИГА SING-BOX ---
-    singbox_config = {
-        "log": {
-            "level": "warn",
-            "timestamp": True
-        },
-        "dns": {
-            "servers": [
-                {
-                    "type": "https",
-                    "tag": "dns-local",
-                    "server": "8.8.8.8",
-                    "tls": {
-                        "enabled": True,
-                        "server_name": "dns.google"
-                    }
-                },
-                {
-                    "type": "https",
-                    "tag": "dns-remote",
-                    "server": "8.8.8.8",
-                    "detour": "proxy-out",
-                    "tls": {
-                        "enabled": True,
-                        "server_name": "dns.google"
-                    }
-                },
-                {
-                    "type": "https",
-                    "tag": "smart-dns",
-                    "server": "dns.comss.one",
-                    "domain_resolver": "dns-local"
-                },
-                {
-                    "type": "fakeip",
-                    "tag": "fakeip",
-                    "inet4_range": "198.18.0.0/15",
-                    "inet6_range": "fc00::/18"
-                },
-                {
-                    "type": "local",
-                    "tag": "local"
-                }
-            ],
-            "rules": [
-                {
-                    "rule_set": [
-                        "geosite-category-ru"
-                    ],
-                    "server": "dns-local"
-                },
-                {
-                    "rule_set": [
-                        "db-category-ai-chat"
-                    ],
-                    "server": "smart-dns"
-                },
-                {
-                    "query_type": [
-                        "HTTPS",
-                        "SVCB"
-                    ],
-                    "action": "predefined",
-                    "rcode": "REFUSED"
-                },
-                {
-                    "rule_set": [
-                        "geosite-category-media-ru-blocked",
-                        "db-antizapret"
-                    ],
-                    "server": "fakeip"
-                }
-            ],
-            "final": "dns-remote",
-            "strategy": "prefer_ipv4",
-            "cache_capacity": 2048
-        },
-        "inbounds": [
-            {
-                "type": "tun",
-                "tag": "tun-in",
-                "mtu": 1420,
-                "address": "172.19.0.1/30",
-                "auto_route": True,
-                "stack": "mixed",
-                "route_exclude_address": [
-                    "10.0.0.0/8",
-                    "172.16.0.0/12",
-                    "192.168.0.0/16",
-                    "169.254.0.0/16",
-                    "224.0.0.0/4",
-                    "255.255.255.255/32",
-                    "fc00::/7"
-                ]
-            }
-        ],
-        "outbounds": [
-            {
-                "type": "direct",
-                "tag": "direct-out"
-            },
-            selector_outbound,
-            urltest_outbound,
-            *outbounds
-        ],
-        "http_clients": [
-            {
-                "tag": "rules-downloader"
-            }
-        ],
-        "route": {
-            "default_http_client": "rules-downloader",
-            "rules": [
-                {
-                    "action": "sniff"
-                },
-                {
-                    "protocol": "dns",
-                    "action": "hijack-dns"
-                },
-                {
-                    "rule_set": [
-                        "geosite-category-media-ru-blocked",
-                        "db-antizapret"
-                    ],
-                    "outbound": "proxy-out"
-                },
-                {
-                    "rule_set": [
-                        "geosite-category-ru",
-                        "geoip-ru",
-                        "db-category-ai-chat"
-                    ],
-                    "outbound": "direct-out"
-                }
-            ],
-            "rule_set": [
-                {
-                    "type": "remote",
-                    "tag": "db-github",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs"
-                },
-                {
-                    "type": "remote",
-                    "tag": "geosite-category-media-ru-blocked",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs"
-                },
-                {
-                    "type": "remote",
-                    "tag": "geosite-category-ru",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs"
-                },
-                {
-                    "type": "remote",
-                    "tag": "geoip-ru",
-                    "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs"
-                },
-                {
-                    "type": "remote",
-                    "tag": "db-antizapret",
-                    "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
-                },
-                {
-                    "type": "remote",
-                    "tag": "db-category-ai-chat",
-                    "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
-                }
-            ],
-            "final": "proxy-out",
-            "auto_detect_interface": True,
-            "override_android_vpn": True,
-            "default_domain_resolver": "dns-local"
-        },
-        "experimental": {
-            "cache_file": {
-                "enabled": True
-            }
-        }
-    }
+    output_file = "hy2-v2ray.txt"
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(v2ray_links))
 
-    with open("sing-box-hy2.json", "w", encoding="utf-8") as f:
-        json.dump(singbox_config, f, ensure_ascii=False, indent=2)
-
-    print(f"Successfully generated sing-box-hy2.json with {len(outbounds)} nodes.")
+    print(f"✅ Successfully exported {len(v2ray_links)} nodes to {output_file}")
 
 
 if __name__ == "__main__":
