@@ -163,14 +163,14 @@
     {
       "type": "vless",
       "tag": "node-2",
-      "server": "18.239.134.69",
+      "server": "157.85.105.179",
       "server_port": 80,
-      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+          "Host": "d2pwbkmfr5lxa4.cloudfront.net"
         }
       }
     },
@@ -191,14 +191,14 @@
     {
       "type": "vless",
       "tag": "node-4",
-      "server": "157.85.105.179",
+      "server": "18.239.134.69",
       "server_port": 80,
-      "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
       "transport": {
         "type": "ws",
         "path": "/",
         "headers": {
-          "Host": "d2pwbkmfr5lxa4.cloudfront.net"
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
         }
       }
     },
