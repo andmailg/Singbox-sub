@@ -179,6 +179,14 @@ def parse_proxy_link(link: str) -> dict | None:
     if not fp:
         return None
 
+    # Валидация fingerprint
+    VALID_FINGERPRINTS = (
+        "chrome", "firefox", "safari", "ios", "android",
+        "edge", "1password", "xtls"
+    )
+    if fp.lower() not in VALID_FINGERPRINTS:
+        return None
+
     # Проверяем что security = reality
     security = params.get("security", [None])[0]
     if security and security.lower() != "reality":
