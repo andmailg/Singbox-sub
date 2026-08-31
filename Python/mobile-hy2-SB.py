@@ -48,7 +48,7 @@ def domain_exists(domain: str) -> bool:
 RU_ZONES = (".ru", ".su", ".рф")
 
 # Домены фейковых нод, которые блокируются
-FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei")
+FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei", "bing.com")
 
 
 def _is_ru_zone(hostname: str) -> bool:
