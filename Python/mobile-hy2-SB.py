@@ -492,7 +492,7 @@ def main():
     with open("hy2-SB.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
-    print(f"Successfully generated sing-box-hy2.json with {len(outbounds)} nodes.")
+    print(f"Successfully generated hy2-SB.json with {len(outbounds)} nodes.")
 
 
 if __name__ == "__main__":
