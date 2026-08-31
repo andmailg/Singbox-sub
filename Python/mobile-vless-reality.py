@@ -50,6 +50,11 @@ def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
     tls_opts = outbound.get("tls")
     if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
         return False
+    # Проверяем reality для VLESS
+    if outbound.get("type") == "vless":
+        reality_opts = tls_opts.get("reality")
+        if not isinstance(reality_opts, dict) or not reality_opts.get("enabled"):
+            return False
     server_name = tls_opts.get("server_name")
     if not server_name or not isinstance(server_name, str) or not server_name.strip():
         return False
@@ -138,6 +143,10 @@ def parse_proxy_link(link: str) -> dict | None:
     tls_opts = {
         "enabled": True,
         "server_name": sni,
+        "utls": {
+            "enabled": True,
+            "fingerprint": "chrome"
+        },
         "reality": {
             "enabled": True,
             "public_key": params.get("pbk", [None])[0],
@@ -181,6 +190,16 @@ def clean_outbound(outbound: dict) -> dict:
 
     tls_opts = outbound.get("tls", {})
     if tls_opts and tls_opts.get("enabled"):
+        # Убедимся, что utls присутствует для reality
+        if tls_opts.get("reality", {}).get("enabled"):
+            utls_opts = tls_opts.get("utls", {})
+            if not isinstance(utls_opts, dict) or not utls_opts.get("enabled"):
+                tls_opts["utls"] = {
+                    "enabled": True,
+                    "fingerprint": "chrome"
+                }
+            elif not utls_opts.get("fingerprint"):
+                utls_opts["fingerprint"] = "chrome"
         reality_opts = tls_opts.get("reality", {})
         # Очищаем пустой short_id если не указан
         if reality_opts and not reality_opts.get("short_id"):
