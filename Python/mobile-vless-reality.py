@@ -442,7 +442,7 @@ def main():
         }
     }
 
-    with open("sing-box-vless.json", "w", encoding="utf-8") as f:
+    with open("sing-box-vless-reality.json", "w", encoding="utf-8") as f:
         json.dump(singbox_config, f, ensure_ascii=False, indent=2)
 
     print(f"Successfully generated sing-box-vless-reality.json with {len(outbounds)} nodes.")
