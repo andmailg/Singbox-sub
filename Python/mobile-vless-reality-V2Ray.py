@@ -139,7 +139,7 @@ def parse_proxy_link(link: str) -> dict | None:
         first_port = port_part.split("-")[0]
         port = int(first_port) if first_port.isdigit() else None
 
-    if not port:
+    if not port or port != 8443:
         return None
 
     # 2. Извлечение UUID (пароля для VLESS)
@@ -206,7 +206,12 @@ def parse_proxy_link(link: str) -> dict | None:
         }
     }
 
-    # 5. Сборка объекта outbound для sing-box
+    # 5. Обработка транспорта (network)
+    network = params.get("type", [None])[0] or params.get("network", [None])[0]
+    if not network or network.lower() != "tcp":
+        return None
+
+    # 6. Сборка объекта outbound для sing-box
     packet_encoding = params.get("packetEncoding", [None])[0]
     if packet_encoding and packet_encoding.lower() not in ("xudp", "udp"):
         return None
@@ -218,6 +223,7 @@ def parse_proxy_link(link: str) -> dict | None:
         "server_port": port,
         "uuid": urllib.parse.unquote(uuid),
         "tls": tls_opts,
+        "network": "tcp",
     }
     if packet_encoding:
         outbound["packet_encoding"] = packet_encoding
