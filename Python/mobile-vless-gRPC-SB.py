@@ -163,7 +163,7 @@ def parse_proxy_link(link: str) -> dict | None:
         "tls": tls_opts,
         "transport": {
             "type": "grpc",
-            "grpc_service_name": grpc_service_name,
+            "service_name": grpc_service_name,
         },
     }
     if packet_encoding:
