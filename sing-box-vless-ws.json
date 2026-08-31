@@ -38,8 +38,7 @@
     "rules": [
       {
         "rule_set": [
-          "geosite-category-ru",
-          "geoip-ru"
+          "geosite-category-ru"
         ],
         "server": "dns-local"
       },
@@ -127,7 +126,9 @@
         "node-4",
         "node-5",
         "node-6",
-        "node-7"
+        "node-7",
+        "node-8",
+        "node-9"
       ],
       "default": "auto"
     },
@@ -141,7 +142,9 @@
         "node-4",
         "node-5",
         "node-6",
-        "node-7"
+        "node-7",
+        "node-8",
+        "node-9"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -234,6 +237,39 @@
     {
       "type": "vless",
       "tag": "node-7",
+      "server": "www.true.th",
+      "server_port": 443,
+      "uuid": "7ce54bb3-d612-4aa7-be08-089d3c461d53",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d1yxsk0zprgivr.cloudfront.net"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "d1yxsk0zprgivr.cloudfront.net",
+        "insecure": false
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-8",
+      "server": "www.true.th",
+      "server_port": 80,
+      "uuid": "63ae5b68-f6f8-432e-b440-d975053cfbc2",
+      "transport": {
+        "type": "ws",
+        "path": "/than",
+        "headers": {
+          "Host": "d16l6nb4do0zu4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-9",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -246,7 +282,13 @@
       }
     }
   ],
+  "http_clients": [
+    {
+      "tag": "rules-downloader"
+    }
+  ],
   "route": {
+    "default_http_client": "rules-downloader",
     "rules": [
       {
         "action": "sniff"
@@ -275,38 +317,32 @@
       {
         "type": "remote",
         "tag": "db-github",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs"
       },
       {
         "type": "remote",
         "tag": "geosite-category-media-ru-blocked",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs"
       },
       {
         "type": "remote",
         "tag": "geosite-category-ru",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs"
       },
       {
         "type": "remote",
         "tag": "geoip-ru",
-        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs"
       },
       {
         "type": "remote",
         "tag": "db-antizapret",
-        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
       },
       {
         "type": "remote",
         "tag": "db-category-ai-chat",
-        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs",
-        "download_detour": "direct-out"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
       }
     ],
     "final": "proxy-out",
