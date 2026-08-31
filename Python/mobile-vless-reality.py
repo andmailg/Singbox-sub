@@ -5,9 +5,7 @@ import json
 import re
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
-import requests
-
-# Инициализация сессии для повторного использования соединений
+import requests# Инициализация сессии для повторного использования соединений
 session = requests.Session()
 session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
 
@@ -31,6 +29,27 @@ def is_valid_domain(domain: str) -> bool:
         r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
     )
     return bool(domain_regex.match(domain))
+
+
+@functools.lru_cache(maxsize=4096)
+def _is_valid_base64(s: str) -> bool:
+    """Проверяет, является ли строка валидной base64-кодировкой."""
+    if not s or len(s) < 4:
+        return False
+    try:
+        decoded = base64.b64decode(s, validate=True)
+        # Base64 должен декодироваться в нетривиальную длину (обычно 32 байта для reality public key)
+        return len(decoded) >= 16
+    except Exception:
+        return False
+
+
+@functools.lru_cache(maxsize=4096)
+def _is_valid_hex(s: str) -> bool:
+    """Проверяет, является ли строка валидным hex."""
+    if not s:
+        return True  # short_id может быть пустым
+    return bool(re.fullmatch(r'[0-9a-fA-F]+', s)) and len(s) <= 16
 
 
 # Зоны, узлы которых блокируются глобально
@@ -135,6 +154,15 @@ def parse_proxy_link(link: str) -> dict | None:
         return None
 
     # 4. Сборка TLS options для reality
+    pbk = params.get("pbk", [None])[0]
+    sid = params.get("sid", [None])[0] or ""
+
+    # Универсальная валидация полей reality
+    if not pbk or not _is_valid_base64(pbk):
+        return None
+    if not _is_valid_hex(sid):
+        return None
+
     tls_opts = {
         "enabled": True,
         "server_name": sni,
@@ -144,14 +172,10 @@ def parse_proxy_link(link: str) -> dict | None:
         },
         "reality": {
             "enabled": True,
-            "public_key": params.get("pbk", [None])[0],
-            "short_id": params.get("sid", [None])[0] or "",
+            "public_key": pbk,
+            "short_id": sid,
         }
     }
-
-    # Убираем пустой short_id если не указан
-    if not tls_opts["reality"]["public_key"]:
-        return None
 
     # 5. Сборка объекта outbound для sing-box
     outbound = {
