@@ -3,6 +3,7 @@ import functools
 import ipaddress
 import json
 import re
+import socket
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
@@ -31,6 +32,16 @@ def is_valid_domain(domain: str) -> bool:
         r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
     )
     return bool(domain_regex.match(domain))
+
+
+@functools.lru_cache(maxsize=4096)
+def domain_exists(domain: str) -> bool:
+    """Проверяет, разрешается ли домен в IP-адрес через DNS."""
+    try:
+        socket.gethostbyname(domain)
+        return True
+    except socket.gaierror:
+        return False
 
 
 # Зоны, узлы которых блокируются глобально
@@ -260,6 +271,21 @@ def main():
                 # Single-pass tagging
                 outbound["tag"] = f"node-{len(outbounds) + 1}"
                 outbounds.append(outbound)
+
+    # --- ШАГ 2: Проверка существования доменов через DNS ---
+    print(f"Checking DNS existence for {len(outbounds)} nodes...")
+    valid_outbounds: list[dict] = []
+    for outbound in outbounds:
+        server = str(outbound.get("server", "")).lower()
+        sni = str(outbound.get("tls", {}).get("server_name", "")).lower()
+        if is_valid_domain(server) and not domain_exists(server):
+            continue
+        if is_valid_domain(sni) and not domain_exists(sni):
+            continue
+        valid_outbounds.append(outbound)
+
+    outbounds = valid_outbounds
+    print(f"✅ {len(outbounds)} nodes passed DNS check.")
 
     node_tags = [o["tag"] for o in outbounds]
 
