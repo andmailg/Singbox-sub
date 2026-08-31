@@ -10,7 +10,7 @@ jobs:
   convert:
     runs-on: ubuntu-latest
     
-    # Добавляем права на запись, чтобы экшен мог пушить изменения в репозиторий
+    # Права на запись оставляем, они необходимы для git push
     permissions:
       contents: write
       
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip' # Кэширование зависимостей для ускорения работы
+          # Ошибочная строка кэша удалена
 
       - name: Install dependencies
         run: |
@@ -37,9 +37,9 @@ jobs:
         run: |
           # Настройка бота GitHub Actions
           git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
 
-          # Добавляем файл в индекс (проверьте правильность пути, если он создается внутри папки Python)
+          # Добавляем файл в индекс
           git add sing-box-hy2.json
           
           # Коммитим и пушим только при наличии изменений
@@ -47,5 +47,5 @@ jobs:
             echo "Нет изменений для коммита."
           else
             git commit -m "Auto-update sing-box-hy2.json"
-            git push origin main # Явно указываем ветку для надежности
+            git push
           fi
