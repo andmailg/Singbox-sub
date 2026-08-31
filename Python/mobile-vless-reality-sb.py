@@ -77,11 +77,8 @@ def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
     """Быстрая фильтрация ноды после парсинга."""
     if not outbound:
         return False
-    # Фильтр: только порт 8443 и транспорт TCP
+    # Фильтр: только порт 8443
     if outbound.get("server_port") != 8443:
-        return False
-    transport = outbound.get("transport")
-    if not isinstance(transport, dict) or transport.get("type") != "tcp":
         return False
     tls_opts = outbound.get("tls")
     if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
@@ -223,9 +220,6 @@ def parse_proxy_link(link: str) -> dict | None:
         "server": hostname,
         "server_port": port,
         "uuid": urllib.parse.unquote(uuid),
-        "transport": {
-            "type": "tcp"
-        },
         "tls": tls_opts,
     }
     if packet_encoding:
