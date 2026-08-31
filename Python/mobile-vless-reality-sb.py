@@ -370,7 +370,7 @@ def main():
                 {
                     "type": "https",
                     "tag": "smart-dns",
-                    "server": "dns.comss.one",
+                    "server": "xbox-dns.ru",
                     "domain_resolver": "dns-local"
                 },
                 {
