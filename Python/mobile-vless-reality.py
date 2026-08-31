@@ -39,20 +39,15 @@ def _is_valid_reality_public_key(s: str) -> bool:
     # Проверяем что это не служебное слово
     if s.lower() in ("enabled", "none", "null", "true", "false"):
         return False
-    # Допустимые символы для base64/base64url
-    if not re.fullmatch(r'[A-Za-z0-9+/=_\-]+', s):
-        return False
-    # Проверяем что длина соответствует ожидаемой (32-64 символа для 32-байтного ключа)
-    if len(s) < 30:
-        return False
-    # Пробуем декодировать как base64 (включая base64url)
+    # Конвертируем base64url в base64
+    normalized = s.replace('-', '+').replace('_', '/')
+    # Добавляем padding если нужно
+    padded = normalized + '=' * (-len(normalized) % 4)
+    # Строгая валидация base64
     try:
-        # Конвертируем base64url в base64
-        normalized = s.replace('-', '+').replace('_', '/')
-        # Добавляем padding если нужно
-        padded = normalized + '=' * (-len(normalized) % 4)
-        decoded = base64.b64decode(padded, validate=False)
-        return len(decoded) >= 16  # минимум 16 байт
+        decoded = base64.b64decode(padded, validate=True)
+        # Reality public key обычно 32 байта (x25519)
+        return len(decoded) >= 16
     except Exception:
         return False
 
