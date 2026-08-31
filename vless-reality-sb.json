@@ -1312,9 +1312,6 @@
       "server": "144.31.40.96",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.max.ru",
@@ -1335,9 +1332,6 @@
       "server": "87.120.166.221",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cool-route-ge.whit3.net",
@@ -1358,9 +1352,6 @@
       "server": "151.242.17.99",
       "server_port": 8443,
       "uuid": "a04814d9-d006-4e7b-ae20-8ab304b3b429",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "de.emvservice.com",
@@ -1381,9 +1372,6 @@
       "server": "94.156.232.254",
       "server_port": 8443,
       "uuid": "03c48eca-e0aa-4e18-998c-1f53f1de293c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1404,9 +1392,6 @@
       "server": "206.245.132.50",
       "server_port": 8443,
       "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1427,9 +1412,6 @@
       "server": "162.120.19.101",
       "server_port": 8443,
       "uuid": "bbba2d10-b617-404c-a29a-cc2d29386fbf",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -1450,9 +1432,6 @@
       "server": "162.141.78.33",
       "server_port": 8443,
       "uuid": "505826d0-10c7-4bb9-a405-e151ea515935",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dzen.ru",
@@ -1473,9 +1452,6 @@
       "server": "us01hk.lockdwn.com",
       "server_port": 8443,
       "uuid": "505826d0-10c7-4bb9-a405-e151ea515935",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dzen.ru",
@@ -1496,9 +1472,6 @@
       "server": "a.loadpng.com",
       "server_port": 8443,
       "uuid": "58f133a9-0b8c-4237-ba40-c69d32a35e27",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "a.loadpng.com",
@@ -1519,9 +1492,6 @@
       "server": "217.60.182.136",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "just-do-it.whit3.net",
@@ -1542,9 +1512,6 @@
       "server": "31.77.59.135",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "good-route.whit3.net",
@@ -1565,9 +1532,6 @@
       "server": "177.3.212.189",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "gd-0z.whit3.net",
@@ -1588,9 +1552,6 @@
       "server": "177.3.215.41",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "idontknow.whit3.net",
@@ -1611,9 +1572,6 @@
       "server": "38.107.236.178",
       "server_port": 8443,
       "uuid": "fda82db3-3c0f-4122-87d9-1ed08059bc92",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -1634,9 +1592,6 @@
       "server": "192.166.82.74",
       "server_port": 8443,
       "uuid": "414b2c7f-26e8-4c08-a357-a4f00043804e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1657,9 +1612,6 @@
       "server": "31.76.88.10",
       "server_port": 8443,
       "uuid": "03c48eca-e0aa-4e18-998c-1f53f1de293c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1680,9 +1632,6 @@
       "server": "31.58.50.8",
       "server_port": 8443,
       "uuid": "5885b8b9-f2eb-452c-8a20-b4e0588bb4db",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1702,9 +1651,6 @@
       "server": "2.27.204.143",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -1725,9 +1671,6 @@
       "server": "94.183.185.248",
       "server_port": 8443,
       "uuid": "5885b8b9-f2eb-452c-8a20-b4e0588bb4db",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1747,9 +1690,6 @@
       "server": "147.45.134.184",
       "server_port": 8443,
       "uuid": "9fd78c11-d331-4c1d-ba6c-046e970c1464",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dzen.ru",
@@ -1770,9 +1710,6 @@
       "server": "31.76.9.56",
       "server_port": 8443,
       "uuid": "a210cb80-f379-44e9-a103-97ba59357a46",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "xnod5x.artemida.live",
@@ -1793,9 +1730,6 @@
       "server": "78.159.245.59",
       "server_port": 8443,
       "uuid": "c10f24d6-90ca-4acc-87c9-86aa398bf704",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "media-newportal.x5.ru",
@@ -1815,9 +1749,6 @@
       "server": "144.31.207.4",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "plot.whit3.net",
@@ -1838,9 +1769,6 @@
       "server": "77.67.89.180",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lastchance.whit3.net",
@@ -1861,9 +1789,6 @@
       "server": "2.26.2.134",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "house-little.whit3.net",
@@ -1884,9 +1809,6 @@
       "server": "144.31.158.68",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "nice-route-nl.whit3.net",
@@ -1907,9 +1829,6 @@
       "server": "5.129.210.63",
       "server_port": 8443,
       "uuid": "c80a96e8-d4a6-4785-b53b-a475b252c4ed",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sun6-21.userapi.com",
@@ -1930,9 +1849,6 @@
       "server": "45.136.126.70",
       "server_port": 8443,
       "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -1953,9 +1869,6 @@
       "server": "152.228.215.219",
       "server_port": 8443,
       "uuid": "5c22dd50-f75d-4cf5-ba53-721f91d8bfe1",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sellflow.org",
@@ -1975,9 +1888,6 @@
       "server": "151.247.197.44",
       "server_port": 8443,
       "uuid": "a6cf4b28-ba72-4e8c-90f8-6a884107ab3c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "netnet.whit3.net",
@@ -1998,9 +1908,6 @@
       "server": "194.164.216.245",
       "server_port": 8443,
       "uuid": "dc1f44da-4d2b-4e60-8aca-1c2bf94d0a4e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "reels.frkn.org",
@@ -2021,9 +1928,6 @@
       "server": "dl3uk.iranfibernet.com",
       "server_port": 8443,
       "uuid": "822be4fa-cc6c-441b-b576-3c276141809a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.visualstudio.com",
@@ -2044,9 +1948,6 @@
       "server": "1sg001.344211.cc",
       "server_port": 8443,
       "uuid": "df1a0967-5b79-41ec-8d12-915e9056c6e2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.python.org",
@@ -2068,9 +1969,6 @@
       "server": "54.254.7.45",
       "server_port": 8443,
       "uuid": "df1a0967-5b79-41ec-8d12-915e9056c6e2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.python.org",
@@ -2091,9 +1989,6 @@
       "server": "45.196.215.241",
       "server_port": 8443,
       "uuid": "601e4ca5-df0a-43a1-97c2-0b1f5c0ae413",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2114,9 +2009,6 @@
       "server": "45.196.214.192",
       "server_port": 8443,
       "uuid": "d5b44b89-ca73-4b82-a494-a72054c31df3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -2137,9 +2029,6 @@
       "server": "194.180.207.244",
       "server_port": 8443,
       "uuid": "6ed91f07-89b1-4819-b0d8-64393339dca4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2160,9 +2049,6 @@
       "server": "itproxy2.lockdwn.com",
       "server_port": 8443,
       "uuid": "6ed91f07-89b1-4819-b0d8-64393339dca4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2183,9 +2069,6 @@
       "server": "194.180.207.240",
       "server_port": 8443,
       "uuid": "26bf8edb-8731-4f06-bc01-2cf7fefc29a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2206,9 +2089,6 @@
       "server": "151.241.215.109",
       "server_port": 8443,
       "uuid": "699ce9a1-abbb-4525-988e-b940381352e8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2229,9 +2109,6 @@
       "server": "151.243.198.104",
       "server_port": 8443,
       "uuid": "e4737ce4-c646-44cc-9067-390e13c2a5f6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2252,9 +2129,6 @@
       "server": "itproxy4.lockdwn.com",
       "server_port": 8443,
       "uuid": "e4737ce4-c646-44cc-9067-390e13c2a5f6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -2275,9 +2149,6 @@
       "server": "45.202.254.53",
       "server_port": 8443,
       "uuid": "601e4ca5-df0a-43a1-97c2-0b1f5c0ae413",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2298,9 +2169,6 @@
       "server": "31.76.22.11",
       "server_port": 8443,
       "uuid": "dfdc967a-c1fa-4920-a91a-375cd6a99853",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "alenka.xanka.best",
@@ -2321,9 +2189,6 @@
       "server": "alenka.xanka.best",
       "server_port": 8443,
       "uuid": "dfdc967a-c1fa-4920-a91a-375cd6a99853",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "alenka.xanka.best",
@@ -2344,9 +2209,6 @@
       "server": "94.183.157.123",
       "server_port": 8443,
       "uuid": "56e409a0-0042-4f50-92cd-741f78bfc8d0",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2367,9 +2229,6 @@
       "server": "78.17.159.71",
       "server_port": 8443,
       "uuid": "14927bde-0fc8-447c-8c5f-e7fd1bfc6698",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2390,9 +2249,6 @@
       "server": "94.183.209.37",
       "server_port": 8443,
       "uuid": "574ffae7-4df3-45e4-9064-683136b97b3a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "timeline.www.cloudflare.com",
@@ -2413,9 +2269,6 @@
       "server": "94.183.209.43",
       "server_port": 8443,
       "uuid": "5e7ecc47-e424-4653-876e-c7515a2c82b4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "timeline.www.cloudflare.com",
@@ -2436,9 +2289,6 @@
       "server": "94.183.209.59",
       "server_port": 8443,
       "uuid": "d23cb516-40db-4aa4-8142-6b45ff882f90",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2459,9 +2309,6 @@
       "server": "pol.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "4f562c6a-8446-4f45-bbde-495a6e6db338",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "pol.cryptoofarm.com",
@@ -2482,9 +2329,6 @@
       "server": "94.183.209.58",
       "server_port": 8443,
       "uuid": "78791f9e-fe09-4d4f-88ec-895764bae0d6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "blog.api.www.cloudflare.com",
@@ -2505,9 +2349,6 @@
       "server": "94.183.209.33",
       "server_port": 8443,
       "uuid": "f4ba862a-4d64-431a-9213-dd7aaafd476a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "timeline.www.cloudflare.com",
@@ -2528,9 +2369,6 @@
       "server": "185.32.6.106",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2551,9 +2389,6 @@
       "server": "185.32.6.97",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2574,9 +2409,6 @@
       "server": "83.168.91.69",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2597,9 +2429,6 @@
       "server": "185.32.6.94",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2620,9 +2449,6 @@
       "server": "185.32.6.91",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2643,9 +2469,6 @@
       "server": "185.32.6.122",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2666,9 +2489,6 @@
       "server": "185.32.6.100",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2689,9 +2509,6 @@
       "server": "185.32.6.118",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2712,9 +2529,6 @@
       "server": "185.32.6.103",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2735,9 +2549,6 @@
       "server": "185.32.6.109",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2758,9 +2569,6 @@
       "server": "185.32.6.112",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2781,9 +2589,6 @@
       "server": "185.32.6.127",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2804,9 +2609,6 @@
       "server": "185.32.6.124",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2827,9 +2629,6 @@
       "server": "185.32.6.115",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2850,9 +2649,6 @@
       "server": "185.32.6.88",
       "server_port": 8443,
       "uuid": "20c72888-b83e-4309-82a4-aab4a2dda778",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "static.vkimages.io",
@@ -2873,9 +2669,6 @@
       "server": "151.243.182.249",
       "server_port": 8443,
       "uuid": "98673856-cd6f-4aa0-b2c9-d2ec90c0f47b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2896,9 +2689,6 @@
       "server": "94.183.209.239",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2919,9 +2709,6 @@
       "server": "94.183.209.243",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -2942,9 +2729,6 @@
       "server": "un.nexavps.com.tr",
       "server_port": 8443,
       "uuid": "b140b69a-1592-4af1-ee8e-d92c927a97cf",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "updates.cdn-apple.com",
@@ -2964,9 +2748,6 @@
       "server": "0vgx63a3.helpower.ir",
       "server_port": 8443,
       "uuid": "29758bab-b53f-49a5-9aca-2ebf4f5c2f96",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.samsung.com",
@@ -2987,9 +2768,6 @@
       "server": "i485y8kw.helpower.ir",
       "server_port": 8443,
       "uuid": "29758bab-b53f-49a5-9aca-2ebf4f5c2f96",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.samsung.com",
@@ -3010,9 +2788,6 @@
       "server": "78.135.77.164",
       "server_port": 8443,
       "uuid": "f0b1b21b-b047-47d6-917a-06ac48b56dec",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.speedtest.net",
@@ -3033,9 +2808,6 @@
       "server": "trt.pasarguardms.ir",
       "server_port": 8443,
       "uuid": "eec12a0f-7ceb-417d-89c1-1332f703cd10",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "updates.cdn-apple.com",
@@ -3056,9 +2828,6 @@
       "server": "82.26.94.13",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "mywebsite.whit3.net",
@@ -3079,9 +2848,6 @@
       "server": "premium-tr.geodema.network",
       "server_port": 8443,
       "uuid": "78eb4455-0d07-4bc2-93e3-7c8654f11d74",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -3101,9 +2867,6 @@
       "server": "144.31.230.27",
       "server_port": 8443,
       "uuid": "3cae7515-8967-49bc-ae9d-49fcf3d9dc3e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.vk.com",
@@ -3124,9 +2887,6 @@
       "server": "se.white-aist.com",
       "server_port": 8443,
       "uuid": "5b38fd24-4d47-4ee2-a077-7d125e723230",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yahoo.com",
@@ -3147,9 +2907,6 @@
       "server": "v-de-node-03.bot-auth.com",
       "server_port": 8443,
       "uuid": "b9b1e7c9-4160-49b4-85a4-2f096706509a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.oracle.com",
@@ -3170,9 +2927,6 @@
       "server": "pr.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "cf5b6485-654c-44cc-a9a4-05c56781c52d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "pr.cryptoofarm.com",
@@ -3193,9 +2947,6 @@
       "server": "150.241.79.143",
       "server_port": 8443,
       "uuid": "b9b1e7c9-4160-49b4-85a4-2f096706509a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.oracle.com",
@@ -3216,9 +2967,6 @@
       "server": "109.120.133.184",
       "server_port": 8443,
       "uuid": "10e82fcc-94ec-4d09-8855-579bb55b77e4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -3238,9 +2986,6 @@
       "server": "89.22.230.118",
       "server_port": 8443,
       "uuid": "10e82fcc-94ec-4d09-8855-579bb55b77e4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -3260,9 +3005,6 @@
       "server": "95.85.241.169",
       "server_port": 8443,
       "uuid": "41e72698-f09a-4617-8f1b-33359c2473cc",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sun6-21.userapi.com",
@@ -3283,9 +3025,6 @@
       "server": "144.31.179.7",
       "server_port": 8443,
       "uuid": "840336f4-2c42-4f97-9f0f-97f13642bc5a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "get2s.skystreamgame.com",
@@ -3306,9 +3045,6 @@
       "server": "89.125.37.35",
       "server_port": 8443,
       "uuid": "f692629b-3557-488a-9c9b-60775331e423",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -3328,9 +3064,6 @@
       "server": "141.227.160.138",
       "server_port": 8443,
       "uuid": "8fdf6dde-a1ca-456d-9b18-86b74d5768e6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sellflow.org",
@@ -3350,9 +3083,6 @@
       "server": "141.227.160.236",
       "server_port": 8443,
       "uuid": "8fdf6dde-a1ca-456d-9b18-86b74d5768e6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sellflow.org",
@@ -3372,9 +3102,6 @@
       "server": "141.227.160.205",
       "server_port": 8443,
       "uuid": "8fdf6dde-a1ca-456d-9b18-86b74d5768e6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sellflow.org",
@@ -3394,9 +3121,6 @@
       "server": "144.31.179.21",
       "server_port": 8443,
       "uuid": "2569614f-879b-43de-9cd9-9bb304b68856",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "get4s.skystreamgame.com",
@@ -3417,9 +3141,6 @@
       "server": "get4s.skystreamgame.com",
       "server_port": 8443,
       "uuid": "2569614f-879b-43de-9cd9-9bb304b68856",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "get4s.skystreamgame.com",
@@ -3440,9 +3161,6 @@
       "server": "2.26.124.88",
       "server_port": 8443,
       "uuid": "d6fdfa93-c55c-4bc7-b0ff-685fdb1f62a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -3463,9 +3181,6 @@
       "server": "mmdpenelmmdxx.vahidzhv.ir",
       "server_port": 8443,
       "uuid": "5bf26e14-1802-4bec-bda8-d67c3a60c81f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "adl.windows.com",
@@ -3486,9 +3201,6 @@
       "server": "45.8.93.95",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "register.whit3.net",
@@ -3509,9 +3221,6 @@
       "server": "channel.tradeip.store",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3532,9 +3241,6 @@
       "server": "179.237.75.118",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3555,9 +3261,6 @@
       "server": "179.237.74.191",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3578,9 +3281,6 @@
       "server": "channel2.tradeip.store",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3601,9 +3301,6 @@
       "server": "179.237.74.214",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3624,9 +3321,6 @@
       "server": "179.237.74.40",
       "server_port": 8443,
       "uuid": "t.me.TradeIP",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3647,9 +3341,6 @@
       "server": "83.228.235.10",
       "server_port": 8443,
       "uuid": "TradeIP.t.me",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -3670,9 +3361,6 @@
       "server": "178.83.226.142",
       "server_port": 8443,
       "uuid": "eace00a6-39df-474d-af49-9ed74d948eba",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "refersion.com",
@@ -3693,9 +3381,6 @@
       "server": "45.195.2.246",
       "server_port": 8443,
       "uuid": "dbc43f55-79cd-4331-84ff-d891356d387a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3716,9 +3401,6 @@
       "server": "45.195.2.133",
       "server_port": 8443,
       "uuid": "19b64e79-73b4-4478-bbfc-fb57737b94f8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3739,9 +3421,6 @@
       "server": "176.65.144.24",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dump.whit3.net",
@@ -3762,9 +3441,6 @@
       "server": "bypass.fr-gt-01.com",
       "server_port": 8443,
       "uuid": "356ccb34-22cc-4446-a137-072bc60d65ca",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3785,9 +3461,6 @@
       "server": "45.195.2.136",
       "server_port": 8443,
       "uuid": "0d0af68e-89ed-40d0-bfd0-bcf059b90e81",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3808,9 +3481,6 @@
       "server": "45.198.87.152",
       "server_port": 8443,
       "uuid": "360c46b7-afe1-4e86-bfe1-ba09b5fcd8a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3831,9 +3501,6 @@
       "server": "45.198.87.31",
       "server_port": 8443,
       "uuid": "360c46b7-afe1-4e86-bfe1-ba09b5fcd8a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3854,9 +3521,6 @@
       "server": "45.198.87.54",
       "server_port": 8443,
       "uuid": "360c46b7-afe1-4e86-bfe1-ba09b5fcd8a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3877,9 +3541,6 @@
       "server": "45.198.87.67",
       "server_port": 8443,
       "uuid": "360c46b7-afe1-4e86-bfe1-ba09b5fcd8a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3900,9 +3561,6 @@
       "server": "45.198.87.83",
       "server_port": 8443,
       "uuid": "7896c501-248f-4068-bc2f-363c91ba5122",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -3923,9 +3581,6 @@
       "server": "31.57.29.7",
       "server_port": 8443,
       "uuid": "4b056394-2f40-11f1-bffe-46c4782ac1a7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -3946,9 +3601,6 @@
       "server": "31.58.77.127",
       "server_port": 8443,
       "uuid": "e0e44cfe-39b3-11f1-84d1-e6ad33f6a752",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -3970,9 +3622,6 @@
       "server": "185.220.223.61",
       "server_port": 8443,
       "uuid": "2181d0c8-448a-4f75-b848-1718029baef9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "max.ru",
@@ -3993,9 +3642,6 @@
       "server": "31.59.45.26",
       "server_port": 8443,
       "uuid": "f692629b-3557-488a-9c9b-60775331e423",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -4015,9 +3661,6 @@
       "server": "45.198.80.78",
       "server_port": 8443,
       "uuid": "d44fc964-652c-4790-bfdc-be9ae1e281f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4038,9 +3681,6 @@
       "server": "45.198.80.187",
       "server_port": 8443,
       "uuid": "d44fc964-652c-4790-bfdc-be9ae1e281f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4061,9 +3701,6 @@
       "server": "45.198.80.123",
       "server_port": 8443,
       "uuid": "325bcc72-b5c2-4338-bf2d-4766de7018bb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4084,9 +3721,6 @@
       "server": "170.168.97.3",
       "server_port": 8443,
       "uuid": "5e243126-4a2a-84b6-782a-73b14797fb5f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "download.nvidia.com",
@@ -4106,9 +3740,6 @@
       "server": "170.168.97.5",
       "server_port": 8443,
       "uuid": "c6f220ed-41f2-21ba-438c-80f05ebbf92a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "download.nvidia.com",
@@ -4128,9 +3759,6 @@
       "server": "217.71.200.132",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sp.cryptoofarm.com",
@@ -4151,9 +3779,6 @@
       "server": "sp.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "6607d677-f567-4692-af46-52d0e15808a1",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sp.cryptoofarm.com",
@@ -4174,9 +3799,6 @@
       "server": "200.234.227.64",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sp.crsmaps.com",
@@ -4197,9 +3819,6 @@
       "server": "sp.crsmaps.com",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sp.crsmaps.com",
@@ -4220,9 +3839,6 @@
       "server": "es.crsmaps.com",
       "server_port": 8443,
       "uuid": "58f133a9-0b8c-4237-ba40-c69d32a35e27",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "es.crsmaps.com",
@@ -4243,9 +3859,6 @@
       "server": "ru.golu-gulu.online",
       "server_port": 8443,
       "uuid": "e7c11cc8-e4ae-45cf-98ef-6d9bc9cc5aa7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "id.pervye.ru",
@@ -4265,9 +3878,6 @@
       "server": "200.165.234.238",
       "server_port": 8443,
       "uuid": "e7c11cc8-e4ae-45cf-98ef-6d9bc9cc5aa7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "id.pervye.ru",
@@ -4287,9 +3897,6 @@
       "server": "node14.fastdatastream.com",
       "server_port": 8443,
       "uuid": "2c532831-127d-45d7-a84e-11ce36a6b1af",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.intel.com",
@@ -4310,9 +3917,6 @@
       "server": "72.5.43.45",
       "server_port": 8443,
       "uuid": "2c532831-127d-45d7-a84e-11ce36a6b1af",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.intel.com",
@@ -4333,9 +3937,6 @@
       "server": "94.198.190.22",
       "server_port": 8443,
       "uuid": "47388561-cf0c-4cfc-91f8-fdfd9fa3d756",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.amazon.com",
@@ -4356,9 +3957,6 @@
       "server": "93.113.25.242",
       "server_port": 8443,
       "uuid": "2c532831-127d-45d7-a84e-11ce36a6b1af",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.intel.com",
@@ -4379,9 +3977,6 @@
       "server": "89.37.192.178",
       "server_port": 8443,
       "uuid": "6607d677-f567-4692-af46-52d0e15808a1",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lp.cryptoofarm.com",
@@ -4402,9 +3997,6 @@
       "server": "lp.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "6607d677-f567-4692-af46-52d0e15808a1",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lp.cryptoofarm.com",
@@ -4425,9 +4017,6 @@
       "server": "89.37.192.144",
       "server_port": 8443,
       "uuid": "ef18d810-719c-4bf1-83c6-615d01f217eb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lm.cryptoofarm.com",
@@ -4448,9 +4037,6 @@
       "server": "lm.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "ef18d810-719c-4bf1-83c6-615d01f217eb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lm.cryptoofarm.com",
@@ -4471,9 +4057,6 @@
       "server": "185.253.116.38",
       "server_port": 8443,
       "uuid": "f50822b7-02ec-4611-83bd-ff29411e0e10",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "duckduckgo.com",
@@ -4494,9 +4077,6 @@
       "server": "45.88.13.3",
       "server_port": 8443,
       "uuid": "e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "download.nvidia.com",
@@ -4517,9 +4097,6 @@
       "server": "213.183.63.187",
       "server_port": 8443,
       "uuid": "8e85752d-c04f-427d-9d70-b10d144c8492",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "bunny.net",
@@ -4539,9 +4116,6 @@
       "server": "177.3.213.91",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "b2.cryptoofarm.com",
@@ -4562,9 +4136,6 @@
       "server": "b2.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "b98e3ee9-a67f-465a-a8f9-1e59e3cda6a8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "b2.cryptoofarm.com",
@@ -4585,9 +4156,6 @@
       "server": "201.24.53.247",
       "server_port": 8443,
       "uuid": "a237ca49-48d5-466f-aee5-c44f728a99ab",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.rumedia-cdn.com",
@@ -4608,9 +4176,6 @@
       "server": "2.56.206.49",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-001c-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -4631,9 +4196,6 @@
       "server": "45.194.10.168",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4654,9 +4216,6 @@
       "server": "45.194.10.68",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4677,9 +4236,6 @@
       "server": "45.194.10.180",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4700,9 +4256,6 @@
       "server": "45.194.10.106",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4723,9 +4276,6 @@
       "server": "45.194.10.115",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4746,9 +4296,6 @@
       "server": "45.194.10.125",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4769,9 +4316,6 @@
       "server": "45.194.10.128",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4792,9 +4336,6 @@
       "server": "45.194.10.12",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4815,9 +4356,6 @@
       "server": "45.194.10.149",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4838,9 +4376,6 @@
       "server": "45.194.10.153",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4861,9 +4396,6 @@
       "server": "45.194.10.171",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4884,9 +4416,6 @@
       "server": "45.194.10.178",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4907,9 +4436,6 @@
       "server": "45.194.10.20",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4930,9 +4456,6 @@
       "server": "45.194.10.211",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4953,9 +4476,6 @@
       "server": "45.194.10.246",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4976,9 +4496,6 @@
       "server": "45.194.10.247",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -4999,9 +4516,6 @@
       "server": "45.194.10.24",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5022,9 +4536,6 @@
       "server": "45.194.10.25",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5045,9 +4556,6 @@
       "server": "45.194.10.27",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5068,9 +4576,6 @@
       "server": "45.194.10.31",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5091,9 +4596,6 @@
       "server": "45.194.10.35",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5114,9 +4616,6 @@
       "server": "45.194.10.37",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5137,9 +4636,6 @@
       "server": "45.194.10.48",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5160,9 +4656,6 @@
       "server": "45.194.10.4",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5183,9 +4676,6 @@
       "server": "45.194.10.62",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5206,9 +4696,6 @@
       "server": "45.194.10.92",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5229,9 +4716,6 @@
       "server": "45.194.10.170",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5252,9 +4736,6 @@
       "server": "45.194.10.140",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5275,9 +4756,6 @@
       "server": "45.194.10.141",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5298,9 +4776,6 @@
       "server": "45.194.10.147",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5321,9 +4796,6 @@
       "server": "45.194.10.162",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5344,9 +4816,6 @@
       "server": "45.194.10.166",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5367,9 +4836,6 @@
       "server": "45.194.10.196",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5390,9 +4856,6 @@
       "server": "45.194.10.205",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5413,9 +4876,6 @@
       "server": "45.194.10.225",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5436,9 +4896,6 @@
       "server": "45.194.10.228",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5459,9 +4916,6 @@
       "server": "45.194.10.230",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5482,9 +4936,6 @@
       "server": "45.194.10.231",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5505,9 +4956,6 @@
       "server": "45.194.10.234",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5528,9 +4976,6 @@
       "server": "45.194.10.240",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5551,9 +4996,6 @@
       "server": "45.194.10.54",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5574,9 +5016,6 @@
       "server": "45.194.10.193",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5597,9 +5036,6 @@
       "server": "45.194.10.39",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5620,9 +5056,6 @@
       "server": "45.194.10.80",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5643,9 +5076,6 @@
       "server": "45.194.10.95",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5666,9 +5096,6 @@
       "server": "45.194.10.213",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5689,9 +5116,6 @@
       "server": "45.194.10.227",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5712,9 +5136,6 @@
       "server": "45.194.10.229",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5735,9 +5156,6 @@
       "server": "45.194.10.232",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5758,9 +5176,6 @@
       "server": "45.194.10.142",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5781,9 +5196,6 @@
       "server": "45.194.10.146",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5804,9 +5216,6 @@
       "server": "45.194.10.202",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5827,9 +5236,6 @@
       "server": "45.194.10.223",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5850,9 +5256,6 @@
       "server": "45.194.10.36",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5873,9 +5276,6 @@
       "server": "45.194.10.53",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5896,9 +5296,6 @@
       "server": "45.194.10.57",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5919,9 +5316,6 @@
       "server": "45.194.10.70",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5942,9 +5336,6 @@
       "server": "45.194.10.74",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5965,9 +5356,6 @@
       "server": "45.194.10.137",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -5988,9 +5376,6 @@
       "server": "45.194.10.14",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6011,9 +5396,6 @@
       "server": "45.194.10.163",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6034,9 +5416,6 @@
       "server": "45.194.10.204",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6057,9 +5436,6 @@
       "server": "45.194.10.2",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6080,9 +5456,6 @@
       "server": "45.194.10.41",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6103,9 +5476,6 @@
       "server": "45.194.10.85",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6126,9 +5496,6 @@
       "server": "45.194.10.94",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6149,9 +5516,6 @@
       "server": "45.194.10.99",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6172,9 +5536,6 @@
       "server": "45.194.10.107",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6195,9 +5556,6 @@
       "server": "45.194.10.114",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6218,9 +5576,6 @@
       "server": "45.194.10.122",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6241,9 +5596,6 @@
       "server": "45.194.10.132",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6264,9 +5616,6 @@
       "server": "45.194.10.167",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6287,9 +5636,6 @@
       "server": "45.194.10.203",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6310,9 +5656,6 @@
       "server": "45.194.10.239",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6333,9 +5676,6 @@
       "server": "45.194.10.32",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6356,9 +5696,6 @@
       "server": "45.194.10.44",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6379,9 +5716,6 @@
       "server": "45.194.10.49",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6402,9 +5736,6 @@
       "server": "45.194.10.59",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6425,9 +5756,6 @@
       "server": "45.194.10.7",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6448,9 +5776,6 @@
       "server": "45.194.10.81",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6471,9 +5796,6 @@
       "server": "45.194.10.83",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6494,9 +5816,6 @@
       "server": "45.194.10.84",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6517,9 +5836,6 @@
       "server": "45.194.10.127",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6540,9 +5856,6 @@
       "server": "45.194.10.55",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6563,9 +5876,6 @@
       "server": "45.194.10.5",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6586,9 +5896,6 @@
       "server": "45.194.10.61",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6609,9 +5916,6 @@
       "server": "45.194.10.63",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6632,9 +5936,6 @@
       "server": "45.194.10.66",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6655,9 +5956,6 @@
       "server": "45.194.10.67",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6678,9 +5976,6 @@
       "server": "45.194.10.77",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6701,9 +5996,6 @@
       "server": "45.194.10.79",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6724,9 +6016,6 @@
       "server": "45.194.10.86",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6747,9 +6036,6 @@
       "server": "45.194.10.91",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6770,9 +6056,6 @@
       "server": "45.194.10.108",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6793,9 +6076,6 @@
       "server": "45.194.10.109",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6816,9 +6096,6 @@
       "server": "45.194.10.112",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6839,9 +6116,6 @@
       "server": "45.194.10.116",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6862,9 +6136,6 @@
       "server": "45.194.10.165",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6885,9 +6156,6 @@
       "server": "45.194.10.8",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6908,9 +6176,6 @@
       "server": "45.194.10.97",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6931,9 +6196,6 @@
       "server": "45.194.10.98",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6954,9 +6216,6 @@
       "server": "45.194.10.182",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -6977,9 +6236,6 @@
       "server": "45.194.10.93",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7000,9 +6256,6 @@
       "server": "45.194.10.52",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7023,9 +6276,6 @@
       "server": "45.194.10.88",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7046,9 +6296,6 @@
       "server": "45.194.10.131",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7069,9 +6316,6 @@
       "server": "45.194.10.96",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7092,9 +6336,6 @@
       "server": "45.194.10.78",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7115,9 +6356,6 @@
       "server": "45.194.10.71",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7138,9 +6376,6 @@
       "server": "45.194.10.64",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7161,9 +6396,6 @@
       "server": "45.194.10.56",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7184,9 +6416,6 @@
       "server": "45.194.10.50",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7207,9 +6436,6 @@
       "server": "45.194.10.45",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7230,9 +6456,6 @@
       "server": "45.194.10.38",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7253,9 +6476,6 @@
       "server": "45.194.10.250",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7276,9 +6496,6 @@
       "server": "45.194.10.241",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7299,9 +6516,6 @@
       "server": "45.194.10.220",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7322,9 +6536,6 @@
       "server": "45.194.10.218",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7345,9 +6556,6 @@
       "server": "45.194.10.216",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7368,9 +6576,6 @@
       "server": "45.194.10.210",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7391,9 +6596,6 @@
       "server": "45.194.10.209",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7414,9 +6616,6 @@
       "server": "45.194.10.192",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7437,9 +6636,6 @@
       "server": "45.194.10.190",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7460,9 +6656,6 @@
       "server": "45.194.10.189",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7483,9 +6676,6 @@
       "server": "45.194.10.188",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7506,9 +6696,6 @@
       "server": "45.194.10.181",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7529,9 +6716,6 @@
       "server": "45.194.10.174",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7552,9 +6736,6 @@
       "server": "45.194.10.173",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7575,9 +6756,6 @@
       "server": "45.194.10.159",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7598,9 +6776,6 @@
       "server": "45.194.10.155",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7621,9 +6796,6 @@
       "server": "45.194.10.152",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7644,9 +6816,6 @@
       "server": "45.194.10.150",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7667,9 +6836,6 @@
       "server": "45.194.10.145",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7690,9 +6856,6 @@
       "server": "45.194.10.143",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7713,9 +6876,6 @@
       "server": "45.194.10.138",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7736,9 +6896,6 @@
       "server": "45.194.10.11",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7759,9 +6916,6 @@
       "server": "45.194.10.117",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7782,9 +6936,6 @@
       "server": "45.194.10.113",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7805,9 +6956,6 @@
       "server": "45.194.10.111",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7828,9 +6976,6 @@
       "server": "45.194.10.0",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7851,9 +6996,6 @@
       "server": "45.194.10.100",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7874,9 +7016,6 @@
       "server": "45.194.10.105",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7897,9 +7036,6 @@
       "server": "45.194.10.103",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7920,9 +7056,6 @@
       "server": "45.194.10.119",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7943,9 +7076,6 @@
       "server": "45.194.10.121",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7966,9 +7096,6 @@
       "server": "45.194.10.126",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -7989,9 +7116,6 @@
       "server": "45.194.10.129",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8012,9 +7136,6 @@
       "server": "45.194.10.134",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8035,9 +7156,6 @@
       "server": "45.194.10.133",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8058,9 +7176,6 @@
       "server": "45.194.10.135",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8081,9 +7196,6 @@
       "server": "45.194.10.139",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8104,9 +7216,6 @@
       "server": "45.194.10.148",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8127,9 +7236,6 @@
       "server": "45.194.10.161",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8150,9 +7256,6 @@
       "server": "45.194.10.169",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8173,9 +7276,6 @@
       "server": "45.194.10.175",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8196,9 +7296,6 @@
       "server": "45.194.10.184",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8219,9 +7316,6 @@
       "server": "45.194.10.183",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8242,9 +7336,6 @@
       "server": "45.194.10.191",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8265,9 +7356,6 @@
       "server": "45.194.10.187",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8288,9 +7376,6 @@
       "server": "45.194.10.206",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8311,9 +7396,6 @@
       "server": "45.194.10.208",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8334,9 +7416,6 @@
       "server": "45.194.10.217",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8357,9 +7436,6 @@
       "server": "45.194.10.212",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8380,9 +7456,6 @@
       "server": "45.194.10.219",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8403,9 +7476,6 @@
       "server": "45.194.10.224",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8426,9 +7496,6 @@
       "server": "45.194.10.226",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8449,9 +7516,6 @@
       "server": "45.194.10.233",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8472,9 +7536,6 @@
       "server": "45.194.10.242",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8495,9 +7556,6 @@
       "server": "45.194.10.244",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8518,9 +7576,6 @@
       "server": "45.194.10.251",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8541,9 +7596,6 @@
       "server": "45.194.10.46",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8564,9 +7616,6 @@
       "server": "45.194.10.58",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8587,9 +7636,6 @@
       "server": "45.194.10.60",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8610,9 +7656,6 @@
       "server": "45.194.10.65",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8633,9 +7676,6 @@
       "server": "45.194.10.73",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8656,9 +7696,6 @@
       "server": "45.194.10.72",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8679,9 +7716,6 @@
       "server": "45.194.10.76",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8702,9 +7736,6 @@
       "server": "45.194.10.90",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8725,9 +7756,6 @@
       "server": "45.194.10.9",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8748,9 +7776,6 @@
       "server": "45.194.10.136",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8771,9 +7796,6 @@
       "server": "45.194.10.43",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8794,9 +7816,6 @@
       "server": "45.194.10.17",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8817,9 +7836,6 @@
       "server": "45.194.10.249",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8840,9 +7856,6 @@
       "server": "45.194.10.236",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8863,9 +7876,6 @@
       "server": "45.194.10.237",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8886,9 +7896,6 @@
       "server": "45.194.10.238",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8909,9 +7916,6 @@
       "server": "45.194.10.42",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8932,9 +7936,6 @@
       "server": "45.194.10.243",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8955,9 +7956,6 @@
       "server": "45.194.10.158",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -8978,9 +7976,6 @@
       "server": "45.194.10.253",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9001,9 +7996,6 @@
       "server": "45.194.10.101",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9024,9 +8016,6 @@
       "server": "45.194.10.255",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9047,9 +8036,6 @@
       "server": "45.194.10.156",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9070,9 +8056,6 @@
       "server": "45.194.10.3",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9093,9 +8076,6 @@
       "server": "45.194.10.200",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9116,9 +8096,6 @@
       "server": "45.194.10.199",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9139,9 +8116,6 @@
       "server": "45.194.10.195",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9162,9 +8136,6 @@
       "server": "45.194.10.176",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9185,9 +8156,6 @@
       "server": "45.194.10.123",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9208,9 +8176,6 @@
       "server": "45.194.10.102",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9231,9 +8196,6 @@
       "server": "45.194.10.130",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9254,9 +8216,6 @@
       "server": "45.194.10.144",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9277,9 +8236,6 @@
       "server": "45.194.10.157",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9300,9 +8256,6 @@
       "server": "45.194.10.164",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9323,9 +8276,6 @@
       "server": "45.194.10.179",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9346,9 +8296,6 @@
       "server": "45.194.10.207",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9369,9 +8316,6 @@
       "server": "45.194.10.215",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9392,9 +8336,6 @@
       "server": "45.194.10.235",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9415,9 +8356,6 @@
       "server": "45.194.10.252",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9438,9 +8376,6 @@
       "server": "45.194.10.51",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9461,9 +8396,6 @@
       "server": "45.194.10.110",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9484,9 +8416,6 @@
       "server": "45.194.10.118",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9507,9 +8436,6 @@
       "server": "45.194.10.15",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9530,9 +8456,6 @@
       "server": "45.194.10.154",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9553,9 +8476,6 @@
       "server": "45.194.10.160",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9576,9 +8496,6 @@
       "server": "45.194.10.177",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9599,9 +8516,6 @@
       "server": "45.194.10.222",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9622,9 +8536,6 @@
       "server": "45.194.10.21",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9645,9 +8556,6 @@
       "server": "45.194.10.221",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9668,9 +8576,6 @@
       "server": "45.194.10.22",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9691,9 +8596,6 @@
       "server": "45.194.10.23",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9714,9 +8616,6 @@
       "server": "45.194.10.26",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9737,9 +8636,6 @@
       "server": "45.194.10.47",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9760,9 +8656,6 @@
       "server": "45.194.10.6",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9783,9 +8676,6 @@
       "server": "45.194.10.75",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9806,9 +8696,6 @@
       "server": "45.194.10.89",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9829,9 +8716,6 @@
       "server": "45.194.10.87",
       "server_port": 8443,
       "uuid": "3e7cede4-721a-4807-b0a2-5fe6586af907",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9852,9 +8736,6 @@
       "server": "45.196.31.7",
       "server_port": 8443,
       "uuid": "7f5ddc3c-eac0-4da4-a78b-ee5e6fc3eea4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9875,9 +8756,6 @@
       "server": "lt.xanka.best",
       "server_port": 8443,
       "uuid": "0bb6b9bf-d0fa-4633-8aa4-76994db28180",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "lt.xanka.best",
@@ -9898,9 +8776,6 @@
       "server": "160.191.164.164",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0030-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -9921,9 +8796,6 @@
       "server": "194.87.52.142",
       "server_port": 8443,
       "uuid": "070b81db-1954-4767-bfa5-26d2c3598273",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru",
@@ -9944,9 +8816,6 @@
       "server": "45.206.0.68",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9967,9 +8836,6 @@
       "server": "bypass.uk-gthost-01.com",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -9990,9 +8856,6 @@
       "server": "uk-gthost-01.com",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -10013,9 +8876,6 @@
       "server": "45.206.0.21",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -10036,9 +8896,6 @@
       "server": "141.11.87.48",
       "server_port": 8443,
       "uuid": "e08c0f4a-9f14-4ab8-bcf4-f79538d65ebc",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -10059,9 +8916,6 @@
       "server": "151.236.24.67",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0045-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10082,9 +8936,6 @@
       "server": "193.182.144.98",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-003e-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10105,9 +8956,6 @@
       "server": "83.143.106.3",
       "server_port": 8443,
       "uuid": "e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "res.cdn.office.net",
@@ -10127,9 +8975,6 @@
       "server": "th.cryptoofarm.com",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "th.cryptoofarm.com",
@@ -10150,9 +8995,6 @@
       "server": "165.101.64.218",
       "server_port": 8443,
       "uuid": "16ab4d4a-fd81-4535-9b7b-346677226ce8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "th.cryptoofarm.com",
@@ -10173,9 +9015,6 @@
       "server": "171.97.18.114",
       "server_port": 8443,
       "uuid": "d6c81f6d-24a8-46d9-a3bf-c38d51fc5fe5",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -10196,9 +9035,6 @@
       "server": "th.loadpng.com",
       "server_port": 8443,
       "uuid": "58f133a9-0b8c-4237-ba40-c69d32a35e27",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "th.loadpng.com",
@@ -10219,9 +9055,6 @@
       "server": "45.12.28.47",
       "server_port": 8443,
       "uuid": "cf038a28-8f85-41fc-9e86-ba99a3fdd0d9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "batman.jokertv.eu",
@@ -10241,9 +9074,6 @@
       "server": "5.181.202.222",
       "server_port": 8443,
       "uuid": "fee5bf09-5d07-45e8-9a47-859b06694971",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru",
@@ -10263,9 +9093,6 @@
       "server": "31.56.187.47",
       "server_port": 8443,
       "uuid": "a61a6a7c-5cdf-4d4f-91b8-bccb00967513",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ndee.whit3.net",
@@ -10286,9 +9113,6 @@
       "server": "93.123.39.49",
       "server_port": 8443,
       "uuid": "6a4f00c8-22b4-44e2-83e7-f80db3432b6d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -10308,9 +9132,6 @@
       "server": "98.142.251.31",
       "server_port": 8443,
       "uuid": "f50822b7-02ec-4611-83bd-ff29411e0e10",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "addons.mozilla.org",
@@ -10331,9 +9152,6 @@
       "server": "185.215.184.31",
       "server_port": 8443,
       "uuid": "631ee34f-4faf-4ad7-b49d-e6f50403cf0e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "anyfile2file.com",
@@ -10354,9 +9172,6 @@
       "server": "89.125.13.67",
       "server_port": 8443,
       "uuid": "2181d0c8-448a-4f75-b848-1718029baef9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "max.ru",
@@ -10377,9 +9192,6 @@
       "server": "re-zeal-us.snowdnvpno4.com",
       "server_port": 8443,
       "uuid": "d68960ae-98b4-4335-8c13-5758bf8c3c50",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "addons.mozilla.org",
@@ -10400,9 +9212,6 @@
       "server": "178.130.46.253",
       "server_port": 8443,
       "uuid": "8ed7f5e6-806f-4e18-8721-32f9fede9e3e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dl.google.com",
@@ -10423,9 +9232,6 @@
       "server": "5.181.202.180",
       "server_port": 8443,
       "uuid": "8e85752d-c04f-427d-9d70-b10d144c8492",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru",
@@ -10445,9 +9251,6 @@
       "server": "94.183.239.34",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -10468,9 +9271,6 @@
       "server": "94.183.239.49",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -10491,9 +9291,6 @@
       "server": "31.56.187.193",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "mg-42.whit3.net",
@@ -10514,9 +9311,6 @@
       "server": "193.233.253.77",
       "server_port": 8443,
       "uuid": "89f8f53c-2ec5-11f1-bffe-46c4782ac1a7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com",
@@ -10537,9 +9331,6 @@
       "server": "45.89.60.105",
       "server_port": 8443,
       "uuid": "2a6a619b-3a18-0017-b40f-d028ea60465d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10560,9 +9351,6 @@
       "server": "188.190.24.17",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0098-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10583,9 +9371,6 @@
       "server": "188.190.12.116",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0067-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10606,9 +9391,6 @@
       "server": "144.31.131.241",
       "server_port": 8443,
       "uuid": "b406bc51-9002-474c-beae-b194b02c91da",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "mold.speedload.online",
@@ -10629,9 +9411,6 @@
       "server": "130.94.97.14",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0042-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10652,9 +9431,6 @@
       "server": "167.88.51.241",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-006c-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10675,9 +9451,6 @@
       "server": "130.94.81.176",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0070-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10698,9 +9471,6 @@
       "server": "81.162.54.249",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-45ff-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10721,9 +9491,6 @@
       "server": "196.245.152.34",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-0083-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10744,9 +9511,6 @@
       "server": "102.68.86.223",
       "server_port": 8443,
       "uuid": "497631c4-a1a4-004d-a86a-f42873473bb6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.quattro-tech.ru",
@@ -10767,9 +9531,6 @@
       "server": "45.202.247.198",
       "server_port": 8443,
       "uuid": "e08c0f4a-9f14-4ab8-bcf4-f79538d65ebc",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -10790,9 +9551,6 @@
       "server": "217.60.24.23",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -10813,9 +9571,6 @@
       "server": "144.31.106.40",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -10833,35 +9588,9 @@
     {
       "type": "vless",
       "tag": "node-416",
-      "server": "217.60.24.61",
-      "server_port": 8443,
-      "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU",
-          "short_id": "f747a7a5793b5714"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-417",
       "server": "79.137.197.125",
       "server_port": 8443,
       "uuid": "07d8d513-d7a7-4e2e-a561-2a0d1b6731ce",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -10878,13 +9607,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-418",
+      "tag": "node-417",
       "server": "digin.riziro.ir",
       "server_port": 8443,
       "uuid": "0e6001f1-fe90-4e8c-9f4f-57071268af6e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "au2-images.shop.samsung.com",
@@ -10901,13 +9627,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-419",
+      "tag": "node-418",
       "server": "hollowcon.riziro.ir",
       "server_port": 8443,
       "uuid": "0e6001f1-fe90-4e8c-9f4f-57071268af6e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "au2-images.shop.samsung.com",
@@ -10924,13 +9647,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-420",
+      "tag": "node-419",
       "server": "digia.riziro.ir",
       "server_port": 8443,
       "uuid": "137539a1-15a1-442d-b0d1-7a9ec3e1f1a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "stg-mena-images.shop.samsung.com",
@@ -10947,13 +9667,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-421",
+      "tag": "node-420",
       "server": "ansooyefilter-bot.qeshmdiyar.ir",
       "server_port": 8443,
       "uuid": "24a263c8-3153-404d-a567-4089cba17c10",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.nvidia.com",
@@ -10970,13 +9687,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-422",
+      "tag": "node-421",
       "server": "111.88.143.139",
       "server_port": 8443,
       "uuid": "2b8c0574-ff6f-4975-8a06-e24ebefa1d1c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -10993,13 +9707,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-423",
+      "tag": "node-422",
       "server": "e.morvexin.ir",
       "server_port": 8443,
       "uuid": "2ce2d777-b054-4bdb-12a6-affdb12399bc",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "icloud.com",
@@ -11016,13 +9727,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-424",
+      "tag": "node-423",
       "server": "tur.hostingdayam.com.tr",
       "server_port": 8443,
       "uuid": "34c6b520-fa66-49e9-a337-b7a6a3af28ba",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "amp-api-edge.apps.apple.com",
@@ -11039,13 +9747,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-425",
+      "tag": "node-424",
       "server": "87.58.206.98",
       "server_port": 8443,
       "uuid": "423b1d79-08c4-403f-9d5e-c541f791b55f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.cendora.ru",
@@ -11062,13 +9767,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-426",
+      "tag": "node-425",
       "server": "150.40.117.221",
       "server_port": 8443,
       "uuid": "47388561-cf0c-4cfc-91f8-fdfd9fa3d756",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.amazon.com",
@@ -11085,13 +9787,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-427",
+      "tag": "node-426",
       "server": "89.208.106.218",
       "server_port": 8443,
       "uuid": "5202d00b-4d95-49da-8da3-466d07842edb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -11108,13 +9807,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-428",
+      "tag": "node-427",
       "server": "185.136.12.28",
       "server_port": 8443,
       "uuid": "56e409a0-0042-4f50-92cd-741f78bfc8d0",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "g.co",
@@ -11131,13 +9827,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-429",
+      "tag": "node-428",
       "server": "195.63.135.96",
       "server_port": 8443,
       "uuid": "604d4a69-9f65-477c-8103-1c44bffd7092",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "steamcommunity.com",
@@ -11153,13 +9846,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-430",
+      "tag": "node-429",
       "server": "207.241.173.146",
       "server_port": 8443,
       "uuid": "60b7a047-db7e-47a9-894b-e99d36556dce",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -11176,13 +9866,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-431",
+      "tag": "node-430",
       "server": "94.183.219.243",
       "server_port": 8443,
       "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -11199,13 +9886,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-432",
+      "tag": "node-431",
       "server": "velsanto.online",
       "server_port": 8443,
       "uuid": "7bb6d2aa-6238-48a6-abe2-c7deb083b08e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -11222,13 +9906,30 @@
     },
     {
       "type": "vless",
-      "tag": "node-433",
+      "tag": "node-432",
       "server": "45.195.137.117",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
+          "short_id": "e3d38cee79d4f94c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-433",
+      "server": "45.195.137.121",
+      "server_port": 8443,
+      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -11246,35 +9947,29 @@
     {
       "type": "vless",
       "tag": "node-434",
-      "server": "45.195.137.121",
+      "server": "152.53.18.129",
       "server_port": 8443,
-      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
       "tls": {
         "enabled": true,
-        "server_name": "storage.yandex.net",
+        "server_name": "avstri.plus-hit.ru",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         },
         "reality": {
           "enabled": true,
-          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
-          "short_id": "e3d38cee79d4f94c"
+          "public_key": "Zvq-k6PMXjmd6YlWcu3T1J63m0IxZcOaedRwSG9O0lI",
+          "short_id": "92558baf673ab721"
         }
       }
     },
     {
       "type": "vless",
       "tag": "node-435",
-      "server": "152.53.18.129",
+      "server": "152.53.64.139",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avstri.plus-hit.ru",
@@ -11292,12 +9987,9 @@
     {
       "type": "vless",
       "tag": "node-436",
-      "server": "152.53.64.139",
+      "server": "152.53.65.60",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avstri.plus-hit.ru",
@@ -11315,12 +10007,9 @@
     {
       "type": "vless",
       "tag": "node-437",
-      "server": "152.53.65.60",
+      "server": "152.53.66.138",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avstri.plus-hit.ru",
@@ -11338,12 +10027,9 @@
     {
       "type": "vless",
       "tag": "node-438",
-      "server": "152.53.66.138",
+      "server": "152.53.66.34",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avstri.plus-hit.ru",
@@ -11361,35 +10047,9 @@
     {
       "type": "vless",
       "tag": "node-439",
-      "server": "152.53.66.34",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Zvq-k6PMXjmd6YlWcu3T1J63m0IxZcOaedRwSG9O0lI",
-          "short_id": "92558baf673ab721"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-440",
       "server": "gbbbb.qarvian.ir",
       "server_port": 8443,
       "uuid": "85457383-b175-8f3f-fb29-4db891cd2127",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "icloud.com",
@@ -11406,13 +10066,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-441",
+      "tag": "node-440",
       "server": "62.182.195.78",
       "server_port": 8443,
       "uuid": "9a63b59c-5e54-437a-b7a1-2788780a7c13",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "retn.net",
@@ -11429,13 +10086,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-442",
+      "tag": "node-441",
       "server": "soskeynets.lockdwn.com",
       "server_port": 8443,
       "uuid": "9d440601-dafc-40fc-a844-f7328b303604",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dzen.ru",
@@ -11452,13 +10106,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-443",
+      "tag": "node-442",
       "server": "138.16.129.32",
       "server_port": 8443,
       "uuid": "a237ca49-48d5-466f-aee5-c44f728a99ab",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.rumedia-cdn.com",
@@ -11475,13 +10126,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-444",
+      "tag": "node-443",
       "server": "95.85.227.142",
       "server_port": 8443,
       "uuid": "a34b5e88-cf0d-4c01-8199-2d1002d3c787",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "wikihow.com",
@@ -11497,13 +10145,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-445",
+      "tag": "node-444",
       "server": "universe.whit3.net",
       "server_port": 8443,
       "uuid": "a6cf4b28-ba72-4e8c-90f8-6a884107ab3c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "universe.whit3.net",
@@ -11520,13 +10165,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-446",
+      "tag": "node-445",
       "server": "192.220.15.222",
       "server_port": 8443,
       "uuid": "ad192c6d-c5ee-4a21-a6bf-85218caa4ef9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.amd.com",
@@ -11543,13 +10185,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-447",
+      "tag": "node-446",
       "server": "188.225.33.206",
       "server_port": 8443,
       "uuid": "c124a209-d949-4951-8234-e2d918b3e6c0",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "max.ru",
@@ -11565,13 +10204,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-448",
+      "tag": "node-447",
       "server": "45.151.74.209",
       "server_port": 8443,
       "uuid": "c7ae1368-b6ca-4d11-beef-bb76f68d1b80",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dl.google.com",
@@ -11588,13 +10224,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-449",
+      "tag": "node-448",
       "server": "holandpanel.parsclad.ir",
       "server_port": 8443,
       "uuid": "c9076ecc-16a5-4c25-ae51-3b0be9baa423",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.nvidia.com",
@@ -11611,13 +10244,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-450",
+      "tag": "node-449",
       "server": "soskeynets.federal-usa.com",
       "server_port": 8443,
       "uuid": "cd16b981-0321-4c34-b7ca-db163f95f2d6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "rumulti.federal-usa.com",
@@ -11634,13 +10264,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-451",
+      "tag": "node-450",
       "server": "soskeynets-k11-6kq4f2.jp.y-tun.com",
       "server_port": 8443,
       "uuid": "cde73ad2-1a4f-4521-8c31-bd498cdacd73",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auth.deepl.com",
@@ -11657,13 +10284,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-452",
+      "tag": "node-451",
       "server": "144.31.74.41",
       "server_port": 8443,
       "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sun6-21.userapi.com",
@@ -11680,13 +10304,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-453",
+      "tag": "node-452",
       "server": "germany-vip.soft26.ir",
       "server_port": 8443,
       "uuid": "d39664df-5bc0-4f49-9894-8f03b4150082",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.yahoo.com",
@@ -11703,13 +10324,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-454",
+      "tag": "node-453",
       "server": "digi.riziro.ir",
       "server_port": 8443,
       "uuid": "e3a83021-da3d-4bb6-b274-b566ea928001",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "eu-images.shop.samsung.com",
@@ -11726,13 +10344,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-455",
+      "tag": "node-454",
       "server": "cdn-2d12.giftcardbazarbot.com",
       "server_port": 8443,
       "uuid": "f020daf8-237d-4573-ba1f-b191a153eb5a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -11749,13 +10364,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-456",
+      "tag": "node-455",
       "server": "45.155.70.123",
       "server_port": 8443,
       "uuid": "f82332b2-dc8c-eac4-ac12-f276e37e278a",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "s1.test.anti-zapret.com",
@@ -11772,13 +10384,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-457",
+      "tag": "node-456",
       "server": "2.26.0.15",
       "server_port": 8443,
       "uuid": "6eb88b45-7c1e-4a0a-afab-aa455447aa78",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "max.ru",
@@ -11795,13 +10404,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-458",
+      "tag": "node-457",
       "server": "64.188.124.119",
       "server_port": 8443,
       "uuid": "96fec558-76d9-40f5-8589-fe01afb6eaf6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -11817,13 +10423,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-459",
+      "tag": "node-458",
       "server": "185.120.59.94",
       "server_port": 8443,
       "uuid": "f4fec1b0-a67e-4967-b9ea-0bd832b57a4d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sun6-21.userapi.com",
@@ -11840,13 +10443,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-460",
+      "tag": "node-459",
       "server": "45.151.30.173",
       "server_port": 8443,
       "uuid": "7d396ed7-b600-4af6-858e-71c264a15398",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ang12.fasssst.ru",
@@ -11863,13 +10463,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-461",
+      "tag": "node-460",
       "server": "cdn14.cloud-vk.com",
       "server_port": 8443,
       "uuid": "c5167719-2b91-478e-a3dc-ffc52910faf8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "rbc.ru",
@@ -11886,13 +10483,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-462",
+      "tag": "node-461",
       "server": "ru.riotvpn.eu",
       "server_port": 8443,
       "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avatars.mds.yandex.net",
@@ -11909,13 +10503,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-463",
+      "tag": "node-462",
       "server": "217.179.220.69",
       "server_port": 8443,
       "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "avatars.mds.yandex.net",
@@ -11932,13 +10523,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-464",
+      "tag": "node-463",
       "server": "95.85.226.117",
       "server_port": 8443,
       "uuid": "26e4d8b5-ee98-4a8d-88c9-7f81b7be3379",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "eh.vk.com",
@@ -11955,13 +10543,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-465",
+      "tag": "node-464",
       "server": "95.85.229.185",
       "server_port": 8443,
       "uuid": "072baf2f-574e-4939-8b20-ccd89c17fefb",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "eh.vk.com",
@@ -11978,13 +10563,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-466",
+      "tag": "node-465",
       "server": "31.77.147.132",
       "server_port": 8443,
       "uuid": "4d56ded0-6429-4af5-bca7-38c89d009891",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "img.perekrestok.ru",
@@ -12001,13 +10583,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-467",
+      "tag": "node-466",
       "server": "51.250.39.27",
       "server_port": 8443,
       "uuid": "cfe3363b-5b32-4e4e-a5fb-805fa0c91981",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "api-maps.yandex.ru",
@@ -12024,13 +10603,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-468",
+      "tag": "node-467",
       "server": "vrusl-e.mvpstr.com",
       "server_port": 8443,
       "uuid": "bf2d76c7-5a78-4d97-87e0-525775b79635",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "eda.x5.ru",
@@ -12047,13 +10623,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-469",
+      "tag": "node-468",
       "server": "45.84.222.156",
       "server_port": 8443,
       "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "gosuslugi.ru",
@@ -12070,13 +10643,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-470",
+      "tag": "node-469",
       "server": "144.31.178.150",
       "server_port": 8443,
       "uuid": "eb162ab1-a006-4931-b1b3-8fc88a22b10e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "01.img.avito.st",
@@ -12092,13 +10662,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-471",
+      "tag": "node-470",
       "server": "158.160.231.108",
       "server_port": 8443,
       "uuid": "0ff47d28-d0d6-4d8f-9d44-593ea39d828f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru",
@@ -12115,13 +10682,30 @@
     },
     {
       "type": "vless",
-      "tag": "node-472",
+      "tag": "node-471",
       "server": "91.92.46.211",
       "server_port": 8443,
       "uuid": "f4fec1b0-a67e-4967-b9ea-0bd832b57a4d",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "sun6-21.userapi.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "upDCW94g-pSYQrmXvOrTVYlwBUrSKhYFF9QwrqObdVo",
+          "short_id": "3ca620a7ed5f3196"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-472",
+      "server": "185.255.178.82",
+      "server_port": 8443,
+      "uuid": "f4fec1b0-a67e-4967-b9ea-0bd832b57a4d",
       "tls": {
         "enabled": true,
         "server_name": "sun6-21.userapi.com",
@@ -12139,35 +10723,9 @@
     {
       "type": "vless",
       "tag": "node-473",
-      "server": "185.255.178.82",
-      "server_port": 8443,
-      "uuid": "f4fec1b0-a67e-4967-b9ea-0bd832b57a4d",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "sun6-21.userapi.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "upDCW94g-pSYQrmXvOrTVYlwBUrSKhYFF9QwrqObdVo",
-          "short_id": "3ca620a7ed5f3196"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-474",
       "server": "81.94.148.75",
       "server_port": 8443,
       "uuid": "074338aa-12a9-425c-8689-05bb2bba089d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru",
@@ -12184,13 +10742,30 @@
     },
     {
       "type": "vless",
+      "tag": "node-474",
+      "server": "31.58.50.200",
+      "server_port": 8443,
+      "uuid": "6fba61f2-d538-4bba-8c86-b19568a0b687",
+      "tls": {
+        "enabled": true,
+        "server_name": "tradingview.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "mr5AF0LFyDzYDRoYAwH6QNcHXL77-LoiwRx50ZzU8QU"
+        }
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
       "tag": "node-475",
       "server": "31.58.181.88",
       "server_port": 8443,
-      "uuid": "c4783cc5-aeec-4473-855b-1c98965949dd",
-      "transport": {
-        "type": "tcp"
-      },
+      "uuid": "b5f27d9a-4d7a-4fa3-a45a-09bfd3e8a248",
       "tls": {
         "enabled": true,
         "server_name": "tradingview.com",
@@ -12208,22 +10783,19 @@
     {
       "type": "vless",
       "tag": "node-476",
-      "server": "31.58.50.200",
+      "server": "89.36.161.222",
       "server_port": 8443,
-      "uuid": "00dda8ac-c263-4106-a740-1e4478a7dc44",
-      "transport": {
-        "type": "tcp"
-      },
+      "uuid": "70e20b2e-3b1f-4c25-9a3d-9240570391bb",
       "tls": {
         "enabled": true,
-        "server_name": "tradingview.com",
+        "server_name": "laoye.in-gect.fun",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
-          "public_key": "mr5AF0LFyDzYDRoYAwH6QNcHXL77-LoiwRx50ZzU8QU"
+          "public_key": "Z3adeet9wvavdQ8mY6BZYgoXe22BV5DFcsyFChWYNUM"
         }
       },
       "packet_encoding": "xudp"
@@ -12234,9 +10806,6 @@
       "server": "meow-warsaw.nethcloud.top",
       "server_port": 8443,
       "uuid": "a34b5e88-cf0d-4c01-8199-2d1002d3c787",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "wikihow.com",
@@ -12254,59 +10823,9 @@
     {
       "type": "vless",
       "tag": "node-478",
-      "server": "89.36.161.222",
-      "server_port": 8443,
-      "uuid": "70e20b2e-3b1f-4c25-9a3d-9240570391bb",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "laoye.in-gect.fun",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Z3adeet9wvavdQ8mY6BZYgoXe22BV5DFcsyFChWYNUM"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "node-479",
-      "server": "2.27.43.112",
-      "server_port": 8443,
-      "uuid": "d5530551-5e9a-4ac5-8539-cee87e38d9e2",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "auto.quattro-tech.ru",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "PNofg-BBceWRX1YMelo9Xy5dFnh_vY8J0c54llXfDSk",
-          "short_id": "31e056654ec129aa"
-        }
-      },
-      "packet_encoding": "xudp"
-    },
-    {
-      "type": "vless",
-      "tag": "node-480",
       "server": "179.198.50.131",
       "server_port": 8443,
       "uuid": "a34b5e88-cf0d-4c01-8199-2d1002d3c787",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "wikihow.com",
@@ -12322,13 +10841,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-481",
+      "tag": "node-479",
       "server": "2.26.224.91",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -12345,13 +10861,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-482",
+      "tag": "node-480",
       "server": "2.26.224.233",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -12368,13 +10881,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-483",
+      "tag": "node-481",
       "server": "46.243.142.239",
       "server_port": 8443,
       "uuid": "3013f09a-25c7-499c-a39a-697f6c032cfa",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "helper-test.x5.ru",
@@ -12391,13 +10901,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-484",
+      "tag": "node-482",
       "server": "de.ko.prod.n7.homes",
       "server_port": 8443,
       "uuid": "dcba77d7-bb59-4802-b32c-37fd7011fca4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -12414,13 +10921,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-485",
+      "tag": "node-483",
       "server": "107.173.237.146",
       "server_port": 8443,
       "uuid": "1d39f715-2740-4d99-bc3b-197cc48dcee7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "updates.cdn-apple.com",
@@ -12437,13 +10941,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-486",
+      "tag": "node-484",
       "server": "176.119.141.136",
       "server_port": 8443,
       "uuid": "0828a0bc-8acf-422c-9fac-8ad885a0dbaf",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.nvidia.com",
@@ -12460,13 +10961,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-487",
+      "tag": "node-485",
       "server": "45.197.134.52",
       "server_port": 8443,
       "uuid": "05a01432-0302-439f-a88d-8442cd27b7d5",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12483,13 +10981,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-488",
+      "tag": "node-486",
       "server": "31.76.104.157",
       "server_port": 8443,
       "uuid": "8ea09611-4e24-49f9-8b2a-25974d8ebf8c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "mag3.portal-guard.com",
@@ -12506,13 +11001,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-489",
+      "tag": "node-487",
       "server": "45.195.137.134",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12529,13 +11021,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-490",
+      "tag": "node-488",
       "server": "45.206.0.49",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12552,13 +11041,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-491",
+      "tag": "node-489",
       "server": "45.198.87.49",
       "server_port": 8443,
       "uuid": "360c46b7-afe1-4e86-bfe1-ba09b5fcd8a6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12575,13 +11061,50 @@
     },
     {
       "type": "vless",
-      "tag": "node-492",
+      "tag": "node-490",
       "server": "check05.allenshop66244.ir",
       "server_port": 8443,
       "uuid": "cc3e6e36-b329-435b-bb71-192fb5c718ae",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "play.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "D8uvi--0Aq7Hjc7cYnfcJGY0h4SSBCrPh7wEp1mvFlw",
+          "short_id": "b7b70c104ad267b8"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-491",
+      "server": "check02.allenshop66244.ir",
+      "server_port": 8443,
+      "uuid": "cc3e6e36-b329-435b-bb71-192fb5c718ae",
+      "tls": {
+        "enabled": true,
+        "server_name": "play.google.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "D8uvi--0Aq7Hjc7cYnfcJGY0h4SSBCrPh7wEp1mvFlw",
+          "short_id": "b7b70c104ad267b8"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-492",
+      "server": "check07.allenshop66244.ir",
+      "server_port": 8443,
+      "uuid": "cc3e6e36-b329-435b-bb71-192fb5c718ae",
       "tls": {
         "enabled": true,
         "server_name": "play.google.com",
@@ -12599,58 +11122,9 @@
     {
       "type": "vless",
       "tag": "node-493",
-      "server": "check02.allenshop66244.ir",
-      "server_port": 8443,
-      "uuid": "cc3e6e36-b329-435b-bb71-192fb5c718ae",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "play.google.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "D8uvi--0Aq7Hjc7cYnfcJGY0h4SSBCrPh7wEp1mvFlw",
-          "short_id": "b7b70c104ad267b8"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-494",
-      "server": "check07.allenshop66244.ir",
-      "server_port": 8443,
-      "uuid": "cc3e6e36-b329-435b-bb71-192fb5c718ae",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "play.google.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "D8uvi--0Aq7Hjc7cYnfcJGY0h4SSBCrPh7wEp1mvFlw",
-          "short_id": "b7b70c104ad267b8"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-495",
       "server": "45.195.137.62",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12667,13 +11141,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-496",
+      "tag": "node-494",
       "server": "45.196.224.79",
       "server_port": 8443,
       "uuid": "356ccb34-22cc-4446-a137-072bc60d65ca",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12690,13 +11161,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-497",
+      "tag": "node-495",
       "server": "bypass.ch-gt-01.com",
       "server_port": 8443,
       "uuid": "4fdec620-73bb-40a7-a8d5-2570a59f1832",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12713,13 +11181,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-498",
+      "tag": "node-496",
       "server": "45.206.0.43",
       "server_port": 8443,
       "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12736,13 +11201,50 @@
     },
     {
       "type": "vless",
-      "tag": "node-499",
+      "tag": "node-497",
       "server": "45.195.137.150",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
+          "short_id": "e3d38cee79d4f94c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-498",
+      "server": "45.195.137.201",
+      "server_port": 8443,
+      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
+          "short_id": "e3d38cee79d4f94c"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-499",
+      "server": "45.195.137.224",
+      "server_port": 8443,
+      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12760,12 +11262,9 @@
     {
       "type": "vless",
       "tag": "node-500",
-      "server": "45.195.137.201",
+      "server": "45.195.137.240",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12783,12 +11282,9 @@
     {
       "type": "vless",
       "tag": "node-501",
-      "server": "45.195.137.224",
+      "server": "45.195.137.30",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12806,35 +11302,29 @@
     {
       "type": "vless",
       "tag": "node-502",
-      "server": "45.195.137.240",
+      "server": "45.206.0.38",
       "server_port": 8443,
-      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
+      "uuid": "52faee73-e0fe-4661-992d-67259257170f",
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
-          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
-          "short_id": "e3d38cee79d4f94c"
+          "public_key": "dY9SNEllJMW63xo-JdXufhmjAxB_4uFw_QMjgufjiD8",
+          "short_id": "ea10cd5686751ec5"
         }
       }
     },
     {
       "type": "vless",
       "tag": "node-503",
-      "server": "45.195.137.30",
+      "server": "45.195.137.229",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12852,12 +11342,9 @@
     {
       "type": "vless",
       "tag": "node-504",
-      "server": "45.206.0.38",
+      "server": "45.195.137.142",
       "server_port": 8443,
-      "uuid": "52faee73-e0fe-4661-992d-67259257170f",
-      "transport": {
-        "type": "tcp"
-      },
+      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12867,26 +11354,23 @@
         },
         "reality": {
           "enabled": true,
-          "public_key": "dY9SNEllJMW63xo-JdXufhmjAxB_4uFw_QMjgufjiD8",
-          "short_id": "ea10cd5686751ec5"
+          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
+          "short_id": "e3d38cee79d4f94c"
         }
       }
     },
     {
       "type": "vless",
       "tag": "node-505",
-      "server": "45.195.137.229",
+      "server": "45.195.137.53",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "firefox"
         },
         "reality": {
           "enabled": true,
@@ -12898,12 +11382,9 @@
     {
       "type": "vless",
       "tag": "node-506",
-      "server": "45.195.137.142",
+      "server": "45.195.137.144",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12921,12 +11402,9 @@
     {
       "type": "vless",
       "tag": "node-507",
-      "server": "45.195.137.53",
+      "server": "45.195.137.211",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12944,12 +11422,9 @@
     {
       "type": "vless",
       "tag": "node-508",
-      "server": "45.195.137.144",
+      "server": "45.195.137.75",
       "server_port": 8443,
       "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -12967,58 +11442,9 @@
     {
       "type": "vless",
       "tag": "node-509",
-      "server": "45.195.137.211",
-      "server_port": 8443,
-      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "storage.yandex.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
-          "short_id": "e3d38cee79d4f94c"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-510",
-      "server": "45.195.137.75",
-      "server_port": 8443,
-      "uuid": "7f89560c-b9f0-4c56-b3e0-1b1bdafe0b08",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "storage.yandex.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "IdqrygjwHBEMCOamBl7a504TVk6uMAtTRj0xLWcFcxY",
-          "short_id": "e3d38cee79d4f94c"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-511",
       "server": "147.45.169.110",
       "server_port": 8443,
       "uuid": "0d27f12d-1632-5662-bdbf-5ac93eed5171",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -13035,13 +11461,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-512",
+      "tag": "node-510",
       "server": "45.196.169.53",
       "server_port": 8443,
       "uuid": "2dac53cd-d5ce-4d00-9a3f-f595765bc466",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13058,13 +11481,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-513",
+      "tag": "node-511",
       "server": "154.222.9.174",
       "server_port": 8443,
       "uuid": "512f01f4-d8fc-4a78-96a0-5d9ebebe35b9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13081,13 +11501,50 @@
     },
     {
       "type": "vless",
-      "tag": "node-514",
+      "tag": "node-512",
       "server": "45.196.224.216",
       "server_port": 8443,
       "uuid": "7e854867-65ae-416d-9c09-1a2e437e989b",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "1oUeBtHH4DskTM_jCh-6enWRkFMDX9l1OU5kWYl4kxA",
+          "short_id": "f34818a561dfd1fe"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-513",
+      "server": "ca-dp-01.com",
+      "server_port": 8443,
+      "uuid": "99a5e0ca-99b7-4b83-88f7-7d0f0943ae09",
+      "tls": {
+        "enabled": true,
+        "server_name": "storage.yandex.net",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "pPi-WO8qQFFZ9UJWNLW9YClbjcoAAZWJQ2_FM3Kjhz8",
+          "short_id": "500aec9e9e5e2212"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-514",
+      "server": "fr-gt-01.com",
+      "server_port": 8443,
+      "uuid": "a6349c3f-5234-4821-80b4-d99b33f0924d",
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13105,58 +11562,9 @@
     {
       "type": "vless",
       "tag": "node-515",
-      "server": "ca-dp-01.com",
-      "server_port": 8443,
-      "uuid": "99a5e0ca-99b7-4b83-88f7-7d0f0943ae09",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "storage.yandex.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pPi-WO8qQFFZ9UJWNLW9YClbjcoAAZWJQ2_FM3Kjhz8",
-          "short_id": "500aec9e9e5e2212"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-516",
-      "server": "fr-gt-01.com",
-      "server_port": 8443,
-      "uuid": "a6349c3f-5234-4821-80b4-d99b33f0924d",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "storage.yandex.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "1oUeBtHH4DskTM_jCh-6enWRkFMDX9l1OU5kWYl4kxA",
-          "short_id": "f34818a561dfd1fe"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-517",
       "server": "lt-cherry-01.com",
       "server_port": 8443,
       "uuid": "e97a7931-500b-4777-82a2-4237f15bcedd",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13174,13 +11582,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-518",
+      "tag": "node-516",
       "server": "bypass.ch-gt-02.com",
       "server_port": 8443,
       "uuid": "06bcd513-ef0b-4c0c-a03b-e25fcda66fe2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13197,13 +11602,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-519",
+      "tag": "node-517",
       "server": "ch-gt-02.com",
       "server_port": 8443,
       "uuid": "06bcd513-ef0b-4c0c-a03b-e25fcda66fe2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13220,13 +11622,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-520",
+      "tag": "node-518",
       "server": "82.22.40.175",
       "server_port": 8443,
       "uuid": "0d27f12d-1632-5662-bdbf-5ac93eed5171",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -13243,13 +11642,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-521",
+      "tag": "node-519",
       "server": "89.169.176.125",
       "server_port": 8443,
       "uuid": "af1bc54d-4764-4b66-a824-dd80645eeafe",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "5post-gate.x5.ru",
@@ -13265,13 +11661,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-522",
+      "tag": "node-520",
       "server": "82.202.131.56",
       "server_port": 8443,
       "uuid": "0d27f12d-1632-5662-bdbf-5ac93eed5171",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -13288,13 +11681,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-523",
+      "tag": "node-521",
       "server": "45.195.110.104",
       "server_port": 8443,
       "uuid": "f2390f38-ec10-4c25-a726-c0709b77330f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13311,13 +11701,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-524",
+      "tag": "node-522",
       "server": "de-dp-01.com",
       "server_port": 8443,
       "uuid": "512f01f4-d8fc-4a78-96a0-5d9ebebe35b9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13334,13 +11721,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-525",
+      "tag": "node-523",
       "server": "45.198.105.231",
       "server_port": 8443,
       "uuid": "5aba4d93-38da-489e-b41e-9396a9c81838",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13357,13 +11741,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-526",
+      "tag": "node-524",
       "server": "45.195.137.5",
       "server_port": 8443,
       "uuid": "06bcd513-ef0b-4c0c-a03b-e25fcda66fe2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13380,13 +11761,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-527",
+      "tag": "node-525",
       "server": "45.194.71.82",
       "server_port": 8443,
       "uuid": "66e314b8-8bc2-4958-974d-c183329faf05",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13403,13 +11781,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-528",
+      "tag": "node-526",
       "server": "162.19.181.56",
       "server_port": 8443,
       "uuid": "5ad1c7b6-9c6d-4b30-97d1-2675feb6d4d1",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.yahoo.com",
@@ -13426,13 +11801,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-529",
+      "tag": "node-527",
       "server": "45.195.137.188",
       "server_port": 8443,
       "uuid": "97bf06ad-c9a8-4ea4-afb5-9092cc092214",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13449,13 +11821,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-530",
+      "tag": "node-528",
       "server": "nl01-cherry.online",
       "server_port": 8443,
       "uuid": "8a923fe1-7e0d-4574-aee9-cc4b335794ef",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
@@ -13472,13 +11841,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-531",
+      "tag": "node-529",
       "server": "23.26.37.120",
       "server_port": 8443,
       "uuid": "dcba77d7-bb59-4802-b32c-37fd7011fca4",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -13495,13 +11861,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-532",
+      "tag": "node-530",
       "server": "91.242.241.45",
       "server_port": 8443,
       "uuid": "0deb6f9d-9ad9-4b73-ac33-f3176e7ec1f2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -13517,13 +11880,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-533",
+      "tag": "node-531",
       "server": "185.239.48.109",
       "server_port": 8443,
       "uuid": "ba2ac75f-0a9b-4483-9155-c00c8814d7c9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -13539,13 +11899,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-534",
+      "tag": "node-532",
       "server": "85.158.110.62",
       "server_port": 8443,
       "uuid": "86be7d6e-9dda-433b-8ea8-0c44a7dfcfbd",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -13561,13 +11918,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-535",
+      "tag": "node-533",
       "server": "us3.levikogjgfdd.ir",
       "server_port": 8443,
       "uuid": "e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dl.google.com",
@@ -13583,13 +11937,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-536",
+      "tag": "node-534",
       "server": "177.3.215.118",
       "server_port": 8443,
       "uuid": "46eb7360-582d-4cb8-983b-174391402a3d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "sw1.crsmaps.com",
@@ -13606,13 +11957,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-537",
+      "tag": "node-535",
       "server": "203.23.179.222",
       "server_port": 8443,
       "uuid": "d53f098c-c146-4c16-b8fc-263743fdb6b3",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "minecraft.mega-play.app",
@@ -13629,13 +11977,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-538",
+      "tag": "node-536",
       "server": "store.mehdi-cpp.ir",
       "server_port": 8443,
       "uuid": "f13639f5-19e2-414a-8b0e-7b712c593b65",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "github.com",
@@ -13652,13 +11997,30 @@
     },
     {
       "type": "vless",
-      "tag": "node-539",
+      "tag": "node-537",
+      "server": "2.27.43.112",
+      "server_port": 8443,
+      "uuid": "d5530551-5e9a-4ac5-8539-cee87e38d9e2",
+      "tls": {
+        "enabled": true,
+        "server_name": "auto.quattro-tech.ru",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "PNofg-BBceWRX1YMelo9Xy5dFnh_vY8J0c54llXfDSk",
+          "short_id": "31e056654ec129aa"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-538",
       "server": "uuk2v.tok8888.com",
       "server_port": 8443,
       "uuid": "6e719400-b88e-4ab0-a05b-089d6cd3bcaa",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "businessmadesimple.com",
@@ -13674,13 +12036,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-540",
+      "tag": "node-539",
       "server": "uuk4v.tok8888.com",
       "server_port": 8443,
       "uuid": "7ff264b2-bccb-4ed5-8c8b-d3e95ce0f8aa",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com.cn",
@@ -13696,13 +12055,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-541",
+      "tag": "node-540",
       "server": "151.242.2.81",
       "server_port": 8443,
       "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.google.com",
@@ -13719,13 +12075,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-542",
+      "tag": "node-541",
       "server": "shop.jarorobo.ir",
       "server_port": 8443,
       "uuid": "bbff0604-8fdb-43fc-a3ab-bcb46c4e4807",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "github.com",
@@ -13742,13 +12095,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-543",
+      "tag": "node-542",
       "server": "37.157.255.60",
       "server_port": 8443,
       "uuid": "97364abe-a27e-4be3-b0d7-0c3c1d64bc07",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dropbox.com",
@@ -13764,13 +12114,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-544",
+      "tag": "node-543",
       "server": "2.26.122.101",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com",
@@ -13787,13 +12134,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-545",
+      "tag": "node-544",
       "server": "ge.imsoon.org",
       "server_port": 8443,
       "uuid": "SoonTeam",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "wxug.com",
@@ -13810,13 +12154,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-546",
+      "tag": "node-545",
       "server": "38.180.144.156",
       "server_port": 8443,
       "uuid": "ae0a43bc-6189-456e-9b8a-a93f39af336e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.microsoft.com",
@@ -13833,13 +12174,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-547",
+      "tag": "node-546",
       "server": "uuk3v.tok8888.com",
       "server_port": 8443,
       "uuid": "656e8471-baf1-4927-afa9-b9cb745df576",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.thewilliamvale.com",
@@ -13855,13 +12193,29 @@
     },
     {
       "type": "vless",
-      "tag": "node-548",
+      "tag": "node-547",
       "server": "217.79.180.185",
       "server_port": 8443,
       "uuid": "97364abe-a27e-4be3-b0d7-0c3c1d64bc07",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "dropbox.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-548",
+      "server": "80808.sbs",
+      "server_port": 8443,
+      "uuid": "abacc9c9-45b5-4a6e-9de7-af2c84bf2791",
       "tls": {
         "enabled": true,
         "server_name": "dropbox.com",
@@ -13878,34 +12232,9 @@
     {
       "type": "vless",
       "tag": "node-549",
-      "server": "80808.sbs",
-      "server_port": 8443,
-      "uuid": "abacc9c9-45b5-4a6e-9de7-af2c84bf2791",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "dropbox.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-550",
       "server": "download.mehdi-cpp.ir",
       "server_port": 8443,
       "uuid": "bbff0604-8fdb-43fc-a3ab-bcb46c4e4807",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "github.com",
@@ -13922,13 +12251,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-551",
+      "tag": "node-550",
       "server": "46.101.83.29",
       "server_port": 8443,
       "uuid": "88182874-735e-4021-ad0d-8790d6d90964",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "varzesh3.com",
@@ -13945,13 +12271,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-552",
+      "tag": "node-551",
       "server": "uuk1v.tok8888.com",
       "server_port": 8443,
       "uuid": "7ff264b2-bccb-4ed5-8c8b-d3e95ce0f8aa",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com.cn",
@@ -13967,13 +12290,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-553",
+      "tag": "node-552",
       "server": "s2.sbarshia.ir",
       "server_port": 8443,
       "uuid": "2be7495d-847b-40ea-a517-b5779effb7ac",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "divar.ir",
@@ -13990,13 +12310,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-554",
+      "tag": "node-553",
       "server": "assets.portebularnaku.org",
       "server_port": 8443,
       "uuid": "0498c972-921e-48d2-bb2d-ac2a74ebc1f8",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.icloud.com",
@@ -14013,13 +12330,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-555",
+      "tag": "node-554",
       "server": "uuk5v.tok8888.com",
       "server_port": 8443,
       "uuid": "6e719400-b88e-4ab0-a05b-089d6cd3bcaa",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com.cn",
@@ -14035,13 +12349,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-556",
+      "tag": "node-555",
       "server": "194.49.53.185",
       "server_port": 8443,
       "uuid": "f38865d8-5aca-4135-8d56-7c39aa779b9b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "maviks.eu",
@@ -14058,13 +12369,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-557",
+      "tag": "node-556",
       "server": "176.124.199.193",
       "server_port": 8443,
       "uuid": "6352ec2e-fef2-431a-9c45-fa5acfe17a42",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.arbeitsagentur.de",
@@ -14081,13 +12389,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-558",
+      "tag": "node-557",
       "server": "141.11.21.166",
       "server_port": 8443,
       "uuid": "eb167fac-56a4-4ed2-b037-6233adf519e7",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.bing.com",
@@ -14104,13 +12409,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-559",
+      "tag": "node-558",
       "server": "51.91.250.245",
       "server_port": 8443,
       "uuid": "2d6be8bf-27a6-482b-bc3a-ad385c8999d0",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "easygoau1h.com",
@@ -14127,13 +12429,30 @@
     },
     {
       "type": "vless",
-      "tag": "node-560",
+      "tag": "node-559",
       "server": "91.238.82.241",
       "server_port": 8443,
       "uuid": "09397c54-d6a1-4416-98dc-1e09a4ebbc75",
-      "transport": {
-        "type": "tcp"
-      },
+      "tls": {
+        "enabled": true,
+        "server_name": "maviks.eu",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "lyLhdojpACv6B3tHViJvPjNGATedXYRMnpAt4n4Siyo",
+          "short_id": "f203719d3ff9a5f5"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-560",
+      "server": "45.150.174.81",
+      "server_port": 8443,
+      "uuid": "f38865d8-5aca-4135-8d56-7c39aa779b9b",
       "tls": {
         "enabled": true,
         "server_name": "maviks.eu",
@@ -14151,35 +12470,9 @@
     {
       "type": "vless",
       "tag": "node-561",
-      "server": "45.150.174.81",
-      "server_port": 8443,
-      "uuid": "f38865d8-5aca-4135-8d56-7c39aa779b9b",
-      "transport": {
-        "type": "tcp"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "maviks.eu",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "lyLhdojpACv6B3tHViJvPjNGATedXYRMnpAt4n4Siyo",
-          "short_id": "f203719d3ff9a5f5"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-562",
       "server": "199.247.30.45",
       "server_port": 8443,
       "uuid": "9c499383-c8fa-4ebb-983e-9a1bf3c44ff9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "discordapp.com",
@@ -14195,13 +12488,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-563",
+      "tag": "node-562",
       "server": "16.16.142.250",
       "server_port": 8443,
       "uuid": "f553d0ca-701d-4f95-90e9-2851d055291e",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.makers.com",
@@ -14218,13 +12508,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-564",
+      "tag": "node-563",
       "server": "185.193.158.9",
       "server_port": 8443,
       "uuid": "09397c54-d6a1-4416-98dc-1e09a4ebbc75",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "maviks.eu",
@@ -14241,13 +12528,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-565",
+      "tag": "node-564",
       "server": "91.107.160.195",
       "server_port": 8443,
       "uuid": "69279880-8407-4b8b-9a3e-09dd23c485cf",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "store.steampowered.com",
@@ -14264,13 +12548,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-566",
+      "tag": "node-565",
       "server": "us1.configlinepanel.com",
       "server_port": 8443,
       "uuid": "cd307b67-8180-491c-ad97-5dfd74cb38de",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "stackoverflow.com",
@@ -14286,13 +12567,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-567",
+      "tag": "node-566",
       "server": "37.156.44.205",
       "server_port": 8443,
       "uuid": "Masir_Sefid",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "store.steampowered.com",
@@ -14309,13 +12587,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-568",
+      "tag": "node-567",
       "server": "91.107.248.47",
       "server_port": 8443,
       "uuid": "dd7550e3-59ef-4d01-aa9b-a3dabd37d66b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "zhaket.com",
@@ -14332,13 +12607,30 @@
     },
     {
       "type": "vless",
+      "tag": "node-568",
+      "server": "217.60.24.61",
+      "server_port": 8443,
+      "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "NI5Rkfn6zO_gF-UC1nuvJwu4SDakCXh3ygJOKU1EITU",
+          "short_id": "f747a7a5793b5714"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "node-569",
       "server": "fr.pixvpn.app",
       "server_port": 8443,
       "uuid": "f6fa8cbd-6f5a-4a2c-8a28-9a1e6f48bdd6",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "jd.com",
@@ -14359,9 +12651,6 @@
       "server": "ss.80808.sbs",
       "server_port": 8443,
       "uuid": "abacc9c9-45b5-4a6e-9de7-af2c84bf2791",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dropbox.com",
@@ -14381,9 +12670,6 @@
       "server": "87.252.237.219",
       "server_port": 8443,
       "uuid": "c50680f6-8dc9-44cc-a8fe-72cab1f7f51b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "tradingview.com",
@@ -14403,9 +12689,6 @@
       "server": "62.171.228.244",
       "server_port": 8443,
       "uuid": "05bfcbaa-cba0-4bce-9103-09fe3f5f0667",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.cloudflare.com",
@@ -14426,9 +12709,6 @@
       "server": "144.31.93.193",
       "server_port": 8443,
       "uuid": "a210cb80-f379-44e9-a103-97ba59357a46",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "xnod13x.artemida.live",
@@ -14449,9 +12729,6 @@
       "server": "80.74.29.212",
       "server_port": 8443,
       "uuid": "4808ded8-1646-4c3c-8b4c-6b6fedc3cde9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -14471,9 +12748,6 @@
       "server": "95.164.68.37",
       "server_port": 8443,
       "uuid": "4808ded8-1646-4c3c-8b4c-6b6fedc3cde9",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "google.com",
@@ -14493,9 +12767,6 @@
       "server": "reality.aliv1.ir",
       "server_port": 8443,
       "uuid": "aae00dbc-244b-4e05-9627-3ffd43963df2",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.apple.com.cn",
@@ -14516,9 +12787,6 @@
       "server": "188.227.84.78",
       "server_port": 8443,
       "uuid": "6d05705a-54b9-41ca-94fb-d70bbcf861a5",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "zula.ir",
@@ -14539,9 +12807,6 @@
       "server": "iran.nikirani.sfree.persianmemberiranmember.shop",
       "server_port": 8443,
       "uuid": "06f73c30-b767-492f-ad4f-50226053aa4f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "tuyaeu.com",
@@ -14562,9 +12827,6 @@
       "server": "crm.xpersian.com",
       "server_port": 8443,
       "uuid": "b8c24464-1925-4338-b431-1f3673434ccf",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "tgju.org",
@@ -14585,9 +12847,6 @@
       "server": "ec20.kiava.fun",
       "server_port": 8443,
       "uuid": "783164cb-6410-4a96-e432-832489e4848c",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "coinmarketcap.com",
@@ -14608,9 +12867,6 @@
       "server": "fi2.iranbax.cfd",
       "server_port": 8443,
       "uuid": "41a7bbee-fc27-48ec-ce69-cf4214e9b93b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "greenpepper.ir",
@@ -14631,9 +12887,6 @@
       "server": "185.125.171.13",
       "server_port": 8443,
       "uuid": "a09373e2-e120-457d-9ec9-ea7fe8bedb52",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "partner.g2.com",
@@ -14653,9 +12906,6 @@
       "server": "proxysudochannel.ddns.net",
       "server_port": 8443,
       "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "instructure.com",
@@ -14676,9 +12926,6 @@
       "server": "luna.postpapet.ir",
       "server_port": 8443,
       "uuid": "b28446a5-c6ba-4c53-af62-4a7d067d51fd",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "refersion.com",
@@ -14699,9 +12946,6 @@
       "server": "edge7.rumedia-cdn.com",
       "server_port": 8443,
       "uuid": "a237ca49-48d5-466f-aee5-c44f728a99ab",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "www.rumedia-cdn.com",
@@ -14722,9 +12966,6 @@
       "server": "185.193.158.8",
       "server_port": 8443,
       "uuid": "f38865d8-5aca-4135-8d56-7c39aa779b9b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "maviks.eu",
@@ -14745,9 +12986,6 @@
       "server": "31.76.101.37",
       "server_port": 8443,
       "uuid": "f08f6e17-3def-4842-a9af-c31c78ccdc9f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "yandex.ru",
@@ -14768,9 +13006,6 @@
       "server": "de1.configlinepanel.com",
       "server_port": 8443,
       "uuid": "cd307b67-8180-491c-ad97-5dfd74cb38de",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "stackoverflow.com",
@@ -14790,9 +13025,6 @@
       "server": "45.150.174.82",
       "server_port": 8443,
       "uuid": "f38865d8-5aca-4135-8d56-7c39aa779b9b",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "maviks.eu",
@@ -14813,9 +13045,6 @@
       "server": "azarandooz.spacetechnology.net",
       "server_port": 8443,
       "uuid": "7317e6b6-c413-446b-8173-49150dbb4a9f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "refersion.com",
@@ -14836,9 +13065,6 @@
       "server": "155.248.229.115",
       "server_port": 8443,
       "uuid": "ca9df148-e636-47fe-9af6-fe8fe3eec197",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "tesla.com",
@@ -14858,9 +13084,6 @@
       "server": "81.85.75.87",
       "server_port": 8443,
       "uuid": "423b1d79-08c4-403f-9d5e-c541f791b55f",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "auto.cendora.ru",
@@ -14881,9 +13104,6 @@
       "server": "37.49.228.94",
       "server_port": 8443,
       "uuid": "716576a9-7575-44f0-a82a-a21f774861f5",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "dl.google.com",
@@ -14904,9 +13124,6 @@
       "server": "167.104.217.246",
       "server_port": 8443,
       "uuid": "f10d83e0-976a-4b02-81a9-1c89044ff728",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "nl-246.atlanta-api.com",
@@ -14927,9 +13144,6 @@
       "server": "31.77.161.2",
       "server_port": 8443,
       "uuid": "a6704fb4-4874-4e6b-98f4-571b048e3d90",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "prod.de-node-01.security-sbrf.ru",
@@ -14950,9 +13164,6 @@
       "server": "154.83.159.14",
       "server_port": 8443,
       "uuid": "0047a8bc-0025-4d45-899b-c75c669f3ede",
-      "transport": {
-        "type": "tcp"
-      },
       "tls": {
         "enabled": true,
         "server_name": "storage.yandex.net",
