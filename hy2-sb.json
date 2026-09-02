@@ -124,13 +124,16 @@
         "node-22",
         "node-23",
         "node-24",
+        "node-25",
         "node-26",
         "node-27",
+        "node-28",
         "node-29",
         "node-30",
         "node-31",
         "node-32",
-        "node-33"
+        "node-35",
+        "node-37"
       ],
       "default": "auto"
     },
@@ -159,13 +162,16 @@
         "node-22",
         "node-23",
         "node-24",
+        "node-25",
         "node-26",
         "node-27",
+        "node-28",
         "node-29",
         "node-30",
         "node-31",
         "node-32",
-        "node-33"
+        "node-35",
+        "node-37"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -434,19 +440,45 @@
     {
       "type": "hysteria2",
       "tag": "node-24",
-      "server": "hopp-netherland-new.dynuddns.net",
-      "server_port": 8443,
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8080,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
       "tls": {
         "enabled": true,
-        "server_name": "hopp-netherland-new.dynuddns.net"
+        "server_name": "hopp-us.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-25",
+      "server": "grape-honk.yyuyy.com",
+      "server_port": 8080,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
+      "tls": {
+        "enabled": true,
+        "server_name": "grape-honk.yyuyy.com"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-26",
+      "server": "hopp-legend-se.roxa.org",
+      "server_port": 8080,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-legend-se.roxa.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-27",
       "server": "kz03hy01.tcp-reset-club.net",
       "server_port": 443,
       "up_mbps": 20,
@@ -459,7 +491,59 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-27",
+      "tag": "node-28",
+      "server": "hopp-netherland-new.dynuddns.net",
+      "server_port": 8443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "Oz_Kx9342gefwJ89x3_M9z32kzf9KJq003_s",
+      "tls": {
+        "enabled": true,
+        "server_name": "hopp-netherland-new.dynuddns.net"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-29",
+      "server": "fin14qr.wwwinternetvideo.click",
+      "server_port": 443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "BPvdjudCGodsF67hRP3xgBYvcKp48coTsh6ANydLhQs=",
+      "tls": {
+        "enabled": true,
+        "server_name": "fin14qr.wwwinternetvideo.click"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-30",
+      "server": "borat-hopp.bumbleshrimp.com",
+      "server_port": 8080,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
+      "tls": {
+        "enabled": true,
+        "server_name": "borat-hopp.bumbleshrimp.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-31",
+      "server": "dereserv.just-cloud.org",
+      "server_port": 443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "d9a3a0a2-3bbf-4c04-9ca6-95c7c8390ae7",
+      "tls": {
+        "enabled": true,
+        "server_name": "dereserv.just-cloud.org"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-32",
       "server": "ee1.sferavpn.pro",
       "server_port": 443,
       "up_mbps": 20,
@@ -472,33 +556,20 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-29",
-      "server": "hopp-legend-se.roxa.org",
-      "server_port": 8443,
+      "tag": "node-35",
+      "server": "admin.wwwinternetvideo.click",
+      "server_port": 443,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
+      "password": "YutbgyXL1mGaSlBXDoEucWvYbrDCINgUcQ6R6_At5Pjr2xCc",
       "tls": {
         "enabled": true,
-        "server_name": "hopp-legend-se.roxa.org"
+        "server_name": "admin.wwwinternetvideo.click"
       }
     },
     {
       "type": "hysteria2",
-      "tag": "node-30",
-      "server": "grape-honk.yyuyy.com",
-      "server_port": 9080,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
-      "tls": {
-        "enabled": true,
-        "server_name": "grape-honk.yyuyy.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-31",
+      "tag": "node-37",
       "server": "freedom.chenlan.top",
       "server_port": 12765,
       "up_mbps": 20,
@@ -507,32 +578,6 @@
       "tls": {
         "enabled": true,
         "server_name": "freedom.chenlan.top"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-32",
-      "server": "borat-hopp.bumbleshrimp.com",
-      "server_port": 8443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "owefv0_92Z540k2F_nx83245_J9130oS_tY",
-      "tls": {
-        "enabled": true,
-        "server_name": "borat-hopp.bumbleshrimp.com"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-33",
-      "server": "jackvpn22.mooo.com",
-      "server_port": 2110,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "036c648f927d4d86a82dcf629db8cbe1",
-      "tls": {
-        "enabled": true,
-        "server_name": "jackvpn22.mooo.com"
       }
     }
   ],
