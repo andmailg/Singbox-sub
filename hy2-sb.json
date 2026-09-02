@@ -1,6 +1,6 @@
 {
   "log": {
-    "level": "warn",
+    "level": "debug",
     "timestamp": true
   },
   "dns": {
@@ -128,7 +128,7 @@
         "node-26",
         "node-27",
         "node-28",
-        "node-31",
+        "node-29",
         "node-32",
         "node-33",
         "node-34",
@@ -165,7 +165,7 @@
         "node-26",
         "node-27",
         "node-28",
-        "node-31",
+        "node-29",
         "node-32",
         "node-33",
         "node-34",
@@ -451,19 +451,6 @@
     {
       "type": "hysteria2",
       "tag": "node-25",
-      "server": "fin14qr.wwwinternetvideo.click",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "BPvdjudCGodsF67hRP3xgBYvcKp48coTsh6ANydLhQs=",
-      "tls": {
-        "enabled": true,
-        "server_name": "fin14qr.wwwinternetvideo.click"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-26",
       "server": "hopp-legend-se.roxa.org",
       "server_port": 8443,
       "up_mbps": 20,
@@ -476,7 +463,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-27",
+      "tag": "node-26",
       "server": "grape-honk.yyuyy.com",
       "server_port": 9080,
       "up_mbps": 20,
@@ -485,6 +472,19 @@
       "tls": {
         "enabled": true,
         "server_name": "grape-honk.yyuyy.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-27",
+      "server": "fin14qr.wwwinternetvideo.click",
+      "server_port": 443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "BPvdjudCGodsF67hRP3xgBYvcKp48coTsh6ANydLhQs=",
+      "tls": {
+        "enabled": true,
+        "server_name": "fin14qr.wwwinternetvideo.click"
       }
     },
     {
@@ -502,7 +502,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-31",
+      "tag": "node-29",
       "server": "fast.wwwinternetvideo.click",
       "server_port": 443,
       "up_mbps": 20,
