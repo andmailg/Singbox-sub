@@ -127,12 +127,7 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28",
-        "node-29",
-        "node-32",
-        "node-33",
-        "node-34",
-        "node-35"
+        "node-28"
       ],
       "default": "auto"
     },
@@ -164,12 +159,7 @@
         "node-25",
         "node-26",
         "node-27",
-        "node-28",
-        "node-29",
-        "node-32",
-        "node-33",
-        "node-34",
-        "node-35"
+        "node-28"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -464,14 +454,14 @@
     {
       "type": "hysteria2",
       "tag": "node-26",
-      "server": "grape-honk.yyuyy.com",
-      "server_port": 9080,
+      "server": "ee1.sferavpn.pro",
+      "server_port": 443,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
+      "password": "cd74c0a406664a5bc0bac098220a2468",
       "tls": {
         "enabled": true,
-        "server_name": "grape-honk.yyuyy.com"
+        "server_name": "ee1.sferavpn.pro"
       }
     },
     {
@@ -490,79 +480,14 @@
     {
       "type": "hysteria2",
       "tag": "node-28",
-      "server": "ee1.sferavpn.pro",
-      "server_port": 443,
+      "server": "grape-honk.yyuyy.com",
+      "server_port": 9080,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
       "tls": {
         "enabled": true,
-        "server_name": "ee1.sferavpn.pro"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-29",
-      "server": "fast.wwwinternetvideo.click",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "C91FbOXGY9XRymrcEebtax9R1Nj62UizoT8S6kCb7xwey8IE",
-      "tls": {
-        "enabled": true,
-        "server_name": "fast.wwwinternetvideo.click"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-32",
-      "server": "kaz0001hy01.packet-drop-society.net",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "eb0e3aec-f67f-4fa2-8577-b0bff0484e77",
-      "tls": {
-        "enabled": true,
-        "server_name": "kaz0001hy01.packet-drop-society.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-33",
-      "server": "freedom.chenlan.top",
-      "server_port": 12765,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "STYyftThFn",
-      "tls": {
-        "enabled": true,
-        "server_name": "freedom.chenlan.top"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-34",
-      "server": "hy2-new.aspidnet.xyz",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "QCgqi_I4EkV8UR-OgQ_tG4EnVTEVvIyR2GgRBzrIn2s",
-      "tls": {
-        "enabled": true,
-        "server_name": "hy2-new.aspidnet.xyz"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-35",
-      "server": "nas.aizhzo.com",
-      "server_port": 5010,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "eBTe6Ax2pUts8oMEWoYVDfnSlHfkLffQ",
-      "tls": {
-        "enabled": true,
-        "server_name": "nas.aizhzo.com"
+        "server_name": "grape-honk.yyuyy.com"
       }
     }
   ],
