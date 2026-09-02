@@ -27,7 +27,7 @@
       {
         "type": "https",
         "tag": "smart-dns",
-        "server": "xbox-dns.ru",
+        "server": "dns.comm.one",
         "domain_resolver": "dns-local"
       },
       {
@@ -44,7 +44,7 @@
     "rules": [
       {
         "rule_set": [
-          "db-category-ai-chat"
+          "geosite-category-ai-!cn"
         ],
         "server": "smart-dns"
       },
@@ -65,7 +65,7 @@
       {
         "rule_set": [
           "geosite-category-media-ru-blocked",
-          "db-antizapret"
+          "antizapret"
         ],
         "server": "fakeip"
       }
@@ -442,7 +442,7 @@
       "type": "hysteria2",
       "tag": "node-25",
       "server": "hopp-legend-se.roxa.org",
-      "server_port": 8443,
+      "server_port": 8080,
       "up_mbps": 20,
       "down_mbps": 20,
       "password": "h_B9x3942fJ9x_Kpx3914KQ_nZ934HFg_rT",
@@ -454,14 +454,14 @@
     {
       "type": "hysteria2",
       "tag": "node-26",
-      "server": "ee1.sferavpn.pro",
-      "server_port": 443,
+      "server": "grape-honk.yyuyy.com",
+      "server_port": 9080,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "cd74c0a406664a5bc0bac098220a2468",
+      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
       "tls": {
         "enabled": true,
-        "server_name": "ee1.sferavpn.pro"
+        "server_name": "grape-honk.yyuyy.com"
       }
     },
     {
@@ -480,14 +480,14 @@
     {
       "type": "hysteria2",
       "tag": "node-28",
-      "server": "grape-honk.yyuyy.com",
-      "server_port": 9080,
+      "server": "ee1.sferavpn.pro",
+      "server_port": 443,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "0wdsa_nJXEWRj9jz9J9xMgtx_n7gzfK_m8",
+      "password": "cd74c0a406664a5bc0bac098220a2468",
       "tls": {
         "enabled": true,
-        "server_name": "grape-honk.yyuyy.com"
+        "server_name": "ee1.sferavpn.pro"
       }
     }
   ],
@@ -509,7 +509,7 @@
       {
         "rule_set": [
           "geosite-category-media-ru-blocked",
-          "db-antizapret"
+          "antizapret"
         ],
         "outbound": "proxy-out"
       },
@@ -517,7 +517,7 @@
         "rule_set": [
           "geosite-category-ru",
           "geoip-ru",
-          "db-category-ai-chat"
+          "geosite-category-ai-!cn"
         ],
         "outbound": "direct-out"
       }
@@ -545,12 +545,12 @@
       },
       {
         "type": "remote",
-        "tag": "db-antizapret",
+        "tag": "antizapret",
         "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
       },
       {
         "type": "remote",
-        "tag": "db-category-ai-chat",
+        "tag": "geosite-category-ai-!cn",
         "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
       }
     ],
