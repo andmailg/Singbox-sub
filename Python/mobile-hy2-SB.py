@@ -356,15 +356,15 @@ def main():
             "rules": [
                 {
                     "rule_set": [
-                        "geosite-category-ru"
-                    ],
-                    "server": "dns-local"
-                },
-                {
-                    "rule_set": [
                         "db-category-ai-chat"
                     ],
                     "server": "smart-dns"
+                },
+                {
+                    "rule_set": [
+                        "geosite-category-ru"
+                    ],
+                    "server": "dns-local"
                 },
                 {
                     "query_type": [
