@@ -312,7 +312,7 @@ def main():
     # --- ШАГ 3: СБОРКА ИТОГОВОГО КОНФИГА SING-BOX ---
     singbox_config = {
         "log": {
-            "level": "warn",
+            "level": "debug",
             "timestamp": True
         },
         "dns": {
