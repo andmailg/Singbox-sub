@@ -2118,6 +2118,72 @@
     {
       "type": "trojan",
       "tag": "node-56",
+      "server": "37.156.46.29",
+      "server_port": 2053,
+      "password": "Masir_Sefid",
+      "tls": {
+        "enabled": true,
+        "server_name": "store.steampowered.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-57",
+      "server": "83.228.225.220",
+      "server_port": 1040,
+      "password": "Masir_Sefid",
+      "tls": {
+        "enabled": true,
+        "server_name": "store.steampowered.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-58",
+      "server": "66.33.22.242",
+      "server_port": 30797,
+      "password": "TgTrWOUNeU",
+      "tls": {
+        "enabled": true,
+        "server_name": "is1-ssl.mzstatic.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-59",
+      "server": "188.68.58.148",
+      "server_port": 3320,
+      "password": "fhdufiydsgfiusdfg",
+      "tls": {
+        "enabled": true,
+        "server_name": "potyjnometr.gayvibe.dpdns.org"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-60",
+      "server": "193.233.133.152",
+      "server_port": 28390,
+      "password": "oRKpDRDR4Y",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.sony.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-61",
+      "server": "179.237.75.190",
+      "server_port": 41464,
+      "password": "uRkZYGid1r",
+      "tls": {
+        "enabled": true,
+        "server_name": "rd.autos.yahoo.com"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-62",
       "server": "167.68.4.199",
       "server_port": 2053,
       "password": "Aimer",
@@ -2135,75 +2201,9 @@
     },
     {
       "type": "trojan",
-      "tag": "node-57",
-      "server": "37.156.46.29",
-      "server_port": 2053,
-      "password": "Masir_Sefid",
-      "tls": {
-        "enabled": true,
-        "server_name": "store.steampowered.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-58",
-      "server": "83.228.225.220",
-      "server_port": 1040,
-      "password": "Masir_Sefid",
-      "tls": {
-        "enabled": true,
-        "server_name": "store.steampowered.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-59",
-      "server": "66.33.22.242",
-      "server_port": 30797,
-      "password": "TgTrWOUNeU",
-      "tls": {
-        "enabled": true,
-        "server_name": "is1-ssl.mzstatic.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-60",
-      "server": "188.68.58.148",
-      "server_port": 3320,
-      "password": "fhdufiydsgfiusdfg",
-      "tls": {
-        "enabled": true,
-        "server_name": "potyjnometr.gayvibe.dpdns.org"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-61",
-      "server": "193.233.133.152",
-      "server_port": 28390,
-      "password": "oRKpDRDR4Y",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.sony.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-62",
-      "server": "179.237.75.190",
-      "server_port": 41464,
-      "password": "uRkZYGid1r",
-      "tls": {
-        "enabled": true,
-        "server_name": "rd.autos.yahoo.com"
-      }
-    },
-    {
-      "type": "trojan",
       "tag": "node-63",
-      "server": "77.221.138.199",
-      "server_port": 8443,
+      "server": "46.102.156.144",
+      "server_port": 2053,
       "password": "humanity",
       "tls": {
         "enabled": true,
@@ -2217,16 +2217,12 @@
     {
       "type": "trojan",
       "tag": "node-64",
-      "server": "46.102.156.144",
-      "server_port": 2053,
-      "password": "humanity",
+      "server": "43.165.185.191",
+      "server_port": 50000,
+      "password": "0964f6b7-6aab-4b84-9e80-dd078ed1f269",
       "tls": {
         "enabled": true,
-        "server_name": "www.calmlunch.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
+        "server_name": "jp200m.jiasu.asia"
       }
     },
     {
