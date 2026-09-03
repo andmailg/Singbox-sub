@@ -151,20 +151,6 @@
       "tag": "node-1",
       "server": "18.239.134.69",
       "server_port": 80,
-      "uuid": "de27291c-15a9-4256-9ba7-ad517569877e",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-2",
-      "server": "18.239.134.69",
-      "server_port": 80,
       "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
       "transport": {
         "type": "ws",
@@ -176,7 +162,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-3",
+      "tag": "node-2",
       "server": "143.14.11.236",
       "server_port": 80,
       "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
@@ -190,7 +176,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-4",
+      "tag": "node-3",
       "server": "157.85.105.179",
       "server_port": 80,
       "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
@@ -204,7 +190,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-5",
+      "tag": "node-4",
       "server": "18.172.202.92",
       "server_port": 80,
       "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
@@ -218,7 +204,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-6",
+      "tag": "node-5",
       "server": "157.85.97.238",
       "server_port": 80,
       "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
@@ -227,6 +213,20 @@
         "path": "/knl8",
         "headers": {
           "Host": "d7iwyzy9wpvuu.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-6",
+      "server": "18.239.134.69",
+      "server_port": 80,
+      "uuid": "de27291c-15a9-4256-9ba7-ad517569877e",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
         }
       }
     },
