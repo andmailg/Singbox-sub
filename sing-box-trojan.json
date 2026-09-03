@@ -1435,13 +1435,6 @@
     {
       "type": "trojan",
       "tag": "node-1",
-      "server": "91.107.242.197",
-      "server_port": 33522,
-      "password": "TNTo3rwa1WFSlr50tkUUiucgF8JUWsksw6xrlw+h4xc="
-    },
-    {
-      "type": "trojan",
-      "tag": "node-2",
       "server": "82.117.245.125",
       "server_port": 2053,
       "password": "humanity",
@@ -1456,6 +1449,13 @@
           "Host": "www.calmlunch.com"
         }
       }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-2",
+      "server": "91.107.242.197",
+      "server_port": 33522,
+      "password": "TNTo3rwa1WFSlr50tkUUiucgF8JUWsksw6xrlw+h4xc="
     },
     {
       "type": "trojan",
@@ -1507,7 +1507,7 @@
     {
       "type": "trojan",
       "tag": "node-6",
-      "server": "89.150.34.41",
+      "server": "168.100.9.178",
       "server_port": 2053,
       "password": "humanity",
       "tls": {
@@ -1525,7 +1525,7 @@
     {
       "type": "trojan",
       "tag": "node-7",
-      "server": "168.100.9.178",
+      "server": "89.150.34.41",
       "server_port": 2053,
       "password": "humanity",
       "tls": {
