@@ -1009,16 +1009,16 @@
     {
       "type": "vless",
       "tag": "node-48",
-      "server": "94.183.219.243",
+      "server": "89.34.90.68",
       "server_port": 8443,
-      "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
+      "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
       "tls": {
         "enabled": true,
-        "server_name": "cdn.shopify.com"
+        "server_name": "360.yandex.ru"
       },
       "transport": {
         "type": "grpc",
-        "service_name": ""
+        "service_name": "grpc"
       }
     },
     {
@@ -1039,6 +1039,21 @@
     {
       "type": "vless",
       "tag": "node-50",
+      "server": "94.183.219.243",
+      "server_port": 8443,
+      "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-51",
       "server": "217.60.24.23",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1054,7 +1069,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-51",
+      "tag": "node-52",
       "server": "144.31.40.96",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
@@ -1069,7 +1084,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-52",
+      "tag": "node-53",
       "server": "152.53.18.129",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1084,7 +1099,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-53",
+      "tag": "node-54",
       "server": "152.53.64.139",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1099,7 +1114,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-54",
+      "tag": "node-55",
       "server": "152.53.65.60",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1114,7 +1129,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-55",
+      "tag": "node-56",
       "server": "152.53.66.138",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1129,7 +1144,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-56",
+      "tag": "node-57",
       "server": "152.53.66.34",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1144,7 +1159,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-57",
+      "tag": "node-58",
       "server": "144.31.74.41",
       "server_port": 8443,
       "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
@@ -1159,37 +1174,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-58",
-      "server": "89.34.90.68",
-      "server_port": 8443,
-      "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
-      "tls": {
-        "enabled": true,
-        "server_name": "360.yandex.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
-      "type": "vless",
       "tag": "node-59",
-      "server": "ru.riotvpn.eu",
-      "server_port": 8443,
-      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
-      "tls": {
-        "enabled": true,
-        "server_name": "avatars.mds.yandex.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-60",
       "server": "45.84.222.156",
       "server_port": 8443,
       "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
@@ -1204,10 +1189,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-61",
-      "server": "217.179.220.69",
+      "tag": "node-60",
+      "server": "ru.riotvpn.eu",
       "server_port": 8443,
-      "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
+      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
       "tls": {
         "enabled": true,
         "server_name": "avatars.mds.yandex.net"
@@ -1219,17 +1204,32 @@
     },
     {
       "type": "vless",
-      "tag": "node-62",
-      "server": "217.179.220.67",
+      "tag": "node-61",
+      "server": "81.94.148.75",
       "server_port": 8443,
-      "uuid": "f885cecc-a6ea-4e9b-87da-c7dc4b745348",
+      "uuid": "edd4d202-4010-42b1-a974-5d26dec71616",
+      "tls": {
+        "enabled": true,
+        "server_name": "ads.x5.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-62",
+      "server": "217.179.220.69",
+      "server_port": 8443,
+      "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
       "tls": {
         "enabled": true,
         "server_name": "avatars.mds.yandex.net"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "grpc-yandex"
+        "service_name": ""
       }
     },
     {
