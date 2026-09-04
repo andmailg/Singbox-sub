@@ -126,7 +126,8 @@
         "node-4",
         "node-5",
         "node-6",
-        "node-7"
+        "node-7",
+        "node-8"
       ],
       "default": "auto"
     },
@@ -140,7 +141,8 @@
         "node-4",
         "node-5",
         "node-6",
-        "node-7"
+        "node-7",
+        "node-8"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -163,14 +165,14 @@
     {
       "type": "vless",
       "tag": "node-2",
-      "server": "18.172.202.92",
+      "server": "18.239.134.69",
       "server_port": 80,
-      "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
       "transport": {
         "type": "ws",
-        "path": "/fnet50",
+        "path": "/",
         "headers": {
-          "Host": "duatoup3wk8q2.cloudfront.net"
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
         }
       }
     },
@@ -191,20 +193,6 @@
     {
       "type": "vless",
       "tag": "node-4",
-      "server": "157.85.97.238",
-      "server_port": 80,
-      "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
-      "transport": {
-        "type": "ws",
-        "path": "/knl8",
-        "headers": {
-          "Host": "d7iwyzy9wpvuu.cloudfront.net"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-5",
       "server": "157.85.105.179",
       "server_port": 80,
       "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
@@ -218,7 +206,35 @@
     },
     {
       "type": "vless",
+      "tag": "node-5",
+      "server": "18.172.202.92",
+      "server_port": 80,
+      "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
+      "transport": {
+        "type": "ws",
+        "path": "/fnet50",
+        "headers": {
+          "Host": "duatoup3wk8q2.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
       "tag": "node-6",
+      "server": "157.85.97.238",
+      "server_port": 80,
+      "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
+      "transport": {
+        "type": "ws",
+        "path": "/knl8",
+        "headers": {
+          "Host": "d7iwyzy9wpvuu.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-7",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -232,15 +248,15 @@
     },
     {
       "type": "vless",
-      "tag": "node-7",
-      "server": "18.239.134.69",
+      "tag": "node-8",
+      "server": "www.true.th",
       "server_port": 80,
-      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
       "transport": {
         "type": "ws",
-        "path": "/",
+        "path": "/fnetvpn2026",
         "headers": {
-          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+          "Host": "d3gxy6d0a9fs18.cloudfront.net"
         }
       }
     }
