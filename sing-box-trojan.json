@@ -2084,6 +2084,17 @@
     {
       "type": "trojan",
       "tag": "node-52",
+      "server": "167.68.4.199",
+      "server_port": 2053,
+      "password": "Aimer",
+      "tls": {
+        "enabled": true,
+        "server_name": "epge.muarua.filegear-sg.me"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-53",
       "server": "160.16.72.205",
       "server_port": 491,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2094,7 +2105,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-53",
+      "tag": "node-54",
       "server": "160.16.105.192",
       "server_port": 1933,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2105,7 +2116,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-54",
+      "tag": "node-55",
       "server": "160.16.144.208",
       "server_port": 3076,
       "password": "c1d83c0c7d57cead4379ba14a82df69b",
@@ -2116,31 +2127,13 @@
     },
     {
       "type": "trojan",
-      "tag": "node-55",
+      "tag": "node-56",
       "server": "107.150.105.84",
       "server_port": 54657,
       "password": "02cd3bac-2a78-4dbb-82b9-6b64084ddd8e",
       "tls": {
         "enabled": true,
         "server_name": "us01.duotg.top"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-56",
-      "server": "167.68.4.199",
-      "server_port": 2053,
-      "password": "Aimer",
-      "tls": {
-        "enabled": true,
-        "server_name": "epge.muarua.filegear-sg.me"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?proxyip=ts.hpc.tw",
-        "headers": {
-          "Host": "epge.muarua.filegear-sg.me"
-        }
       }
     },
     {
@@ -2219,12 +2212,16 @@
     {
       "type": "trojan",
       "tag": "node-64",
-      "server": "43.165.185.191",
-      "server_port": 50000,
-      "password": "481b5768-a154-4086-9a48-b2b3e787c9dc",
+      "server": "77.221.138.199",
+      "server_port": 8443,
+      "password": "humanity",
       "tls": {
         "enabled": true,
-        "server_name": "jp200m.jiasu.asia"
+        "server_name": "www.calmlunch.com"
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/assignment"
       }
     },
     {
@@ -2640,6 +2637,17 @@
     {
       "type": "trojan",
       "tag": "node-101",
+      "server": "43.165.185.191",
+      "server_port": 50000,
+      "password": "481b5768-a154-4086-9a48-b2b3e787c9dc",
+      "tls": {
+        "enabled": true,
+        "server_name": "jp200m.jiasu.asia"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-102",
       "server": "92.118.190.131",
       "server_port": 80,
       "password": "49699004-a1ba-4621-9744-3d41e98040a9",
@@ -2653,7 +2661,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-102",
+      "tag": "node-103",
       "server": "18.130.204.79",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2664,7 +2672,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-103",
+      "tag": "node-104",
       "server": "210.222.78.191",
       "server_port": 10240,
       "password": "Aimer",
@@ -2675,7 +2683,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-104",
+      "tag": "node-105",
       "server": "172.66.47.3",
       "server_port": 2087,
       "password": "JsheihIhuy-7-282+2+",
@@ -2686,7 +2694,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-105",
+      "tag": "node-106",
       "server": "13.48.105.114",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2697,7 +2705,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-106",
+      "tag": "node-107",
       "server": "121.176.175.54",
       "server_port": 32444,
       "password": "Aimer",
@@ -2708,7 +2716,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-107",
+      "tag": "node-108",
       "server": "195.58.50.128",
       "server_port": 2053,
       "password": "8r%3C%5B9%27l6hAO%238ZQi",
@@ -2719,7 +2727,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-108",
+      "tag": "node-109",
       "server": "35.182.251.60",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2730,7 +2738,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-109",
+      "tag": "node-110",
       "server": "45.80.111.216",
       "server_port": 2096,
       "password": "ttfang",
@@ -2745,7 +2753,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-110",
+      "tag": "node-111",
       "server": "18.135.6.102",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2756,7 +2764,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-111",
+      "tag": "node-112",
       "server": "18.197.119.26",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2767,7 +2775,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-112",
+      "tag": "node-113",
       "server": "13.39.239.251",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2778,7 +2786,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-113",
+      "tag": "node-114",
       "server": "66.228.55.178",
       "server_port": 2083,
       "password": "O4K-nAbZC4qEnBA0a_9EWQ",
@@ -2793,7 +2801,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-114",
+      "tag": "node-115",
       "server": "45.12.30.216",
       "server_port": 2096,
       "password": "ttfang",
@@ -2808,7 +2816,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-115",
+      "tag": "node-116",
       "server": "3.96.217.9",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2819,7 +2827,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-116",
+      "tag": "node-117",
       "server": "192.200.160.109",
       "server_port": 8443,
       "password": "Aimer",
@@ -2830,7 +2838,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-117",
+      "tag": "node-118",
       "server": "135.84.64.36",
       "server_port": 2083,
       "password": "Aimer",
@@ -2841,7 +2849,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-118",
+      "tag": "node-119",
       "server": "3.141.130.47",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2852,14 +2860,14 @@
     },
     {
       "type": "trojan",
-      "tag": "node-119",
+      "tag": "node-120",
       "server": "65.109.211.136",
       "server_port": 18690,
       "password": "tiUPm%2FWJQqnP6Skk1SQlxAX8MM1FuYqxsPAS2VQz6zI%3D"
     },
     {
       "type": "trojan",
-      "tag": "node-120",
+      "tag": "node-121",
       "server": "15.237.176.178",
       "server_port": 16975,
       "password": "wpLP2iWsEQWw",
@@ -2870,7 +2878,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-121",
+      "tag": "node-122",
       "server": "206.238.236.252",
       "server_port": 2096,
       "password": "Aimer",
@@ -2881,7 +2889,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-122",
+      "tag": "node-123",
       "server": "161.145.150.26",
       "server_port": 2087,
       "password": "Aimer",
@@ -2892,7 +2900,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-123",
+      "tag": "node-124",
       "server": "162.159.44.50",
       "server_port": 2087,
       "password": "Aimer",
@@ -2903,7 +2911,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-124",
+      "tag": "node-125",
       "server": "156.225.72.199",
       "server_port": 2096,
       "password": "Aimer",
@@ -2914,7 +2922,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-125",
+      "tag": "node-126",
       "server": "3.249.15.72",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2925,7 +2933,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-126",
+      "tag": "node-127",
       "server": "154.211.8.12",
       "server_port": 2096,
       "password": "Aimer",
@@ -2943,7 +2951,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-127",
+      "tag": "node-128",
       "server": "3.8.123.26",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2954,7 +2962,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-128",
+      "tag": "node-129",
       "server": "15.236.166.144",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2965,7 +2973,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-129",
+      "tag": "node-130",
       "server": "175.212.51.220",
       "server_port": 21301,
       "password": "Aimer",
@@ -2976,7 +2984,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-130",
+      "tag": "node-131",
       "server": "34.219.52.119",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -2987,7 +2995,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-131",
+      "tag": "node-132",
       "server": "54.171.7.212",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -2998,7 +3006,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-132",
+      "tag": "node-133",
       "server": "129.146.175.86",
       "server_port": 44302,
       "password": "4d111af8-5078-37e0-a583-34155f60b32c",
@@ -3009,7 +3017,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-133",
+      "tag": "node-134",
       "server": "45.80.209.25",
       "server_port": 81,
       "password": "Aimer",
@@ -3027,7 +3035,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-134",
+      "tag": "node-135",
       "server": "188.164.159.185",
       "server_port": 8443,
       "password": "Aimer",
@@ -3045,7 +3053,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-135",
+      "tag": "node-136",
       "server": "3.123.22.69",
       "server_port": 22222,
       "password": "telegram-id-privatevpns",
@@ -3056,7 +3064,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-136",
+      "tag": "node-137",
       "server": "108.165.152.55",
       "server_port": 2096,
       "password": "Aimer",
@@ -3074,7 +3082,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-137",
+      "tag": "node-138",
       "server": "34.247.43.253",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -3085,7 +3093,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-138",
+      "tag": "node-139",
       "server": "135.148.148.4",
       "server_port": 80,
       "password": "800eb26c-cd0c-4269-aae7-e63d75de4edd",
@@ -3096,7 +3104,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-139",
+      "tag": "node-140",
       "server": "13.40.3.71",
       "server_port": 22222,
       "password": "telegram-id-directvpn",
@@ -3107,7 +3115,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-140",
+      "tag": "node-141",
       "server": "199.34.228.190",
       "server_port": 2083,
       "password": "Aimer",
@@ -3120,21 +3128,6 @@
         "headers": {
           "Host": "ngepx.ambercc.filegear-sg.me"
         }
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-141",
-      "server": "77.221.138.199",
-      "server_port": 8443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.calmlunch.com"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/assignment"
       }
     },
     {
