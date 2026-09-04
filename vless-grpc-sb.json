@@ -1145,21 +1145,6 @@
     {
       "type": "vless",
       "tag": "node-57",
-      "server": "universe.whit3.net",
-      "server_port": 8443,
-      "uuid": "a6cf4b28-ba72-4e8c-90f8-6a884107ab3c",
-      "tls": {
-        "enabled": true,
-        "server_name": "universe.whit3.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "universe_grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-58",
       "server": "144.31.74.41",
       "server_port": 8443,
       "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
@@ -1174,7 +1159,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-59",
+      "tag": "node-58",
       "server": "89.34.90.68",
       "server_port": 8443,
       "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
@@ -1189,37 +1174,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-60",
-      "server": "ru.riotvpn.eu",
-      "server_port": 8443,
-      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
-      "tls": {
-        "enabled": true,
-        "server_name": "avatars.mds.yandex.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-61",
-      "server": "45.84.222.156",
-      "server_port": 8443,
-      "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
-      "tls": {
-        "enabled": true,
-        "server_name": "gosuslugi.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-api"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-62",
+      "tag": "node-59",
       "server": "217.179.220.69",
       "server_port": 8443,
       "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
@@ -1234,7 +1189,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-63",
+      "tag": "node-60",
       "server": "217.179.220.67",
       "server_port": 8443,
       "uuid": "f885cecc-a6ea-4e9b-87da-c7dc4b745348",
@@ -1249,7 +1204,37 @@
     },
     {
       "type": "vless",
-      "tag": "node-64",
+      "tag": "node-61",
+      "server": "ru.riotvpn.eu",
+      "server_port": 8443,
+      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
+      "tls": {
+        "enabled": true,
+        "server_name": "avatars.mds.yandex.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-62",
+      "server": "45.84.222.156",
+      "server_port": 8443,
+      "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
+      "tls": {
+        "enabled": true,
+        "server_name": "gosuslugi.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-api"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-63",
       "server": "proxysudochannel.ddns.net",
       "server_port": 8443,
       "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
@@ -1264,7 +1249,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-65",
+      "tag": "node-64",
       "server": "all.shhproxy.cfd",
       "server_port": 8443,
       "uuid": "39581fd3-5c3c-4f3a-b62a-6653f803dfd6",
@@ -1279,7 +1264,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-66",
+      "tag": "node-65",
       "server": "198.41.200.146",
       "server_port": 8443,
       "uuid": "e730ea3f-01e9-4dce-8817-e206c14b9467",
@@ -1290,6 +1275,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-66",
+      "server": "universe.whit3.net",
+      "server_port": 8443,
+      "uuid": "a6cf4b28-ba72-4e8c-90f8-6a884107ab3c",
+      "tls": {
+        "enabled": true,
+        "server_name": "universe.whit3.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "universe_grpc"
       }
     },
     {
