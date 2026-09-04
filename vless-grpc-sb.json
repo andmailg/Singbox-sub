@@ -303,6 +303,21 @@
     {
       "type": "vless",
       "tag": "node-1",
+      "server": "cool-route-ge.whit3.net",
+      "server_port": 8443,
+      "uuid": "1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a",
+      "tls": {
+        "enabled": true,
+        "server_name": "cool-route-ge.whit3.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "cool-route-ge_grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-2",
       "server": "5.175.161.47",
       "server_port": 8443,
       "uuid": "eb85f61f-acb3-4689-8b7c-d8ad2a6aa43f",
@@ -317,7 +332,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-2",
+      "tag": "node-3",
       "server": "151.242.17.99",
       "server_port": 8443,
       "uuid": "a04814d9-d006-4e7b-ae20-8ab304b3b429",
@@ -328,21 +343,6 @@
       "transport": {
         "type": "grpc",
         "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-3",
-      "server": "cool-route-ge.whit3.net",
-      "server_port": 8443,
-      "uuid": "1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a",
-      "tls": {
-        "enabled": true,
-        "server_name": "cool-route-ge.whit3.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "cool-route-ge_grpc"
       }
     },
     {
@@ -1175,36 +1175,6 @@
     {
       "type": "vless",
       "tag": "node-59",
-      "server": "217.179.220.69",
-      "server_port": 8443,
-      "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
-      "tls": {
-        "enabled": true,
-        "server_name": "avatars.mds.yandex.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-60",
-      "server": "217.179.220.67",
-      "server_port": 8443,
-      "uuid": "f885cecc-a6ea-4e9b-87da-c7dc4b745348",
-      "tls": {
-        "enabled": true,
-        "server_name": "avatars.mds.yandex.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-yandex"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-61",
       "server": "ru.riotvpn.eu",
       "server_port": 8443,
       "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
@@ -1219,7 +1189,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-62",
+      "tag": "node-60",
       "server": "45.84.222.156",
       "server_port": 8443,
       "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
@@ -1230,6 +1200,36 @@
       "transport": {
         "type": "grpc",
         "service_name": "grpc-api"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-61",
+      "server": "217.179.220.69",
+      "server_port": 8443,
+      "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
+      "tls": {
+        "enabled": true,
+        "server_name": "avatars.mds.yandex.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-62",
+      "server": "217.179.220.67",
+      "server_port": 8443,
+      "uuid": "f885cecc-a6ea-4e9b-87da-c7dc4b745348",
+      "tls": {
+        "enabled": true,
+        "server_name": "avatars.mds.yandex.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc-yandex"
       }
     },
     {
