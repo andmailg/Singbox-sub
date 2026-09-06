@@ -2173,23 +2173,23 @@
     {
       "type": "trojan",
       "tag": "node-56",
+      "server": "35.183.57.131",
+      "server_port": 12526,
+      "password": "Q01i4UY3lPDx",
+      "tls": {
+        "enabled": true,
+        "server_name": "appsvs.shop"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-57",
       "server": "66.33.22.242",
       "server_port": 30797,
       "password": "TgTrWOUNeU",
       "tls": {
         "enabled": true,
         "server_name": "is1-ssl.mzstatic.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-57",
-      "server": "47.242.1.206",
-      "server_port": 45136,
-      "password": "fdc65525-e161-3356-9992-f0446eff60fc",
-      "tls": {
-        "enabled": true,
-        "server_name": "hkvip104.qlgq.fun"
       }
     },
     {
@@ -2206,6 +2206,17 @@
     {
       "type": "trojan",
       "tag": "node-59",
+      "server": "51.44.39.226",
+      "server_port": 22222,
+      "password": "telegram-id-privatevpns",
+      "tls": {
+        "enabled": true,
+        "server_name": "trojan.burgerip.co.uk"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-60",
       "server": "179.237.75.190",
       "server_port": 41464,
       "password": "uRkZYGid1r",
@@ -2216,29 +2227,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-60",
-      "server": "202.8.9.27",
-      "server_port": 28443,
-      "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
-      "tls": {
-        "enabled": true,
-        "server_name": "download.windowsupdate1.com"
-      }
-    },
-    {
-      "type": "trojan",
       "tag": "node-61",
-      "server": "172.105.65.61",
-      "server_port": 28443,
-      "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
-      "tls": {
-        "enabled": true,
-        "server_name": "download.windowsupdate1.com"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-62",
       "server": "210.0.158.220",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2249,7 +2238,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-63",
+      "tag": "node-62",
       "server": "85.90.246.11",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2260,7 +2249,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-64",
+      "tag": "node-63",
       "server": "5.181.4.104",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2271,7 +2260,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-65",
+      "tag": "node-64",
       "server": "144.24.77.154",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2282,7 +2271,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-66",
+      "tag": "node-65",
       "server": "144.24.90.94",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2293,7 +2282,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-67",
+      "tag": "node-66",
       "server": "144.24.87.99",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2304,7 +2293,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-68",
+      "tag": "node-67",
       "server": "155.248.172.87",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2315,7 +2304,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-69",
+      "tag": "node-68",
       "server": "103.195.236.24",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2326,7 +2315,7 @@
     },
     {
       "type": "trojan",
-      "tag": "node-70",
+      "tag": "node-69",
       "server": "103.173.255.21",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
@@ -2337,13 +2326,24 @@
     },
     {
       "type": "trojan",
-      "tag": "node-71",
+      "tag": "node-70",
       "server": "103.173.255.127",
       "server_port": 28443,
       "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
       "tls": {
         "enabled": true,
         "server_name": "glcvn150.hruqoaw.cn"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-71",
+      "server": "202.8.9.27",
+      "server_port": 28443,
+      "password": "ffcd5d19-d085-4ff1-b724-af203eaeea04",
+      "tls": {
+        "enabled": true,
+        "server_name": "download.windowsupdate1.com"
       }
     },
     {
