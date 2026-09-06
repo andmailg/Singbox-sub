@@ -996,7 +996,8 @@
       "transport": {
         "type": "grpc",
         "service_name": ""
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
