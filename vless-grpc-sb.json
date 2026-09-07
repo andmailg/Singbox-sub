@@ -967,36 +967,6 @@
     {
       "type": "vless",
       "tag": "node-46",
-      "server": "217.60.24.23",
-      "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-47",
-      "server": "144.31.106.40",
-      "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-48",
       "server": "2.26.224.233",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1011,7 +981,23 @@
     },
     {
       "type": "vless",
-      "tag": "node-49",
+      "tag": "node-47",
+      "server": "217.60.24.23",
+      "server_port": 8443,
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      },
+      "packet_encoding": "xudp"
+    },
+    {
+      "type": "vless",
+      "tag": "node-48",
       "server": "144.31.40.96",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
@@ -1026,7 +1012,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-50",
+      "tag": "node-49",
       "server": "152.53.18.129",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1041,7 +1027,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-51",
+      "tag": "node-50",
       "server": "152.53.64.139",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1056,7 +1042,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-52",
+      "tag": "node-51",
       "server": "152.53.65.60",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1071,7 +1057,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-53",
+      "tag": "node-52",
       "server": "152.53.66.138",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1086,7 +1072,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-54",
+      "tag": "node-53",
       "server": "152.53.66.34",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -1101,7 +1087,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-55",
+      "tag": "node-54",
       "server": "144.31.74.41",
       "server_port": 8443,
       "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
@@ -1116,7 +1102,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-56",
+      "tag": "node-55",
       "server": "89.34.90.68",
       "server_port": 8443,
       "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
@@ -1131,22 +1117,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-57",
-      "server": "cool-route-ge.whit3.net",
-      "server_port": 8443,
-      "uuid": "1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a",
-      "tls": {
-        "enabled": true,
-        "server_name": "cool-route-ge.whit3.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-58",
+      "tag": "node-56",
       "server": "proxysudochannel.ddns.net",
       "server_port": 8443,
       "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
@@ -1161,7 +1132,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-59",
+      "tag": "node-57",
       "server": "dns3.nufilter.store",
       "server_port": 8443,
       "uuid": "9c46957b-688b-451c-9d10-4663f7e7dfdc",
@@ -1176,7 +1147,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-60",
+      "tag": "node-58",
       "server": "104.17.2.183",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1191,7 +1162,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-61",
+      "tag": "node-59",
       "server": "172.64.144.223",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1206,7 +1177,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-62",
+      "tag": "node-60",
       "server": "104.21.44.68",
       "server_port": 8443,
       "uuid": "824692f2-0372-4556-8437-8916415ba535",
@@ -1221,7 +1192,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-63",
+      "tag": "node-61",
       "server": "217.163.76.224",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1236,7 +1207,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-64",
+      "tag": "node-62",
       "server": "45.149.12.119",
       "server_port": 8443,
       "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
@@ -1251,7 +1222,22 @@
     },
     {
       "type": "vless",
-      "tag": "node-65",
+      "tag": "node-63",
+      "server": "cool-route-ge.whit3.net",
+      "server_port": 8443,
+      "uuid": "1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a",
+      "tls": {
+        "enabled": true,
+        "server_name": "cool-route-ge.whit3.net"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "cool-route-ge_grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-64",
       "server": "cf.dalazhi.eu.org",
       "server_port": 8443,
       "uuid": "e14c0c0e-f838-49e9-bcee-01ead9208af2",
@@ -1262,6 +1248,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "unlogrpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-65",
+      "server": "144.31.106.40",
+      "server_port": 8443,
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
       }
     },
     {
