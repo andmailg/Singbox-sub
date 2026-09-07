@@ -188,9 +188,7 @@
         "node-84",
         "node-85",
         "node-86",
-        "node-87",
-        "node-88",
-        "node-89"
+        "node-87"
       ],
       "default": "auto"
     },
@@ -284,9 +282,7 @@
         "node-84",
         "node-85",
         "node-86",
-        "node-87",
-        "node-88",
-        "node-89"
+        "node-87"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -996,147 +992,11 @@
       "transport": {
         "type": "grpc",
         "service_name": ""
-      },
-      "packet_encoding": "xudp"
+      }
     },
     {
       "type": "vless",
       "tag": "node-48",
-      "server": "144.31.40.96",
-      "server_port": 8443,
-      "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.max.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "a2e3c24ab3"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-49",
-      "server": "152.53.18.129",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-50",
-      "server": "152.53.64.139",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-51",
-      "server": "152.53.65.60",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-52",
-      "server": "152.53.66.138",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-53",
-      "server": "152.53.66.34",
-      "server_port": 8443,
-      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
-      "tls": {
-        "enabled": true,
-        "server_name": "avstri.plus-hit.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-54",
-      "server": "144.31.74.41",
-      "server_port": 8443,
-      "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
-      "tls": {
-        "enabled": true,
-        "server_name": "sun6-21.userapi.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-55",
-      "server": "89.34.90.68",
-      "server_port": 8443,
-      "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
-      "tls": {
-        "enabled": true,
-        "server_name": "360.yandex.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-56",
-      "server": "proxysudochannel.ddns.net",
-      "server_port": 8443,
-      "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
-      "tls": {
-        "enabled": true,
-        "server_name": "instructure.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-57",
       "server": "144.31.106.40",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1151,25 +1011,10 @@
     },
     {
       "type": "vless",
-      "tag": "node-58",
-      "server": "all.shhproxy.cfd",
+      "tag": "node-49",
+      "server": "2.26.224.233",
       "server_port": 8443,
-      "uuid": "39581fd3-5c3c-4f3a-b62a-6653f803dfd6",
-      "tls": {
-        "enabled": true,
-        "server_name": "uGshhproxyV2raykufukfkyKuyk-irancel-Mokhabera-Sshpr-raitel-MIc.Snappfoodd.site"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@Shh_Proxy,@Shh_Proxy"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-59",
-      "server": "94.183.219.243",
-      "server_port": 8443,
-      "uuid": "658f7138-93c2-414d-a6c2-f332c94d4034",
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
       "tls": {
         "enabled": true,
         "server_name": "cdn.shopify.com"
@@ -1181,43 +1026,28 @@
     },
     {
       "type": "vless",
-      "tag": "node-60",
-      "server": "198.41.200.146",
+      "tag": "node-50",
+      "server": "144.31.40.96",
       "server_port": 8443,
-      "uuid": "e730ea3f-01e9-4dce-8817-e206c14b9467",
+      "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
       "tls": {
         "enabled": true,
-        "server_name": "mtn-mci-vipv2rey.mamare.ir"
+        "server_name": "www.max.ru"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey"
+        "service_name": "a2e3c24ab3"
       }
     },
     {
       "type": "vless",
-      "tag": "node-61",
-      "server": "universe.whit3.net",
+      "tag": "node-51",
+      "server": "152.53.18.129",
       "server_port": 8443,
-      "uuid": "a6cf4b28-ba72-4e8c-90f8-6a884107ab3c",
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
       "tls": {
         "enabled": true,
-        "server_name": "universe.whit3.net"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "universe_grpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-62",
-      "server": "185.146.173.59",
-      "server_port": 8443,
-      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
-      "tls": {
-        "enabled": true,
-        "server_name": "societshaia7rysv.aminho3ien.ir"
+        "server_name": "avstri.plus-hit.ru"
       },
       "transport": {
         "type": "grpc",
@@ -1226,23 +1056,128 @@
     },
     {
       "type": "vless",
-      "tag": "node-63",
-      "server": "154.83.2.212",
+      "tag": "node-52",
+      "server": "152.53.64.139",
       "server_port": 8443,
-      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
       "tls": {
         "enabled": true,
-        "server_name": "societshaia7rysv.aminho3ien.ir"
+        "server_name": "avstri.plus-hit.ru"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "👨‍🚀Free👨‍🚀"
+        "service_name": ""
       }
     },
     {
       "type": "vless",
-      "tag": "node-64",
-      "server": "156.229.48.66",
+      "tag": "node-53",
+      "server": "152.53.65.60",
+      "server_port": 8443,
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
+      "tls": {
+        "enabled": true,
+        "server_name": "avstri.plus-hit.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-54",
+      "server": "152.53.66.138",
+      "server_port": 8443,
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
+      "tls": {
+        "enabled": true,
+        "server_name": "avstri.plus-hit.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-55",
+      "server": "152.53.66.34",
+      "server_port": 8443,
+      "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
+      "tls": {
+        "enabled": true,
+        "server_name": "avstri.plus-hit.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-56",
+      "server": "144.31.74.41",
+      "server_port": 8443,
+      "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
+      "tls": {
+        "enabled": true,
+        "server_name": "sun6-21.userapi.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-57",
+      "server": "89.34.90.68",
+      "server_port": 8443,
+      "uuid": "fe8e2ffb-8796-408c-af5b-0d4774215e00",
+      "tls": {
+        "enabled": true,
+        "server_name": "360.yandex.ru"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-58",
+      "server": "proxysudochannel.ddns.net",
+      "server_port": 8443,
+      "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
+      "tls": {
+        "enabled": true,
+        "server_name": "instructure.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-59",
+      "server": "dns3.nufilter.store",
+      "server_port": 8443,
+      "uuid": "9c46957b-688b-451c-9d10-4663f7e7dfdc",
+      "tls": {
+        "enabled": true,
+        "server_name": "f.kanal-tel-nufilter.site"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-60",
+      "server": "104.17.2.183",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
       "tls": {
@@ -1256,37 +1191,82 @@
     },
     {
       "type": "vless",
-      "tag": "node-65",
-      "server": "cloud.flaresub.online",
+      "tag": "node-61",
+      "server": "172.64.144.223",
       "server_port": 8443,
-      "uuid": "77b84bf9-4ced-447c-a629-061a74f9578d",
+      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
       "tls": {
         "enabled": true,
-        "server_name": "config1.radvin.online"
+        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
       },
       "transport": {
         "type": "grpc",
-        "service_name": ""
+        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-62",
+      "server": "104.21.44.68",
+      "server_port": 8443,
+      "uuid": "824692f2-0372-4556-8437-8916415ba535",
+      "tls": {
+        "enabled": true,
+        "server_name": "propanell2.followerarzon.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "2053vless"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-63",
+      "server": "217.163.76.224",
+      "server_port": 8443,
+      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
+      "tls": {
+        "enabled": true,
+        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-64",
+      "server": "45.149.12.119",
+      "server_port": 8443,
+      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
+      "tls": {
+        "enabled": true,
+        "server_name": "societshaia7rysv.aminho3ien.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@iMrV2ray"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-65",
+      "server": "cf.dalazhi.eu.org",
+      "server_port": 8443,
+      "uuid": "e14c0c0e-f838-49e9-bcee-01ead9208af2",
+      "tls": {
+        "enabled": true,
+        "server_name": "us.dalazhi.eu.org"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "unlogrpc"
       }
     },
     {
       "type": "vless",
       "tag": "node-66",
-      "server": "104.21.48.84",
-      "server_port": 8443,
-      "uuid": "161f6b0b-47c3-487e-bffd-90b74fb67539",
-      "tls": {
-        "enabled": true,
-        "server_name": "cloud.barfak123.eu.org"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-67",
       "server": "v6.fv2.site",
       "server_port": 8443,
       "uuid": "bfc3a680-fd67-44d2-e1ce-a8228e947e15",
@@ -1301,22 +1281,22 @@
     },
     {
       "type": "vless",
-      "tag": "node-68",
-      "server": "185.125.171.13",
+      "tag": "node-67",
+      "server": "fi2.iranbax.cfd",
       "server_port": 8443,
-      "uuid": "a09373e2-e120-457d-9ec9-ea7fe8bedb52",
+      "uuid": "41a7bbee-fc27-48ec-ce69-cf4214e9b93b",
       "tls": {
         "enabled": true,
-        "server_name": "partner.g2.com"
+        "server_name": "greenpepper.ir"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "g2com"
+        "service_name": "TelegramID:@iranbaxvpn"
       }
     },
     {
       "type": "vless",
-      "tag": "node-69",
+      "tag": "node-68",
       "server": "190.93.245.101",
       "server_port": 8443,
       "uuid": "ee8f7279-b370-4dfb-9f90-3ea13264c1e5",
@@ -1331,47 +1311,62 @@
     },
     {
       "type": "vless",
-      "tag": "node-70",
-      "server": "hilnu.com",
+      "tag": "node-69",
+      "server": "162.159.44.200",
       "server_port": 8443,
-      "uuid": "0c94ca98-3643-4cb4-de75-6167815af665",
+      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
       "tls": {
         "enabled": true,
-        "server_name": "admin.kanal-tel-nufilter.store"
+        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER"
+        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-70",
+      "server": "all.shhproxy.cfd",
+      "server_port": 8443,
+      "uuid": "39581fd3-5c3c-4f3a-b62a-6653f803dfd6",
+      "tls": {
+        "enabled": true,
+        "server_name": "uGshhproxyV2raykufukfkyKuyk-irancel-Mokhabera-Sshpr-raitel-MIc.Snappfoodd.site"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@Shh_Proxy,@Shh_Proxy"
       }
     },
     {
       "type": "vless",
       "tag": "node-71",
-      "server": "2.27.204.143",
+      "server": "ge.imsoon.org",
       "server_port": 8443,
-      "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
+      "uuid": "SoonTeam",
       "tls": {
         "enabled": true,
-        "server_name": "www.cloudflare.com"
+        "server_name": "wxug.com"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "54426e4ab5"
+        "service_name": ""
       }
     },
     {
       "type": "vless",
       "tag": "node-72",
-      "server": "2.26.122.101",
+      "server": "185.125.171.13",
       "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "uuid": "a09373e2-e120-457d-9ec9-ea7fe8bedb52",
       "tls": {
         "enabled": true,
-        "server_name": "cdn.shopify.com"
+        "server_name": "partner.g2.com"
       },
       "transport": {
         "type": "grpc",
-        "service_name": ""
+        "service_name": "g2com"
       }
     },
     {
@@ -1392,72 +1387,27 @@
     {
       "type": "vless",
       "tag": "node-74",
-      "server": "89.116.250.75",
+      "server": "2.26.122.101",
       "server_port": 8443,
-      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
       "tls": {
         "enabled": true,
-        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
+        "server_name": "cdn.shopify.com"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
+        "service_name": ""
       }
     },
     {
       "type": "vless",
       "tag": "node-75",
-      "server": "45.149.12.119",
+      "server": "hilnu.com",
       "server_port": 8443,
-      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
+      "uuid": "0c94ca98-3643-4cb4-de75-6167815af665",
       "tls": {
         "enabled": true,
-        "server_name": "societshaia7rysv.aminho3ien.ir"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@iMrV2ray"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-76",
-      "server": "195.137.167.101",
-      "server_port": 8443,
-      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
-      "tls": {
-        "enabled": true,
-        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-77",
-      "server": "198.41.209.2",
-      "server_port": 8443,
-      "uuid": "e800aa40-c09a-47e7-b475-a940d45a4d7b",
-      "tls": {
-        "enabled": true,
-        "server_name": "gard.starmc.ir"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@metavpnn"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-78",
-      "server": "dns3.nufilter.store",
-      "server_port": 8443,
-      "uuid": "9c46957b-688b-451c-9d10-4663f7e7dfdc",
-      "tls": {
-        "enabled": true,
-        "server_name": "f.kanal-tel-nufilter.site"
+        "server_name": "admin.kanal-tel-nufilter.store"
       },
       "transport": {
         "type": "grpc",
@@ -1466,17 +1416,62 @@
     },
     {
       "type": "vless",
-      "tag": "node-79",
-      "server": "fr.pixvpn.app",
+      "tag": "node-76",
+      "server": "cloud.flaresub.online",
       "server_port": 8443,
-      "uuid": "f6fa8cbd-6f5a-4a2c-8a28-9a1e6f48bdd6",
+      "uuid": "77b84bf9-4ced-447c-a629-061a74f9578d",
       "tls": {
         "enabled": true,
-        "server_name": "jd.com"
+        "server_name": "config1.radvin.online"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "grpc-jd"
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-77",
+      "server": "198.41.200.146",
+      "server_port": 8443,
+      "uuid": "e730ea3f-01e9-4dce-8817-e206c14b9467",
+      "tls": {
+        "enabled": true,
+        "server_name": "mtn-mci-vipv2rey.mamare.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-78",
+      "server": "104.21.48.84",
+      "server_port": 8443,
+      "uuid": "161f6b0b-47c3-487e-bffd-90b74fb67539",
+      "tls": {
+        "enabled": true,
+        "server_name": "cloud.barfak123.eu.org"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF@iP_CF"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-79",
+      "server": "154.83.2.212",
+      "server_port": 8443,
+      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
+      "tls": {
+        "enabled": true,
+        "server_name": "societshaia7rysv.aminho3ien.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "👨‍🚀Free👨‍🚀"
       }
     },
     {
@@ -1497,22 +1492,7 @@
     {
       "type": "vless",
       "tag": "node-81",
-      "server": "ge.imsoon.org",
-      "server_port": 8443,
-      "uuid": "SoonTeam",
-      "tls": {
-        "enabled": true,
-        "server_name": "wxug.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-82",
-      "server": "172.64.144.223",
+      "server": "195.137.167.101",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
       "tls": {
@@ -1526,23 +1506,38 @@
     },
     {
       "type": "vless",
-      "tag": "node-83",
-      "server": "cf3.dalazhi.eu.org",
+      "tag": "node-82",
+      "server": "185.146.173.59",
       "server_port": 8443,
-      "uuid": "e14c0c0e-f838-49e9-bcee-01ead9208af2",
+      "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
       "tls": {
         "enabled": true,
-        "server_name": "us.dalazhi.eu.org"
+        "server_name": "societshaia7rysv.aminho3ien.ir"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "unlogrpc"
+        "service_name": ""
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-83",
+      "server": "89.116.250.75",
+      "server_port": 8443,
+      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
+      "tls": {
+        "enabled": true,
+        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
       }
     },
     {
       "type": "vless",
       "tag": "node-84",
-      "server": "104.17.2.183",
+      "server": "156.229.48.66",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
       "tls": {
@@ -1557,67 +1552,37 @@
     {
       "type": "vless",
       "tag": "node-85",
-      "server": "104.21.44.68",
+      "server": "198.41.209.2",
       "server_port": 8443,
-      "uuid": "824692f2-0372-4556-8437-8916415ba535",
+      "uuid": "e800aa40-c09a-47e7-b475-a940d45a4d7b",
       "tls": {
         "enabled": true,
-        "server_name": "propanell2.followerarzon.ir"
+        "server_name": "gard.starmc.ir"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "2053vless"
+        "service_name": "@metavpnn"
       }
     },
     {
       "type": "vless",
       "tag": "node-86",
-      "server": "fi2.iranbax.cfd",
+      "server": "fr.pixvpn.app",
       "server_port": 8443,
-      "uuid": "41a7bbee-fc27-48ec-ce69-cf4214e9b93b",
+      "uuid": "f6fa8cbd-6f5a-4a2c-8a28-9a1e6f48bdd6",
       "tls": {
         "enabled": true,
-        "server_name": "greenpepper.ir"
+        "server_name": "jd.com"
       },
       "transport": {
         "type": "grpc",
-        "service_name": "TelegramID:@iranbaxvpn"
+        "service_name": "grpc-jd"
       }
     },
     {
       "type": "vless",
       "tag": "node-87",
-      "server": "217.163.76.224",
-      "server_port": 8443,
-      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
-      "tls": {
-        "enabled": true,
-        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-88",
-      "server": "162.159.44.200",
-      "server_port": 8443,
-      "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
-      "tls": {
-        "enabled": true,
-        "server_name": "join-telegram-channel-vipv2rey.mamare.ir"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@vipv2rey@vipv2rey@vipv2rey"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-89",
-      "server": "cf.dalazhi.eu.org",
+      "server": "cf3.dalazhi.eu.org",
       "server_port": 8443,
       "uuid": "e14c0c0e-f838-49e9-bcee-01ead9208af2",
       "tls": {
