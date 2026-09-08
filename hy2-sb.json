@@ -136,11 +136,8 @@
         "node-36",
         "node-37",
         "node-38",
-        "node-39",
         "node-40",
-        "node-41",
-        "node-43",
-        "node-44"
+        "node-41"
       ],
       "default": "auto"
     },
@@ -181,11 +178,8 @@
         "node-36",
         "node-37",
         "node-38",
-        "node-39",
         "node-40",
-        "node-41",
-        "node-43",
-        "node-44"
+        "node-41"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -571,14 +565,14 @@
     {
       "type": "hysteria2",
       "tag": "node-35",
-      "server": "hopp-us.yyuyy.com",
-      "server_port": 8080,
+      "server": "150-230-252-217.liao.kdns.fr",
+      "server_port": 50160,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
+      "password": "9cfc9458e48c028ec03ff86ebc71c744",
       "tls": {
         "enabled": true,
-        "server_name": "hopp-us.yyuyy.com"
+        "server_name": "150-230-252-217.liao.kdns.fr"
       }
     },
     {
@@ -597,19 +591,6 @@
     {
       "type": "hysteria2",
       "tag": "node-37",
-      "server": "deu0003ntrhy01.tcp-reset-club.net",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "8fb328f0-d8e0-4b11-a6db-3dadfc4f02a3",
-      "tls": {
-        "enabled": true,
-        "server_name": "deu0003ntrhy01.tcp-reset-club.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-38",
       "server": "freedom.chenlan.top",
       "server_port": 12765,
       "up_mbps": 20,
@@ -622,46 +603,20 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-39",
-      "server": "fl.larpvpn.space",
-      "server_port": 4434,
+      "tag": "node-38",
+      "server": "hopp-us.yyuyy.com",
+      "server_port": 8080,
       "up_mbps": 20,
       "down_mbps": 20,
-      "password": "9fd994ad-d36c-476d-96c7-25f10bbdf2cb",
+      "password": "VB92_Ka9qwef143K_L23K1hz3_bF_Hz62uT_Bn1_sC",
       "tls": {
         "enabled": true,
-        "server_name": "fl.larpvpn.space"
+        "server_name": "hopp-us.yyuyy.com"
       }
     },
     {
       "type": "hysteria2",
       "tag": "node-40",
-      "server": "152-69-231-175.liao.kdns.fr",
-      "server_port": 50160,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "1beb216e3f60aea9555dae60d219a5ca",
-      "tls": {
-        "enabled": true,
-        "server_name": "152-69-231-175.liao.kdns.fr"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-41",
-      "server": "150-230-252-217.liao.kdns.fr",
-      "server_port": 50160,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "9cfc9458e48c028ec03ff86ebc71c744",
-      "tls": {
-        "enabled": true,
-        "server_name": "150-230-252-217.liao.kdns.fr"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-43",
       "server": "154-49-127-140.liao.kdns.fr",
       "server_port": 50160,
       "up_mbps": 20,
@@ -674,7 +629,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-44",
+      "tag": "node-41",
       "server": "fin1.apexvpn.space",
       "server_port": 443,
       "up_mbps": 20,
