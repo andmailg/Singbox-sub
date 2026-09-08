@@ -994,21 +994,6 @@
     {
       "type": "vless",
       "tag": "node-47",
-      "server": "170.168.99.6",
-      "server_port": 8443,
-      "uuid": "f71957f3-29e0-d077-9b51-83da5cf31480",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.steamstatic.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "TunService"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-48",
       "server": "46.254.19.179",
       "server_port": 8443,
       "uuid": "14f4be39-cb89-4f2b-8200-704666b6fa4e",
@@ -1019,6 +1004,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "ns"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-48",
+      "server": "170.168.99.6",
+      "server_port": 8443,
+      "uuid": "f71957f3-29e0-d077-9b51-83da5cf31480",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.steamstatic.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "TunService"
       }
     },
     {
