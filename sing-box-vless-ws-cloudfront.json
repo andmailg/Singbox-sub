@@ -129,7 +129,8 @@
         "node-7",
         "node-8",
         "node-9",
-        "node-10"
+        "node-10",
+        "node-11"
       ],
       "default": "auto"
     },
@@ -146,7 +147,8 @@
         "node-7",
         "node-8",
         "node-9",
-        "node-10"
+        "node-10",
+        "node-11"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -272,6 +274,20 @@
     {
       "type": "vless",
       "tag": "node-9",
+      "server": "185.146.173.95",
+      "server_port": 2052,
+      "uuid": "3ab8b59a-fdd7-47bb-ceca-b00079a78a61",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "join.kiava.cloud.speedtest.net.xn--mgba2h8quf.cdn.0.cloudfront.net.kiava.fun"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-10",
       "server": "www.bandmusic.ir",
       "server_port": 8880,
       "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
@@ -285,7 +301,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-10",
+      "tag": "node-11",
       "server": "www.true.th",
       "server_port": 80,
       "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
