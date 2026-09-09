@@ -193,8 +193,7 @@
         "node-89",
         "node-90",
         "node-91",
-        "node-92",
-        "node-93"
+        "node-92"
       ],
       "default": "auto"
     },
@@ -293,8 +292,7 @@
         "node-89",
         "node-90",
         "node-91",
-        "node-92",
-        "node-93"
+        "node-92"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -994,21 +992,6 @@
     {
       "type": "vless",
       "tag": "node-47",
-      "server": "144.31.106.40",
-      "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-48",
       "server": "46.254.19.179",
       "server_port": 8443,
       "uuid": "14f4be39-cb89-4f2b-8200-704666b6fa4e",
@@ -1019,6 +1002,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "ns"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-48",
+      "server": "2.26.224.233",
+      "server_port": 8443,
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
       }
     },
     {
@@ -1190,21 +1188,6 @@
     {
       "type": "vless",
       "tag": "node-60",
-      "server": "2.26.224.233",
-      "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-61",
       "server": "proxysudochannel.ddns.net",
       "server_port": 8443,
       "uuid": "d2900c83-c946-4022-91cc-662b808ee186",
@@ -1219,7 +1202,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-62",
+      "tag": "node-61",
       "server": "dns3.nufilter.store",
       "server_port": 8443,
       "uuid": "9c46957b-688b-451c-9d10-4663f7e7dfdc",
@@ -1234,7 +1217,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-63",
+      "tag": "node-62",
       "server": "144.31.40.96",
       "server_port": 8443,
       "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
@@ -1249,7 +1232,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-64",
+      "tag": "node-63",
       "server": "104.17.2.183",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1264,7 +1247,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-65",
+      "tag": "node-64",
       "server": "172.64.144.223",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1279,7 +1262,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-66",
+      "tag": "node-65",
       "server": "104.21.44.68",
       "server_port": 8443,
       "uuid": "824692f2-0372-4556-8437-8916415ba535",
@@ -1294,7 +1277,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-67",
+      "tag": "node-66",
       "server": "217.163.76.224",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -1309,7 +1292,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-68",
+      "tag": "node-67",
       "server": "45.149.12.119",
       "server_port": 8443,
       "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
@@ -1324,7 +1307,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-69",
+      "tag": "node-68",
       "server": "cool-route-ge.whit3.net",
       "server_port": 8443,
       "uuid": "1e1c72f4-325b-4db0-b2d4-dc9c7cddc46a",
@@ -1339,7 +1322,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-70",
+      "tag": "node-69",
       "server": "cf.dalazhi.eu.org",
       "server_port": 8443,
       "uuid": "e14c0c0e-f838-49e9-bcee-01ead9208af2",
@@ -1350,6 +1333,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "unlogrpc"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "node-70",
+      "server": "144.31.106.40",
+      "server_port": 8443,
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
       }
     },
     {
@@ -1680,21 +1678,6 @@
       "transport": {
         "type": "grpc",
         "service_name": "unlogrpc"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-93",
-      "server": "109.172.39.252",
-      "server_port": 8443,
-      "uuid": "246b101b-4e4a-451f-8e9c-5e8d3b64b4ef",
-      "tls": {
-        "enabled": true,
-        "server_name": "maps.apple.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "your-custom-path"
       }
     }
   ],
