@@ -394,15 +394,15 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "geosite-category-ru"
+                        "geosite-category-ai-!cn"
                     ],
-                    "server": "dns-local"
+                    "server": "smart-dns"
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat"
+                        "geosite-category-ru"
                     ],
-                    "server": "smart-dns"
+                    "server": "dns-local"
                 },
                 {
                     "query_type": [
@@ -419,7 +419,7 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "server": "fakeip"
                 }
@@ -473,7 +473,7 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "outbound": "proxy-out"
                 },
@@ -481,7 +481,7 @@ def main():
                     "rule_set": [
                         "geosite-category-ru",
                         "geoip-ru",
-                        "db-category-ai-chat"
+                        "geosite-category-ai-!cn"
                     ],
                     "outbound": "direct-out"
                 }
@@ -509,12 +509,12 @@ def main():
                 },
                 {
                     "type": "remote",
-                    "tag": "db-antizapret",
+                    "tag": "antizapret",
                     "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
                 },
                 {
                     "type": "remote",
-                    "tag": "db-category-ai-chat",
+                    "tag": "geosite-category-ai-!cn",
                     "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
                 }
             ],
