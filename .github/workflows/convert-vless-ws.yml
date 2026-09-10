@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          # Важно: скачиваем всю историю, чтобы git pull работал корректно
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,21 +31,25 @@ jobs:
           python Python/mobile-vless-ws-cloudfront.py
           python Python/mobile-vless-ws.py
 
-
       - name: Commit and push if changed
         run: |
           # 1. Настройка бота GitHub Actions
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # 2. Добавляем файл в индекс
+          # 2. Добавляем файлы в индекс
           git add sing-box-vless-ws.json sing-box-vless-ws-cloudfront.json
           git status
           
-          # 3. Коммитим и пушим только при наличии изменений
+          # 3. Коммитим и пушим с предварительным rebase
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
             git commit -m "Auto-update sing-box-vless-ws.json & sing-box-vless-ws-cloudfront.json"
-            git push
+            
+            # Подтягиваем изменения из удаленного репозитория, накладывая наш коммит поверх них
+            git pull origin main --rebase
+            
+            # Отправляем изменения в репозиторий
+            git push origin main
           fi
