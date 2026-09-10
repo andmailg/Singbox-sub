@@ -496,21 +496,27 @@ def main():
                 {
                     "type": "https",
                     "tag": "dns-local",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
                 },
                 {
                     "type": "https",
                     "tag": "dns-remote",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "detour": "proxy-out",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
+                },
+                {
+                    "type": "https",
+                    "tag": "smart-dns",
+                    "server": "xbox-dns.ru",
+                    "domain_resolver": "dns-local"
                 },
                 {
                     "type": "fakeip",
@@ -533,6 +539,12 @@ def main():
                 },
                 {
                     "rule_set": [
+                        "geosite-category-ai-!cn"
+                    ],
+                    "server": "smart-dns"
+                },
+                {
+                    "rule_set": [
                         "geosite-category-ru"
                     ],
                     "server": "dns-local"
@@ -551,9 +563,8 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat",
                         "geosite-category-media-ru-blocked",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "server": "fakeip"
                 }
@@ -562,31 +573,6 @@ def main():
             "strategy": "prefer_ipv4",
             "cache_capacity": 2048
         },
-        "endpoints": [
-            {
-                "type": "wireguard",
-                "tag": "warp-ep",
-                "detour": "proxy-out",
-                "address": [
-                    "172.28.0.2/32",
-                    "2606:4700:110:8f2e:80bb:e73d:fdae:cd83/128"
-                ],
-                "private_key": "PqU93Guwb0FKUZdJ7XUOxbe/cn37e/GxWhjOjNZdSiQ=",
-                "mtu": 1280,
-                "peers": [
-                    {
-                        "address": "162.159.192.1",
-                        "port": 2408,
-                        "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                        "allowed_ips": [
-                            "0.0.0.0/0",
-                            "::/0"
-                        ],
-                        "reserved": [0, 0, 0]
-                    }
-                ]
-            }
-        ],
         "inbounds": [
             {
                 "type": "tun",
@@ -632,15 +618,15 @@ def main():
                 {
                     "rule_set": [
                         "geosite-category-media-ru-blocked",
-                        "db-category-ai-chat",
-                        "db-antizapret"
+                        "antizapret"
                     ],
                     "outbound": "proxy-out"
                 },
                 {
                     "rule_set": [
                         "geosite-category-ru",
-                        "geoip-ru"
+                        "geoip-ru",
+                        "geosite-category-ai-!cn"
                     ],
                     "outbound": "direct-out"
                 }
@@ -668,12 +654,12 @@ def main():
                 },
                 {
                     "type": "remote",
-                    "tag": "db-antizapret",
+                    "tag": "antizapret",
                     "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
                 },
                 {
                     "type": "remote",
-                    "tag": "db-category-ai-chat",
+                    "tag": "geosite-category-ai-!cn",
                     "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
                 }
             ],
