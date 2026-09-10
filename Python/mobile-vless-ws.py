@@ -542,6 +542,10 @@ def main():
                         "HTTPS",
                         "SVCB"
                     ],
+                    "rule_set": [
+                        "geosite-category-media-ru-blocked",
+                        "antizapret"
+                    ],
                     "action": "predefined",
                     "rcode": "REFUSED"
                 },
