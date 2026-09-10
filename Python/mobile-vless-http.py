@@ -364,21 +364,27 @@ def main():
                 {
                     "type": "https",
                     "tag": "dns-local",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
                 },
                 {
                     "type": "https",
                     "tag": "dns-remote",
-                    "server": "1.1.1.1",
+                    "server": "8.8.8.8",
                     "detour": "proxy-out",
                     "tls": {
                         "enabled": True,
-                        "server_name": "cloudflare-dns.com"
+                        "server_name": "dns.google"
                     }
+                },
+                {
+                    "type": "https",
+                    "tag": "smart-dns",
+                    "server": "xbox-dns.ru",
+                    "domain_resolver": "dns-local"
                 },
                 {
                     "type": "fakeip",
@@ -401,6 +407,12 @@ def main():
                 },
                 {
                     "rule_set": [
+                        "geosite-category-ai-!cn"
+                    ],
+                    "server": "smart-dns"
+                },
+                {
+                    "rule_set": [
                         "geosite-category-ru"
                     ],
                     "server": "dns-local"
@@ -419,8 +431,8 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-category-ai-chat",
-                        "db-antizapret"
+                        "geosite-category-media-ru-blocked",
+                        "antizapret"
                     ],
                     "server": "fakeip"
                 }
@@ -473,14 +485,16 @@ def main():
                 },
                 {
                     "rule_set": [
-                        "db-antizapret"
+                        "geosite-category-media-ru-blocked",
+                        "antizapret"
                     ],
                     "outbound": "proxy-out"
                 },
                 {
                     "rule_set": [
                         "geosite-category-ru",
-                        "geoip-ru"
+                        "geoip-ru",
+                        "geosite-category-ai-!cn"
                     ],
                     "outbound": "direct-out"
                 }
@@ -508,16 +522,16 @@ def main():
                 },
                 {
                     "type": "remote",
-                    "tag": "db-antizapret",
+                    "tag": "antizapret",
                     "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
                 },
                 {
                     "type": "remote",
-                    "tag": "db-category-ai-chat",
+                    "tag": "geosite-category-ai-!cn",
                     "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
                 }
             ],
-            "final": "direct-out",
+            "final": "proxy-out",
             "auto_detect_interface": True,
             "override_android_vpn": True,
             "default_domain_resolver": "dns-local"
