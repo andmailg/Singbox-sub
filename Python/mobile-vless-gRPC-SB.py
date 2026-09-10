@@ -315,6 +315,13 @@ def main():
             ],
             "rules": [
                 {
+                    "domain_suffix": [
+                        ".lan",
+                        ".local"
+                        ],
+                    "server": "local"
+                },
+                {
                     "rule_set": [
                         "geosite-category-ru"
                     ],
