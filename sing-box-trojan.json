@@ -1427,6 +1427,17 @@
     {
       "type": "trojan",
       "tag": "node-1",
+      "server": "194.87.55.90",
+      "server_port": 8443,
+      "password": "b909ae134773d0448e532ff9ce3f4ddf",
+      "tls": {
+        "enabled": true,
+        "server_name": "max.ru"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-2",
       "server": "82.117.245.125",
       "server_port": 2053,
       "password": "humanity",
@@ -1444,21 +1455,10 @@
     },
     {
       "type": "trojan",
-      "tag": "node-2",
+      "tag": "node-3",
       "server": "185.204.170.125",
       "server_port": 442,
       "password": "g71h3cbffc6u825a"
-    },
-    {
-      "type": "trojan",
-      "tag": "node-3",
-      "server": "194.87.55.90",
-      "server_port": 8443,
-      "password": "b909ae134773d0448e532ff9ce3f4ddf",
-      "tls": {
-        "enabled": true,
-        "server_name": "max.ru"
-      }
     },
     {
       "type": "trojan",
@@ -2106,8 +2106,8 @@
     {
       "type": "trojan",
       "tag": "node-55",
-      "server": "46.102.156.144",
-      "server_port": 2053,
+      "server": "77.221.138.199",
+      "server_port": 8443,
       "password": "humanity",
       "tls": {
         "enabled": true,
@@ -2121,8 +2121,8 @@
     {
       "type": "trojan",
       "tag": "node-56",
-      "server": "77.221.138.199",
-      "server_port": 8443,
+      "server": "46.102.156.144",
+      "server_port": 2053,
       "password": "humanity",
       "tls": {
         "enabled": true,
@@ -2245,23 +2245,23 @@
     {
       "type": "trojan",
       "tag": "node-66",
-      "server": "127.0.0.1",
-      "server_port": 40443,
-      "password": "humanity",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.creationlong.org"
-      }
-    },
-    {
-      "type": "trojan",
-      "tag": "node-67",
       "server": "185.236.233.111",
       "server_port": 2053,
       "password": "ba74833c-8c0f-4dcd-8cbc-13e3c32d3765",
       "tls": {
         "enabled": true,
         "server_name": "ftp.debian.org"
+      }
+    },
+    {
+      "type": "trojan",
+      "tag": "node-67",
+      "server": "83.228.230.226",
+      "server_port": 2087,
+      "password": "SoftNetConnect",
+      "tls": {
+        "enabled": true,
+        "server_name": "www.yahoo.com"
       }
     },
     {
@@ -2278,12 +2278,12 @@
     {
       "type": "trojan",
       "tag": "node-69",
-      "server": "83.228.230.226",
-      "server_port": 2087,
-      "password": "SoftNetConnect",
+      "server": "127.0.0.1",
+      "server_port": 40443,
+      "password": "humanity",
       "tls": {
         "enabled": true,
-        "server_name": "www.yahoo.com"
+        "server_name": "www.creationlong.org"
       }
     },
     {
