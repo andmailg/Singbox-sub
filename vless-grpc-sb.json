@@ -992,21 +992,6 @@
     {
       "type": "vless",
       "tag": "node-46",
-      "server": "217.60.24.23",
-      "server_port": 8443,
-      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.shopify.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "node-47",
       "server": "46.254.19.179",
       "server_port": 8443,
       "uuid": "14f4be39-cb89-4f2b-8200-704666b6fa4e",
@@ -1021,7 +1006,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-48",
+      "tag": "node-47",
       "server": "144.31.106.40",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1036,7 +1021,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-49",
+      "tag": "node-48",
       "server": "2.26.224.233",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1048,6 +1033,22 @@
         "type": "grpc",
         "service_name": ""
       }
+    },
+    {
+      "type": "vless",
+      "tag": "node-49",
+      "server": "217.60.24.23",
+      "server_port": 8443,
+      "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
+      "tls": {
+        "enabled": true,
+        "server_name": "cdn.shopify.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": ""
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
@@ -1189,7 +1190,7 @@
       "tag": "node-59",
       "server": "81.94.148.75",
       "server_port": 8443,
-      "uuid": "57f0fbf8-c431-453e-9d6d-4bdac8da6b31",
+      "uuid": "074338aa-12a9-425c-8689-05bb2bba089d",
       "tls": {
         "enabled": true,
         "server_name": "ads.x5.ru"
@@ -1202,9 +1203,9 @@
     {
       "type": "vless",
       "tag": "node-60",
-      "server": "217.179.220.69",
+      "server": "ru.riotvpn.eu",
       "server_port": 8443,
-      "uuid": "41da9cd0-b02c-427a-b74e-7e402c610ae4",
+      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
       "tls": {
         "enabled": true,
         "server_name": "avatars.mds.yandex.net"
@@ -1232,12 +1233,12 @@
     {
       "type": "vless",
       "tag": "node-62",
-      "server": "ru.riotvpn.eu",
+      "server": "144.31.40.96",
       "server_port": 8443,
-      "uuid": "84b504e4-a97f-40ab-93c3-a03a5f0ff36c",
+      "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
       "tls": {
         "enabled": true,
-        "server_name": "avatars.mds.yandex.net"
+        "server_name": "www.max.ru"
       },
       "transport": {
         "type": "grpc",
