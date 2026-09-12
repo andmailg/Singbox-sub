@@ -121,7 +121,7 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-9",
+        "node-8",
         "node-10",
         "node-11",
         "node-12",
@@ -130,14 +130,13 @@
         "node-15",
         "node-16",
         "node-17",
-        "node-18",
-        "node-20",
+        "node-19",
         "node-21",
         "node-22",
         "node-23",
         "node-24",
-        "node-26",
-        "node-27"
+        "node-25",
+        "node-26"
       ],
       "default": "auto"
     },
@@ -152,7 +151,7 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-9",
+        "node-8",
         "node-10",
         "node-11",
         "node-12",
@@ -161,14 +160,13 @@
         "node-15",
         "node-16",
         "node-17",
-        "node-18",
-        "node-20",
+        "node-19",
         "node-21",
         "node-22",
         "node-23",
         "node-24",
-        "node-26",
-        "node-27"
+        "node-25",
+        "node-26"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -242,6 +240,19 @@
     {
       "type": "hysteria2",
       "tag": "node-6",
+      "server": "fiproxy1.lockdwn.com",
+      "server_port": 443,
+      "up_mbps": 20,
+      "down_mbps": 20,
+      "password": "6aab8efdf13945829ae3699c342be406",
+      "tls": {
+        "enabled": true,
+        "server_name": "fiproxy1.lockdwn.com"
+      }
+    },
+    {
+      "type": "hysteria2",
+      "tag": "node-7",
       "server": "152-69-231-175.liao.kdns.fr",
       "server_port": 50160,
       "up_mbps": 20,
@@ -254,7 +265,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-7",
+      "tag": "node-8",
       "server": "hopp-romania-new.roxa.org",
       "server_port": 8080,
       "up_mbps": 20,
@@ -267,7 +278,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-9",
+      "tag": "node-10",
       "server": "hopp-transit.1cooldns.com",
       "server_port": 8080,
       "up_mbps": 20,
@@ -280,7 +291,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-10",
+      "tag": "node-11",
       "server": "news.gazette.help",
       "server_port": 443,
       "up_mbps": 20,
@@ -293,7 +304,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-11",
+      "tag": "node-12",
       "server": "giftcard.gisora.ir",
       "server_port": 52000,
       "up_mbps": 20,
@@ -302,19 +313,6 @@
       "tls": {
         "enabled": true,
         "server_name": "giftcard.gisora.ir"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-12",
-      "server": "fiproxy1.lockdwn.com",
-      "server_port": 443,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "6aab8efdf13945829ae3699c342be406",
-      "tls": {
-        "enabled": true,
-        "server_name": "fiproxy1.lockdwn.com"
       }
     },
     {
@@ -384,7 +382,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-18",
+      "tag": "node-19",
       "server": "hy2.aspidnet.xyz",
       "server_port": 443,
       "up_mbps": 20,
@@ -397,7 +395,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-20",
+      "tag": "node-21",
       "server": "bwdf2fnt.xn--e1aatfr8bwa.online",
       "server_port": 443,
       "up_mbps": 20,
@@ -410,7 +408,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-21",
+      "tag": "node-22",
       "server": "hopp-germany-new.ddnsguru.com",
       "server_port": 8443,
       "up_mbps": 20,
@@ -423,7 +421,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-22",
+      "tag": "node-23",
       "server": "hy2.123266.xyz",
       "server_port": 33333,
       "up_mbps": 20,
@@ -436,7 +434,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-23",
+      "tag": "node-24",
       "server": "hy2.561891.xyz",
       "server_port": 44356,
       "up_mbps": 20,
@@ -449,7 +447,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "node-24",
+      "tag": "node-25",
       "server": "grape-turbo-fr.roxa.org",
       "server_port": 8443,
       "up_mbps": 20,
@@ -471,19 +469,6 @@
       "tls": {
         "enabled": true,
         "server_name": "hopp-netherland-new.dynuddns.net"
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "node-27",
-      "server": "uk.shamanapp.online",
-      "server_port": 10451,
-      "up_mbps": 20,
-      "down_mbps": 20,
-      "password": "b3a11068-1a7e-4643-85de-7c82cce46943",
-      "tls": {
-        "enabled": true,
-        "server_name": "uk.shamanapp.online"
       }
     }
   ],
