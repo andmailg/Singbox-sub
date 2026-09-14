@@ -116,8 +116,8 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    from src.Exporters.sb_exporter import export_singbox
-    export_singbox(outbounds)
+    from src.Exporters.Sing-box.singbox_exporter import export_singbox
+    export_singbox(outbounds, "vless-ws-cloudfront.json")
 
 
 if __name__ == "__main__":

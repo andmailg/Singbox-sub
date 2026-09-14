@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from src.common import country_code_to_flag, fetch_subscription, load_sources
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
 from src.Parsers.hy2_parser import clean_outbound, parse_proxy_link
-from src.Exporters.router_exporter import export_router
+from src.Exporters.Sing-box.router_exporter import export_router
 
 
 def main():

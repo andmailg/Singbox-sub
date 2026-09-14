@@ -121,8 +121,8 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    from src.Exporters.sb_exporter import export_singbox
-    export_singbox(valid_nodes)
+    from src.Exporters.Sing-box.singbox_exporter import export_singbox
+    export_singbox(valid_nodes, "vless-http.json")
 
 
 if __name__ == "__main__":
