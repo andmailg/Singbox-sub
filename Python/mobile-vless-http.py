@@ -118,6 +118,9 @@ def main():
         flag = country_code_to_flag(country) if country else ""
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
+    # --- Сортировка по стране (флаг) ---
+    valid_nodes.sort(key=lambda o: o["tag"])
+
     # --- Экспорт ---
     from src.Exporters.sb_exporter import export_singbox
     export_singbox(valid_nodes)

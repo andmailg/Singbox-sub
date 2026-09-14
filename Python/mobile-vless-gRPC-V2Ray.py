@@ -108,6 +108,9 @@ def main():
         flag = country_code_to_flag(country) if country else ""
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
+    # --- Сортировка по стране (флаг) ---
+    outbounds.sort(key=lambda o: o["tag"])
+
     # --- Экспорт ---
     v2ray_links = [outbound_to_v2ray_link(o) for o in outbounds]
     with open("vless-grpc-v2ray.txt", "w", encoding="utf-8") as f:
