@@ -54,6 +54,14 @@ RU_ZONES = (".ru", ".su", ".рф")
 FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei", "bing.com")
 
 
+def is_valid_server(server: str) -> bool:
+    """Проверяет корректность поля server."""
+    if not server or "@" in server:
+        return False
+    clean_server = server.strip("[]")
+    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
+
 def country_code_to_flag(cc: str) -> str:
     """Конвертирует ISO 3166-1 alpha-2 код страны в Unicode-флаг.
     Пример: 'US' -> '🇺🇸', 'DE' -> '🇩🇪'

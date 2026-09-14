@@ -5,7 +5,8 @@ import urllib.parse
 from src.common import (
     FAKE_DOMAINS,
     RU_ZONES,
-    is_valid_domain
+    is_valid_domain,
+    is_valid_server,
 )
 
 
