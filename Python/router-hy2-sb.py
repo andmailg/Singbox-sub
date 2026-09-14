@@ -129,7 +129,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    export_router(outbounds)
+    export_router(outbounds, "config.json")
 
 
 if __name__ == "__main__":

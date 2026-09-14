@@ -111,7 +111,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    export_v2ray_by_type(outbounds)
+    export_v2ray_by_type(outbounds, "vless-reality.txt")
 
 
 if __name__ == "__main__":
