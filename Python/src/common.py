@@ -81,6 +81,14 @@ def country_code_to_flag(cc: str) -> str:
     return "".join(chr(ord(c) - ord('A') + 0x1F1E6) for c in cc.upper())
 
 
+def _extract_tag_number(tag: str) -> int:
+    """Извлекает числовой индекс из тега вида '🇩🇪node-10' или 'node-2'.
+    Возвращает 0, если число не найдено.
+    """
+    match = re.search(r'-(\d+)$', tag)
+    return int(match.group(1)) if match else 0
+
+
 def fetch_subscription(url: str) -> list[str]:
     """Скачивает и декодирует отдельную подписку."""
     try:

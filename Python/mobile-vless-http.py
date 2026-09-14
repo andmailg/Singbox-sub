@@ -112,14 +112,29 @@ def main():
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    # --- Теги ---
-    for idx, outbound in enumerate(valid_nodes, start=1):
-        country = outbound.pop("_country", None)
-        flag = country_code_to_flag(country) if country else ""
-        outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
-
     # --- Сортировка по стране (флаг) ---
-    valid_nodes.sort(key=lambda o: o["tag"])
+    valid_nodes.sort(key=lambda o: (o.get("_country", ""), o.get("server", "")))
+
+    # --- Теги с флагами: нумерация внутри каждой группы страны ---
+    from src.common import _extract_tag_number
+
+    country_groups: dict[str, list[dict]] = {}
+    for outbound in valid_nodes:
+        country = outbound.pop("_country", None)
+        if country:
+            country_groups.setdefault(country, []).append(outbound)
+        else:
+            country_groups.setdefault("", []).append(outbound)
+
+    sorted_nodes: list[dict] = []
+    for country, nodes in country_groups.items():
+        nodes.sort(key=lambda o: _extract_tag_number(o.get("tag", "")))
+        flag = country_code_to_flag(country) if country else ""
+        for idx, outbound in enumerate(nodes, start=1):
+            outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
+        sorted_nodes.extend(nodes)
+
+    valid_nodes = sorted_nodes
 
     # --- Экспорт ---
     from src.Exporters.sb_exporter import export_singbox
