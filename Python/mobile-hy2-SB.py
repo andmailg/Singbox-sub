@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from src.common import country_code_to_flag, fetch_subscription, load_sources
 from src.Parsers.hy2_parser import clean_outbound, parse_proxy_link, should_accept_outbound
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
-from src.Exporters.Sing-box.hy2_exporter import export_singbox
+from src.Exporters.singbox_exporter import export_singbox
 
 
 def main():
@@ -16,7 +16,6 @@ def main():
         return
 
     from src.common import session
-
     # --- ШАГ 1: Парсинг, фильтрация и дедупликация ---
     seen_servers: set[str] = set()
     outbounds: list[dict] = []

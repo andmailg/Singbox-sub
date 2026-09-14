@@ -6,10 +6,10 @@ from src.common import country_code_to_flag, fetch_subscription, load_sources
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
 from src.Parsers.vless_grpc_parser import (
     clean_outbound,
-    outbound_to_v2ray_link,
     parse_proxy_link,
     should_accept_outbound,
 )
+from src.Exporters.v2ray_exporter import export_v2ray_by_type
 
 
 def main():
@@ -111,10 +111,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    v2ray_links = [outbound_to_v2ray_link(o) for o in outbounds]
-    with open("vless-grpc-v2ray.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(v2ray_links) + "\n")
-    print(f"Successfully generated vless-grpc-v2ray.txt with {len(v2ray_links)} nodes.")
+    export_v2ray_by_type(outbounds)
 
 
 if __name__ == "__main__":

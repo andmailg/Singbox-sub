@@ -6,10 +6,10 @@ from src.common import country_code_to_flag, fetch_subscription, load_sources
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
 from src.Parsers.vless_reality_parser import (
     clean_outbound,
-    encode_vless_link,
     parse_proxy_link,
     should_accept_outbound,
 )
+from src.Exporters.v2ray_exporter import export_v2ray_by_type
 
 
 def main():
@@ -111,11 +111,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    vless_links = [encode_vless_link(o) for o in outbounds]
-    output_file = "vless-reality-v2ray.txt"
-    with open(output_file, "w", encoding="utf-8") as f:
-        f.write("\n".join(vless_links) + "\n")
-    print(f"Successfully generated {output_file} with {len(vless_links)} nodes.")
+    export_v2ray_by_type(outbounds)
 
 
 if __name__ == "__main__":
