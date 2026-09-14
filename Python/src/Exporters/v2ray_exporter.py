@@ -108,7 +108,7 @@ def export_v2ray(outbounds: list[dict], output_file: str = "output.txt") -> int:
     return len(all_links)
 
 
-def export_v2ray_by_type(outbounds: list[dict], output_dir: str = ".") -> dict:
+def export_v2ray_by_type(outbounds: list[dict], output_file: str = "output.txt") -> dict:
     """Экспортирует ноды по типам в отдельные файлы.
     
     Возвращает словарь: {"hy2.txt": count, "vless-grpc.txt": count, "vless-reality.txt": count}
@@ -120,21 +120,21 @@ def export_v2ray_by_type(outbounds: list[dict], output_dir: str = ".") -> dict:
     result = {}
 
     if hy2_links:
-        path = f"{output_dir}/hy2.txt"
+        path = f"{output_file}"
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(hy2_links))
         result["hy2.txt"] = len(hy2_links)
         print(f"✅ Exported {len(hy2_links)} Hysteria2 nodes to {path}")
 
     if grpc_links:
-        path = f"{output_dir}/vless-grpc.txt"
+        path = f"{output_file}"
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(grpc_links))
         result["vless-grpc.txt"] = len(grpc_links)
         print(f"✅ Exported {len(grpc_links)} VLESS gRPC nodes to {path}")
 
     if reality_links:
-        path = f"{output_dir}/vless-reality.txt"
+        path = f"{output_file}"
         with open(path, "w", encoding="utf-8") as f:
             f.write("\n".join(reality_links))
         result["vless-reality.txt"] = len(reality_links)
