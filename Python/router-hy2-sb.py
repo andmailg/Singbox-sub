@@ -1,15 +1,11 @@
-"""Модуль сборки и экспорта конфига Sing-box для VLESS HTTP (RKN+GeoIP)."""
+"""Модуль сборки роутер-конфига sing-box из Hysteria2 нод."""
 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from src.common import country_code_to_flag, fetch_subscription, load_sources
-from src.rkn_filter import (
-    download_geoip,
-    load_rkn_list,
-    open_geoip_reader,
-    resolve_and_check,
-)
-from src.Parsers.vless_http_parser import clean_outbound, parse_proxy_link
+from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
+from src.Parsers.hy2_parser import clean_outbound, parse_proxy_link
+from src.Exporters.router_exporter import export_router
 
 
 def main():
@@ -45,34 +41,46 @@ def main():
     reader = open_geoip_reader()
 
     if reader:
-        print("GeoIP database loaded successfully for geolocation filtering.")
+        print("GeoIP database loaded for geolocation filtering.")
 
-    # --- Парсинг и дедупликация ---
+    # --- Парсинг и фильтрация ---
     seen_servers: set[str] = set()
-    pre_parsed_nodes = []
+    outbounds: list[dict] = []
 
     print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
         if not outbound:
             continue
+
         outbound = clean_outbound(outbound)
         if not outbound:
+            continue
+
+        tls_opts = outbound.get("tls", {})
+        if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
+            continue
+
+        server_name = tls_opts.get("server_name")
+        if not server_name or not isinstance(server_name, str) or not server_name.strip():
             continue
 
         node_tag = str(outbound.get("tag", "")).lower()
         if "ru" in node_tag or "russia" in node_tag:
             continue
 
-        server_address = str(outbound.get("server", "")).strip().lower()
+        server_address = str(outbound.get("server", "")).lower()
+        if server_address.lower().endswith((".ru", ".su", ".рф")) or any(f"{z}:" in server_address for z in (".ru", ".su", ".рф")):
+            continue
+
         if server_address in seen_servers:
             continue
         seen_servers.add(server_address)
-        pre_parsed_nodes.append(outbound)
+        outbounds.append(outbound)
 
-    # --- RKN + GeoIP фильтрация (единый resolve_and_check) ---
-    num_workers = min(8, len(pre_parsed_nodes))
-    print(f"Filtering {len(pre_parsed_nodes)} nodes with {num_workers} workers...")
+    # --- RKN + GeoIP фильтрация ---
+    num_workers = min(8, len(outbounds))
+    print(f"Filtering {len(outbounds)} nodes with {num_workers} workers...")
 
     with ThreadPoolExecutor(max_workers=num_workers) as executor:
         future_to_idx = {
@@ -82,10 +90,10 @@ def main():
                 blocked_networks,
                 reader,
             ): idx
-            for idx, outbound in enumerate(pre_parsed_nodes)
+            for idx, outbound in enumerate(outbounds)
         }
 
-        results = [None] * len(pre_parsed_nodes)
+        results = [None] * len(outbounds)
         for future in as_completed(future_to_idx):
             idx = future_to_idx[future]
             try:
@@ -96,7 +104,7 @@ def main():
     filtered_nodes = []
     for idx, check_result in enumerate(results):
         if check_result is not None:
-            node = pre_parsed_nodes[idx]
+            node = outbounds[idx]
             country = check_result.get("country")
             if country:
                 node["_country"] = country
@@ -105,22 +113,21 @@ def main():
     if reader:
         reader.close()
 
-    valid_nodes = filtered_nodes
-    print(f"Всего выбрано {len(valid_nodes)} валидных VLESS HTTP узлов (после очистки).")
+    outbounds = filtered_nodes
+    print(f"Всего выбрано {len(outbounds)} валидных Hysteria2 узлов.")
 
-    if not valid_nodes:
+    if not outbounds:
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    # --- Теги ---
-    for idx, outbound in enumerate(valid_nodes, start=1):
+    # --- Теги с флагами ---
+    for idx, outbound in enumerate(outbounds, start=1):
         country = outbound.pop("_country", None)
         flag = country_code_to_flag(country) if country else ""
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    from src.Exporters.sb_exporter import export_singbox
-    export_singbox(valid_nodes)
+    export_router(outbounds)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,126 @@
+"""Общие утилиты: сессия, валидаторы, DNS-проверки, константы."""
+
+import base64
+import functools
+import ipaddress
+import re
+import socket
+import urllib.parse
+from concurrent.futures import ThreadPoolExecutor
+import requests
+
+# Инициализация сессии для повторного использования соединений
+session = requests.Session()
+session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+
+
+@functools.lru_cache(maxsize=4096)
+def is_valid_ip(address: str) -> bool:
+    """Проверяет, является ли строка валидным IPv4 или IPv6 адресом."""
+    try:
+        ipaddress.ip_address(address.strip("[]"))
+        return True
+    except ValueError:
+        return False
+
+
+@functools.lru_cache(maxsize=4096)
+def is_valid_domain(domain: str) -> bool:
+    """Проверяет, является ли строка валидным доменным именем (не IP-адресом)."""
+    if not domain or is_valid_ip(domain):
+        return False
+    domain_regex = re.compile(
+        r'^(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}$'
+    )
+    return bool(domain_regex.match(domain))
+
+
+def is_valid_host(host_str: str) -> bool:
+    """Проверяет, является ли raw-string валидным доменным именем.
+    Предварительно очищает от [], портов (:), ведущих /.
+    """
+    if not host_str or not isinstance(host_str, str):
+        return False
+    clean_host = host_str.strip().strip("[]").split(":")[0].strip()
+    if clean_host.startswith("/"):
+        return False
+    return is_valid_domain(clean_host)
+
+
+@functools.lru_cache(maxsize=4096)
+def domain_exists(domain: str) -> bool:
+    """Проверяет, разрешается ли домен в IP-адрес через DNS."""
+    try:
+        socket.gethostbyname(domain)
+        return True
+    except socket.gaierror:
+        return False
+
+
+# Зоны, узлы которых блокируются глобально
+RU_ZONES = (".ru", ".su", ".рф")
+
+# Домены фейковых нод, которые блокируются
+FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei", "bing.com")
+
+
+def is_valid_server(server: str) -> bool:
+    """Проверяет корректность поля server."""
+    if not server or "@" in server:
+        return False
+    clean_server = server.strip("[]")
+    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+
+
+def country_code_to_flag(cc: str) -> str:
+    """Конвертирует ISO 3166-1 alpha-2 код страны в Unicode-флаг.
+    Пример: 'US' -> '🇺🇸', 'DE' -> '🇩🇪'
+    """
+    if not cc or len(cc) != 2:
+        return ""
+    return "".join(chr(ord(c) + 0x1F1E5) for c in cc.upper())
+
+
+def fetch_subscription(url: str) -> list[str]:
+    """Скачивает и декодирует отдельную подписку."""
+    try:
+        resp = session.get(url, timeout=10)
+        if resp.status_code != 200:
+            return []
+
+        content = resp.text.strip()
+        try:
+            content_padded = content + "=" * (-len(content) % 4)
+            decoded_content = base64.b64decode(content_padded).decode("utf-8", errors="ignore")
+            return decoded_content.splitlines()
+        except Exception:
+            return content.splitlines()
+    except Exception as e:
+        print(f"Error fetching {url}: {e}")
+        return []
+
+
+def load_sources(sources_json_url: str) -> list[str]:
+    """Загружает список URL подписок из JSON."""
+    print(f"Fetching subscription sources from {sources_json_url}...")
+    try:
+        sources_resp = session.get(sources_json_url, timeout=15)
+        sources_resp.raise_for_status()
+
+        try:
+            sub_urls = sources_resp.json()
+        except Exception:
+            sub_urls = __import__('json').loads(sources_resp.text)
+
+        if isinstance(sub_urls, dict):
+            sub_urls = list(sub_urls.values())
+
+        if not isinstance(sub_urls, list):
+            raise ValueError(f"Expected list or dict, got {type(sub_urls)}")
+
+        print(f"✅ Successfully loaded {len(sub_urls)} subscription sources.")
+        return sub_urls
+
+    except Exception as e:
+        print(f"❌ Error fetching sources JSON: {e}")
+        return []
