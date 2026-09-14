@@ -78,7 +78,7 @@ def country_code_to_flag(cc: str) -> str:
     """
     if not cc or len(cc) != 2:
         return ""
-    return "".join(chr(ord(c) + 0x1F1E5) for c in cc.upper())
+    return "".join(chr(ord(c) - ord('A') + 0x1F1E6) for c in cc.upper())
 
 
 def fetch_subscription(url: str) -> list[str]:
