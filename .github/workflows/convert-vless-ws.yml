@@ -38,14 +38,14 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # 2. Добавляем файлы в индекс
-          git add sing-box-vless-ws.json sing-box-vless-ws-cloudfront.json
+          git add vless-ws.json vless-ws-cloudfront.json
           git status
           
           # 3. Коммитим и пушим с предварительным rebase
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update sing-box-vless-ws.json & sing-box-vless-ws-cloudfront.json"
+            git commit -m "Auto-update vless-ws.json & vless-ws-cloudfront.json"
             
             # Подтягиваем изменения из удаленного репозитория, накладывая наш коммит поверх них
             git pull origin main --rebase

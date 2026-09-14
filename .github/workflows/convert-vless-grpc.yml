@@ -41,12 +41,12 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@://github.com"
 
           # Добавляем файл в индекс
-          git add vless-grpc-sb.json vless-grpc-v2ray.txt
+          git add vless-grpc.json vless-grpc.txt
           
           # Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update vless-grpc-sb.json & vless-grpc-v2ray.txt"
+            git commit -m "Auto-update vless-grpc.json & vless-grpc.txt"
             git push
           fi
