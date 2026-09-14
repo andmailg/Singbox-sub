@@ -2299,22 +2299,22 @@
       "type": "trojan",
       "tag": "🇦🇹node-73",
       "server": "138.124.90.40",
-      "server_port": 13751,
-      "password": "uiUuLPcDqU",
+      "server_port": 40476,
+      "password": "ZpbROQ5hRn",
       "tls": {
         "enabled": true,
-        "server_name": "www.apple.com"
+        "server_name": "www.amd.com"
       }
     },
     {
       "type": "trojan",
       "tag": "🇦🇹node-74",
       "server": "77.110.110.146",
-      "server_port": 26656,
-      "password": "RTjaF02TgK",
+      "server_port": 30128,
+      "password": "s5Wz4l25DH",
       "tls": {
         "enabled": true,
-        "server_name": "www.sony.com"
+        "server_name": "www.tesla.com"
       }
     },
     {
@@ -2489,8 +2489,8 @@
       "type": "trojan",
       "tag": "🇨🇭node-88",
       "server": "179.237.74.104",
-      "server_port": 1527,
-      "password": "1-----------------%42%61nV2ray-----------------1",
+      "server_port": 1772,
+      "password": "---------BanV2ray---------",
       "tls": {
         "enabled": true,
         "server_name": "world.yahoo.com"
@@ -2532,8 +2532,8 @@
       "type": "trojan",
       "tag": "🇨🇭node-91",
       "server": "179.237.75.149",
-      "server_port": 35679,
-      "password": "YyBkRtve84",
+      "server_port": 36029,
+      "password": "yBN5491Fle",
       "tls": {
         "enabled": true,
         "server_name": "world.yahoo.com"
@@ -2610,8 +2610,8 @@
       "type": "trojan",
       "tag": "🇨🇭node-97",
       "server": "37.156.45.60",
-      "server_port": 1726,
-      "password": "1------------------%42%61nV2ray------------------1",
+      "server_port": 2426,
+      "password": "------------BanV2ray-----------",
       "tls": {
         "enabled": true,
         "server_name": "world.yahoo.com"
@@ -2707,7 +2707,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment"
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
       }
     },
     {
@@ -2814,7 +2817,7 @@
       "tag": "🇨🇿node-114",
       "server": "212.192.210.192",
       "server_port": 14078,
-      "password": "CJ4fBUazRDFd62OxsdClTw%3D%3D",
+      "password": "a%2F3uGr4hCWHE%2F7%2FzgIw9%2BA%3D%3D",
       "transport": {
         "type": "ws",
         "path": "/"
@@ -2868,8 +2871,8 @@
       "type": "trojan",
       "tag": "🇩🇪node-119",
       "server": "159.200.230.201",
-      "server_port": 57809,
-      "password": "YMBdLOdyD3"
+      "server_port": 57909,
+      "password": "BfHJvwhj1p"
     },
     {
       "type": "trojan",
@@ -3632,7 +3635,10 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment"
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
       }
     },
     {
@@ -5693,7 +5699,11 @@
         "server_name": "dns.google.com"
       },
       "transport": {
-        "type": "ws"
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "dns.google.com"
+        }
       }
     },
     {
