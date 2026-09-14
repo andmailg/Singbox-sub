@@ -47,29 +47,11 @@ def is_valid_host(host_str: str) -> bool:
     return is_valid_domain(clean_host)
 
 
-@functools.lru_cache(maxsize=4096)
-def domain_exists(domain: str) -> bool:
-    """Проверяет, разрешается ли домен в IP-адрес через DNS."""
-    try:
-        socket.gethostbyname(domain)
-        return True
-    except socket.gaierror:
-        return False
-
-
 # Зоны, узлы которых блокируются глобально
 RU_ZONES = (".ru", ".su", ".рф")
 
 # Домены фейковых нод, которые блокируются
 FAKE_DOMAINS = ("whatsapp.com", "vk.com", "huawei", "bing.com")
-
-
-def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server."""
-    if not server or "@" in server:
-        return False
-    clean_server = server.strip("[]")
-    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
 
 def country_code_to_flag(cc: str) -> str:
