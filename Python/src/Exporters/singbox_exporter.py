@@ -2,7 +2,7 @@
 
 import json
 
-from config_builder import build_singbox_config
+from .config_builder import build_singbox_config
 
 
 def export_singbox(outbounds: list[dict], output_file: str = "output.json") -> int:

@@ -91,7 +91,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    export_singbox(outbounds)
+    export_singbox(outbounds, "hy2-sb.json")
 
 
 if __name__ == "__main__":
