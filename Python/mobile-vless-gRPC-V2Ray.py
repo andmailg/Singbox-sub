@@ -102,29 +102,13 @@ def main():
         print("Error: No valid proxy nodes left after filtration!")
         return
 
-    # --- Сортировка по стране (флаг) ---
+    # --- Сортировка по стране, сквозная нумерация ---
     outbounds.sort(key=lambda o: (o.get("_country", ""), o.get("server", "")))
 
-    # --- Теги с флагами: нумерация внутри каждой группы страны ---
-    from src.common import _extract_tag_number
-
-    country_groups: dict[str, list[dict]] = {}
-    for outbound in outbounds:
+    for idx, outbound in enumerate(outbounds, start=1):
         country = outbound.pop("_country", None)
-        if country:
-            country_groups.setdefault(country, []).append(outbound)
-        else:
-            country_groups.setdefault("", []).append(outbound)
-
-    sorted_outbounds: list[dict] = []
-    for country, nodes in country_groups.items():
-        nodes.sort(key=lambda o: _extract_tag_number(o.get("tag", "")))
         flag = country_code_to_flag(country) if country else ""
-        for idx, outbound in enumerate(nodes, start=1):
-            outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
-        sorted_outbounds.extend(nodes)
-
-    outbounds = sorted_outbounds
+        outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
     v2ray_links = [outbound_to_v2ray_link(o) for o in outbounds]
