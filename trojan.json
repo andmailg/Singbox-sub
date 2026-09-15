@@ -3702,15 +3702,18 @@
       },
       "transport": {
         "type": "ws",
-        "path": "/assignment"
+        "path": "/assignment",
+        "headers": {
+          "Host": "www.calmlunch.com"
+        }
       }
     },
     {
       "type": "trojan",
       "tag": "🇩🇪node-192",
       "server": "91.107.155.9",
-      "server_port": 29792,
-      "password": "@Cooonfig@@@"
+      "server_port": 58332,
+      "password": "wNgd%2FazFXW6lXalq4vi5MgzyDuc6R1UZRdmuQMg9hPs%3D"
     },
     {
       "type": "trojan",
@@ -8260,13 +8263,6 @@
       "tls": {
         "enabled": true,
         "server_name": "epge.muarua.filegear-sg.me"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/?proxyip=ts.hpc.tw",
-        "headers": {
-          "Host": "epge.muarua.filegear-sg.me"
-        }
       }
     },
     {
