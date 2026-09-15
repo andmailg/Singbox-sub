@@ -31,8 +31,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python python/mobile-hy2-SB.py
-          python python/mobile-hy2-V2Ray.py
+          python python/mobile-hy2-sb.py
+          python python/mobile-hy2-v2ray.py
 
       - name: Commit and push if changed
         run: |

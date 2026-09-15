@@ -31,8 +31,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python python/mobile-vless-gRPC-SB.py
-          python python/mobile-vless-gRPC-V2Ray.py
+          python python/mobile-vless-grpc-sb.py
+          python python/mobile-vless-grpc-v2ray.py
 
       - name: Commit and push if changed
         run: |

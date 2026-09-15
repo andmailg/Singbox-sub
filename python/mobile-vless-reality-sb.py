@@ -13,7 +13,7 @@ from src.parsers.vless_reality_parser import (
 
 
 def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
+    SOURCES_JSON_URL = "https://github.com/andmailg/singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
 
     sub_urls = load_sources(SOURCES_JSON_URL)
     if not sub_urls:
@@ -46,6 +46,8 @@ def main():
     print(f"Parsing and deduplicating {len(links)} links...")
     for link in links:
         outbound = parse_proxy_link(link)
+        if not outbound:
+            continue
         if not should_accept_outbound(outbound, seen_servers):
             continue
         outbound = clean_outbound(outbound)
@@ -75,7 +77,7 @@ def main():
             for idx, outbound in enumerate(outbounds)
         }
 
-        results = [None] * len(outbounds)
+        results: list[dict | None] = [None] * len(outbounds)
         for future in as_completed(future_to_idx):
             idx = future_to_idx[future]
             try:
@@ -83,7 +85,7 @@ def main():
             except Exception:
                 results[idx] = None
 
-    filtered_nodes = []
+    filtered_nodes: list[dict] = []
     for idx, check_result in enumerate(results):
         if check_result is not None:
             node = outbounds[idx]

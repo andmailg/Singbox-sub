@@ -26,7 +26,7 @@ jobs:
       - name: Run scripts
         run: |
           python python/mobile-vless-reality-sb.py
-          python python/mobile-vless-reality-V2Ray.py
+          python python/mobile-vless-reality-v2ray.py
 
 
       - name: Commit and push if changed
