@@ -1,6 +1,8 @@
 """Универсальный оркестратор pipeline для сборки прокси-конфигов."""
 
 import importlib
+import json
+import os
 from collections.abc import Callable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -17,9 +19,7 @@ from src.rkn_filter import (
 )
 
 
-SOURCES_JSON_URL = (
-    "https://github.com/andmailg/singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
-)
+SOURCES_JSON_PATH = "src/sub_urls.json"
 
 
 def _fetch_links(sub_urls: list[str]) -> list[str]:
@@ -161,7 +161,10 @@ def run_pipeline(
         post_process: функция для постобработки перед экспортом.
     """
     # 1. Загрузка подписок
-    sub_urls = load_sources(SOURCES_JSON_URL)
+    sub_urls_path = os.path.join(os.path.dirname(__file__), SOURCES_JSON_PATH)
+    with open(sub_urls_path, "r", encoding="utf-8") as f:
+        sub_urls_data = json.load(f)
+    sub_urls = list(sub_urls_data.values()) if isinstance(sub_urls_data, dict) else sub_urls_data
     if not sub_urls:
         return
 
