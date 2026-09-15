@@ -7,5 +7,5 @@ if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.vless_reality_parser",
         exporter="tun",
-        output_file="vless-reality.json",
+        output_file="vless-reality-tun.json",
     )

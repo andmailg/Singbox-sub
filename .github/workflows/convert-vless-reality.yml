@@ -25,8 +25,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python python/mobile-vless-reality-sb.py
-          python python/mobile-vless-reality-v2ray.py
+          python python/vless-reality-tun.py
+          python python/vless-reality-v2ray.py
 
 
       - name: Commit and push if changed
@@ -36,7 +36,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # 2. Добавляем файл в индекс
-          git add vless-reality.json vless-reality.txt
+          git add vless-reality-tun.json vless-reality.txt
           git status
           
           # 3. Коммитим и пушим только при наличии изменений
