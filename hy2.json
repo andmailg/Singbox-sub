@@ -138,7 +138,8 @@
         "🇺🇸node-22",
         "🇺🇸node-23",
         "🇺🇸node-24",
-        "🇺🇸node-25"
+        "🇺🇸node-25",
+        "🇺🇸node-26"
       ],
       "default": "auto"
     },
@@ -170,7 +171,8 @@
         "🇺🇸node-22",
         "🇺🇸node-23",
         "🇺🇸node-24",
-        "🇺🇸node-25"
+        "🇺🇸node-25",
+        "🇺🇸node-26"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -465,6 +467,19 @@
     {
       "type": "hysteria2",
       "tag": "🇺🇸node-23",
+      "server": "mol.ultimagamest.com",
+      "server_port": 443,
+      "password": "6941df7a-6401-4b24-9fe1-88dca1cdfd30",
+      "tls": {
+        "enabled": true,
+        "server_name": "mol.ultimagamest.com"
+      },
+      "up_mbps": 20,
+      "down_mbps": 20
+    },
+    {
+      "type": "hysteria2",
+      "tag": "🇺🇸node-24",
       "server": "news.gazette.help",
       "server_port": 443,
       "password": "sOiWCQ2AdIV0OWNuqQVyWp4JZnRxdyLROSjX",
@@ -477,7 +492,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸node-24",
+      "tag": "🇺🇸node-25",
       "server": "nl1.sferavpn.pro",
       "server_port": 443,
       "password": "cd74c0a406664a5bc0bac098220a2468",
@@ -490,7 +505,7 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇺🇸node-25",
+      "tag": "🇺🇸node-26",
       "server": "ru1.sferavpn.pro",
       "server_port": 443,
       "password": "cd74c0a406664a5bc0bac098220a2468",
