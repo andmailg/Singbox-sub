@@ -99,7 +99,7 @@ def parse_proxy_link(link: str) -> dict | None:
     }
 
     if tls_enabled:
-        tls_config = {"enabled": True}
+        tls_config: dict[str, str | bool] = {"enabled": True}
         server_name = sni or host
         if server_name:
             if not is_valid_domain(server_name):
@@ -126,7 +126,7 @@ def parse_proxy_link(link: str) -> dict | None:
         return None
 
     if net_type and net_type != "tcp":
-        transport_config = {"type": net_type}
+        transport_config: dict[str, str | list[str] | dict[str, str]] = {"type": net_type}
 
         path = params.get("path", [""])[0]
         if path and net_type in ["ws", "http", "httpupgrade"]:

@@ -1,136 +1,33 @@
 """Модуль сборки роутер-конфига sing-box из Hysteria2 нод."""
 
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-from src.common import country_code_to_flag, fetch_subscription, load_sources
-from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
-from src.parsers.hy2_parser import clean_outbound, parse_proxy_link
-from src.exporters.singbox_exporter import export_router
+from src.orchestrator import run_pipeline
 
 
-def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
+def _filter_router_hy2(outbound: dict) -> bool:
+    """Дополнительные фильтры для роутер-конфига."""
+    tls_opts = outbound.get("tls", {})
+    if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
+        return False
+    server_name = tls_opts.get("server_name")
+    if not server_name or not isinstance(server_name, str) or not server_name.strip():
+        return False
+    server_address = str(outbound.get("server", "")).lower()
+    if server_address.lower().endswith((".ru", ".su", ".рф")):
+        return False
+    return True
 
-    sub_urls = load_sources(SOURCES_JSON_URL)
-    if not sub_urls:
-        return
 
-    from src.common import session
-
-    # --- Загрузка подписок ---
-    links = []
-    max_workers = min(10, len(sub_urls))
-    print(f"Fetching {len(sub_urls)} subscriptions with {max_workers} workers...")
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        future_to_url = {
-            executor.submit(fetch_subscription, url): url
-            for url in sub_urls
-        }
-        for future in as_completed(future_to_url):
-            try:
-                links.extend(future.result())
-            except Exception as e:
-                url = future_to_url[future]
-                print(f"Error fetching {url}: {e}")
-
-    print(f"Total raw lines collected: {len(links)}")
-
-    # --- RKN + GeoIP ---
-    download_geoip(session)
-    blocked_networks = load_rkn_list(session)
-    reader = open_geoip_reader()
-
-    if reader:
-        print("GeoIP database loaded for geolocation filtering.")
-
-    # --- Парсинг и фильтрация ---
-    seen_servers: set[str] = set()
-    outbounds: list[dict] = []
-
-    print(f"Parsing and deduplicating {len(links)} links...")
-    for link in links:
-        outbound = parse_proxy_link(link)
-        if not outbound:
-            continue
-
-        outbound = clean_outbound(outbound)
-        if not outbound:
-            continue
-
-        tls_opts = outbound.get("tls", {})
-        if not isinstance(tls_opts, dict) or not tls_opts.get("enabled"):
-            continue
-
-        server_name = tls_opts.get("server_name")
-        if not server_name or not isinstance(server_name, str) or not server_name.strip():
-            continue
-
-        node_tag = str(outbound.get("tag", "")).lower()
-        if "ru" in node_tag or "russia" in node_tag:
-            continue
-
-        server_address = str(outbound.get("server", "")).lower()
-        if server_address.lower().endswith((".ru", ".su", ".рф")) or any(f"{z}:" in server_address for z in (".ru", ".su", ".рф")):
-            continue
-
-        if server_address in seen_servers:
-            continue
-        seen_servers.add(server_address)
-        outbounds.append(outbound)
-
-    # --- RKN + GeoIP фильтрация ---
-    num_workers = min(8, len(outbounds))
-    print(f"Filtering {len(outbounds)} nodes with {num_workers} workers...")
-
-    with ThreadPoolExecutor(max_workers=num_workers) as executor:
-        future_to_idx = {
-            executor.submit(
-                resolve_and_check,
-                outbound.get("server", "").strip("[]"),
-                blocked_networks,
-                reader,
-            ): idx
-            for idx, outbound in enumerate(outbounds)
-        }
-
-        results: list[dict | None] = [None] * len(outbounds)
-        for future in as_completed(future_to_idx):
-            idx = future_to_idx[future]
-            try:
-                results[idx] = future.result()
-            except Exception:
-                results[idx] = None
-
-    filtered_nodes: list[dict] = []
-    for idx, check_result in enumerate(results):
-        if check_result is not None:
-            node = outbounds[idx]
-            country = check_result.get("country")
-            if country:
-                node["_country"] = country
-            filtered_nodes.append(node)
-
-    if reader:
-        reader.close()
-
-    outbounds = filtered_nodes
-    print(f"Всего выбрано {len(outbounds)} валидных Hysteria2 узлов.")
-
-    if not outbounds:
-        print("Error: No valid proxy nodes left after filtration!")
-        return
-
-    # --- Сортировка по стране, сквозная нумерация ---
-    outbounds.sort(key=lambda o: (o.get("_country", ""), o.get("server", "")))
-
-    for idx, outbound in enumerate(outbounds, start=1):
-        country = outbound.pop("_country", None)
-        flag = country_code_to_flag(country) if country else ""
-        outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
-
-    # --- Экспорт ---
-    export_router(outbounds, "config.json")
+def _export_router(outbounds: list[dict], output_file: str) -> None:
+    """Экспорт в роутер-конфиг."""
+    from src.exporters.singbox_exporter import export_router
+    export_router(outbounds, output_file)
 
 
 if __name__ == "__main__":
-    main()
+    run_pipeline(
+        parser_module="src.parsers.hy2_parser",
+        output_file="config.json",
+        dedup_key="server",
+        extra_filter=_filter_router_hy2,
+        export_func=_export_router,
+    )
