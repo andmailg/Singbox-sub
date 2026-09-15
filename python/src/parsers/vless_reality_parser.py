@@ -47,11 +47,11 @@ def _is_valid_hex(s: str) -> bool:
 
 VALID_FINGERPRINTS = (
     "chrome", "firefox", "safari", "ios", "android",
-    "edge", "1password", "xtls"
+    "edge", "360", "qq", "random", "randomized"
 )
 
 
-def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
+def should_accept_outbound(outbound: dict, seen_fingerprints: set[str]) -> bool:
     """Быстрая фильтрация ноды после парсинга."""
     if not outbound:
         return False
@@ -67,14 +67,17 @@ def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
     if not server_name or not isinstance(server_name, str) or not server_name.strip():
         return False
     node_tag = str(outbound.get("tag", "")).lower()
-    if "ru" in node_tag or "russia" in node_tag:
+    if any(f"-{z}" in node_tag or f".{z}" in node_tag or f" {z}" in node_tag or node_tag.endswith(z) for z in ("ru", "russia")):
         return False
-    server_address = str(outbound.get("server", "")).lower()
-    if server_address.lower().endswith(RU_ZONES) or any(f"{z}:" in server_address for z in RU_ZONES):
+    server_val = str(outbound.get("server", "")).lower()
+    if server_val.endswith(RU_ZONES) or any(f"{z}:" in server_val for z in RU_ZONES):
         return False
-    if server_address in seen_servers:
+    port_val = str(outbound.get("server_port", "80"))
+    uuid_val = str(outbound.get("uuid", "")).lower()
+    fingerprint = f"{server_val}:{port_val}:{uuid_val}"
+    if fingerprint in seen_fingerprints:
         return False
-    seen_servers.add(server_address)
+    seen_fingerprints.add(fingerprint)
     return True
 
 

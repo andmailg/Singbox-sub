@@ -1,5 +1,7 @@
 """Универсальный экспорт нод в формат V2Ray (ссылки)."""
 
+import base64
+import json
 import urllib.parse
 
 
@@ -95,12 +97,70 @@ def _generate_vless_reality_links(outbounds: list[dict]) -> list[str]:
     return links
 
 
+def _generate_vmess_links(outbounds: list[dict]) -> list[str]:
+    """Конвертирует VMess ноды в v2ray-ссылки (vmess://base64json)."""
+    links: list[str] = []
+    for o in outbounds:
+        if o.get("type") != "vmess":
+            continue
+
+        tag = o.get("tag", "VMess-Node")
+        server = o.get("server", "")
+        port = o.get("server_port", 443)
+        uuid = o.get("uuid", "")
+        security = o.get("security", "auto")
+        transport = o.get("transport", {})
+        tls = o.get("tls", {})
+
+        net_type = transport.get("type", "tcp")
+        path = transport.get("path", "")
+        host = ""
+        if "headers" in transport:
+            host = transport["headers"].get("Host", "")
+        elif "host" in transport:
+            host = transport["host"]
+
+        sni = tls.get("server_name", "") or host
+        fp = ""
+        if "utls" in tls and tls["utls"].get("enabled"):
+            fp = tls["utls"].get("fingerprint", "")
+
+        # Формируем JSON для v2ray
+        vmess_json = {
+            "v": "2",
+            "ps": tag,
+            "add": server,
+            "port": port,
+            "id": uuid,
+            "aid": 0,
+            "scy": security if security and security != "auto" else "auto",
+            "net": net_type,
+            "type": "none",
+            "host": host,
+            "path": path,
+            "tls": "tls" if tls.get("enabled") else "none",
+            "sni": sni,
+            "fp": fp,
+        }
+
+        # Кодируем в base64
+        json_str = json.dumps(vmess_json, separators=(",", ":"))
+        b64 = base64.b64encode(json_str.encode("utf-8")).decode("utf-8")
+        # base64 -> base64url
+        b64url = b64.replace("+", "-").replace("/", "_").rstrip("=")
+
+        link = f"vmess://{b64url}"
+        links.append(link)
+    return links
+
+
 def export_v2ray(outbounds: list[dict], output_file: str = "output.txt") -> int:
     """Экспортирует ноды в файл в формате V2Ray (все типы)."""
     all_links = (
         _generate_hy2_links(outbounds)
         + _generate_vless_grpc_links(outbounds)
         + _generate_vless_reality_links(outbounds)
+        + _generate_vmess_links(outbounds)
     )
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(all_links))
@@ -116,6 +176,7 @@ def export_v2ray_by_type(outbounds: list[dict], output_file: str = "output.txt")
     hy2_links = _generate_hy2_links(outbounds)
     grpc_links = _generate_vless_grpc_links(outbounds)
     reality_links = _generate_vless_reality_links(outbounds)
+    vmess_links = _generate_vmess_links(outbounds)
 
     result = {}
 
@@ -139,6 +200,13 @@ def export_v2ray_by_type(outbounds: list[dict], output_file: str = "output.txt")
             f.write("\n".join(reality_links))
         result["vless-reality.txt"] = len(reality_links)
         print(f"✅ Exported {len(reality_links)} VLESS Reality nodes to {path}")
+
+    if vmess_links:
+        path = f"{output_file}"
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("\n".join(vmess_links))
+        result["vmess.txt"] = len(vmess_links)
+        print(f"✅ Exported {len(vmess_links)} VMess nodes to {path}")
 
     total = sum(result.values())
     print(f"Total: {total} nodes exported.")

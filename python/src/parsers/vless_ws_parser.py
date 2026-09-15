@@ -2,7 +2,7 @@
 
 import urllib.parse
 
-from src.common import is_valid_host, is_valid_ip, is_valid_domain
+from src.common import RU_ZONES, is_valid_host, is_valid_ip, is_valid_domain
 
 
 def is_valid_server(server: str) -> bool:
@@ -14,14 +14,14 @@ def is_valid_server(server: str) -> bool:
 
 
 def should_accept_outbound(outbound: dict, seen_fingerprints: set[str]) -> bool:
-    """Фильтрация: RU теги + дедупликация по fingerprint (server:port:uuid:path)."""
+    """Фильтрация: RU домены + дедупликация по fingerprint (server:port:uuid:path)."""
     if not outbound:
-        return False
-    node_tag = str(outbound.get("tag", "")).lower()
-    if "ru" in node_tag or "russia" in node_tag:
         return False
 
     server_val = str(outbound.get("server", "")).lower()
+    if server_val.endswith(RU_ZONES) or any(f"{z}:" in server_val for z in RU_ZONES):
+        return False
+
     port_val = str(outbound.get("server_port", "80"))
     uuid_val = str(outbound.get("uuid", "")).lower()
     path_val = str(outbound.get("transport", {}).get("path", "/")).lower()
