@@ -174,7 +174,7 @@ def run_pipeline(
 
     Args:
         parser_module: dotted path к модулю парсера (например "src.parsers.hy2_parser").
-        exporter: "singbox" или "v2ray". Используется по умолчанию, если export_func не указан.
+        exporter: "singbox" или "v2ray" или "router". Используется по умолчанию, если export_func не указан.
         output_file: имя выходного файла.
         extra_filter: дополнительная функция фильтрации (возвращает True/False).
         parse_kwargs: дополнительные аргументы для parse_proxy_link.
@@ -233,6 +233,9 @@ def run_pipeline(
     elif exporter == "v2ray":
         from src.exporters.v2ray_exporter import export_v2ray_by_type
         export_v2ray_by_type(outbounds, output_file)
+    elif exporter == "router":
+            from src.exporters.singbox_exporter import export_router
+            export_router(outbounds, output_file)
     else:
         from src.exporters.singbox_exporter import export_tun
         export_tun(outbounds, output_file)
