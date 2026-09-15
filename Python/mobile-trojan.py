@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from src.common import country_code_to_flag, fetch_subscription, is_valid_ip, load_sources
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
-from src.parsers1.trojan_parser import clean_outbound, parse_proxy_link
+from src.parsers.trojan_parser import clean_outbound, parse_proxy_link
 from src.exporters.singbox_exporter import export_tun
 
 
