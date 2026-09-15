@@ -7,5 +7,6 @@ if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.vless_ws_parser",
         exporter="tun",
-        output_file="vless-ws-cloudfront.json",
+        output_file="vless-ws-cloudfront-tun.json",
+        parse_kwargs={"require_cloudfront": True},
     )
