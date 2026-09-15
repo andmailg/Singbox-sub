@@ -61,40 +61,59 @@ def _parse_and_deduplicate(
     extra_filter: Callable[[dict], bool] | None,
     parse_kwargs: dict | None,
 ) -> list[dict]:
-    """Парсинг, DNS-резолвинг, дедупликация по IP:port и дополнительные фильтры."""
-    seen: set[str] = set()
-    outbounds: list[dict] = []
+    """Парсинг, DNS-резолвинг (параллельный), дедупликация по IP:port и дополнительные фильтры."""
     kw = parse_kwargs or {}
 
-    print(f"Parsing and deduplicating {len(links)} links...")
-    for link in links:
+    print(f"Parsing {len(links)} links...")
+    # 1. Парсинг + очистка + фильтрация — без DNS
+    parsed: list[tuple[int, dict]] = []
+    for idx, link in enumerate(links):
         outbound = parse_proxy_link(link, **kw)
         if not outbound:
             continue
-
         outbound = clean_outbound(outbound)
         if not outbound:
             continue
-
         if extra_filter and not extra_filter(outbound):
             continue
+        parsed.append((idx, outbound))
 
-        # DNS-резолвинг + дедупликация по resolved_ip:port
+    print(f"Parsed {len(parsed)} valid links, resolving {len(set(o.get('server', '') for _, o in parsed))} unique servers...")
+
+    # 2. Параллельный DNS-резолвинг уникальных серверов
+    unique_servers: dict[str, str | None] = {}
+    servers = list(set(o.get("server", "").strip("[]").lower() for _, o in parsed))
+
+    num_workers = min(16, len(servers))
+    print(f"Resolving {len(servers)} unique servers with {num_workers} workers...")
+    with ThreadPoolExecutor(max_workers=num_workers) as executor:
+        future_to_server = {
+            executor.submit(_resolve_outbound_server, server): server
+            for server in servers
+        }
+        for future in as_completed(future_to_server):
+            server = future_to_server[future]
+            try:
+                unique_servers[server] = future.result()
+            except Exception:
+                unique_servers[server] = None
+
+    # 3. Сборка outbounds с резолвнутыми IP + дедупликация
+    seen: set[str] = set()
+    outbounds: list[dict] = []
+    for _idx, outbound in parsed:
         server = str(outbound.get("server", "")).strip("[]").lower()
         port = outbound.get("server_port", "")
-        resolved_ip = _resolve_outbound_server(server)
+        resolved_ip = unique_servers.get(server)
 
-        # Если резолвинг не удался — пропускаем
         if not resolved_ip:
             continue
 
         dedup_val = f"{resolved_ip}:{port}"
-
         if dedup_val in seen:
             continue
         seen.add(dedup_val)
 
-        # Сохраняем resolved IP для RKN-фильтра
         outbound["server"] = resolved_ip
         outbounds.append(outbound)
 
