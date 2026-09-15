@@ -13,7 +13,7 @@ from src.exporters.singbox_exporter import export_tun
 
 
 def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
 
     sub_urls = load_sources(SOURCES_JSON_URL)
     if not sub_urls:

@@ -9,7 +9,7 @@ from src.exporters.v2ray_exporter import export_v2ray_by_type
 
 
 def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
 
     sub_urls = load_sources(SOURCES_JSON_URL)
     if not sub_urls:

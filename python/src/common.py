@@ -8,10 +8,14 @@ import socket
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Инициализация сессии для повторного использования соединений
 session = requests.Session()
 session.headers.update({"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+session.verify = False
 
 
 @functools.lru_cache(maxsize=4096)

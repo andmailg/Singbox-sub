@@ -15,7 +15,7 @@ from src.Parsers.vless_ws_parser import clean_outbound, is_valid_server, parse_p
 
 
 def main():
-    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/Python/src/sub_urls.json"
+    SOURCES_JSON_URL = "https://github.com/andmailg/Singbox-sub/raw/refs/heads/main/python/src/sub_urls.json"
 
     sub_urls = load_sources(SOURCES_JSON_URL)
     if not sub_urls:
