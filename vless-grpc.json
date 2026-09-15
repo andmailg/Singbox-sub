@@ -121,19 +121,19 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-8",
+        "🇦🇪node-8",
         "🇦🇪node-9",
         "🇦🇪node-10",
-        "🇦🇪node-11",
+        "🇦🇹node-11",
         "🇦🇹node-12",
         "🇦🇹node-13",
         "🇦🇹node-14",
         "🇦🇹node-15",
-        "🇦🇹node-16",
-        "🇨🇭node-17",
-        "🇨🇾node-18",
+        "🇨🇭node-16",
+        "🇨🇾node-17",
+        "🇨🇿node-18",
         "🇨🇿node-19",
-        "🇨🇿node-20",
+        "🇩🇪node-20",
         "🇩🇪node-21",
         "🇩🇪node-22",
         "🇩🇪node-23",
@@ -152,14 +152,14 @@
         "🇪🇸node-36",
         "🇪🇸node-37",
         "🇪🇸node-38",
-        "🇬🇧node-39",
+        "🇫🇷node-39",
         "🇬🇧node-40",
-        "🇮🇱node-41",
-        "🇮🇷node-42",
-        "🇮🇹node-43",
-        "🇱🇹node-44",
+        "🇬🇧node-41",
+        "🇮🇱node-42",
+        "🇮🇷node-43",
+        "🇮🇹node-44",
         "🇱🇹node-45",
-        "🇳🇱node-46",
+        "🇱🇹node-46",
         "🇳🇱node-47",
         "🇳🇱node-48",
         "🇳🇱node-49",
@@ -196,9 +196,7 @@
         "🇺🇸node-80",
         "🇺🇸node-81",
         "🇺🇸node-82",
-        "🇺🇸node-83",
-        "🇺🇸node-84",
-        "🇺🇸node-85"
+        "🇺🇸node-83"
       ],
       "default": "auto"
     },
@@ -213,19 +211,19 @@
         "node-5",
         "node-6",
         "node-7",
-        "node-8",
+        "🇦🇪node-8",
         "🇦🇪node-9",
         "🇦🇪node-10",
-        "🇦🇪node-11",
+        "🇦🇹node-11",
         "🇦🇹node-12",
         "🇦🇹node-13",
         "🇦🇹node-14",
         "🇦🇹node-15",
-        "🇦🇹node-16",
-        "🇨🇭node-17",
-        "🇨🇾node-18",
+        "🇨🇭node-16",
+        "🇨🇾node-17",
+        "🇨🇿node-18",
         "🇨🇿node-19",
-        "🇨🇿node-20",
+        "🇩🇪node-20",
         "🇩🇪node-21",
         "🇩🇪node-22",
         "🇩🇪node-23",
@@ -244,14 +242,14 @@
         "🇪🇸node-36",
         "🇪🇸node-37",
         "🇪🇸node-38",
-        "🇬🇧node-39",
+        "🇫🇷node-39",
         "🇬🇧node-40",
-        "🇮🇱node-41",
-        "🇮🇷node-42",
-        "🇮🇹node-43",
-        "🇱🇹node-44",
+        "🇬🇧node-41",
+        "🇮🇱node-42",
+        "🇮🇷node-43",
+        "🇮🇹node-44",
         "🇱🇹node-45",
-        "🇳🇱node-46",
+        "🇱🇹node-46",
         "🇳🇱node-47",
         "🇳🇱node-48",
         "🇳🇱node-49",
@@ -288,9 +286,7 @@
         "🇺🇸node-80",
         "🇺🇸node-81",
         "🇺🇸node-82",
-        "🇺🇸node-83",
-        "🇺🇸node-84",
-        "🇺🇸node-85"
+        "🇺🇸node-83"
       ],
       "url": "https://connectivitycheck.gstatic.com/generate_204",
       "interval": "10m",
@@ -403,22 +399,7 @@
     },
     {
       "type": "vless",
-      "tag": "node-8",
-      "server": "hilnu.com",
-      "server_port": 8443,
-      "uuid": "0c94ca98-3643-4cb4-de75-6167815af665",
-      "tls": {
-        "enabled": true,
-        "server_name": "admin.kanal-tel-nufilter.store"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER-Telegram:@NUFiLTER"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇦🇪node-9",
+      "tag": "🇦🇪node-8",
       "server": "45.88.13.3",
       "server_port": 8443,
       "uuid": "e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d",
@@ -434,7 +415,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇪node-10",
+      "tag": "🇦🇪node-9",
       "server": "89.47.55.8",
       "server_port": 8443,
       "uuid": "4350213a-b4e7-262a-0bd7-bd16957cf71a",
@@ -449,7 +430,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇪node-11",
+      "tag": "🇦🇪node-10",
       "server": "89.47.55.9",
       "server_port": 8443,
       "uuid": "4350213a-b4e7-262a-0bd7-bd16957cf71a",
@@ -464,7 +445,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇹node-12",
+      "tag": "🇦🇹node-11",
       "server": "152.53.0.209",
       "server_port": 8443,
       "uuid": "aa28b265-baff-42e4-927e-7a8dee0ef623",
@@ -479,7 +460,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇹node-13",
+      "tag": "🇦🇹node-12",
       "server": "152.53.64.139",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -494,7 +475,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇹node-14",
+      "tag": "🇦🇹node-13",
       "server": "152.53.65.60",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -509,7 +490,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇹node-15",
+      "tag": "🇦🇹node-14",
       "server": "152.53.66.34",
       "server_port": 8443,
       "uuid": "84a794a5-2420-4ca7-8e08-8d21571f36f3",
@@ -524,7 +505,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇦🇹node-16",
+      "tag": "🇦🇹node-15",
       "server": "jsengineer.org",
       "server_port": 8443,
       "uuid": "aa28b265-baff-42e4-927e-7a8dee0ef623",
@@ -539,7 +520,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇨🇭node-17",
+      "tag": "🇨🇭node-16",
       "server": "176.65.144.24",
       "server_port": 8443,
       "uuid": "9b212e1c-9750-4dac-ae63-e6c537352dcb",
@@ -554,7 +535,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇨🇾node-18",
+      "tag": "🇨🇾node-17",
       "server": "45.9.2.171",
       "server_port": 8443,
       "uuid": "167610e4-bcaf-4074-bc2d-0c08dc4ea294",
@@ -569,7 +550,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇨🇿node-19",
+      "tag": "🇨🇿node-18",
       "server": "194.87.52.142",
       "server_port": 8443,
       "uuid": "070b81db-1954-4767-bfa5-26d2c3598273",
@@ -584,7 +565,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇨🇿node-20",
+      "tag": "🇨🇿node-19",
       "server": "95.85.241.169",
       "server_port": 8443,
       "uuid": "41e72698-f09a-4617-8f1b-33359c2473cc",
@@ -599,7 +580,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-21",
+      "tag": "🇩🇪node-20",
       "server": "144.31.106.40",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -614,7 +595,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-22",
+      "tag": "🇩🇪node-21",
       "server": "144.31.74.41",
       "server_port": 8443,
       "uuid": "cef12ad2-fb16-4ace-ab26-2a026d40a7d2",
@@ -629,7 +610,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-23",
+      "tag": "🇩🇪node-22",
       "server": "151.242.17.99",
       "server_port": 8443,
       "uuid": "a04814d9-d006-4e7b-ae20-8ab304b3b429",
@@ -644,7 +625,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-24",
+      "tag": "🇩🇪node-23",
       "server": "170.168.99.6",
       "server_port": 8443,
       "uuid": "f71957f3-29e0-d077-9b51-83da5cf31480",
@@ -659,13 +640,13 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-25",
+      "tag": "🇩🇪node-24",
       "server": "170.168.99.8",
       "server_port": 8443,
-      "uuid": "4350213a-b4e7-262a-0bd7-bd16957cf71a",
+      "uuid": "dca76b88-b038-e82b-45e1-1d76b476d7ca",
       "tls": {
         "enabled": true,
-        "server_name": "cdn.steamstatic.com"
+        "server_name": "www.epson.com"
       },
       "transport": {
         "type": "grpc",
@@ -674,7 +655,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇩🇪node-26",
+      "tag": "🇩🇪node-25",
       "server": "80.94.83.211",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -685,6 +666,21 @@
       "transport": {
         "type": "grpc",
         "service_name": "@vipv2rey@vipv2rey@vipv2rey"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇩🇪node-26",
+      "server": "89.106.88.6",
+      "server_port": 8443,
+      "uuid": "ad297a2b-ae17-4d2d-8fce-e2eafb89b145",
+      "tls": {
+        "enabled": true,
+        "server_name": "dest1.cdn-update.rutube.info"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "grpc"
       }
     },
     {
@@ -845,7 +841,7 @@
       "uuid": "4350213a-b4e7-262a-0bd7-bd16957cf71a",
       "tls": {
         "enabled": true,
-        "server_name": "download.nvidia.com"
+        "server_name": "www.hp.com"
       },
       "transport": {
         "type": "grpc",
@@ -869,7 +865,22 @@
     },
     {
       "type": "vless",
-      "tag": "🇬🇧node-39",
+      "tag": "🇫🇷node-39",
+      "server": "130.49.77.4",
+      "server_port": 8443,
+      "uuid": "a42eec3c-9491-0280-04b3-0c9730410bfb",
+      "tls": {
+        "enabled": true,
+        "server_name": "download.nvidia.com"
+      },
+      "transport": {
+        "type": "grpc",
+        "service_name": "TunService"
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇬🇧node-40",
       "server": "217.163.76.224",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -884,7 +895,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇬🇧node-40",
+      "tag": "🇬🇧node-41",
       "server": "217.179.220.67",
       "server_port": 8443,
       "uuid": "f885cecc-a6ea-4e9b-87da-c7dc4b745348",
@@ -899,7 +910,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇱node-41",
+      "tag": "🇮🇱node-42",
       "server": "83.143.106.3",
       "server_port": 8443,
       "uuid": "e6d41d6f-d58a-7650-bba4-d7f0dde3ba4d",
@@ -914,7 +925,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇷node-42",
+      "tag": "🇮🇷node-43",
       "server": "195.137.167.101",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -929,7 +940,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇮🇹node-43",
+      "tag": "🇮🇹node-44",
       "server": "31.77.154.14",
       "server_port": 8443,
       "uuid": "75079a7f-75b5-418b-8a65-f7b2f438cd4a",
@@ -944,7 +955,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇱🇹node-44",
+      "tag": "🇱🇹node-45",
       "server": "89.116.250.75",
       "server_port": 8443,
       "uuid": "51d22c42-5342-4715-a927-1b76226dd4cf",
@@ -959,7 +970,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇱🇹node-45",
+      "tag": "🇱🇹node-46",
       "server": "ge.imsoon.org",
       "server_port": 8443,
       "uuid": "SoonTeam",
@@ -974,7 +985,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱node-46",
+      "tag": "🇳🇱node-47",
       "server": "150.241.92.198",
       "server_port": 8443,
       "uuid": "d1357b36-20cb-4ebe-9048-5ec8c08eb394",
@@ -989,7 +1000,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱node-47",
+      "tag": "🇳🇱node-48",
       "server": "185.23.19.25",
       "server_port": 8443,
       "uuid": "a3f573b2-6c6f-4e83-87ce-c0c1fdeba95b",
@@ -1004,7 +1015,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱node-48",
+      "tag": "🇳🇱node-49",
       "server": "217.60.24.23",
       "server_port": 8443,
       "uuid": "758f49d3-5f5f-47e7-bfa4-4ce96faf800d",
@@ -1019,7 +1030,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇳🇱node-49",
+      "tag": "🇳🇱node-50",
       "server": "31.56.184.132",
       "server_port": 8443,
       "uuid": "11f21602-47aa-42e2-9149-69120f2e6df6",
@@ -1030,11 +1041,12 @@
       "transport": {
         "type": "grpc",
         "service_name": "shiforgrpc"
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "vless",
-      "tag": "🇳🇱node-50",
+      "tag": "🇳🇱node-51",
       "server": "45.149.12.119",
       "server_port": 8443,
       "uuid": "f988794c-cdb2-4842-b604-06e65cf6d040",
@@ -1045,21 +1057,6 @@
       "transport": {
         "type": "grpc",
         "service_name": "@iMrV2ray"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇳🇱node-51",
-      "server": "45.84.222.156",
-      "server_port": 8443,
-      "uuid": "7bc48a0c-0943-42fd-a138-98ca90f941c5",
-      "tls": {
-        "enabled": true,
-        "server_name": "gosuslugi.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "grpc-api"
       }
     },
     {
@@ -1485,12 +1482,12 @@
     {
       "type": "vless",
       "tag": "🇺🇸node-80",
-      "server": "140.235.168.2",
+      "server": "140.235.168.4",
       "server_port": 8443,
-      "uuid": "dca76b88-b038-e82b-45e1-1d76b476d7ca",
+      "uuid": "a42eec3c-9491-0280-04b3-0c9730410bfb",
       "tls": {
         "enabled": true,
-        "server_name": "download.nvidia.com"
+        "server_name": "www.lenovo.com"
       },
       "transport": {
         "type": "grpc",
@@ -1500,36 +1497,6 @@
     {
       "type": "vless",
       "tag": "🇺🇸node-81",
-      "server": "144.31.40.96",
-      "server_port": 8443,
-      "uuid": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.max.ru"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": ""
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇺🇸node-82",
-      "server": "64.49.38.3",
-      "server_port": 8443,
-      "uuid": "dca76b88-b038-e82b-45e1-1d76b476d7ca",
-      "tls": {
-        "enabled": true,
-        "server_name": "download.autodesk.com"
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "TunService"
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇺🇸node-83",
       "server": "64.49.38.4",
       "server_port": 8443,
       "uuid": "f71957f3-29e0-d077-9b51-83da5cf31480",
@@ -1544,7 +1511,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇺🇸node-84",
+      "tag": "🇺🇸node-82",
       "server": "98.142.251.31",
       "server_port": 8443,
       "uuid": "f50822b7-02ec-4611-83bd-ff29411e0e10",
@@ -1559,7 +1526,7 @@
     },
     {
       "type": "vless",
-      "tag": "🇺🇸node-85",
+      "tag": "🇺🇸node-83",
       "server": "dns3.nufilter.store",
       "server_port": 8443,
       "uuid": "9c46957b-688b-451c-9d10-4663f7e7dfdc",
