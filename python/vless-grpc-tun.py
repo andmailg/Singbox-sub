@@ -8,6 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_grpc_parser",
         exporter="tun",
         output_file="vless-grpc-tun.json",
-        health_check_timeout=5.0,
-        health_check_protocol="auto",
     )
