@@ -7,5 +7,5 @@ if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.vless_http_parser",
         exporter="tun",
-        output_file="vless-http.json",
+        output_file="vless-http-tun.json",
     )
