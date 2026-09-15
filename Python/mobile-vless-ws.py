@@ -116,8 +116,8 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    from src.Exporters.singbox_exporter import export_singbox
-    export_singbox(outbounds, "vless-ws.json")
+    from src.exporters.singbox_exporter import export_tun
+    export_tun(outbounds, "vless-ws.json")
 
 
 if __name__ == "__main__":

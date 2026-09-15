@@ -31,7 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/mobile-trojan.py
+          python python/mobile-trojan.py
 
       - name: Commit and push if changed
         run: |

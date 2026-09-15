@@ -25,7 +25,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/router-hy2-sb.py
+          python python/router-hy2-sb.py
 
       - name: Commit and push if changed
         run: |

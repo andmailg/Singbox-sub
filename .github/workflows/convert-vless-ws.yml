@@ -28,8 +28,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python Python/mobile-vless-ws-cloudfront.py
-          python Python/mobile-vless-ws.py
+          python python/mobile-vless-ws-cloudfront.py
+          python python/mobile-vless-ws.py
 
       - name: Commit and push if changed
         run: |

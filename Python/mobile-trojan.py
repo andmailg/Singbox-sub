@@ -5,8 +5,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from src.common import country_code_to_flag, fetch_subscription, is_valid_ip, load_sources
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
-from src.Parsers.trojan_parser import clean_outbound, parse_proxy_link
-from src.Exporters.singbox_exporter import export_singbox
+from src.parsers.trojan_parser import clean_outbound, parse_proxy_link
+from src.exporters.singbox_exporter import export_tun
 
 
 def main():
@@ -126,7 +126,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    export_singbox(outbounds, "trojan.json")
+    export_tun(outbounds, "trojan.json")
 
 
 if __name__ == "__main__":

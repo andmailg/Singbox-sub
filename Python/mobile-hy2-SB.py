@@ -3,9 +3,9 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from src.common import country_code_to_flag, fetch_subscription, load_sources
-from src.Parsers.hy2_parser import clean_outbound, parse_proxy_link, should_accept_outbound
+from src.parsers.hy2_parser import clean_outbound, parse_proxy_link, should_accept_outbound
 from src.rkn_filter import download_geoip, load_rkn_list, open_geoip_reader, resolve_and_check
-from src.Exporters.singbox_exporter import export_singbox
+from src.exporters.singbox_exporter import export_tun
 
 
 def main():
@@ -91,7 +91,7 @@ def main():
         outbound["tag"] = f"{flag}node-{idx}" if flag else f"node-{idx}"
 
     # --- Экспорт ---
-    export_singbox(outbounds, "hy2.json")
+    export_tun(outbounds, "hy2.json")
 
 
 if __name__ == "__main__":

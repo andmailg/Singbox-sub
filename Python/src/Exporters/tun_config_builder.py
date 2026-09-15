@@ -1,8 +1,8 @@
-"""Общий билдер конфига sing-box (dns, inbounds, route, rule_set)."""
+"""Билдер мобильного конфиг-файла sing-box (tun)."""
 
 
-def build_singbox_config(outbounds: list[dict]) -> dict:
-    """Собирает полный конфиг sing-box из списка outbounds."""
+def build_tun_config(outbounds: list[dict]) -> dict:
+    """Собирает полный мобильный конфиг sing-box из списка outbounds."""
     node_tags = [o["tag"] for o in outbounds]
 
     selector_outbound = {

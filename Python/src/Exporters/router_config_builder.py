@@ -1,16 +1,8 @@
-"""Сборка и экспорт роутер-конфига sing-box (router)."""
-
-import json
+"""Сборка минимального роутер-конфига sing-box (router)."""
 
 
 def build_router_config(outbounds: list[dict]) -> dict:
     """Собирает минимальный конфиг sing-box для роутера."""
-    # Применяем speed settings для router (up/down_mbps=100)
-    for o in outbounds:
-        if o.get("type") == "hysteria2":
-            o.setdefault("up_mbps", 100)
-            o.setdefault("down_mbps", 100)
-
     node_tags = [o["tag"] for o in outbounds]
 
     selector_outbound = {
@@ -65,12 +57,3 @@ def build_router_config(outbounds: list[dict]) -> dict:
     }
 
     return singbox_config
-
-
-def export_router(outbounds: list[dict], output_file: str = "config.json") -> int:
-    """Экспортирует ноды в роутер-конфиг sing-box."""
-    singbox_config = build_router_config(outbounds)
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(singbox_config, f, ensure_ascii=False, indent=2)
-    print(f"Successfully generated {output_file} with {len(outbounds)} nodes.")
-    return len(outbounds)
