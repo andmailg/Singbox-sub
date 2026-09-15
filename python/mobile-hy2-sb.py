@@ -6,6 +6,6 @@ from src.orchestrator import run_pipeline
 if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.hy2_parser",
-        exporter="singbox",
+        exporter="tun",
         output_file="hy2.json",
     )

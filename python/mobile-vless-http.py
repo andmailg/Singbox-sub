@@ -6,6 +6,6 @@ from src.orchestrator import run_pipeline
 if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.vless_http_parser",
-        exporter="singbox",
+        exporter="tun",
         output_file="vless-http.json",
     )
