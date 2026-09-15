@@ -28,8 +28,8 @@ jobs:
 
       - name: Run scripts
         run: |
-          python python/mobile-vless-ws-cloudfront.py
-          python python/mobile-vless-ws.py
+          python python/vless-ws-cloudfront-tun.py
+          python python/vless-ws-tun.py
 
       - name: Commit and push if changed
         run: |
@@ -38,14 +38,14 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           # 2. Добавляем файлы в индекс
-          git add vless-ws.json vless-ws-cloudfront.json
+          git add vless-ws-tun.json vless-ws-cloudfront-tun.json
           git status
           
           # 3. Коммитим и пушим с предварительным rebase
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update vless-ws.json & vless-ws-cloudfront.json"
+            git commit -m "Auto-update vless-ws-tun.json & vless-ws-cloudfront-tun.json"
             
             # Подтягиваем изменения из удаленного репозитория, накладывая наш коммит поверх них
             git pull origin main --rebase
