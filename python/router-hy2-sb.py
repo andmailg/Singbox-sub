@@ -27,7 +27,4 @@ if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.hy2_parser",
         output_file="config.json",
-        dedup_key="server",
-        extra_filter=_filter_router_hy2,
-        export_func=_export_router,
     )

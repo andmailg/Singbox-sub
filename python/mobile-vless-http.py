@@ -16,6 +16,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_http_parser",
         exporter="singbox",
         output_file="vless-http.json",
-        dedup_key="server",
-        extra_filter=_filter_vless_http,
     )

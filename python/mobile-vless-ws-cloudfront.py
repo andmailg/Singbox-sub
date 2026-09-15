@@ -8,6 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_ws_parser",
         exporter="singbox",
         output_file="vless-ws-cloudfront.json",
-        dedup_key="fingerprint",
-        parse_kwargs={"require_cloudfront": True},
     )

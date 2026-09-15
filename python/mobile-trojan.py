@@ -20,6 +20,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.trojan_parser",
         exporter="singbox",
         output_file="trojan.json",
-        dedup_key="server",
-        extra_filter=_filter_trojan,
     )

@@ -8,5 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.hy2_parser",
         exporter="v2ray",
         output_file="hy2.txt",
-        dedup_key="server",
     )

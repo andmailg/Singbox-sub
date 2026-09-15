@@ -8,5 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.hy2_parser",
         exporter="singbox",
         output_file="hy2.json",
-        dedup_key="server",
     )

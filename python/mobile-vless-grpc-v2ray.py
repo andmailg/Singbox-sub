@@ -8,5 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_grpc_parser",
         exporter="v2ray",
         output_file="vless-grpc.txt",
-        dedup_key="server",
     )

@@ -8,5 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_ws_parser",
         exporter="singbox",
         output_file="vless-ws.json",
-        dedup_key="fingerprint",
     )

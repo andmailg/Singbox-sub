@@ -46,10 +46,8 @@ def _parse_and_deduplicate(
     links: list[str],
     parse_proxy_link: Callable,
     clean_outbound: Callable,
-    should_accept_outbound: Callable | None,
     extra_filter: Callable[[dict], bool] | None,
     parse_kwargs: dict | None,
-    dedup_key: str,
 ) -> list[dict]:
     """Парсинг, очистка, дедупликация и дополнительные фильтры."""
     seen: set[str] = set()
@@ -66,17 +64,13 @@ def _parse_and_deduplicate(
         if not outbound:
             continue
 
-        if should_accept_outbound and not should_accept_outbound(outbound, seen):
-            continue
-
         if extra_filter and not extra_filter(outbound):
             continue
 
+        # Дедупликация по server:port
         server = str(outbound.get("server", "")).strip().lower()
-        if dedup_key == "server":
-            dedup_val = server
-        else:
-            dedup_val = server  # fallback
+        port = outbound.get("server_port", "")
+        dedup_val = f"{server}:{port}"
 
         if dedup_val in seen:
             continue
@@ -150,7 +144,6 @@ def run_pipeline(
     *,
     exporter: str = "singbox",
     output_file: str = "output.json",
-    dedup_key: str = "server",
     extra_filter: Callable[[dict], bool] | None = None,
     parse_kwargs: dict | None = None,
     export_func: Callable | None = None,
@@ -162,7 +155,6 @@ def run_pipeline(
         parser_module: dotted path к модулю парсера (например "src.parsers.hy2_parser").
         exporter: "singbox" или "v2ray". Используется по умолчанию, если export_func не указан.
         output_file: имя выходного файла.
-        dedup_key: "server" — дедупликация по IP, "fingerprint" — по fingerprint.
         extra_filter: дополнительная функция фильтрации (возвращает True/False).
         parse_kwargs: дополнительные аргументы для parse_proxy_link.
         export_func: кастомная функция экспорта. Если None — используется exporter.
@@ -181,17 +173,14 @@ def run_pipeline(
     mod = importlib.import_module(parser_module)
     parse_proxy_link = mod.parse_proxy_link
     clean_outbound = mod.clean_outbound
-    should_accept = getattr(mod, "should_accept_outbound", None)
 
     # 3. Парсинг + дедупликация
     outbounds = _parse_and_deduplicate(
         links,
         parse_proxy_link,
         clean_outbound,
-        should_accept,
         extra_filter,
         parse_kwargs,
-        dedup_key,
     )
 
     if not outbounds:

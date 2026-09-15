@@ -8,5 +8,4 @@ if __name__ == "__main__":
         parser_module="src.parsers.vless_reality_parser",
         exporter="singbox",
         output_file="vless-reality.json",
-        dedup_key="fingerprint",
     )
