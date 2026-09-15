@@ -1,0 +1,315 @@
+{
+  "log": {
+    "level": "warn",
+    "timestamp": true
+  },
+  "dns": {
+    "servers": [
+      {
+        "type": "https",
+        "tag": "dns-local",
+        "server": "8.8.8.8",
+        "tls": {
+          "enabled": true,
+          "server_name": "dns.google"
+        }
+      },
+      {
+        "type": "https",
+        "tag": "dns-remote",
+        "server": "8.8.8.8",
+        "detour": "proxy-out",
+        "tls": {
+          "enabled": true,
+          "server_name": "dns.google"
+        }
+      },
+      {
+        "type": "https",
+        "tag": "smart-dns",
+        "server": "xbox-dns.ru",
+        "domain_resolver": "dns-local"
+      },
+      {
+        "type": "fakeip",
+        "tag": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "local",
+        "tag": "local"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [
+          ".lan",
+          ".local"
+        ],
+        "server": "local"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ai-!cn"
+        ],
+        "server": "smart-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ru"
+        ],
+        "server": "dns-local"
+      },
+      {
+        "query_type": [
+          "HTTPS",
+          "SVCB"
+        ],
+        "rule_set": [
+          "geosite-category-media-ru-blocked",
+          "antizapret"
+        ],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "rule_set": [
+          "geosite-category-media-ru-blocked",
+          "antizapret"
+        ],
+        "server": "fakeip"
+      }
+    ],
+    "final": "dns-remote",
+    "strategy": "prefer_ipv4",
+    "cache_capacity": 2048
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "mtu": 1420,
+      "address": "172.19.0.1/30",
+      "auto_route": true,
+      "stack": "mixed",
+      "route_exclude_address": [
+        "10.0.0.0/8",
+        "172.16.0.0/12",
+        "192.168.0.0/16",
+        "169.254.0.0/16",
+        "224.0.0.0/4",
+        "255.255.255.255/32",
+        "fc00::/7"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "selector",
+      "tag": "proxy-out",
+      "outbounds": [
+        "auto",
+        "🇮🇷node-1",
+        "🇹🇭node-2",
+        "🇹🇭node-3",
+        "🇹🇭node-4",
+        "🇺🇸node-5",
+        "🇺🇸node-6",
+        "🇺🇸node-7"
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇮🇷node-1",
+        "🇹🇭node-2",
+        "🇹🇭node-3",
+        "🇹🇭node-4",
+        "🇺🇸node-5",
+        "🇺🇸node-6",
+        "🇺🇸node-7"
+      ],
+      "url": "https://connectivitycheck.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
+    },
+    {
+      "type": "vless",
+      "tag": "🇮🇷node-1",
+      "server": "185.88.178.73",
+      "server_port": 8880,
+      "uuid": "922e96cd-7ed5-4836-a2f3-11c441716e53",
+      "transport": {
+        "type": "ws",
+        "path": "/?ed=2560",
+        "headers": {
+          "Host": "join.2.kiava.cloud.speedtest.net.xn--mgba2h8quf.cdn.ws80.cloudfront.net.kiava.fun"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇹🇭node-2",
+      "server": "143.14.11.236",
+      "server_port": 80,
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇹🇭node-3",
+      "server": "157.85.105.179",
+      "server_port": 80,
+      "uuid": "89c3b66f-c849-4602-a5a8-84b6f06af478",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d2pwbkmfr5lxa4.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇹🇭node-4",
+      "server": "157.85.97.238",
+      "server_port": 80,
+      "uuid": "ff0c1cde-6f94-4bf1-9774-ab25c6b4977d",
+      "transport": {
+        "type": "ws",
+        "path": "/knl8",
+        "headers": {
+          "Host": "d7iwyzy9wpvuu.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸node-5",
+      "server": "18.172.202.92",
+      "server_port": 80,
+      "uuid": "19668b6f-e215-41e6-8102-b8d29fb5b8ae",
+      "transport": {
+        "type": "ws",
+        "path": "/fnet50",
+        "headers": {
+          "Host": "duatoup3wk8q2.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸node-6",
+      "server": "18.239.134.69",
+      "server_port": 80,
+      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸node-7",
+      "server": "52.84.199.84",
+      "server_port": 80,
+      "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
+      "transport": {
+        "type": "ws",
+        "path": "/fnetvpn2026",
+        "headers": {
+          "Host": "d3gxy6d0a9fs18.cloudfront.net"
+        }
+      }
+    }
+  ],
+  "http_clients": [
+    {
+      "tag": "rules-downloader"
+    }
+  ],
+  "route": {
+    "default_http_client": "rules-downloader",
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "protocol": "dns",
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": [
+          "geosite-category-media-ru-blocked",
+          "antizapret"
+        ],
+        "outbound": "proxy-out"
+      },
+      {
+        "rule_set": [
+          "geosite-category-ru",
+          "geoip-ru",
+          "geosite-category-ai-!cn"
+        ],
+        "outbound": "direct-out"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "db-github",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-github.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-media-ru-blocked",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-media-ru-blocked.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ru.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "antizapret",
+        "url": "https://github.com/savely-krasovsky/antizapret-sing-box/releases/latest/download/antizapret.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ai-!cn",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-category-ai-!cn.srs"
+      }
+    ],
+    "final": "proxy-out",
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "default_domain_resolver": "dns-local"
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true
+    }
+  }
+}
