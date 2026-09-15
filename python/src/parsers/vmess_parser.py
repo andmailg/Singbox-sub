@@ -112,7 +112,8 @@ def parse_proxy_link(link: str) -> dict | None:
     security = vmess_data.get("scy") or vmess_data.get("security") or "auto"
 
     # 5. TLS
-    tls_str = (vmess_data.get("tls") or "").lower()
+    tls_val = vmess_data.get("tls")
+    tls_str = str(tls_val).lower() if tls_val else ""
     has_tls = tls_str == "tls"
 
     # 6. Network type
