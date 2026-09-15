@@ -213,21 +213,7 @@
     {
       "type": "vless",
       "tag": "🇺🇸node-6",
-      "server": "18.239.134.69",
-      "server_port": 80,
-      "uuid": "f55ce6cc-3f6b-40fc-9e3b-abe26db17009",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇺🇸node-7",
-      "server": "52.84.199.84",
+      "server": "18.238.109.28",
       "server_port": 80,
       "uuid": "ff485c50-b364-4b4f-90be-ea576b949dd3",
       "transport": {
@@ -235,6 +221,20 @@
         "path": "/fnetvpn2026",
         "headers": {
           "Host": "d3gxy6d0a9fs18.cloudfront.net"
+        }
+      }
+    },
+    {
+      "type": "vless",
+      "tag": "🇺🇸node-7",
+      "server": "18.239.134.69",
+      "server_port": 80,
+      "uuid": "de27291c-15a9-4256-9ba7-ad517569877e",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "d2e1v87ko56lyw.cloudfront.net:assets.opensignal.com"
         }
       }
     }
