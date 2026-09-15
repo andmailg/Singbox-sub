@@ -39,6 +39,15 @@ def is_valid_domain(domain: str) -> bool:
     return bool(domain_regex.match(domain))
 
 
+@functools.lru_cache(maxsize=4096)
+def resolve_domain(domain: str) -> str | None:
+    """Кэшированный DNS-резолвинг домена в IPv4-адрес."""
+    try:
+        return socket.gethostbyname(domain.strip("[]"))
+    except socket.gaierror:
+        return None
+
+
 def is_valid_host(host_str: str) -> bool:
     """Проверяет, является ли raw-string валидным доменным именем.
     Предварительно очищает от [], портов (:), ведущих /.

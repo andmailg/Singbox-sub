@@ -10,6 +10,7 @@ from src.common import (
     country_code_to_flag,
     fetch_subscription,
     load_sources,
+    resolve_domain,
 )
 from src.rkn_filter import (
     download_geoip,
@@ -42,6 +43,17 @@ def _fetch_links(sub_urls: list[str]) -> list[str]:
     return links
 
 
+def _resolve_outbound_server(server: str) -> str | None:
+    """Резолвит домен в IP, если это не IP-адрес. Возвращает None при неудаче."""
+    from src.common import is_valid_ip
+
+    clean = server.strip("[]")
+    if is_valid_ip(clean):
+        return clean
+    resolved = resolve_domain(clean)
+    return resolved
+
+
 def _parse_and_deduplicate(
     links: list[str],
     parse_proxy_link: Callable,
@@ -49,7 +61,7 @@ def _parse_and_deduplicate(
     extra_filter: Callable[[dict], bool] | None,
     parse_kwargs: dict | None,
 ) -> list[dict]:
-    """Парсинг, очистка, дедупликация и дополнительные фильтры."""
+    """Парсинг, DNS-резолвинг, дедупликация по IP:port и дополнительные фильтры."""
     seen: set[str] = set()
     outbounds: list[dict] = []
     kw = parse_kwargs or {}
@@ -67,14 +79,23 @@ def _parse_and_deduplicate(
         if extra_filter and not extra_filter(outbound):
             continue
 
-        # Дедупликация по server:port
-        server = str(outbound.get("server", "")).strip().lower()
+        # DNS-резолвинг + дедупликация по resolved_ip:port
+        server = str(outbound.get("server", "")).strip("[]").lower()
         port = outbound.get("server_port", "")
-        dedup_val = f"{server}:{port}"
+        resolved_ip = _resolve_outbound_server(server)
+
+        # Если резолвинг не удался — пропускаем
+        if not resolved_ip:
+            continue
+
+        dedup_val = f"{resolved_ip}:{port}"
 
         if dedup_val in seen:
             continue
         seen.add(dedup_val)
+
+        # Сохраняем resolved IP для RKN-фильтра
+        outbound["server"] = resolved_ip
         outbounds.append(outbound)
 
     return outbounds
