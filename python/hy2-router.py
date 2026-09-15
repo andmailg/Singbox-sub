@@ -8,4 +8,6 @@ if __name__ == "__main__":
         parser_module="src.parsers.hy2_parser",
         exporter="router",
         output_file="config.json",
+        health_check_timeout=5.0,
+        health_check_protocol="udp",
     )

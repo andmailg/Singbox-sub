@@ -170,6 +170,56 @@ def _rkn_geoip_filter(
     return filtered
 
 
+def _health_check(
+    outbounds: list[dict],
+    timeout: float = 5.0,
+    protocol: str = "auto",
+) -> list[dict]:
+    """Проверяет доступность нод и отбраковывает нерабочие.
+    
+    Args:
+        outbounds: список outbound-объектов.
+        timeout: таймаут проверки в секундах.
+        protocol: тип протокола ('tcp', 'udp', 'auto').
+    
+    Returns:
+        Отфильтрованный список рабочих нод.
+    """
+    from src.common import check_node_health
+
+    num_workers = min(16, len(outbounds))
+    print(f"Health-checking {len(outbounds)} nodes with {num_workers} workers (timeout={timeout}s)...")
+    
+    with ThreadPoolExecutor(max_workers=num_workers) as executor:
+        future_to_idx = {
+            executor.submit(check_node_health, o, timeout, protocol): idx
+            for idx, o in enumerate(outbounds)
+        }
+        
+        results: list[bool] = [False] * len(outbounds)
+        for future in as_completed(future_to_idx):
+            idx = future_to_idx[future]
+            try:
+                results[idx] = future.result()
+            except Exception:
+                results[idx] = False
+    
+    alive = []
+    dead_count = 0
+    for idx, outbound in enumerate(outbounds):
+        if results[idx]:
+            alive.append(outbound)
+        else:
+            dead_count += 1
+            tag = outbound.get("tag", "unknown")
+            server = outbound.get("server", "?")
+            port = outbound.get("server_port", "?")
+            print(f"  ✗ Dead node: {tag} ({server}:{port})")
+    
+    print(f"Health-check complete: {len(alive)} alive, {dead_count} dead out of {len(outbounds)}")
+    return alive
+
+
 def _sort_and_tag(outbounds: list[dict]) -> None:
     """Сортировка по стране и сквозная нумерация с флагами."""
     outbounds.sort(key=lambda o: (o.get("_country", ""), o.get("server", "")))
@@ -188,6 +238,8 @@ def run_pipeline(
     parse_kwargs: dict | None = None,
     export_func: Callable | None = None,
     post_process: Callable[[list[dict]], None] | None = None,
+    health_check_timeout: float = 5.0,
+    health_check_protocol: str = "auto",
 ) -> None:
     """Запускает полный pipeline сборки конфига.
 
@@ -237,16 +289,23 @@ def run_pipeline(
         print("Error: No valid proxy nodes left after RKN+GeoIP filtration!")
         return
 
+    # 5. Health-check (проверка доступности нод)
+    outbounds = _health_check(outbounds, timeout=health_check_timeout, protocol=health_check_protocol)
+
+    if not outbounds:
+        print("Error: No valid proxy nodes left after health-check!")
+        return
+
     print(f"Total {len(outbounds)} nodes passed all filters.")
 
-    # 5. Сортировка + нумерация
+    # 6. Сортировка + нумерация
     _sort_and_tag(outbounds)
 
-    # 6. Постобработка
+    # 7. Постобработка
     if post_process:
         post_process(outbounds)
 
-    # 7. Экспорт
+    # 8. Экспорт
     if export_func:
         export_func(outbounds, output_file)
     elif exporter == "v2ray":

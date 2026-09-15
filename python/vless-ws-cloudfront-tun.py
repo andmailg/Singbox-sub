@@ -9,4 +9,6 @@ if __name__ == "__main__":
         exporter="tun",
         output_file="vless-ws-cloudfront-tun.json",
         parse_kwargs={"require_cloudfront": True},
+        health_check_timeout=5.0,
+        health_check_protocol="auto",
     )

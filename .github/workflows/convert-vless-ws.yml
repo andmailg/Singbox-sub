@@ -28,6 +28,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running VLESS WS pipeline with health-check (TCP)..."
           python python/vless-ws-cloudfront-tun.py
           python python/vless-ws-tun.py
 

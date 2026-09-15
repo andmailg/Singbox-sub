@@ -25,6 +25,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running Router pipeline with health-check (UDP)..."
           python python/hy2-router.py
 
       - name: Commit and push if changed

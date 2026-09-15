@@ -127,3 +127,90 @@ def load_sources(sources_json_url: str) -> list[str]:
     except Exception as e:
         print(f"❌ Error fetching sources JSON: {e}")
         return []
+
+
+def check_tcp_connect(
+    host: str,
+    port: int,
+    timeout: float = 5.0,
+) -> bool:
+    """Проверяет доступность хоста по TCP-соединению.
+    
+    Args:
+        host: IP-адрес или домен.
+        port: Порт для проверки.
+        timeout: Таймаут в секундах.
+    
+    Returns:
+        True если порт открыт, False в противном случае.
+    """
+    try:
+        clean_host = host.strip("[]")
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(timeout)
+        result = sock.connect_ex((clean_host, port))
+        sock.close()
+        return result == 0
+    except Exception:
+        return False
+
+
+def check_udp_ping(
+    host: str,
+    port: int,
+    timeout: float = 5.0,
+) -> bool:
+    """Проверяет доступность хоста по UDP (для Hysteria2).
+    
+    Args:
+        host: IP-адрес или домен.
+        port: Порт для проверки.
+        timeout: Таймаут в секундах.
+    
+    Returns:
+        True если хост отвечает, False в противном случае.
+    """
+    try:
+        clean_host = host.strip("[]")
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock.settimeout(timeout)
+        # Отправляем пустой пакет
+        sock.sendto(b'', (clean_host, port))
+        try:
+            data, addr = sock.recvfrom(1024)
+            sock.close()
+            return True
+        except socket.timeout:
+            # Для Hysteria2 отсутствие ответа не всегда означает недоступность
+            # Но если сервер жив — он должен ответить
+            sock.close()
+            return False
+    except Exception:
+        return False
+
+
+def check_node_health(
+    outbound: dict,
+    timeout: float = 5.0,
+    protocol: str = "auto",
+) -> bool:
+    """Проверяет доступность ноды.
+    
+    Args:
+        outbound: словарь outbound конфига SingBox.
+        timeout: таймаут проверки.
+        protocol: тип протокола ('tcp', 'udp', 'auto').
+    
+    Returns:
+        True если нода доступна, False в противном случае.
+    """
+    server = str(outbound.get("server", ""))
+    port = outbound.get("server_port", 0)
+    
+    if not server or not port:
+        return False
+    
+    if protocol == "udp" or (protocol == "auto" and outbound.get("type") == "hysteria2"):
+        return check_udp_ping(server, port, timeout)
+    else:
+        return check_tcp_connect(server, port, timeout)

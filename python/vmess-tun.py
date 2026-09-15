@@ -8,4 +8,6 @@ if __name__ == "__main__":
         parser_module="src.parsers.vmess_parser",
         exporter="tun",
         output_file="vmess-tun.json",
+        health_check_timeout=5.0,
+        health_check_protocol="auto",
     )

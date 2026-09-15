@@ -8,4 +8,6 @@ if __name__ == "__main__":
         parser_module="src.parsers.hy2_parser",
         exporter="tun",
         output_file="hy2-tun.json",
+        health_check_timeout=5.0,
+        health_check_protocol="udp",
     )

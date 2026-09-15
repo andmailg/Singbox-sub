@@ -28,6 +28,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running VMess pipeline with health-check (TCP)..."
           python python/vmess-tun.py
           python python/vmess-v2ray.py
 

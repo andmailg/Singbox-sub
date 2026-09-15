@@ -31,6 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running VLESS gRPC pipeline with health-check (TCP)..."
           python python/vless-grpc-tun.py
           python python/vless-grpc-v2ray.py
 

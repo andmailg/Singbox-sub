@@ -31,6 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running Trojan pipeline with health-check (TCP)..."
           python python/trojan-tun.py
 
       - name: Commit and push if changed

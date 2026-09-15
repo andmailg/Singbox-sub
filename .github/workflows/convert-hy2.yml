@@ -31,6 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
+          echo "Running Hy2 pipeline with health-check (UDP)..."
           python python/hy2-tun.py
           python python/hy2-v2ray.py
 
