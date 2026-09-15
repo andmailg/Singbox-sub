@@ -1,0 +1,55 @@
+name: Auto Convert Xray to Sing-Box vmess
+
+on:
+  schedule:
+    # Запуск каждые 5 часов
+    - cron: '0 */5 * * *'
+  workflow_dispatch: # Ручной запуск
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          # Важно: скачиваем всю историю, чтобы git pull работал корректно
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests maxminddb
+
+      - name: Run scripts
+        run: |
+          python python/vmess-tun.py
+          python python/vmess-v2ray.py
+
+      - name: Commit and push if changed
+        run: |
+          # 1. Настройка бота GitHub Actions
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # 2. Добавляем файлы в индекс
+          git add vmess-tun.json vmess.txt
+          git status
+          
+          # 3. Коммитим и пушим с предварительным rebase
+          if git diff --cached --quiet; then
+            echo "Нет изменений для коммита."
+          else
+            git commit -m "Auto-update vmess-tun.json & vmess.txt"
+            
+            # Подтягиваем изменения из удаленного репозитория, накладывая наш коммит поверх них
+            git pull origin main --rebase
+            
+            # Отправляем изменения в репозиторий
+            git push origin main
+          fi
