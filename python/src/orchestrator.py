@@ -19,7 +19,7 @@ from src.rkn_filter import (
 )
 
 
-SOURCES_JSON_PATH = "src/sub_urls.json"
+SOURCES_JSON_PATH = "/sub_urls.json"
 
 
 def _fetch_links(sub_urls: list[str]) -> list[str]:
