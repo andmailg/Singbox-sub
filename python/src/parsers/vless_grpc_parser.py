@@ -4,8 +4,8 @@ import urllib.parse
 
 from src.common import (
     RU_ZONES,
-    is_valid_domain,
     is_valid_server,
+    is_valid_domain
 )
 
 
@@ -28,8 +28,8 @@ def should_accept_outbound(outbound: dict, seen_servers: set[str]) -> bool:
     if not server_name or not isinstance(server_name, str) or not server_name.strip():
         return False
     node_tag = str(outbound.get("tag", "")).lower()
-    if "ru" in node_tag or "russia" in node_tag:
-        return False
+    if any(f"-{z}" in node_tag or f".{z}" in node_tag or f" {z}" in node_tag or node_tag.endswith(z) for z in ("ru", "russia")):
+            return False
     server_address = str(outbound.get("server", "")).lower()
     if server_address.lower().endswith(RU_ZONES) or any(f"{z}:" in server_address for z in RU_ZONES):
         return False
@@ -141,7 +141,7 @@ def parse_proxy_link(link: str) -> dict | None:
 
 
 def clean_outbound(outbound: dict) -> dict:
-    """Очистка и приведение VLESS ноды к спецификации sing-box."""
+    """VLESS gRPC не требует дополнительной очистки. Заглушка на случай валидации transport"""
     return outbound
 
 

@@ -8,7 +8,6 @@ import urllib.parse
 from src.common import (
     RU_ZONES,
     is_valid_domain,
-    is_valid_ip,
     is_valid_server,
 )
 

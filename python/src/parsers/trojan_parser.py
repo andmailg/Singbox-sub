@@ -2,7 +2,10 @@
 
 import urllib.parse
 
-from src.common import is_valid_host, is_valid_ip, is_valid_domain
+from src.common import (
+    is_valid_host,
+    is_valid_domain
+)
 
 
 def has_workers_dev(outbound: dict) -> bool:
@@ -50,12 +53,12 @@ def parse_proxy_link(link: str) -> dict | None:
             return None
         hostname = hostname.strip("[]")
 
-        try:
-            port = parsed.port
-        except ValueError:
-            return None
-
     except Exception:
+        return None
+
+    try:
+        port = parsed.port
+    except ValueError:
         return None
 
     scheme = parsed.scheme.lower()

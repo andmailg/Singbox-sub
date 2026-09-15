@@ -71,7 +71,7 @@ def is_valid_server(server: str) -> bool:
     """Проверяет корректность поля server."""
     if not server or "@" in server:
         return False
-    clean_server = server.strip("[]")
+    clean_server = server.strip().strip("[]").split(":")[0].strip()
     return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
 

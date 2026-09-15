@@ -2,15 +2,9 @@
 
 import urllib.parse
 
-from src.common import is_valid_host, is_valid_ip, is_valid_domain
-
-
-def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server."""
-    if not server or "@" in server:
-        return False
-    clean_server = server.strip("[]").split(":")[0].strip()
-    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
+from src.common import (
+    is_valid_host,
+)
 
 
 def parse_proxy_link(link: str) -> dict | None:

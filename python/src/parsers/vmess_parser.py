@@ -45,6 +45,9 @@ def should_accept_outbound(outbound: dict, seen_fingerprints: set[str]) -> bool:
     if not outbound:
         return False
 
+    node_tag = str(outbound.get("tag", "")).lower()
+    if any(f"-{z}" in node_tag or f".{z}" in node_tag or f" {z}" in node_tag or node_tag.endswith(z) for z in ("ru", "russia")):
+        return False
     server_val = str(outbound.get("server", "")).lower()
     if server_val.endswith(RU_ZONES) or any(f"{z}:" in server_val for z in RU_ZONES):
         return False
@@ -86,7 +89,7 @@ def parse_proxy_link(link: str) -> dict | None:
     if not server:
         return None
 
-    port = vmess_data.get("port") or vmess_data.get("port")
+    port = vmess_data.get("port") or vmess_data.get("tcp-port")
     if not port:
         return None
     try:

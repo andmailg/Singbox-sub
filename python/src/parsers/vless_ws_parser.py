@@ -2,15 +2,8 @@
 
 import urllib.parse
 
-from src.common import RU_ZONES, is_valid_host, is_valid_ip, is_valid_domain
+from src.common import RU_ZONES, is_valid_host, is_valid_ip, is_valid_domain, is_valid_server
 
-
-def is_valid_server(server: str) -> bool:
-    """Проверяет корректность поля server (может быть IP или домен)."""
-    if not server or "@" in server:
-        return False
-    clean_server = server.strip().strip("[]").split(":")[0].strip()
-    return is_valid_ip(clean_server) or is_valid_domain(clean_server)
 
 
 def should_accept_outbound(outbound: dict, seen_fingerprints: set[str]) -> bool:
@@ -18,6 +11,9 @@ def should_accept_outbound(outbound: dict, seen_fingerprints: set[str]) -> bool:
     if not outbound:
         return False
 
+    node_tag = str(outbound.get("tag", "")).lower()
+    if any(f"-{z}" in node_tag or f".{z}" in node_tag or f" {z}" in node_tag or node_tag.endswith(z) for z in ("ru", "russia")):
+        return False
     server_val = str(outbound.get("server", "")).lower()
     if server_val.endswith(RU_ZONES) or any(f"{z}:" in server_val for z in RU_ZONES):
         return False
