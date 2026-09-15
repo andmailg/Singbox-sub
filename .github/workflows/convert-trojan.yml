@@ -31,7 +31,7 @@ jobs:
 
       - name: Run scripts
         run: |
-          python python/mobile-trojan.py
+          python python/trojan-tun.py
 
       - name: Commit and push if changed
         run: |
@@ -40,12 +40,12 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@://github.com"
 
           # Добавляем файл в индекс
-          git add trojan.json
+          git add trojan-tun.json
           
           # Коммитим и пушим только при наличии изменений
           if git diff --cached --quiet; then
             echo "Нет изменений для коммита."
           else
-            git commit -m "Auto-update trojan.json"
+            git commit -m "Auto-update trojan-tun.json"
             git push
           fi

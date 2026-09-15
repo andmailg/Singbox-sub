@@ -7,5 +7,5 @@ if __name__ == "__main__":
     run_pipeline(
         parser_module="src.parsers.trojan_parser",
         exporter="tun",
-        output_file="trojan.json",
+        output_file="trojan-tun.json",
     )
